@@ -120,8 +120,8 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <p>See what’s new</p>
-            <h2>News</h2>
+            <p>eumsae</p>
+            <h2>LP 상세</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
@@ -136,26 +136,27 @@
                     <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="img/bg-img/blog1.jpg" alt=""></a>
+                            <img src="resources/lpimages/kor/80/k80a.jpg" alt=""><br> <!-- 눌렀을 때, src /kor/80/k80a 를 변경시켜야 함 -->
                             <!-- Post Date -->
                             <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
+                                <span>발매일자 일</span>									<!--  span 안의 text 또한 DB 내 정보를 띄워야 함 -->
+                                <span>발매일자 월 / 년</span>								<!--  span 안의 text 또한 DB 내 정보를 띄워야 함 -->
                             </div>
                         </div>
 
-                        <!-- Blog Content -->
+                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
+                            <a href="#" class="post-title"> LP 제목 (ex) 김현식 3집</a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
+                                <p class="post-author">By 장르</p>
+                                <p class="tags">in 연대</p>
+                                <p class="tags"> 모시깽이 </a></p>    <!--  국내면 국내 해외면 해외를 여기에 표기를 할까 고민중... -->
                             </div>
                             <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
+                            <p>LP 정보</p>
+                            <textarea rows="20" cols="100" readonly="readonly"> LP 상세 정보 표시 </textarea>
                         </div>
                     </div>
 
@@ -163,26 +164,26 @@
                     <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
                         <!-- Post Thumb -->
                         <div class="blog-post-thumb mt-30">
-                            <a href="#"><img src="img/bg-img/blog2.jpg" alt=""></a>
+                            <a href="#"><img src="resources/lpimages/kor/80/k80b.jpg" alt=""></a>
                             <!-- Post Date -->
                             <div class="post-date">
-                                <span>15</span>
-                                <span>June ‘18</span>
+                                <span>발매일자 일</span>
+                                <span>발매일자 월 / 년</span>
                             </div>
                         </div>
 
                         <!-- Blog Content -->
                         <div class="blog-content">
                             <!-- Post Title -->
-                            <a href="#" class="post-title">5 Festivals you shouldn’t miss this summer</a>
+                            <a href="#" class="post-title">들국화 2집</a>
                             <!-- Post Meta -->
                             <div class="post-meta d-flex mb-30">
-                                <p class="post-author">By<a href="#"> Admin</a></p>
-                                <p class="tags">in<a href="#"> Events</a></p>
-                                <p class="tags"><a href="#">2 Comments</a></p>
+                                <p class="post-author">By<a href="#"> 가수명</a></p>
+                                <p class="tags">in<a href="#"> 제목</a></p>
+                                <p class="tags"><a href="#">장르 모시깽이</a></p>
                             </div>
                             <!-- Post Excerpt -->
-                            <p>Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis. Pellentesque sit amet velit a libero viverra porta non eu justo. Vivamus mollis metus sem, ac sodales dui lobortis.</p>
+                            <p>DB안에 있는 LP 상세 정보</p>
                         </div>
                     </div>
 
@@ -233,6 +234,7 @@
                             <div class="widget-title">
                                 <h5>Categories</h5>
                             </div>
+                            <button class="btn oneMusic-btn mt-30" type="submit">장바구니 <i class="fa fa-angle-double-right"></i></button>
                             <div class="widget-content">
                                 <ul>
                                     <li><a href="#">Music</a></li>
