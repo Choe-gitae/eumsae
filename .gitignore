@@ -6,6 +6,7 @@
 bin/
 tmp/
 Servers/
+target/
 *.tmp
 *.bak
 *.swp
