@@ -1,192 +1,204 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <% String pjName = "eumsae/"; %>
- 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
     <title>One Music - Modern Music HTML5 Template</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="resources/img/core-img/favicon.ico">
+    <link rel="icon" href="resources/img/core-img/favicon.ico" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/onemusic-main-style.css" />
+    <link rel="stylesheet" href="resources/css/helios-main.css" />
 
-</head>
+    <!-- Helios Templet CSS-->
+    <noscript><link rel="stylesheet" href="resources/css/helios-noscript.css" /></noscript>
+  </head>
 
-<body>
- <!-- ##### Album Catagory Area Start ##### -->
- <section class="album-catagory section-padding-100-0">
-    <div class="container">
+  <body>
+    <!-- Carousel -->
+    <section class="carousel">
+      <div class="reel">
+        <article>
+          <a href="#" class="image featured"
+            ><img src="resources/lpimages/kor/10/k10a.jpg" alt=""
+          /></a>
+          <header>
+            <h3><a href="#">Varius magnis sollicitudin</a></h3>
+          </header>
+          <p>Commodo id natoque malesuada sollicitudin elit suscipit magna.</p>
+        </article>
+      </div>
+    </section>
 
+    <!-- ##### Album Catagory Area Start ##### -->
+    <section class="album-catagory section-padding-100-0">
+      <div class="container">
         <div class="row oneMusic-albums">
-
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                <div class="single-album">
-                    <img src="resources/img/bg-img/a1.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>The Cure</h5>
-                        </a>
-                        <p>Second Song</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+            <div class="single-album">
+              <img src="resources/lpimages/worlds/10/w10a.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>The Cure</h5>
+                </a>
+                <p>Second Song</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
-                <div class="single-album">
-                    <img src="resources/img/bg-img/a2.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Sam Smith</h5>
-                        </a>
-                        <p>Underground</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a2.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>Sam Smith</h5>
+                </a>
+                <p>Underground</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
-                <div class="single-album">
-                    <img src="img/bg-img/a3.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Will I am</h5>
-                        </a>
-                        <p>First</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a3.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>Will I am</h5>
+                </a>
+                <p>First</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
-                <div class="single-album">
-                    <img src="img/bg-img/a4.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>The Cure</h5>
-                        </a>
-                        <p>Second Song</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a4.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>The Cure</h5>
+                </a>
+                <p>Second Song</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
-                <div class="single-album">
-                    <img src="img/bg-img/a5.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>DJ SMITH</h5>
-                        </a>
-                        <p>The Album</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a5.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>DJ SMITH</h5>
+                </a>
+                <p>The Album</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
-                <div class="single-album">
-                    <img src="img/bg-img/a6.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>The Ustopable</h5>
-                        </a>
-                        <p>Unplugged</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a6.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>The Ustopable</h5>
+                </a>
+                <p>Unplugged</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
-                <div class="single-album">
-                    <img src="img/bg-img/a7.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Beyonce</h5>
-                        </a>
-                        <p>Songs</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a7.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>Beyonce</h5>
+                </a>
+                <p>Songs</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
-                <div class="single-album">
-                    <img src="img/bg-img/a8.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Aam Smith</h5>
-                        </a>
-                        <p>Underground</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a8.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>Aam Smith</h5>
+                </a>
+                <p>Underground</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
-                <div class="single-album">
-                    <img src="img/bg-img/a9.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Will I am</h5>
-                        </a>
-                        <p>First</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a9.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>Will I am</h5>
+                </a>
+                <p>First</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
-                <div class="single-album">
-                    <img src="img/bg-img/a10.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>DJ SMITH</h5>
-                        </a>
-                        <p>The Album</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a10.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>DJ SMITH</h5>
+                </a>
+                <p>The Album</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
-                <div class="single-album">
-                    <img src="img/bg-img/a11.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>The Ustopable</h5>
-                        </a>
-                        <p>Unplugged</p>
-                    </div>
-                </div>
+          <!-- Single Album -->
+          <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
+            <div class="single-album">
+              <img src="resources/img/bg-img/a11.jpg" alt="" />
+              <div class="album-info">
+                <a href="#">
+                  <h5>The Ustopable</h5>
+                </a>
+                <p>Unplugged</p>
+              </div>
             </div>
-
-            <!-- Single Album -->
-            <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b o">
-                <div class="single-album">
-                    <img src="img/bg-img/a12.jpg" alt="">
-                    <div class="album-info">
-                        <a href="#">
-                            <h5>Beyonce</h5>
-                        </a>
-                        <p>Songs</p>
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
-    </div>
-</section>
-<!-- ##### Album Catagory Area End ##### -->
-</body>
+      </div>
+    </section>
+    <!-- ##### Album Catagory Area End ##### -->
+
+    <!-- Helios Templet SCRIPT-->
+    <script src="resources/js/helios-jquery.min.js"></script>
+    <script src="resources/js/helios-jquery.dropotron.min.js"></script>
+    <script src="resources/js/helios-jquery.scrolly.min.js"></script>
+    <script src="resources/js/helios-jquery.scrollex.min.js"></script>
+    <script src="resources/js/helios-browser.min.js"></script>
+    <script src="resources/js/helios-breakpoints.min.js"></script>
+    <script src="resources/js/helios-util.js"></script>
+    <script src="resources/js/helios-main.js"></script>
+  </body>
+</html>
