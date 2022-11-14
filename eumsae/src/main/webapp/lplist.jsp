@@ -1,34 +1,23 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <% String pjName = "eumsae/"; %>
- 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<% String pjName = "eumsae/"; %>
+    
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
->>>>>>> b99926d98930b99571fe2370e46a7d56f4fe83ef
+
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
     <title>One Music - Modern Music HTML5 Template</title>
 
     <!-- Favicon -->
-<<<<<<< HEAD
+
     <link rel="icon" href="resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
@@ -204,7 +193,7 @@ pageEncoding="UTF-8"%>
 </section>
 <!-- ##### Album Catagory Area End ##### -->
 </body>
-=======
+
     <link rel="icon" href="resources/img/core-img/favicon.ico" />
 
     <!-- Stylesheet -->
@@ -441,4 +430,4 @@ pageEncoding="UTF-8"%>
     <script src="resources/js/lplist.js"></script>
   </body>
 </html>
->>>>>>> b99926d98930b99571fe2370e46a7d56f4fe83ef
+
