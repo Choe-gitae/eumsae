@@ -1,19 +1,22 @@
 package eumsae;
 
 public class Pagination {
-	   private int pageSize;      	// ÇÑ ÆäÀÌÁö¿¡ º¸ÀÏ °Ô½Ã¹° »çÀÌÁî
-	   private int totalPage;      	// ÃÑ ÆäÀÌÁö °¹¼ö
-	   private int pageNum;     	// ÇöÀç½ÃÀÛ ÆäÀÌÁö(current)
-	   private int pageNavSize;  	// ÆäÀÌÁö º¸¿©ÁÙ ´ÜÀ§(»çÀÌÁî)
-	   private long totalRecord;   	// ÃÑ °Ô½Ã¹°(·¹ÄÚµå) °¹¼ö
-	   private long startRowIndex;  // °Ô½Ã¹°ÀÇ ½ÃÀÛ¹øÈ£(°Å²Ù·Î½ÃÀÛ)
-	   private int firstPageNo;   	// ÆäÀÌÁöÀÇ ½ÃÀÛ¹øÈ£
-	   private int lastPageNo;      // ÆäÀÌÁöÀÇ ¸¶Áö¸·¹øÈ£
+	   private int pageSize;      	// í•œ íŽ˜ì´ì§€ì— ë³´ì¼ ê²Œì‹œë¬¼ ì‚¬ì´ì¦ˆ
+	   private int totalPage;      	// ì´ íŽ˜ì´ì§€ ê°¯ìˆ˜
+	   private int pageNum;     	// í˜„ìž¬ íŽ˜ì´ì§€(current)
+	   private int pageNavSize;  	// íŽ˜ì´ì§€ ë³´ì—¬ì¤„ ë‹¨ìœ„(ì‚¬ì´ì¦ˆ)
+	   private long totalRecord;   	// ì´ ê²Œì‹œë¬¼(ë ˆì½”ë“œ) ê°¯ìˆ˜
+	   private long startRowIndex;  // ê²Œì‹œë¬¼ì˜ ì‹œìž‘ë²ˆí˜¸(ê±°ê¾¸ë¡œì‹œìž‘)
+	   private int firstPageNo;   	// íŽ˜ì´ì§€ì˜ ì‹œìž‘ë²ˆí˜¸
+	   private int lastPageNo;      // íŽ˜ì´ì§€ì˜ ë§ˆì§€ë§‰ë²ˆí˜¸
+	   private int startRow;		// select ì‹œìž‘í–‰
+	   private int endRow;			// select ë§ˆì§€ë§‰í–‰
 	    
-	   private boolean hasPreviousPageNav;  // ÀÌÀüÆäÀÌÁö 
-	   private boolean hasNextPageNav;      // ´ÙÀ½ÆäÀÌÁö
-	   private boolean hasFirstPageNav;   	// ¸Ç Ã¹¹øÂ° ÆäÀÌÁö
-	   private boolean hasLastPageNav;      // ¸Ç ¸¶Áö¸· ÆäÀÌÁö
+	   private boolean hasPrevPageNav;  	// ì´ì „íŽ˜ì´ì§€
+	   private boolean hasNextPageNav;      // ë‹¤ìŒíŽ˜ì´ì§€
+	   private boolean hasFirstPageNav;   	// ì²˜ìŒíŽ˜ì´ì§€
+	   private boolean hasLastPageNav;      // ë§ˆì§€ë§‰íŽ˜ì´ì§€
+	   
 	   
 	   public Pagination(int pageNum, long totalRecord, int pageSize,  int pageNavSize) {
 	      this.pageNum = pageNum;
@@ -33,20 +36,20 @@ public class Pagination {
 	   }
 
 	   private void calculation() {
-	      // ÃÑ ÆäÀÌÁö¼ö ±¸ÇÏ±â
+	      // ì´ íŽ˜ì´ì§€ ìˆ˜ ê³„ì‚°
 	      totalPage = (int) ( (totalRecord - 1) / pageSize + 1);
 	      // 
 	      if (pageNum > totalPage) pageNum = totalPage;
 
-	      /* ÇöÀç ÆäÀÌÁö¹øÈ£·Î ÆäÀÌÁö ¸µÅ© ºí·°ÀÇ ½ÃÀÛÆäÀÌÁö¹øÈ£¿Í ¸¶Áö¸·ÆäÀÌÁö¹øÈ£ Ãëµæ */
-	      this.firstPageNo = (((int) Math.ceil((float)this.pageNum/(float)this.pageNavSize))-1)*this.pageNavSize+1;
-	      this.lastPageNo = this.firstPageNo + this.pageNavSize-1;
+	      // í˜„ìž¬ íŽ˜ì´ì§€ë²ˆí˜¸ë¡œ íŽ˜ì´ì§€ ë§í¬ ë¸”ëŸ­ì˜ ì‹œìž‘íŽ˜ì´ì§€ë²ˆí˜¸ì™€ ë§ˆì§€ë§‰íŽ˜ì´ì§€ë²ˆí˜¸ ê³„ì‚°
+	      this.firstPageNo = (((int) Math.ceil((float)this.pageNum / (float)this.pageNavSize))-1)*this.pageNavSize + 1;
+	      this.lastPageNo = this.firstPageNo + this.pageNavSize - 1;
 	      if (this.lastPageNo > this.totalPage) 
 	         this.lastPageNo = this.totalPage;
 	      
 	      this.startRowIndex = this.totalRecord - ((this.pageNum-1) * this.pageSize);
 
-	      hasPreviousPageNav =  this.firstPageNo == 1 ? false : true; 
+	      hasPrevPageNav =  this.firstPageNo == 1 ? false : true; 
 	      hasNextPageNav =(this.lastPageNo * this.pageSize) < this.totalRecord;
 	      
 	      hasFirstPageNav =  (this.pageNum > 1 && this.pageNavSize < this.pageNum); 
