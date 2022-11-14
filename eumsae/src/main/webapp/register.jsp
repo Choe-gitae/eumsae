@@ -121,7 +121,7 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <h2>로그인</h2>
+            <h2>회원가입</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
@@ -130,9 +130,8 @@
     <section class="login-area section-padding-100">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-14 col-lg-8">
+                <div class="col-12 col-lg-8">
                     <div class="login-content">
-                        <h3> </h3>
                         <!-- Login Form -->
                         <div class="login-form">
                             <form action="#" method="post">
@@ -141,16 +140,31 @@
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디를 입력하세요...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">비밀번호</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호를 입력하세요..."><br/>
-                                    <input type="checkbox" class="id_save" id="id_save">  로그인 정보 저장
+                                    <label for="exampleInputEmail1">비밀번호</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="비밀번호를 입력하세요...">
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">로그인</button><br/>
-                                <button type="submit" class="btn oneMusic-btn mt-30">비회원으로 주문하기</button>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">비밀번호 재확인</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="비밀번호를 동일하게 입력하세요...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">이름</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름을 입력하세요...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">생년월일</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="생년월일을 입력하세요...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">이메일</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력하세요...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">전화번호</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="전화번호를 입력하세요...">
+                                </div>
+                                <button type="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
                             </form>
-                            <a href="회원가입 화면으로" class="a_hg">회원가입</a>
-                            <a href="계정찾기 화면으로" class="a_gc">계정 찾기</a>
-                            <a href="비밀번호찾기 화면으로" class="a_bc">비밀번호 찾기</a>
                         </div>
                     </div>
                 </div>
