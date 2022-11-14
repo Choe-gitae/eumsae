@@ -17,15 +17,14 @@
     <title>One Music - Modern Music HTML5 Template</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="<%= pjName %>img/core-img/favicon.ico">
+    <link rel="icon" href="resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resources/css/onemusic-main-style.css">
 
 </head>
-
 <body>
-    <!-- Preloader -->
+ <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="lds-ellipsis">
             <div></div>
@@ -45,7 +44,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand"><img src="resources/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -59,7 +58,6 @@
                             <div class="classycloseIcon">
                                 <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                             </div>
-
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
@@ -120,9 +118,8 @@
         </div>
     </header>
     <!-- ##### Header Area End ##### -->
-
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
             <p>See what’s new</p>
             <h2>Latest Albums</h2>
@@ -173,7 +170,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                     <div class="single-album">
-                        <img src="<%= pjName %>img/bg-img/a1.jpg" alt="">
+                        <img src="<%= pjName %>resources/img/bg-img/a1.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>The Cure</h5>
@@ -186,7 +183,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
                     <div class="single-album">
-                        <img src="<%= pjName %>img/bg-img/a2.jpg" alt="">
+                        <img src="<%= pjName %>resources/img/bg-img/a2.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Sam Smith</h5>
@@ -199,7 +196,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
                     <div class="single-album">
-                        <img src="img/bg-img/a3.jpg" alt="">
+                        <img src="resources/img/bg-img/a3.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Will I am</h5>
@@ -212,7 +209,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
                     <div class="single-album">
-                        <img src="img/bg-img/a4.jpg" alt="">
+                        <img src="resources/img/bg-img/a4.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>The Cure</h5>
@@ -225,7 +222,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
                     <div class="single-album">
-                        <img src="img/bg-img/a5.jpg" alt="">
+                        <img src="resources/img/bg-img/a5.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>DJ SMITH</h5>
@@ -238,7 +235,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
                     <div class="single-album">
-                        <img src="img/bg-img/a6.jpg" alt="">
+                        <img src="resources/img/bg-img/a6.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>The Ustopable</h5>
@@ -251,7 +248,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
                     <div class="single-album">
-                        <img src="img/bg-img/a7.jpg" alt="">
+                        <img src="resources/img/bg-img/a7.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Beyonce</h5>
@@ -264,7 +261,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
                     <div class="single-album">
-                        <img src="img/bg-img/a8.jpg" alt="">
+                        <img src="resources/img/bg-img/a8.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Aam Smith</h5>
@@ -277,7 +274,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
                     <div class="single-album">
-                        <img src="img/bg-img/a9.jpg" alt="">
+                        <img src="resources/img/bg-img/a9.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Will I am</h5>
@@ -290,7 +287,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
                     <div class="single-album">
-                        <img src="img/bg-img/a10.jpg" alt="">
+                        <img src="resources/img/bg-img/a10.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>DJ SMITH</h5>
@@ -303,7 +300,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
                     <div class="single-album">
-                        <img src="img/bg-img/a11.jpg" alt="">
+                        <img src="resources/img/bg-img/a11.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>The Ustopable</h5>
@@ -316,7 +313,7 @@
                 <!-- Single Album -->
                 <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b o">
                     <div class="single-album">
-                        <img src="img/bg-img/a12.jpg" alt="">
+                        <img src="resources/img/bg-img/a12.jpg" alt="">
                         <div class="album-info">
                             <a href="#">
                                 <h5>Beyonce</h5>
@@ -340,7 +337,7 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="single-album-area">
                         <div class="album-thumb">
-                            <img src="img/bg-img/b1.jpg" alt="">
+                            <img src="resources/img/bg-img/b1.jpg" alt="">
                             <!-- Album Price -->
                             <div class="album-price">
                                 <p>$0.90</p>
@@ -363,7 +360,7 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="single-album-area">
                         <div class="album-thumb">
-                            <img src="img/bg-img/b2.jpg" alt="">
+                            <img src="resources/img/bg-img/b2.jpg" alt="">
                         </div>
                         <div class="album-info">
                             <a href="#">
@@ -378,7 +375,7 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="single-album-area">
                         <div class="album-thumb">
-                            <img src="img/bg-img/b3.jpg" alt="">
+                            <img src="resources/img/bg-img/b3.jpg" alt="">
                         </div>
                         <div class="album-info">
                             <a href="#">
@@ -393,7 +390,7 @@
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="single-album-area">
                         <div class="album-thumb">
-                            <img src="img/bg-img/b4.jpg" alt="">
+                            <img src="resources/img/bg-img/b4.jpg" alt="">
                         </div>
                         <div class="album-info">
                             <a href="#">
@@ -415,15 +412,14 @@
             </div>
         </div>
     </div>
-    <!-- ##### Buy Now Area End ##### -->
-
+    <!-- ##### Buy Now Area End ##### --> 
     <!-- ##### Add Area Start ##### -->
     <div class="add-area mb-100">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="adds">
-                        <a href="#"><img src="img/bg-img/add3.gif" alt=""></a>
+                        <a href="#"><img src="resources/img/bg-img/add3.gif" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -440,7 +436,7 @@
                 <div class="col-12">
                     <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div class="song-thumbnail">
-                            <img src="img/bg-img/s1.jpg" alt="">
+                            <img src="resources/img/bg-img/s1.jpg" alt="">
                         </div>
                         <div class="song-play-area">
                             <div class="song-name">
@@ -457,7 +453,7 @@
                 <div class="col-12">
                     <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div class="song-thumbnail">
-                            <img src="img/bg-img/s2.jpg" alt="">
+                            <img src="resources/img/bg-img/s2.jpg" alt="">
                         </div>
                         <div class="song-play-area">
                             <div class="song-name">
@@ -474,7 +470,7 @@
                 <div class="col-12">
                     <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div class="song-thumbnail">
-                            <img src="img/bg-img/s3.jpg" alt="">
+                            <img src="resources/img/bg-img/s3.jpg" alt="">
                         </div>
                         <div class="song-play-area">
                             <div class="song-name">
@@ -491,7 +487,7 @@
                 <div class="col-12">
                     <div class="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div class="song-thumbnail">
-                            <img src="img/bg-img/s4.jpg" alt="">
+                            <img src="resources/img/bg-img/s4.jpg" alt="">
                         </div>
                         <div class="song-play-area">
                             <div class="song-name">
@@ -564,7 +560,7 @@
         <div class="container">
             <div class="row d-flex flex-wrap align-items-center">
                 <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
+                    <a href="#"><img src="resources/img/core-img/logo.png" alt=""></a>
                     <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -588,15 +584,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="resources/js/active.js"></script> 
+
+                            
 </body>
+
 
 </html>
