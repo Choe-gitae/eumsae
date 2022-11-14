@@ -258,11 +258,9 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
             var audioElement = document.createElement('audio');
             return !!(audioElement.canPlayType && audioElement.canPlayType('audio/' + file.split('.').pop().toLowerCase() + ';').replace(/no/, ''));
         };
-<<<<<<< HEAD
-/*
-=======
 
->>>>>>> b99926d98930b99571fe2370e46a7d56f4fe83ef
+/*
+
     $.fn.audioPlayer = function(params) {
         var params = $.extend({
                 classPrefix: 'audioplayer',
@@ -429,11 +427,11 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
             $this.replaceWith(thePlayer);
         });
         return this;
-<<<<<<< HEAD
-    };*/
-=======
+
     };
->>>>>>> b99926d98930b99571fe2370e46a7d56f4fe83ef
+ */
+    
+
 })(jQuery, window, document);
 
 // [End Include All Plugins]
