@@ -49,6 +49,28 @@ a:focus {
   font-size: 16px;
   font-family: "Archivo Narrow", sans-serif; }
 
+.a_hg{
+	position: absolute;
+    left: 24px;
+    top: 517px;
+    font-size: 12px;
+    color: gray;
+}
+.a_gc{
+	position: absolute;
+    left: 542px;
+    top: 517px;
+    font-size: 12px;
+    color: gray;
+}
+.a_bc{
+	position: absolute;
+    left: 619px;
+    top: 517px;
+    font-size: 12px;
+    color: gray;
+}
+
 ul,
 ol {
   margin: 0; }

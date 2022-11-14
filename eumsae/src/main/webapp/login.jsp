@@ -139,15 +139,18 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">아이디</label>
                                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디를 입력하세요...">
-                                    <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i></small>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">비밀번호</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호를 입력하세요...">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호를 입력하세요..."><br/>
+                                    <input type="checkbox" class="id_save" id="id_save">  로그인 정보 저장
                                 </div>
                                 <button type="submit" class="btn oneMusic-btn mt-30">로그인</button><br/>
                                 <button type="submit" class="btn oneMusic-btn mt-30">비회원으로 주문하기</button>
                             </form>
+                            <a href="회원가입 화면으로" class="a_hg">회원가입</a>
+                            <a href="계정찾기 화면으로" class="a_gc">계정 찾기</a>
+                            <a href="비밀번호찾기 화면으로" class="a_bc">비밀번호 찾기</a>
                         </div>
                     </div>
                 </div>
