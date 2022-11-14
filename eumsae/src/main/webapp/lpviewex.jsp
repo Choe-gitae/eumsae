@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     
 <% String pjName= "/eumsae/resources/"; %>
     
@@ -19,7 +20,9 @@
     <link rel="icon" href="resources/img/core-img/favicon.ico">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="resources/00-one-music-gh-pages/css/style.css">
+    <link rel="stylesheet" href="resources/css/mainStyle.css">
+     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    
 
 </head>
 
@@ -39,10 +42,10 @@
                         </div>
                         <div class="song-play-area">
                             <div class="song-name">
-                                <p>TITLE</p>
+                                <p>노래제목(DB)</p>
                             </div>
                             <audio preload="auto" controls>
-                                <source src="resources/00-one-music-gh-pages/audio/dummy-audio.mp3">
+                                <source src="resources/audio/smells_like_teen_sprit_nirvana.mp3" type="audio/mp3"> <!--  눌렀을 때 , 음원 src 변경 필요 -->
                             </audio>
                         </div>
 
@@ -63,6 +66,7 @@
                     <div class="blog-sidebar-area">                                   
 
                         <!-- Widget Area -->
+                 <form name = 'frm' action="cart.do">       
                      <table border='2'>
 							<tr>
 									<td> 가격   </td> 	<td> 가격(DB)</td>
@@ -74,13 +78,14 @@
 						
 						<br>
 						
-                        <button type="submit"> 장 바 구 니 </button>
-
+                       <input type='submit' class='btn' value='장바구니'>
+				</form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+   </div> 
     <!-- ##### Blog Area End ##### -->   
 
      <!-- ##### All Javascript Script ##### -->
