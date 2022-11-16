@@ -5,8 +5,8 @@
 .metadata
 bin/
 tmp/
-Servers/
 target/
+Servers/
 *.tmp
 *.bak
 *.swp
@@ -126,6 +126,8 @@ $RECYCLE.BIN/
 *.png
 *.mp3
 *.mp4
+*.gif
+*.ico
 
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
