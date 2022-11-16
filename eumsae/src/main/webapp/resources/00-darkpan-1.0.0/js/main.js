@@ -1,5 +1,6 @@
 $(function () {
     $("img.sidebar-logo").css({ width: "30px", height: "30px", margin: "0px 10px 5px 0px" });
+    $("img.mgr-del-table-img").css({ width: "100px", height: "100px" });
 });
 
 (function ($) {

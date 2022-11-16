@@ -42,7 +42,7 @@
             <div class="sidebar pe-4 pb-3">
                 <nav class="navbar bg-secondary navbar-dark">
                     <a href="index.html" class="navbar-brand mx-4 mb-3">
-                        <h3 class="text-light"><img src="resources/img/bg-img/add.gif" class="sidebar-logo"/>E UM SAE</h3>
+                        <h3 class="text-light"><img src="resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
                     </a>
                     <div class="d-flex align-items-center ms-4 mb-4">
                         <div class="position-relative">
@@ -65,11 +65,11 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>상품 관리</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>LP 관리</a>
                             <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">상품 등록</a>
-                                <a href="#" class="dropdown-item">상품 삭제</a>
-                                <a href="#" class="dropdown-item">상품 요청 게시판 관리</a>
+                                <a href="#" class="dropdown-item">LP 등록</a>
+                                <a href="#" class="dropdown-item">LP 삭제</a>
+                                <a href="#" class="dropdown-item">LP 요청 게시판 관리</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
@@ -103,12 +103,15 @@
                 <!-- Navbar Start -->
                 <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                     <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                        <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                        <h2 class="text-light mb-0">
+                            <img src="resources/img/bg-img/add.gif" class="sidebar-logo" />
+                        </h2>
                     </a>
                     <a href="#" class="sidebar-toggler flex-shrink-0">
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="navbar-nav align-items-center ms-auto">
+                        <div class="alert alert-dark mb-0" role="alert">페이지명</div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 <img class="rounded-circle me-lg-2" src="resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
@@ -116,7 +119,6 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                                 <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
                                 <a href="#" class="dropdown-item">Log Out</a>
                             </div>
                         </div>
@@ -139,6 +141,5 @@
 
         <!-- Template Javascript -->
         <script src="resources/00-darkpan-1.0.0/js/main.js"></script>
-        
     </body>
 </html>
