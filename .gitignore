@@ -132,7 +132,6 @@ $RECYCLE.BIN/
 *.mp3
 *.mp4
 *.gif
-
-
+*.ico
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
