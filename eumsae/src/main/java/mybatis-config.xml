@@ -11,7 +11,7 @@
 	
 	<!-- Alias 설정 -->
 	<typeAliases>
-		<typeAlias type="eumsae.model.LpVO" />		
+		<typeAlias alias="LpVO" type="eumsae.model.LpVO" />		
 	</typeAliases>
 
 
