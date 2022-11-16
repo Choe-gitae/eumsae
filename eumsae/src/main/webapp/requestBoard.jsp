@@ -129,9 +129,21 @@
     <!-- ##### Login Area Start ##### -->
     <section class="login-area section-padding-100">
         <div class="container" style="positon:absolute; width:1600px;">
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <div class="login-content">
+            <div class="row justify-content-center" style="
+            width: 1709px;
+            margin-left: -289px;
+        ">
+                <div class="col-12 col-lg-8" style="
+                padding-left: 0px;
+                width: 1571px;
+                padding-right: 0px;
+            ">
+                    <div class="login-content" style="
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    padding-top: 40px;
+                    padding-bottom: 40px;
+                ">
                         <!-- Login Form -->
                         <div class="login-form">
                             <form action="#" method="post">
@@ -170,12 +182,50 @@
                             				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
                             				<td>2022/11/15 18:30</td>
                             			</tr>
+                            			<tr>
+                            				<td>153</td>
+                            				<td>변정환</td>
+                            				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
+                            				<td>2022/11/15 18:30</td>
+                            			</tr>
+                            			<!-- <tr>
+                            				<td>153</td>
+                            				<td>변정환</td>
+                            				<td>집 가게-부탁드려용~ddddd
+                            				ddddddddddddddd
+                            				dddddddddd
+                            				dddddddddddddddddddddddddddddddddddddddddddddddddd</td>
+                            				<td>2022/11/15 18:30</td>
+                            			</tr> -->
+                            			<tr>
+                            				<td>153</td>
+                            				<td>변정환</td>
+                            				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
+                            				<td>2022/11/15 18:30</td>
+                            			</tr>
                             			</tbody>
                             		</table>
                             		<hr/>
                             		
                             	</div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">글쓰기</button><br/>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                      <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Previous">
+                                          <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                      </li>
+                                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                      <li class="page-item">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                          <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                      </li>
+                                    </ul>
+                                  </nav>
+                                <button type="submit" class="btn oneMusic-btn mt-15" style="left: 450px;">글쓰기</button><br/>
                             </form>
                         </div>
                     </div>
