@@ -5,6 +5,7 @@
 .metadata
 bin/
 tmp/
+target/
 Servers/
 *.tmp
 *.bak
@@ -14,6 +15,11 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+
+### VS Code ###
+node_modules/
+WebContent/
+.json
 
 # External tool builders
 .externalToolBuilders/
@@ -125,6 +131,7 @@ $RECYCLE.BIN/
 *.png
 *.mp3
 *.mp4
-
+*.gif
+*.ico
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
