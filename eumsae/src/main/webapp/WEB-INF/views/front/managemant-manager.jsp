@@ -113,7 +113,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="navbar-nav align-items-center ms-auto">
-                        <div class="alert alert-dark mb-0" role="alert">페이지명</div>
+                        <div class="alert alert-dark mb-0" role="alert">관리자 계정 관리 페이지</div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 <img class="rounded-circle me-lg-2" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
@@ -128,9 +128,55 @@
                 </nav>
                 <!-- Navbar End -->
 
-                <div class="container-fluid pt-4 px-4"></div>
+                <!-- Insert Form Start -->
+                <div class="container-fluid pt-4 px-4">
+                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
+                        <h6 class="mb-4">관리자 등록</h6>
+                        <form action="#" method="post">
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelect" name="auth">
+                                    <option selected>권한</option>
+                                    <option value="main">Main</option>
+                                    <option value="sub">Sub</option>
+                                </select>
+                                <label for="floatingSelect">권한</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrId" placeholder="아이디" />
+                                <label for="floatingInput">아이디</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrPass" placeholder="비밀번호" />
+                                <label for="floatingInput">비밀번호</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrPassRe" placeholder="비밀번호 확인" />
+                                <label for="floatingInput">비밀번호 확인</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrTel" placeholder="전화번호" />
+                                <label for="floatingInput">전화번호</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrEmail" placeholder="이메일" />
+                                <label for="floatingInput">이메일</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrAddr" placeholder="주소" />
+                                <label for="floatingInput">주소</label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">관리자 사진</label>
+                                <input class="form-control bg-dark" type="file" id="formFile" name="file" />
+                            </div>
+                            <button type="submit" class="btn btn-success">등록</button>
+                            <button type="button" class="btn btn-warning">취소</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Insert Form End -->
             </div>
-            <!-- Content End -->
+            <!-- Content Start -->
         </div>
 
         <!-- JavaScript Libraries -->

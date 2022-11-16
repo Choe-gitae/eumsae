@@ -1,15 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% String pjName = "/eumsae"; %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>LP 등록 페이지</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <meta content="" name="keywords" />
-        <meta content="" name="description" />
 
         <!-- Favicon -->
-        <link href="resources/00-darkpan-1.0.0/img/favicon.ico" rel="icon" />
+        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/img/favicon.ico" rel="icon" />
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,14 +20,14 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
         <!-- Libraries Stylesheet -->
-        <link href="resources/00-darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-        <link href="resources/00-darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
         <!-- Customized Bootstrap Stylesheet -->
-        <link href="resources/00-darkpan-1.0.0/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- Template Stylesheet -->
-        <link href="resources/00-darkpan-1.0.0/css/style.css" rel="stylesheet" />
+        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/css/style.css" rel="stylesheet" />
     </head>
     <body>
         <div class="container-fluid position-relative d-flex p-0">
@@ -44,11 +43,11 @@
             <div class="sidebar pe-4 pb-3">
                 <nav class="navbar bg-secondary navbar-dark">
                     <a href="index.html" class="navbar-brand mx-4 mb-3">
-                        <h3 class="text-light"><img src="resources/img/bg-img/add.gif" class="sidebar-logo" />EUMSAE</h3>
+                        <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />EUMSAE</h3>
                     </a>
                     <div class="d-flex align-items-center ms-4 mb-4">
                         <div class="position-relative">
-                            <img class="rounded-circle" src="resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
+                            <img class="rounded-circle" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
                             <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                         </div>
                         <div class="ms-3">
@@ -101,11 +100,12 @@
             </div>
             <!-- Sidebar End -->
 
+            <!-- Content Start -->
             <div class="content">
                 <!-- Navbar Start -->
                 <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                     <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                        <h2 class="text-light mb-0"><img src="resources/img/bg-img/add.gif" class="sidebar-logo" /></h2>
+                        <h2 class="text-light mb-0"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" /></h2>
                     </a>
                     <a href="#" class="sidebar-toggler flex-shrink-0">
                         <i class="fa fa-bars"></i>
@@ -114,7 +114,7 @@
                         <div class="alert alert-dark mb-0" role="alert">LP Info 등록 페이지</div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <img class="rounded-circle me-lg-2" src="resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
+                                <img class="rounded-circle me-lg-2" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
                                 <span class="d-none d-lg-inline-flex">John Doe</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -126,8 +126,8 @@
                 </nav>
                 <!-- Navbar End -->
 
+                <!-- Insert Form Start -->
                 <div class="container-fluid pt-4 px-4">
-                    <!-- Insert Form Start -->
                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                         <h6 class="mb-4">LP 등록</h6>
                         <form action="#" method="post">
@@ -164,23 +164,24 @@
                             <button type="button" class="btn btn-warning">취소</button>
                         </form>
                     </div>
-                    <!-- Insert Form End -->
                 </div>
+                <!-- Insert Form End -->
             </div>
+            <!-- Container End -->
         </div>
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/chart/chart.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/easing/easing.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="resources/00-darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/chart/chart.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/easing/easing.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
         <!-- Template Javascript -->
-        <script src="resources/00-darkpan-1.0.0/js/main.js"></script>
+        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/js/main.js"></script>
     </body>
 </html>
