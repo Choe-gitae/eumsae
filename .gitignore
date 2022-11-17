@@ -16,7 +16,6 @@ local.properties
 .loadpath
 .recommenders
 
-=======
 ### VS Code ###
 node_modules/
 WebContent/

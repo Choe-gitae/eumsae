@@ -168,6 +168,14 @@
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="lpdate" placeholder="발매일자" />
                                                 <label for="floatingInput">발매일자</label>
                                             </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="cnt" placeholder="재고" />
+                                                <label for="floatingInput">재고</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="price" placeholder="가격" />
+                                                <label for="floatingInput">가격</label>
+                                            </div>
                                             <div class="mb-3">
                                                 <label for="formFile" class="form-label">LP 사진</label>
                                                 <input class="form-control bg-dark" type="file" id="formFile" name="fjpg" />
