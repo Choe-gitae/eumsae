@@ -137,17 +137,18 @@
                         <div class="login-form">
                             <form action="#" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">아이디</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디를 입력하세요...">
+                                    <label for="login_id">아이디</label>
+                                    <input type="text" class="form-control-my" id="login_id" placeholder="아이디를 입력하세요...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">비밀번호</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="비밀번호를 입력하세요..."><br/>
-                                    <input type="checkbox" class="id_save" id="id_save">  로그인 정보 저장
+                                    <label for="login_pwd">비밀번호</label>
+                                    <input type="password" class="form-control-my" id="login_pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
+                                    <input type="checkbox" class="id_save" id="id_save">
+                                    <label for="id_save">로그인 정보 저장</label>
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">로그인</button><br/>
-                                <button type="submit" class="btn oneMusic-btn mt-30">비회원으로 주문하기</button>
+                                <button type="submit" class="btn oneMusic-btn-login mt-30">로그인</button><br/>
                             </form>
+                                <a href="login.jsp"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
                             <a href="회원가입 화면으로" class="a_hg">회원가입</a>
                             <a href="계정찾기 화면으로" class="a_gc">계정 찾기</a>
                             <a href="비밀번호찾기 화면으로" class="a_bc">비밀번호 찾기</a>

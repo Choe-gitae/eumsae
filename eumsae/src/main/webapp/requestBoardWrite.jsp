@@ -121,7 +121,7 @@
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
-            <h2>상품 요청 게시판</h2>
+            <h2>상품 요청 글쓰기</h2>
         </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
@@ -144,14 +144,31 @@
                     padding-top: 40px;
                     padding-bottom: 40px;
                 ">
-                        <!-- Login Form -->
-                        <div class="login-form">
+                        <!-- Write Form -->
+                        <div class="requestBoardWrite-form">
                             <form action="requestBoardWrite.jsp" method="post">
                             	<div class="container" >
-                            		<div>글제목 : <input type="text" id="title" name="title" required></div><hr/>
+                            		<div class="form-group">
+                                    <label for="write-title">글제목</label>
+                                    <input type="text" class="form-control-my" id="write-title" placeholder="제목을 입력하세요...">
+                                	</div>
+                                	<hr/>
+                                	<div class="form-group">
+                                    <label for="write-writer">작성자</label>
+                                    <input type="text" class="form-control-my" id="write-writer" placeholder="이름을 입력하세요...">
+                                	</div>
+                                	<div class="form-group">
+                                    <label for="write-writer">비밀번호</label>
+                                    <input type="password" class="form-control-my" id="write-writer" placeholder="비밀번호를 입력하세요...">
+                                	</div>
+                                	<div class="form-group">
+                                    <label for="write-content">내용</label>
+                                    <textarea class="form-control-ta" id="write-content" placeholder="내용을 입력하세요..." style="heigth: 500px;"></textarea>
+                                	</div>
                             	</div>
-                                <button type="submit" class="btn oneMusic-btn mt-15" style="left: 450px;">등록</button><br/>
+                                <button type="submit" class="btn oneMusic-btn mt-15" style="left: 457px;">등록</button>
                             </form>
+                                <a href="requestBoard.jsp"><button class="btn oneMusic-btn mt-15" style="left: 357px;top: -64px;">목록</button></a><br/>
                         </div>
                     </div>
                 </div>

@@ -133,35 +133,37 @@
                 <div class="col-12 col-lg-8">
                     <div class="login-content">
                         <!-- Login Form -->
-                        <div class="login-form">
+                        <div class="register-form">
                             <form action="#" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">아이디</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="아이디를 입력하세요...">
+                                    <label for="reg_id">아이디</label>
+                                    <input type="text" class="form-control" id="reg_id" placeholder="아이디를 입력하세요..." required>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <label for="reg_pwd">비밀번호</label>
+                                    <input type="password" class="form-control" id="reg_pwd" placeholder="비밀번호를 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">비밀번호</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="비밀번호를 입력하세요...">
+                                    <label for="reg_repwd">비밀번호 재확인</label>
+                                    <input type="password" class="form-control" id="reg_repwd" placeholder="비밀번호를 동일하게 입력하세요..." required>
+                                </div>
+                                <hr/>
+                                <div class="form-group">
+                                    <label for="reg_name">이름</label>
+                                    <input type="text" class="form-control" id="reg_name" placeholder="이름을 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">비밀번호 재확인</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="비밀번호를 동일하게 입력하세요...">
+                                    <label for="reg_birth">생년월일</label>
+                                    <input type="text" class="form-control" id="reg_birth" placeholder="생년월일을 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">이름</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이름을 입력하세요...">
+                                    <label for="reg_email">이메일</label>
+                                    <input type="email" class="form-control" id="reg_email" placeholder="이메일을 입력하세요..."required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">생년월일</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="생년월일을 입력하세요...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">이메일</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일을 입력하세요...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">전화번호</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="전화번호를 입력하세요...">
+                                    <label for="reg_pNum">전화번호</label>
+                                    <input type="text" class="form-control" id="reg_pNum" placeholder="전화번호를 입력하세요..." required>
                                 </div>
                                 <button type="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
                             </form>

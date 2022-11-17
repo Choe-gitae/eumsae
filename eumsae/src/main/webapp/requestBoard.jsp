@@ -145,7 +145,7 @@
                     padding-bottom: 40px;
                 ">
                         <!-- Login Form -->
-                        <div class="login-form">
+                        <div class="requestBoard-form">
                             <form action="requestBoardWrite.jsp" method="post">
                             	<div class="container" >
                             		<table class="table table-striped">
@@ -188,15 +188,6 @@
                             				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
                             				<td>2022/11/15 18:30</td>
                             			</tr>
-                            			<!-- <tr>
-                            				<td>153</td>
-                            				<td>변정환</td>
-                            				<td>집 가게-부탁드려용~ddddd
-                            				ddddddddddddddd
-                            				dddddddddd
-                            				dddddddddddddddddddddddddddddddddddddddddddddddddd</td>
-                            				<td>2022/11/15 18:30</td>
-                            			</tr> -->
                             			<tr>
                             				<td>153</td>
                             				<td>변정환</td>
