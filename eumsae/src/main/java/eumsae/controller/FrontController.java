@@ -13,4 +13,9 @@ public class FrontController {
 		return "front/"+url;
 	}
 	
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "/front/test";
+	}
+	
 }
