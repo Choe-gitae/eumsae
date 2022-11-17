@@ -285,7 +285,74 @@
                             </div>
                             <!-- 상품 가격 관리 탭 컨텐츠 끝 -->
                             <!-- 상품 요청 게시판 관리 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade" id="product-wishBoard" role="tabpanel" aria-labelledby="product-wishBoard-tab"></div>
+                            <div class="tab-pane fade" id="product-wishBoard" role="tabpanel" aria-labelledby="product-wishBoard-tab">
+                            <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4">
+                                        <h6 class="mb-4">상품 요청 게시판</h6>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>글번호</th>
+                            							<th>글작성자</th>
+                            							<th>요청LP & 하고싶은말</th>
+                            							<th>작성 시간</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>156</td>
+			                            				<td>최기태</td>
+			                            				<td>마이클잭슨-빌리진 부탁드려용~</td>
+			                            				<td>2022/11/15 18:30</td>
+                                                        <td><button class="btn btn-warning">댓글달기</button></td>
+                                                        <tr>
+                                                        <td></td>
+                                                        <td></td>
+														<td><textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea></td>
+                                                        <td><button class="btn btn-warning">작성</button></td>
+                                                    </tr>
+                                                    <tr>
+			                            				<td>155</td>
+			                            				<td>전병욱</td>
+			                            				<td>블랍블라-부탁드려용</td>
+			                            				<td>2022/11/15 18:30</td>
+			                            				<td><button class="btn btn-warning">댓글달기</button></td>
+			                            			</tr>
+			                            			<tr>
+			                            				<td>154</td>
+			                            				<td>이지효</td>
+			                            				<td>블라블라-부탁드려용~</td>
+			                            				<td>2022/11/15 18:30</td>
+			                            				<td><button class="btn btn-warning">댓글달기</button></td>
+			                            			</tr>
+			                            			<tr>
+			                            				<td>153</td>
+			                            				<td>변정환</td>
+			                            				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
+			                            				<td>2022/11/15 18:30</td>
+			                            				<td><button class="btn btn-warning">댓글달기</button></td>
+			                            			</tr>
+			                            			<tr>
+			                            				<td>153</td>
+			                            				<td>변정환</td>
+			                            				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
+			                            				<td>2022/11/15 18:30</td>
+			                            				<td><button class="btn btn-warning">댓글달기</button></td>
+			                            			</tr>
+			                            			<tr>
+			                            				<td>153</td>
+			                            				<td>변정환</td>
+			                            				<td>집 가게-부탁드려용~ddddddddddddddddddddddddddddddddddddddddddddd</td>
+			                            				<td>2022/11/15 18:30</td>
+			                            				<td><button class="btn btn-warning">댓글달기</button></td>
+			                            			</tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- 상품 요청 게시판 관리 탭 컨텐츠 끝 -->
                         </div>
                         <!-- 탭 컨텐츠 끝 -->
