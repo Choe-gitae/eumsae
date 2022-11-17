@@ -20,7 +20,7 @@ public class LpVO {
 	private String cmp3; // 음원구별자
 	private long jpg_size; // 사진크기
 	private long mp3_size; // 음원크기
-	private int cnt; // 재고수량	
+	private int cnt; // 재고수량
 	MultipartFile fjpg; // 사진파일
 	MultipartFile fmp3; // 음원파일
 	
@@ -144,8 +144,8 @@ public class LpVO {
 
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
-	}
-
+	}	
+	
 	public MultipartFile getFjpg() {
 		return fjpg;
 	} // end of getFjpg
@@ -195,12 +195,15 @@ public class LpVO {
 		} // end of if
 	}// end of Set Fmp3
 
+	// 입력된 정보를 검사하기 위한 toString
 	@Override
 	public String toString() {
-		return "LpVO [infono=" + infono + ", genre=" + genre + ", title=" + title + ", region=" + region + ", price="
-				+ price + ", content=" + content + ", lpdate=" + lpdate + ", jpg=" + jpg + ", cjpg=" + cjpg + ", mp3="
-				+ mp3 + ", cmp3=" + cmp3 + ", jpg_size=" + jpg_size + ", mp3_size=" + mp3_size + ", cnt=" + cnt
-				+ ", fjpg=" + fjpg + ", fmp3=" + fmp3 + "]";
-	}//end of to String
-
+		return "LpVO [infono=" + infono + ", genre=" + genre + ", title=" + title + ", singer=" + singer + ", region="
+				+ region + ", price=" + price + ", content=" + content + ", lpdate=" + lpdate + ", jpg=" + jpg
+				+ ", cjpg=" + cjpg + ", mp3=" + mp3 + ", cmp3=" + cmp3 + ", jpg_size=" + jpg_size + ", mp3_size="
+				+ mp3_size + ", cnt=" + cnt + ", fjpg=" + fjpg + ", fmp3=" + fmp3 + "]";
+	}
+	
+	
+	
 }

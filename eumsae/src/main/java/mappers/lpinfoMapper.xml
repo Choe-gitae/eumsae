@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="lpinfo">
-	<insert id="insertLpinfo" parameterType="LpVO">
+	<insert id="insertLpinfo" parameterType="LpVO" useGeneratedKeys="true" keyProperty="infono" keyColumn="INFONO">
 		INSERT INTO lpinfo(infono,genre,title,singer,region,content,lpdate
 		<if test="jpg!=null">
 		,jpg,cjpg,mp3,cmp3,jpg_size,mp3_size
@@ -14,9 +14,6 @@
 		,#{jpg},#{cjpg},#{mp3},#{cmp3},#{jpg_size},#{mp3_size}
 		</if>
 		)
-	</insert>
-	
-	<select id="selectLpInfoSeq" parameterType="LpVO" resultType="Integer">
-		SELECT infono FROM LPINFO
-	</select>
+	</insert>	
+
 </mapper>

@@ -19,45 +19,29 @@ public class FrontController {
 	@Autowired
 	private lpscanService lpscanService;
 
+	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String frontPage(@PathVariable String url) {
 		return "front/" + url;
 	}
 
-	// 입력 요청이 들어왔을 때
-//	@RequestMapping(value = "/lpinsert.do")
-//	public String lpinsert(LpVO vo, Model m) {
-//		System.out.println(vo.toString());
-//		int result = lpinfoService.insertLpInfo(vo);
-//		int result2 = lpscanService.insertLp(vo);
-//
-//		if (result == 1 & result2 == 1) {
-//			m.addAttribute("result", vo);
-//			return "/front/insertSuccess";
-//		} else {
-//			return "/front/error";
-//		}
-//	}
-
+	// LP 정보 입력
 	@RequestMapping(value = "/test")
 	public String test(LpVO vo, Model m) {
-		System.out.println(vo.toString());
 		int result = lpinfoService.insertLpInfo(vo);
-		if(result==1) {
-			int seq = lpinfoService.selectLpInfoSeq(vo);
-			vo.setInfono(seq);
-		}else {
-			return "/front/error";
-		}
-		
-		int result2 = lpscanService.insertLp(vo);
-
-		if (result2 == 1) {
-			m.addAttribute("result", vo);
-			return "/front/insertSuccess";
+		// System.out.println(result + "행만큼 입력 완료");
+		System.out.println(vo.toString());
+		if (result == 1) {
+			int result2 = lpscanService.insertLp(vo);
+			if (result2 == 1) {
+				m.addAttribute("result", vo);
+				return "/front/insertSuccess";
+			} else {
+				return "/front/error";
+			}
 		} else {
 			return "/front/error";
-		}		
+		}
 	}
 
 }
