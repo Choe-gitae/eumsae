@@ -46,7 +46,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="navbar-nav align-items-center ms-auto">
-                        <div class="alert alert-dark mb-0">관리자 계정 관리 페이지</div>
+                        <div class="alert alert-dark mb-0">설정 페이지</div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 <img class="rounded-circle me-lg-2" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
@@ -60,124 +60,77 @@
                     </div>
                 </nav>
                 <!-- Navbar End -->
-
-                <!-- 관리자 계정 관리 탭 시작 -->
+                <!-- 상품 관리 탭 시작 -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">관리자 계정 관리</h6>
+                        <h6 class="mb-4">설정 관리</h6>
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button
                                     class="nav-link active"
-                                    id="mgr-insert-tab"
+                                    id="category-setting-tab"
                                     data-bs-toggle="pill"
-                                    data-bs-target="#mgr-insert"
+                                    data-bs-target="#category-setting"
                                     type="button"
                                     role="tab"
-                                    aria-controls="mgr-insert"
-                                    aria-selected="true"
+                                    aria-controls="category-setting"
+                                    aria-selected="false"
                                 >
-                                    등록
+                                    카테고리 관리
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button
                                     class="nav-link"
-                                    id="mgr-update-tab"
+                                    id="slide-setting-tab"
                                     data-bs-toggle="pill"
-                                    data-bs-target="#mgr-update"
+                                    data-bs-target="#slide-setting"
                                     type="button"
                                     role="tab"
-                                    aria-controls="mgr-update"
-                                    aria-selected="false"
+                                    aria-controls="slide-setting"
+                                    aria-selected="true"
                                 >
-                                    수정 / 삭제
+                                    슬라이드 관리
                                 </button>
                             </li>
                         </ul>
+
                         <!-- 탭 컨텐츠 시작 -->
-                        <div class="tab-content" id="mgr-tabContent">
-                            <!-- 등록 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade show active" id="mgr-insert" role="tabpanel" aria-labelledby="mgr-insert-tab">
+                        <div class="tab-content" id="users-tabContent">
+                            <!-- 상품 삭제 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade" id="category-setting" role="tabpanel" aria-labelledby="category-setting-tab">
+                                <!-- 검색 Form 시작 -->
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                                        <h6 class="mb-4">관리자 등록</h6>
-                                        <form action="#" method="post">
-                                            <div class="form-floating mb-3">
-                                                <select class="form-select" id="floatingSelect" name="auth">
-                                                    <option selected>권한</option>
-                                                    <option value="main">Main</option>
-                                                    <option value="sub">Sub</option>
-                                                </select>
-                                                <label for="floatingSelect">권한</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrId" placeholder="아이디" />
-                                                <label for="floatingInput">아이디</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrPass" placeholder="비밀번호" />
-                                                <label for="floatingInput">비밀번호</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrPassRe" placeholder="비밀번호 확인" />
-                                                <label for="floatingInput">비밀번호 확인</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrTel" placeholder="전화번호" />
-                                                <label for="floatingInput">전화번호</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrEmail" placeholder="이메일" />
-                                                <label for="floatingInput">이메일</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="mgrAddr" placeholder="주소" />
-                                                <label for="floatingInput">주소</label>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="formFile" class="form-label">관리자 사진</label>
-                                                <input class="form-control bg-dark" type="file" id="formFile" name="file" />
-                                            </div>
-                                            <button type="submit" class="btn btn-success">등록</button>
-                                            <button type="button" class="btn btn-warning">취소</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 등록 탭 컨텐츠 끝 -->
-                            <!-- 수정/삭제 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade" id="mgr-update" role="tabpanel" aria-labelledby="mgr-update-tab">
-                                <div class="container-fluid pt-4 px-4">
-                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                                        <h6 class="mb-4">관리자 검색</h6>
+                                        <h6 class="mb-4">상품 검색</h6>
                                         <form action="#" method="post">
                                             <select class="form-select mb-3" name="selectType">
-                                                <option value="userId" selected>아이디</option>
-                                                <option value="userName">이름</option>
-                                                <option value="userTel">전화번호</option>
-                                                <option value="userAddr">주소</option>
+                                                <option value="singer" selected>가수</option>
+                                                <option value="title">제목</option>
+                                                <option value="genre">장르</option>
+                                                <option value="region">지역</option>
                                             </select>
                                             <input class="form-control bg-dark border-0" type="search" placeholder="Search" />
                                             <button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
                                         </form>
                                     </div>
                                 </div>
+                                <!-- 검색 Form 끝 -->
+                                <!-- 삭제 테이블 시작 -->
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4">
-                                        <h6 class="mb-4">관리자 정보 테이블</h6>
+                                        <h6 class="mb-4">상품 정보 테이블</h6>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col">#</th>
-                                                        <th scope="col">아이디</th>
-                                                        <th scope="col">비밀번호</th>
-                                                        <th scope="col">이름</th>
-                                                        <th scope="col">주소</th>
-                                                        <th scope="col">전화번호</th>
-                                                        <th scope="col">이메일</th>
-                                                        <th scope="col">등록일</th>
+                                                        <th scope="col">표지</th>
+                                                        <th scope="col">장르</th>
+                                                        <th scope="col">가수</th>
+                                                        <th scope="col">제목</th>
+                                                        <th scope="col">지역</th>
+                                                        <th scope="col">발매일자</th>
                                                         <th scope="col">수정</th>
                                                         <th scope="col">삭제</th>
                                                     </tr>
@@ -185,13 +138,12 @@
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>bkjeon</td>
-                                                        <td>1234</td>
-                                                        <td>전병욱</td>
-                                                        <td>지구 어딘가</td>
-                                                        <td>알빠노</td>
-                                                        <td>몰라</td>
-                                                        <td>오늘</td>
+                                                        <td><img src="<%= pjName %>/resources/lpimages/kor/20/7616628.jpg" class="mgr-del-table-img" /></td>
+                                                        <td>HipHop</td>
+                                                        <td>세즈카</td>
+                                                        <td>상사병</td>
+                                                        <td>KOR</td>
+                                                        <td>2022.06.24.</td>
                                                         <td><button class="btn btn-warning">수정</button></td>
                                                         <td><button class="btn btn-danger">삭제</button></td>
                                                     </tr>
@@ -200,13 +152,75 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- 삭제 테이블 끝 -->
                             </div>
-
-                            <!-- 수정/삭제 탭 컨텐츠 끝 -->
+                            <!-- 상품 삭제 탭 컨텐츠 끝 -->
+                            <!-- 상품 가격 관리 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade" id="slide-setting" role="tabpanel" aria-labelledby="slide-setting-tab">
+                                <!-- 검색 Form 시작 -->
+                                <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
+                                        <h6 class="mb-4">상품 검색</h6>
+                                        <form action="#" method="post">
+                                            <select class="form-select mb-3" name="selectType">
+                                                <option value="singer" selected>가수</option>
+                                                <option value="title">제목</option>
+                                                <option value="genre">장르</option>
+                                                <option value="region">지역</option>
+                                            </select>
+                                            <input class="form-control bg-dark border-0" type="search" placeholder="Search" />
+                                            <button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- 검색 Form 끝 -->
+                                <!-- 테이블 시작 -->
+                                <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4">
+                                        <h6 class="mb-4">상품 정보 테이블</h6>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">표지</th>
+                                                        <th scope="col">장르</th>
+                                                        <th scope="col">가수</th>
+                                                        <th scope="col">제목</th>
+                                                        <th scope="col">지역</th>
+                                                        <th scope="col">발매일자</th>
+                                                        <th scope="col">가격</th>
+                                                        <th scope="col">수정</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td><img src="<%= pjName %>/resources/lpimages/kor/20/7616628.jpg" class="mgr-del-table-img" /></td>
+                                                        <td>HipHop</td>
+                                                        <td>세즈카</td>
+                                                        <td>상사병</td>
+                                                        <td>KOR</td>
+                                                        <td>2022.06.24.</td>
+                                                        <td>50000</td>
+                                                        <td><button class="btn btn-warning">수정</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 테이블 끝 -->
+                            </div>
+                            <!-- 상품 가격 관리 탭 컨텐츠 끝 -->
+                            <!-- 상품 요청 게시판 관리 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade" id="product-wishBoard" role="tabpanel" aria-labelledby="product-wishBoard-tab"></div>
+                            <!-- 상품 요청 게시판 관리 탭 컨텐츠 끝 -->
                         </div>
+                        <!-- 탭 컨텐츠 끝 -->
                     </div>
                 </div>
-                <!-- 관리자 계정 관리 탭 시작 -->
+                <!-- 상품 관리 탭 시작 -->
             </div>
             <!-- Content End -->
         </div>

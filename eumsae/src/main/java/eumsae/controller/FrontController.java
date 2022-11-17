@@ -25,6 +25,7 @@ public class FrontController {
 		return "front/"+url;
 	}
 	
+
 	// 입력 요청이 들어왔을 때
 	@RequestMapping(value="/lpinsert.do")
 	public String lpinsert(LpVO vo , Model m) {
@@ -38,6 +39,11 @@ public class FrontController {
 		} else {
 			return "/front/error";
 		}
+
+	@RequestMapping(value = "/test")
+	public String test() {
+		return "/front/test";
+
 	}
 	
 }
