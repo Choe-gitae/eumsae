@@ -12,7 +12,12 @@
         <a href="front/managemant-user-managemant">관리자페이지 회원 관리 페이지</a><br />
         <a href="front/managemant-product-managemant">관리자페이지 상품 관리 페이지</a><br />
         <a href="front/managemant-setting">관리자페이지 설정 페이지</a><br />
-        <hr/><hr/><hr/><hr/><hr/>
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <a href="main.jsp">메인페이지</a><br />
         <a href="shop/lp-list">홈페이지 상품 리스트 페이지</a><br />
     </body>
 </html>

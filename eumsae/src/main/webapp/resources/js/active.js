@@ -201,11 +201,12 @@
         $.preventDefault();
     });
 
+/*
     // :: 13.0 wow Active Code
     if (browserWindow.width() > 767) {
         new WOW().init();
     }
-    
+*/    
     // :: 14.0 Gallery Menu Active Code
     $('.catagory-menu a').on('click', function () {
         $('.catagory-menu a').removeClass('active');

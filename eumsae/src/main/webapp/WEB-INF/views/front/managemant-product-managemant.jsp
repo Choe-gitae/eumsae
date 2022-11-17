@@ -131,13 +131,20 @@
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                         <h6 class="mb-4">상품 등록</h6>
-                                        <form action="test" method="post">
+                                        <form action="test" method="post" enctype="multipart/form-data">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" id="floatingSelect" name="genre" aria-label="장르">
                                                     <option selected>장르</option>
                                                     <option value="POP">POP</option>
-                                                    <option value="Metal">Metal</option>
+                                                    <option value="Rock">ROCK</option>
                                                     <option value="HipHop">HipHop</option>
+                                                    <option value="Ballad">Ballad</option>
+                                                    <option value="국내가요">국내가요</option>
+                                                    <option value="Fork">Fork</option>
+                                                    <option value="RnB">RnB</option>
+                                                    <option value="Elec">일렉트로</option>
+                                                    <option value="Ost">OST</option>
+                                                    <option value="트로트">트로트</option>
                                                 </select>
                                                 <label for="floatingSelect">장르</label>
                                             </div>
@@ -153,13 +160,21 @@
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="region" placeholder="지역" />
                                                 <label for="floatingInput">지역</label>
                                             </div>
+                                                <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="content" placeholder="소개" />
+                                                <label for="floatingInput">소개</label>
+                                            </div>
                                             <div class="form-floating mb-3">
-                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="releaseDate" placeholder="발매일자" />
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="lpdate" placeholder="발매일자" />
                                                 <label for="floatingInput">발매일자</label>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="formFile" class="form-label">LP 사진</label>
-                                                <input class="form-control bg-dark" type="file" id="formFile" name="file" />
+                                                <input class="form-control bg-dark" type="file" id="formFile" name="fjpg" />
+                                            </div>
+                                             <div class="mb-3">
+                                                <label for="formFile" class="form-label">LP 음원</label>
+                                                <input class="form-control bg-dark" type="file" id="formFile" name="fmp3" />
                                             </div>
                                             <button type="submit" class="btn btn-success">등록</button>
                                             <button type="button" class="btn btn-warning">취소</button>
