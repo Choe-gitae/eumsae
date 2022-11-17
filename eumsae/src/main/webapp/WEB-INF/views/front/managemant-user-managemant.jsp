@@ -31,74 +31,7 @@
     </head>
     <body>
         <div class="container-fluid position-relative d-flex p-0">
-            <!-- Spinner Start -->
-            <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-            </div>
-            <!-- Spinner End -->
-
-            <!-- Sidebar Start -->
-            <div class="sidebar pe-4 pb-3">
-                <nav class="navbar bg-secondary navbar-dark">
-                    <a href="index.html" class="navbar-brand mx-4 mb-3">
-                        <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
-                    </a>
-                    <div class="d-flex align-items-center ms-4 mb-4">
-                        <div class="position-relative">
-                            <img class="rounded-circle" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
-                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                        </div>
-                        <div class="ms-3">
-                            <h6 class="mb-0">Jhon Doe</h6>
-                            <span>Admin</span>
-                        </div>
-                    </div>
-                    <div class="navbar-nav w-100">
-                        <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>회원 관리</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">회원 정보 관리</a>
-                                <a href="#" class="dropdown-item">주문 관리</a>
-                                <a href="#" class="dropdown-item">배송 관리</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>LP 관리</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">LP 등록</a>
-                                <a href="#" class="dropdown-item">LP 삭제</a>
-                                <a href="#" class="dropdown-item">LP 요청 게시판 관리</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>설정 관리</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">메세지창 관리</a>
-                                <a href="#" class="dropdown-item">카테고리 관리</a>
-                                <a href="#" class="dropdown-item">슬라이드 관리</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>혜택 관리</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">할인 관리</a>
-                                <a href="#" class="dropdown-item">포인트 관리</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>매출 관리</a>
-                            <div class="dropdown-menu bg-transparent border-0">
-                                <a href="#" class="dropdown-item">매출 관리</a>
-                                <a href="#" class="dropdown-item">판매 리스트</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <!-- Sidebar End -->
+            <jsp:include page="managemant-base-sidebar.jsp"></jsp:include>
 
             <!-- Content Start -->
             <div class="content">
@@ -113,7 +46,7 @@
                         <i class="fa fa-bars"></i>
                     </a>
                     <div class="navbar-nav align-items-center ms-auto">
-                        <div class="alert alert-dark mb-0" role="alert">페이지명</div>
+                        <div class="alert alert-dark mb-0">회원 관리 페이지</div>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 <img class="rounded-circle me-lg-2" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
@@ -128,71 +61,160 @@
                 </nav>
                 <!-- Navbar End -->
 
-                <!-- Navs & Tabs Start -->
+                <!-- 회원 관리 탭 시작 -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Pills Navs & Tabs</h6>
+                        <h6 class="mb-4">회원 관리</h6>
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button
                                     class="nav-link active"
-                                    id="pills-home-tab"
+                                    id="users-insert-tab"
                                     data-bs-toggle="pill"
-                                    data-bs-target="#pills-home"
+                                    data-bs-target="#users-insert"
                                     type="button"
                                     role="tab"
-                                    aria-controls="pills-home"
+                                    aria-controls="users-insert"
                                     aria-selected="true"
                                 >
-                                    Home
+                                    등록
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button
                                     class="nav-link"
-                                    id="pills-profile-tab"
+                                    id="users-update-tab"
                                     data-bs-toggle="pill"
-                                    data-bs-target="#pills-profile"
+                                    data-bs-target="#users-update"
                                     type="button"
                                     role="tab"
-                                    aria-controls="pills-profile"
+                                    aria-controls="users-update"
                                     aria-selected="false"
                                 >
-                                    Profile
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button
-                                    class="nav-link"
-                                    id="pills-contact-tab"
-                                    data-bs-toggle="pill"
-                                    data-bs-target="#pills-contact"
-                                    type="button"
-                                    role="tab"
-                                    aria-controls="pills-contact"
-                                    aria-selected="false"
-                                >
-                                    Contact
+                                    수정 / 삭제
                                 </button>
                             </li>
                         </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                Sit sanctus et stet dolor kasd kasd takimata. Dolor stet dolores nonumy et dolor et eos lorem et, diam ipsum nonumy elitr sanctus dolores voluptua sit dolor, at et et
-                                amet nonumy elitr ea et ipsum. Elitr lorem et dolore invidunt eirmod voluptua lorem sed. Sed eirmod sadipscing eos tempor.
+                        <!-- 회정 등록 탭 컨텐츠 시작 -->
+                        <div class="tab-content" id="users-tabContent">
+                            <div class="tab-pane fade show active" id="users-insert" role="tabpanel" aria-labelledby="users-insert-tab">
+                                <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
+                                        <h6 class="mb-4">회원 등록</h6>
+                                        <form action="#" method="post">
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="userId" placeholder="아이디" />
+                                                <label for="floatingInput">아이디</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="userPass" placeholder="비밀번호" />
+                                                <label for="floatingInput">비밀번호</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="userPassRe" placeholder="비밀번호확인" />
+                                                <label for="floatingInput">비밀번호확인</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="userNickName" placeholder="별명" />
+                                                <label for="floatingInput">별명</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="name" placeholder="이름" />
+                                                <label for="floatingInput">이름</label>
+                                            </div>
+                                            <fieldset class="row mb-3">
+                                                <legend class="col-form-label col-sm-2 pt-0">성별</legend>
+                                                <div class="col-sm-10">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gender" id="male" value="남성" checked />
+                                                        <label class="form-check-label" for="male"> 남성 </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="gender" id="female" value="여성" />
+                                                        <label class="form-check-label" for="female"> 여성 </label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="tel" placeholder="전화번호" />
+                                                <label for="floatingInput">전화번호</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="email" placeholder="이메일" />
+                                                <label for="floatingInput">이메일</label>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">등록</button>
+                                            <button type="button" class="btn btn-warning">취소</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                Invidunt rebum voluptua lorem eirmod dolore. Amet no sed sanctus lorem ea. Nonumy sit stet sit magna. Rebum rebum ipsum clita erat consetetur, sit dolor sit clita et
-                                amet. Est et clita dolore takimata, sea dolores tempor erat consetetur lorem. Consetetur sea sadipscing dolor et dolores et stet, tempor elitr.
+                            <!-- 회정 등록 탭 컨텐츠 끝 -->
+                            <!-- 회정 정보 수정 / 삭제 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade" id="users-update" role="tabpanel" aria-labelledby="users-update-tab">
+                                <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
+                                        <h6 class="mb-4">회원 검색</h6>
+                                        <form action="#" method="post">
+                                            <select class="form-select mb-3" name="selectType">
+                                                <option value="userId" selected>아이디</option>
+                                                <option value="userName">이름</option>
+                                                <option value="userTel">전화번호</option>
+                                                <option value="userAddr">주소</option>
+                                            </select>
+                                            <input class="form-control bg-dark border-0" type="search" placeholder="Search" />
+                                            <button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                                Et diam et est sed vero ipsum voluptua dolor et, sit eos justo ipsum no ipsum amet sed aliquyam dolore, ut ipsum sanctus et consetetur. Sit ea sit clita lorem ea
-                                gubergren. Et dolore vero sanctus voluptua ipsum sadipscing amet at. Et sed dolore voluptua dolor eos tempor, erat amet.
+                            <div class="container-fluid pt-4 px-4">
+                                <div class="bg-secondary rounded h-100 p-4">
+                                    <h6 class="mb-4">회원 정보 테이블</h6>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">아이디</th>
+                                                    <th scope="col">비밀번호</th>
+                                                    <th scope="col">별명</th>
+                                                    <th scope="col">이름</th>
+                                                    <th scope="col">성별</th>
+                                                    <th scope="col">주소</th>
+                                                    <th scope="col">전화번호</th>
+                                                    <th scope="col">이메일</th>
+                                                    <th scope="col">가입일</th>
+                                                    <th scope="col">수정</th>
+                                                    <th scope="col">삭제</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>bkjeon</td>
+                                                    <td>1234</td>
+                                                    <td>웁스</td>
+                                                    <td>전병욱</td>
+                                                    <td>남성</td>
+                                                    <td>지구 어딘가</td>
+                                                    <td>알빠노</td>
+                                                    <td>몰라</td>
+                                                    <td>오늘</td>
+                                                    <td><button class="btn btn-warning">수정</button></td>
+                                                    <td><button class="btn btn-danger">삭제</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- 회정 정보 수정 / 삭제 탭 컨텐츠 끝 -->
                         </div>
                     </div>
                 </div>
-                <!-- Navs & Tabs End -->
+                <!-- 회원 관리 탭 끝 -->
             </div>
             <!-- Content End -->
         </div>
