@@ -136,10 +136,10 @@
                         <div class="register-form">
                             <form action="#" method="post">
                                 <div class="form-group">
-                                    <label for="reg_id">아이디</label>
-                                    <input type="text" class="form-control" id="reg_id" placeholder="아이디를 입력하세요..." required>
+                                    <label for="reg_id">아이디</label><br/>
+                                    <input type="text" class="form-control-id" id="reg_id" placeholder="아이디를 입력하세요..." required>
+                                    <a type="button" class="btn oneMusic-btn mt-30" style="top: -15.5px;right: -17px;">중복확인</a>
                                 </div>
-                                <br/>
                                 <div class="form-group">
                                     <label for="reg_pwd">비밀번호</label>
                                     <input type="password" class="form-control" id="reg_pwd" placeholder="비밀번호를 입력하세요..." required>
