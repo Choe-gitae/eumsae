@@ -18,5 +18,23 @@ public class EumsaeDAOImpl implements EumsaeDAO {
 	public List<LpVO> getLpList(LpVO vo) {
 		return mybatis.selectList("eumsaeDAO.getLpList", vo);
 	}
+	
+	//lp정보 등록
+	@Override
+	public Integer insertLpinfo(LpVO vo) {		
+		return mybatis.insert("lpinfo.insertLpinfo", vo);
+	}
+	
+	//lp 조회 등록
+	@Override
+	public Integer insertLp(LpVO vo) {	
+		return mybatis.insert("lpscan.insertLp",vo);
+	}
+
+	//lpinfo 시퀀스 조회
+	@Override
+	public int selectSeq(LpVO vo) {		
+		return mybatis.selectOne("lpinfo.selectLpInfoSeq", vo);
+	}
 
 }
