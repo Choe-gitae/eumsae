@@ -5,6 +5,6 @@
 <mapper namespace="lpscan">
 	<insert id="insertLp" parameterType="LpVO">
 		INSERT INTO lp(lpno,infono,cnt,price) 
-		VALUES (lp_seq.nextval,lp_info_seq.currval,#{cnt},#{price})
+		VALUES (lp_seq.nextval,#{infono},#{cnt},#{price})
 	</insert>
 </mapper>

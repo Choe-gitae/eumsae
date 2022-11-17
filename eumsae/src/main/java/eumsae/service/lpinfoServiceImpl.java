@@ -18,5 +18,12 @@ public class lpinfoServiceImpl implements lpinfoService {
 		// TODO Auto-generated method stub
 		return dao.insertLpinfo(vo);
 	}
+	
+	// 시퀀스 조회
+	@Override
+	public int selectLpInfoSeq(LpVO vo) {
+		// TODO Auto-generated method stub
+		return dao.selectSeq(vo);
+	}
 
 }

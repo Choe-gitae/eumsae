@@ -11,6 +11,7 @@
 ${result.infono} <br>
 ${result.title} <br>
 ${result.price} <br>
+
 <hr>
 성공적으로 등록되었읍니다...!
 

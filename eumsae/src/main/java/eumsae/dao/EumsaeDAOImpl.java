@@ -31,4 +31,10 @@ public class EumsaeDAOImpl implements EumsaeDAO {
 		return mybatis.insert("lpscan.insertLp",vo);
 	}
 
+	//lpinfo 시퀀스 조회
+	@Override
+	public int selectSeq(LpVO vo) {		
+		return mybatis.selectOne("lpinfo.selectLpInfoSeq", vo);
+	}
+
 }

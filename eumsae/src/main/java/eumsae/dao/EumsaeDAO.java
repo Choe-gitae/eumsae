@@ -13,4 +13,7 @@ public interface EumsaeDAO {
 	
 	//Lp등록(lp)
 	public Integer insertLp(LpVO vo);
+	
+	// LPinfo 시퀀스 조회
+	public int selectSeq(LpVO vo);
 }

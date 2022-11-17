@@ -15,35 +15,49 @@ import eumsae.service.lpscanService;
 public class FrontController {
 	@Autowired
 	private lpinfoService lpinfoService;
-	
+
 	@Autowired
 	private lpscanService lpscanService;
-	
-	
+
 	@RequestMapping(value = "/{url}")
 	public String frontPage(@PathVariable String url) {
-		return "front/"+url;
+		return "front/" + url;
 	}
-	
 
 	// 입력 요청이 들어왔을 때
-	@RequestMapping(value="/lpinsert.do")
-	public String lpinsert(LpVO vo , Model m) {
-		System.out.println(vo.toString());
-		int result = lpinfoService.insertLpInfo(vo);
-		int result2 = lpscanService.insertLp(vo);		
-	
-		if(result ==1 & result2 ==1) {
-		m.addAttribute("result", vo);
-		return "/front/insertSuccess";
-		} else {
-			return "/front/error";
-		}
+//	@RequestMapping(value = "/lpinsert.do")
+//	public String lpinsert(LpVO vo, Model m) {
+//		System.out.println(vo.toString());
+//		int result = lpinfoService.insertLpInfo(vo);
+//		int result2 = lpscanService.insertLp(vo);
+//
+//		if (result == 1 & result2 == 1) {
+//			m.addAttribute("result", vo);
+//			return "/front/insertSuccess";
+//		} else {
+//			return "/front/error";
+//		}
+//	}
 
 	@RequestMapping(value = "/test")
-	public String test() {
-		return "/front/test";
+	public String test(LpVO vo, Model m) {
+		System.out.println(vo.toString());
+		int result = lpinfoService.insertLpInfo(vo);
+		if(result==1) {
+			int seq = lpinfoService.selectLpInfoSeq(vo);
+			vo.setInfono(seq);
+		}else {
+			return "/front/error";
+		}
+		
+		int result2 = lpscanService.insertLp(vo);
 
+		if (result2 == 1) {
+			m.addAttribute("result", vo);
+			return "/front/insertSuccess";
+		} else {
+			return "/front/error";
+		}		
 	}
-	
+
 }

@@ -5,15 +5,11 @@ import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class LpVO {
 	private int infono; // lp정보번호
 	private String genre; // 장르
 	private String title; // 제목(LP이름)
+	private String singer;	// 가수
 	private String region; // 지역
 	private int price; // 가격
 	private String content; // LP 내용	
@@ -24,10 +20,131 @@ public class LpVO {
 	private String cmp3; // 음원구별자
 	private long jpg_size; // 사진크기
 	private long mp3_size; // 음원크기
-	private int cnt; // 재고수량
-	// ---------------- 파일 업로드
+	private int cnt; // 재고수량	
 	MultipartFile fjpg; // 사진파일
 	MultipartFile fmp3; // 음원파일
+	
+	
+
+	public int getInfono() {
+		return infono;
+	}
+
+	public void setInfono(int infono) {
+		this.infono = infono;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSinger() {
+		return singer;
+	}
+
+	public void setSinger(String singer) {
+		this.singer = singer;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getLpdate() {
+		return lpdate;
+	}
+
+	public void setLpdate(String lpdate) {
+		this.lpdate = lpdate;
+	}
+
+	public String getJpg() {
+		return jpg;
+	}
+
+	public void setJpg(String jpg) {
+		this.jpg = jpg;
+	}
+
+	public String getCjpg() {
+		return cjpg;
+	}
+
+	public void setCjpg(String cjpg) {
+		this.cjpg = cjpg;
+	}
+
+	public String getMp3() {
+		return mp3;
+	}
+
+	public void setMp3(String mp3) {
+		this.mp3 = mp3;
+	}
+
+	public String getCmp3() {
+		return cmp3;
+	}
+
+	public void setCmp3(String cmp3) {
+		this.cmp3 = cmp3;
+	}
+
+	public long getJpg_size() {
+		return jpg_size;
+	}
+
+	public void setJpg_size(long jpg_size) {
+		this.jpg_size = jpg_size;
+	}
+
+	public long getMp3_size() {
+		return mp3_size;
+	}
+
+	public void setMp3_size(long mp3_size) {
+		this.mp3_size = mp3_size;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 
 	public MultipartFile getFjpg() {
 		return fjpg;
