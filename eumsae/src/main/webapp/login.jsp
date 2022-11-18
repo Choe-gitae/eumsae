@@ -22,16 +22,7 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
-<!--         <div class="lds-ellipsis"> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--         </div> -->
-<!--     </div> -->
-
+    
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Navbar Area -->
@@ -135,14 +126,14 @@
                         <h3> </h3>
                         <!-- Login Form -->
                         <div class="login-form">
-                            <form action="#" method="post">
+                            <form action="login" name='loginForm' method="post">
                                 <div class="form-group">
                                     <label for="login_id">아이디</label>
-                                    <input type="text" class="form-control-my" id="login_id" placeholder="아이디를 입력하세요...">
+                                    <input type="text" class="form-control-my" id="login_id" name="id" placeholder="아이디를 입력하세요...">
                                 </div>
                                 <div class="form-group">
                                     <label for="login_pwd">비밀번호</label>
-                                    <input type="password" class="form-control-my" id="login_pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
+                                    <input type="password" class="form-control-my" id="login_pwd" name="pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
                                     <input type="checkbox" class="id_save" id="id_save">
                                     <label for="id_save">로그인 정보 저장</label>
                                 </div>
@@ -192,7 +183,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Popper js -->
     <script src="resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="resources/00-one-music-gh-pages/js/bootstrap.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
     <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->

@@ -22,15 +22,6 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
-<!--         <div class="lds-ellipsis"> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--             <div></div> -->
-<!--         </div> -->
-<!--     </div> -->
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -42,7 +33,7 @@
                     <nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand"><img src="resources/00-one-music-gh-pages/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -119,7 +110,7 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">
         <div class="bradcumbContent">
             <h2>상품 요청 게시판</h2>
         </div>

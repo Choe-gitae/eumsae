@@ -4,15 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert Success</title>
+<title>login OK</title>
 </head>
 <body>
-
-상품 등록을 성공적으로 완료하였습니다.
-
-
+${sessionScope.login} 님 접속 성공. 
 <hr>
-<a href='front/managemant-main'>돌아가기</a>
+<a href="main.jsp"> WELCOME to EUMSAE!! </a>
+
 
 </body>
 </html>
