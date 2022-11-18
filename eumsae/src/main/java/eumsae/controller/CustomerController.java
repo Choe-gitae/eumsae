@@ -1,5 +1,7 @@
 package eumsae.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,8 +36,7 @@ public class CustomerController {
 	//--- utf-8 타입의 아이디를 사용할 수도 있으므로, ajax 및 controller에서 타입을 지정해준다.	
 		@RequestMapping(value="idCheck", produces="application/text;charset=utf-8")
 		@ResponseBody
-		public String checkId(CustomerVO vo) {
-			System.out.println("id 중복검사"+vo.getId());
+		public String checkId(CustomerVO vo) {		
 			String message = "사용가능한 아이디입니다.";
 			CustomerVO result = service.idCheck(vo);
 			if(result != null) message="중복된 아이디입니다.";			
@@ -45,7 +46,15 @@ public class CustomerController {
 
 	// 로그인
 		@RequestMapping(value="login")
-		public void login() {
-			
+		public String login(CustomerVO vo , HttpSession session) {
+			System.out.println("로그인 요청 확인");
+			CustomerVO customer = service.login(vo);
+			if(customer == null || vo.getId() == null) {
+				return "login";
+			} else {
+				// 로그인 성공 시 세션에 정보 저장
+				session.setAttribute("id",customer.getId());				
+				return "front/login_OK";
+			}
 		}
 }

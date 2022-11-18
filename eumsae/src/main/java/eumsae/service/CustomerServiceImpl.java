@@ -18,5 +18,18 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return dao.insertCustomer(vo);
 	}
+	
+	// 아이디 중복 검사
+	@Override
+	public CustomerVO idCheck(CustomerVO vo) {
+		
+		return dao.idCheck(vo);
+	}
+
+	@Override
+	public CustomerVO login(CustomerVO vo) {
+		
+		return dao.login(vo);
+	}
 
 }

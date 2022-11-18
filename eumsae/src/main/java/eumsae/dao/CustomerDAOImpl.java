@@ -16,8 +16,23 @@ public class CustomerDAOImpl implements CustomerDAO{
 	// 회원가입
 	@Override
 	public Integer insertCustomer(CustomerVO vo) {
-		
+		System.out.println("회원가입");
 		return mybatis.insert("customer.insertCustomer",vo);
+	}
+
+
+	// 아이디 중복 확인
+	@Override
+	public CustomerVO idCheck(CustomerVO vo) {
+		System.out.println("중복확인");
+		return mybatis.selectOne("customer.idCheck", vo);
+	}
+
+	//로그인
+	@Override
+	public CustomerVO login(CustomerVO vo) {
+		System.out.println("로그인");
+		return mybatis.selectOne("customer.idCheck", vo);
 	}
 	
 	
