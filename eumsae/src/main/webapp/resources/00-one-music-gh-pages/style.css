@@ -388,6 +388,17 @@ img {
     .oneMusic-btn.btn-2:hover, .oneMusic-btn.btn-2:focus {
       background-color: #fff;
       color: #232323; }
+  .oneMusic-btn-login:hover, .oneMusic-btn-login:focus {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #000000;
+    color: #fff; }
+  .oneMusic-btn.btn-2 {
+    background-color: #000000;
+    color: #fff; }
+    .oneMusic-btn.btn-2:hover, .oneMusic-btn.btn-2:focus {
+      background-color: #fff;
+      color: #232323; }
       
 .oneMusic-btn-page {
       background-color: #fff;

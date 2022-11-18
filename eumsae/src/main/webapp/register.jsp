@@ -22,15 +22,15 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+<!--     Preloader -->
+<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
+<!--         <div class="lds-ellipsis"> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--         </div> -->
+<!--     </div> -->
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -149,6 +149,11 @@
                                     <input type="password" class="form-control" id="reg_repwd" placeholder="비밀번호를 동일하게 입력하세요..." required>
                                 </div>
                                 <hr/>
+                                
+                                <div class="form-group">
+                                    <label for="reg_nickname">별명</label>
+                                    <input type="text" class="form-control" id="reg_nickname" placeholder="별명을 입력하세요..." required>
+                                </div>
                                 <div class="form-group">
                                     <label for="reg_name">이름</label>
                                     <input type="text" class="form-control" id="reg_name" placeholder="이름을 입력하세요..." required>

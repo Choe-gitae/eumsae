@@ -18,7 +18,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="../index.jsp" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -32,12 +32,12 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>회원 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>상품 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>설정 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>혜택 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>매출 관리</a>
+<!--                     <a href="managemant-base" class="nav-item nav-link"><i class="fa fa-table me-2"></i>대쉬보드</a> -->
+                    <a href="managemant-manager" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
+                    <a href="managemant-user" class="nav-item nav-link"><i class="fa fa-table me-2"></i>회원 관리</a>
+                    <a href="managemant-product" class="nav-item nav-link"><i class="fa fa-table me-2"></i>상품 관리</a>
+                    <a href="managemant-setting" class="nav-item nav-link"><i class="fa fa-table me-2"></i>설정 관리</a>
+                    <a href="managemant-sales" class="nav-item nav-link"><i class="fa fa-table me-2"></i>매출 관리</a>
                 </div>
             </nav>
         </div>

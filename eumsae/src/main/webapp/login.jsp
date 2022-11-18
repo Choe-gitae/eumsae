@@ -23,14 +23,14 @@
 
 <body>
     <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
+<!--         <div class="lds-ellipsis"> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--         </div> -->
+<!--     </div> -->
 
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
@@ -99,7 +99,7 @@
                                 <div class="login-register-cart-button d-flex align-items-center">
                                     <!-- Login/Register -->
                                     <div class="login-register-btn mr-50">
-                                        <a href="login.html" id="loginBtn">Login / Register</a>
+                                        <a href="login.jsp" id="loginBtn">Login / Register</a>
                                     </div>
 
                                     <!-- Cart Button -->
