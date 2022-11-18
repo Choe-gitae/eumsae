@@ -10,7 +10,7 @@
         <a href="front/management-main">관리자페이지 메인 페이지</a><br />
         <a href="front/managemant-manager">관리자페이지 관리자 계정 관리 페이지</a><br />
         <a href="front/managemant-user-managemant">관리자페이지 회원 관리 페이지</a><br />
-        <a href="front/managemant-product-managemant">관리자페이지 상품 관리 페이지</a><br />
+        <a href="management/product-managemant">관리자페이지 상품 관리 페이지</a><br />
         <a href="front/managemant-setting">관리자페이지 설정 페이지</a><br />
         <hr />
         <hr />
