@@ -26,11 +26,11 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/" + url;
 	}
 	
-//	// 관리자 계정 관리 페이지 이동
-//	@RequestMapping(value = "/mgrManagemant")
-//	public String mgrManagemant() {
-//		return "/management/mgrManagemant";
-//	}
+	// 관리자 계정 관리 페이지 이동
+	@RequestMapping(value = "/mgrManagemant")
+	public String mgrManagemant() {
+		return "/management/mgrManagemant";
+	}
 
 	// LP 정보 입력
 		@RequestMapping(value = "/insertLp")				// LP 재고 등록 요청이 들어왔을 때

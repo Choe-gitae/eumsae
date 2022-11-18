@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% String pjName = "/eumsae"; %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
 <body>
 ${sessionScope.login} 님 접속 성공. 
 <hr>
-<a href="main.jsp"> WELCOME to EUMSAE!! </a>
+<a href="<%=pjName%>/shop/main"> WELCOME to EUMSAE!! </a>
 
 
 </body>

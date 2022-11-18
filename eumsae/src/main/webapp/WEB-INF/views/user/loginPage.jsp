@@ -45,9 +45,6 @@
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-        <div class="bradcumbContent">
-            <h2>로그인</h2>
-        </div>
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
@@ -85,18 +82,6 @@
     <!-- ##### Login Area End ##### -->
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
-
-    <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
-        <!-- Popper js -->
-        <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
-        <!-- Bootstrap js -->
-        <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
-        <!-- All Plugins js -->
-        <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
-        <!-- Active js -->
-        <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/active.js"></script>
 </body>
 
 </html>

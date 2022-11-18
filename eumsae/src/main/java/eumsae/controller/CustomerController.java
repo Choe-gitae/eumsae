@@ -63,7 +63,7 @@ public class CustomerController {
 		System.out.println("로그인 요청 확인");
 		CustomerVO result = service.login(vo);
 		if (result == null || vo.getId() == null) {
-			return "/user/login"; // 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
+			return "/user/loginPage"; // 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
 		} else {
 			session.setAttribute("login", vo.getId()); // 세션에 vo의 아이디를 저장함
 			return "/user/loginOk";

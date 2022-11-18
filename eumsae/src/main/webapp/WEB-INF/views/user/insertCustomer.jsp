@@ -11,7 +11,7 @@
 	${message}
 	<hr>
 	
-	<a href="login.jsp">로그인 하러 가기</a>
+	<a href="loginPage">로그인 하러 가기</a>
 
 </body>
 </html>
