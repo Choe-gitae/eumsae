@@ -15,7 +15,7 @@
 <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 <!-- Title -->
-<title>One Music - Modern Music HTML5 Template</title>
+<title>EUMSAE - Modern Music HTML5 Template</title>
 
 <!-- Favicon -->
 <link rel="icon" href="resources/img/core-img/favicon.ico">
@@ -23,6 +23,22 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="resources/css/onemusic-main-style.css">
 <link rel="stylesheet" href="resources/css/helios-main.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+		
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css">
+
+<link rel="stylesheet" href="resources/css1/animate.css">
+    
+<link rel="stylesheet" href="resources/css1/owl.carousel.min.css">
+<link rel="stylesheet" href="resources/css1/owl.theme.default.min.css">
+<link rel="stylesheet" href="resources/css1/magnific-popup.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css">
+    
+<link rel="stylesheet" href="resources/css1/flaticon.css">
+<link rel="stylesheet" href="resources/css1/style.css">
 </head>
 <body>
 
@@ -529,34 +545,80 @@
 	<!-- ##### Contact Area End ##### -->
 
 	<!-- ##### Footer Area Start ##### -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row d-flex flex-wrap align-items-center">
-				<div class="col-12 col-md-6">
-					<a href="#"><img src="resources/img/core-img/logo.png" alt=""></a>
-					<p class="copywrite-text">
-						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-							All rights reserved | This template is made with <i
-							class="fa fa-heart-o" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-
-				<div class="col-12 col-md-6">
-					<div class="footer-nav">
-						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Albums</a></li>
-							<li><a href="#">Events</a></li>
-							<li><a href="#">News</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer class="ftco-footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2 logo"><a href="#">LP <span>Store</span></a></h2>
+              <p>EUMSAE LP STORE</p>
+              <ul class="ftco-footer-social list-unstyled mt-2">
+                <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">My Accounts</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-4">
+              <h2 class="ftco-heading-2">Information</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Quick Link</h2>
+              <ul class="list-unstyled">
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
+                <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid px-0 py-5 bg-black">
+      	<div class="container">
+      		<div class="row">
+	          <div class="col-md-12">
+		
+	            <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	          </div>
+	        </div>
+      	</div>
+      </div>
+    </footer>
 	<!-- ##### Footer Area Start ##### -->
 
 	<!-- ##### All Javascript Script ##### -->
@@ -570,6 +632,22 @@
 	<script src="resources/js/plugins/plugins.js"></script>
 	<!-- Active js -->
 	<script src="resources/js/active.js"></script>
+	
+	<script src="resources/js1/jquery.min.js"></script>
+	<script src="resources/js1/jquery-migrate-3.0.1.min.js"></script>
+  	<script src="resources/js1/popper.min.js"></script>
+ 	<script src="resources/js1/bootstrap.min.js"></script>
+	<script src="resources/js1/jquery.easing.1.3.js"></script>
+	<script src="resources/js1/jquery.waypoints.min.js"></script>
+	<script src="resources/js1/jquery.stellar.min.js"></script>
+	<script src="resources/js1/owl.carousel.min.js"></script>
+	<script src="resources/js1/jquery.magnific-popup.min.js"></script>
+	<script src="resources/js1/jquery.animateNumber.min.js"></script>
+	<script src="resources/js1/scrollax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="resources/js1/google-map.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/js1/bootstrap-select.min.js"></script>
+	<script src="resources/js1/main.js"></script>
 
 
 </body>

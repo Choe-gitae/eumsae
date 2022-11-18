@@ -31,7 +31,7 @@
     </head>
     <body>
         <div class="container-fluid position-relative d-flex p-0">
-            <jsp:include page="managemant-base-sidebar.jsp"></jsp:include>
+            <jsp:include page="base-sidebar.jsp"></jsp:include>
 
             <!-- Content Start -->
             <div class="content">

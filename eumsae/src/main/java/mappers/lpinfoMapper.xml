@@ -4,14 +4,14 @@
 
 <mapper namespace="lpinfo">
 	<insert id="insertLpinfo" parameterType="LpVO" useGeneratedKeys="true" keyProperty="infono" keyColumn="INFONO">
-		INSERT INTO lpinfo(infono,genre,title,singer,region,content,lpdate
-		<if test="jpg!=null">
-		,jpg,cjpg,mp3,cmp3,jpg_size,mp3_size
+		INSERT INTO lpinfo(infono,genre,title,singer,region,content,lpdate,jpg,cjpg,jpg_size
+		<if test="mp3 != null">
+		,mp3,cmp3,mp3_size
 		</if>
 		)		
-		VALUES (lp_info_seq.nextval,#{genre},#{title},#{singer},#{region},#{content},#{lpdate}
-		<if test="jpg!=null">
-		,#{jpg},#{cjpg},#{mp3},#{cmp3},#{jpg_size},#{mp3_size}
+		VALUES (lp_info_seq.nextval,#{genre},#{title},#{singer},#{region},#{content},#{lpdate},#{jpg},#{cjpg},#{jpgSize}
+		<if test="mp3 != null">
+		,#{mp3},#{cmp3}#{mp3Size}
 		</if>
 		)
 	</insert>	

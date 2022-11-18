@@ -60,7 +60,8 @@
                     </div>
                 </nav>
                 <!-- Navbar End -->
-                <!-- 상품 관리 탭 시작 -->
+
+                <!-- 설정 관리 탭 시작 -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary rounded h-100 p-4">
                         <h6 class="mb-4">설정 관리</h6>
@@ -97,29 +98,42 @@
 
                         <!-- 탭 컨텐츠 시작 -->
                         <div class="tab-content" id="users-tabContent">
-                            <!-- 상품 삭제 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade" id="category-setting" role="tabpanel" aria-labelledby="category-setting-tab">
-                                <!-- 검색 Form 시작 -->
-                                <div class="container-fluid pt-4 px-4">
-                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                                        <h6 class="mb-4">상품 검색</h6>
-                                        <form action="#" method="post">
-                                            <select class="form-select mb-3" name="selectType">
-                                                <option value="singer" selected>가수</option>
-                                                <option value="title">제목</option>
-                                                <option value="genre">장르</option>
-                                                <option value="region">지역</option>
-                                            </select>
-                                            <input class="form-control bg-dark border-0" type="search" placeholder="Search" />
-                                            <button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- 검색 Form 끝 -->
-                                <!-- 삭제 테이블 시작 -->
+                            <!-- 카테고리 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade show active" id="category-setting" role="tabpanel" aria-labelledby="category-setting-tab">
+                                <!-- 테이블 시작 -->
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4">
-                                        <h6 class="mb-4">상품 정보 테이블</h6>
+                                        <h6 class="mb-4">카테고리 테이블</h6>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">#</th>
+                                                        <th scope="col">카테고리</th>
+                                                        <th scope="col">삭제</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>POP</td>
+                                                        <td><button class="btn btn-danger">삭제</button></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <button class="btn btn-success" style="float: right">추가</button>
+                                    </div>
+                                </div>
+                                <!-- 테이블 끝 -->
+                            </div>
+                            <!-- 카테고리 탭 컨텐츠 끝 -->
+                            <!-- 슬라이드 관리 탭 컨텐츠 시작 -->
+                            <div class="tab-pane fade" id="slide-setting" role="tabpanel" aria-labelledby="slide-setting-tab">
+                                <!-- 테이블 시작 -->
+                                <div class="container-fluid pt-4 px-4">
+                                    <div class="bg-secondary rounded h-100 p-4">
+                                        <h6 class="mb-4">슬라이드 테이블</h6>
                                         <div class="table-responsive">
                                             <table class="table">
                                                 <thead>
@@ -131,7 +145,6 @@
                                                         <th scope="col">제목</th>
                                                         <th scope="col">지역</th>
                                                         <th scope="col">발매일자</th>
-                                                        <th scope="col">수정</th>
                                                         <th scope="col">삭제</th>
                                                     </tr>
                                                 </thead>
@@ -144,83 +157,22 @@
                                                         <td>상사병</td>
                                                         <td>KOR</td>
                                                         <td>2022.06.24.</td>
-                                                        <td><button class="btn btn-warning">수정</button></td>
                                                         <td><button class="btn btn-danger">삭제</button></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
-                                <!-- 삭제 테이블 끝 -->
-                            </div>
-                            <!-- 상품 삭제 탭 컨텐츠 끝 -->
-                            <!-- 상품 가격 관리 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade" id="slide-setting" role="tabpanel" aria-labelledby="slide-setting-tab">
-                                <!-- 검색 Form 시작 -->
-                                <div class="container-fluid pt-4 px-4">
-                                    <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                                        <h6 class="mb-4">상품 검색</h6>
-                                        <form action="#" method="post">
-                                            <select class="form-select mb-3" name="selectType">
-                                                <option value="singer" selected>가수</option>
-                                                <option value="title">제목</option>
-                                                <option value="genre">장르</option>
-                                                <option value="region">지역</option>
-                                            </select>
-                                            <input class="form-control bg-dark border-0" type="search" placeholder="Search" />
-                                            <button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- 검색 Form 끝 -->
-                                <!-- 테이블 시작 -->
-                                <div class="container-fluid pt-4 px-4">
-                                    <div class="bg-secondary rounded h-100 p-4">
-                                        <h6 class="mb-4">상품 정보 테이블</h6>
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">#</th>
-                                                        <th scope="col">표지</th>
-                                                        <th scope="col">장르</th>
-                                                        <th scope="col">가수</th>
-                                                        <th scope="col">제목</th>
-                                                        <th scope="col">지역</th>
-                                                        <th scope="col">발매일자</th>
-                                                        <th scope="col">가격</th>
-                                                        <th scope="col">수정</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td><img src="<%= pjName %>/resources/lpimages/kor/20/7616628.jpg" class="mgr-del-table-img" /></td>
-                                                        <td>HipHop</td>
-                                                        <td>세즈카</td>
-                                                        <td>상사병</td>
-                                                        <td>KOR</td>
-                                                        <td>2022.06.24.</td>
-                                                        <td>50000</td>
-                                                        <td><button class="btn btn-warning">수정</button></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                        <button class="btn btn-success" style="float: right">추가</button>
                                     </div>
                                 </div>
                                 <!-- 테이블 끝 -->
                             </div>
-                            <!-- 상품 가격 관리 탭 컨텐츠 끝 -->
-                            <!-- 상품 요청 게시판 관리 탭 컨텐츠 시작 -->
-                            <div class="tab-pane fade" id="product-wishBoard" role="tabpanel" aria-labelledby="product-wishBoard-tab"></div>
-                            <!-- 상품 요청 게시판 관리 탭 컨텐츠 끝 -->
+                            <!-- 슬라이드 관리 탭 컨텐츠 끝 -->
                         </div>
                         <!-- 탭 컨텐츠 끝 -->
                     </div>
                 </div>
-                <!-- 상품 관리 탭 시작 -->
+                <!-- 설정 관리 탭 끝 -->
             </div>
             <!-- Content End -->
         </div>
