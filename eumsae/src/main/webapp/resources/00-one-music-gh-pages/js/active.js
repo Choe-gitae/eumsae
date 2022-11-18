@@ -1,6 +1,5 @@
 (function ($) {
-    'use strict';
-
+    
     var browserWindow = $(window);
 
     // :: 1.0 Preloader Active Code
@@ -211,6 +210,5 @@
         $('.catagory-menu a').removeClass('active');
         $(this).addClass('active');
     })
-    
-
+   
 })(jQuery);
