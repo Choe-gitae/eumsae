@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입성공</title>
+<title>login OK</title>
 </head>
 <body>
+${sessionScope.login} 님 접속 성공. 
+<hr>
+<a href="main.jsp"> WELCOME to EUMSAE!! </a>
 
-	${message}
-	<hr>
-	
-	<a href="login">로그인 하러 가기</a>
 
 </body>
 </html>

@@ -73,7 +73,7 @@
                                 </div>
                                 <button type="submit" class="btn oneMusic-btn-login mt-30">로그인</button><br/>
                             </form>
-                                <a href="login.jsp"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
+                                <a href="#"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
                             <a href="registerPage" class="a_hg">회원가입</a>
                             <a href="findIdPw" class="a_gc">계정 / 비밀번호 찾기</a>
                         </div>
