@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert Success</title>
+<title>회원가입성공</title>
 </head>
 <body>
 
-상품 등록을 성공적으로 완료하였습니다.
-
-
-<hr>
-<a href='front/managemant-main'>돌아가기</a>
+	${message}
+	<hr>
+	
+	<a href="login">로그인 하러 가기</a>
 
 </body>
 </html>

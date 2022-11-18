@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<% String pjName = "resources/one-music-gh-pages/"; %>
+<% String pjName = "resources/00-one-music-gh-pages/"; %>
 
 <html>
 

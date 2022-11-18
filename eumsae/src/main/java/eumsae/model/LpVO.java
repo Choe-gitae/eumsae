@@ -24,8 +24,13 @@ public class LpVO {
 	MultipartFile fjpg; // 사진파일
 	MultipartFile fmp3; // 음원파일
 	
+	//---------- 중요 사항 -----------
+	/*
+	 * 	파일 업로드를 하는 경우 , Lombok의 어노테이션이나 Lombok 관련 기능이 먹지 않는다.
+	 *  따라서 getter setter toString() 을 직접 생성해서 사용해야 함.
+	 */
 	
-
+	// Getter and Setter
 	public int getInfono() {
 		return infono;
 	}
@@ -146,6 +151,7 @@ public class LpVO {
 		this.cnt = cnt;
 	}	
 	
+	// File 전송 관련 
 	public MultipartFile getFjpg() {
 		return fjpg;
 	} // end of getFjpg
@@ -159,7 +165,7 @@ public class LpVO {
 			UUID uuid = UUID.randomUUID(); // 파일 구별을 위한 uuid 부여
 			this.cjpg = uuid.toString(); // 구별 파일 명
 
-			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);
+			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);		//파일 저장 경로
 
 			try {
 				fjpg.transferTo(fi);

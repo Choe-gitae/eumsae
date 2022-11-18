@@ -22,16 +22,7 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
+    
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Navbar Area -->
@@ -135,7 +126,7 @@
                         <h3> </h3>
                         <!-- Login Form -->
                         <div class="login-form">
-                            <form action="#" method="post">
+                            <form action="login" method="post">
                                 <div class="form-group">
                                     <label for="login_id">아이디</label>
                                     <input type="text" class="form-control-my" id="login_id" placeholder="아이디를 입력하세요...">
@@ -149,7 +140,7 @@
                                 <button type="submit" class="btn oneMusic-btn-login mt-30">로그인</button><br/>
                             </form>
                                 <a href="login.jsp"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
-                            <a href="회원가입 화면으로" class="a_hg">회원가입</a>
+                            <a href="register.jsp" class="a_hg">회원가입</a>
                             <a href="계정찾기 화면으로" class="a_gc">계정 찾기</a>
                             <a href="비밀번호찾기 화면으로" class="a_bc">비밀번호 찾기</a>
                         </div>

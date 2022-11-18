@@ -35,7 +35,7 @@
                         <div class="single-album">
                             <img src="<%= pjName %>/resources/lpimages/kor/90/k90a.jpg" alt="" />
                             <div class="album-info" data-category="info">
-                                <a href="#">
+                                <a href="detail">
                                     <h5 class="name">김건모</h5>
                                 </a>
                                 <p class="title">Second Song</p>
