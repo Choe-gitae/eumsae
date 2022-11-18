@@ -17,8 +17,8 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <link rel="icon" href="resources/img/core-img/favicon.ico" />
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="resources/css/mainStyle.css" />
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/00-one-music-gh-pages/css/style.css" />
+    <link rel="stylesheet" href="resources/00-one-music-gh-pages/css/bootstrap.min.css" />
   </head>
 
   <body>
@@ -31,7 +31,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
             <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
               <!-- Post Thumb -->
               <div class="blog-post-thumb mt-30">
-                <img src="resources/lpimages/kor/80/k80a.jpg" alt="" /><br />
+                <img src="resources/upjpg/d07dda95-27fb-48f4-a596-0d76e692a2ea_k80a.jpg" alt="" /><br />
                 <!-- 눌렀을 때, src /kor/80/k80a 를 변경시켜야 함 -->
               </div>
               <div class="song-play-area">
@@ -40,7 +40,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
                 </div>
                 <audio preload="auto" controls>
                   <source
-                    src="resources/audio/smells_like_teen_sprit_nirvana.mp3"
+                    src="resources//00-one-music-gh-pages/audio/dummy-audio.mp3"
                     type="audio/mp3"
                   />
                   <!--  눌렀을 때 , 음원 src 변경 필요 -->
@@ -95,14 +95,14 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="resources/js/bootstrap/popper.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="resources/js/plugins/plugins.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="resources/js/active.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/active.js"></script>
   </body>
 </html>
