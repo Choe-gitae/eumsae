@@ -18,14 +18,19 @@ public class LpVO {
 	private String cjpg; // 사진구별자
 	private String mp3; // 음원
 	private String cmp3; // 음원구별자
-	private long jpg_size; // 사진크기
-	private long mp3_size; // 음원크기
-	private int cnt; // 재고수량	
+	private long jpgSize; // 사진크기
+	private long mp3Size; // 음원크기
+	private int cnt; // 재고수량
 	MultipartFile fjpg; // 사진파일
 	MultipartFile fmp3; // 음원파일
 	
+	//---------- 중요 사항 -----------
+	/*
+	 * 	파일 업로드를 하는 경우 , Lombok의 어노테이션이나 Lombok 관련 기능이 먹지 않는다.
+	 *  따라서 getter setter toString() 을 직접 생성해서 사용해야 함.
+	 */
 	
-
+	// Getter and Setter
 	public int getInfono() {
 		return infono;
 	}
@@ -122,20 +127,20 @@ public class LpVO {
 		this.cmp3 = cmp3;
 	}
 
-	public long getJpg_size() {
-		return jpg_size;
+	public long getJpgSize() {
+		return jpgSize;
 	}
 
-	public void setJpg_size(long jpg_size) {
-		this.jpg_size = jpg_size;
+	public void setJpgSize(long jpgSize) {
+		this.jpgSize = jpgSize;
 	}
 
-	public long getMp3_size() {
-		return mp3_size;
+	public long getMp3Size() {
+		return mp3Size;
 	}
 
-	public void setMp3_size(long mp3_size) {
-		this.mp3_size = mp3_size;
+	public void setMp3Size(long mp3Size) {
+		this.mp3Size = mp3Size;
 	}
 
 	public int getCnt() {
@@ -144,8 +149,9 @@ public class LpVO {
 
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
-	}
-
+	}	
+	
+	// File 전송 관련 
 	public MultipartFile getFjpg() {
 		return fjpg;
 	} // end of getFjpg
@@ -154,12 +160,12 @@ public class LpVO {
 		this.fjpg = fjpg;
 		if (!fjpg.isEmpty()) {
 			this.jpg = fjpg.getOriginalFilename();
-			this.jpg_size = fjpg.getSize();
+			this.jpgSize = fjpg.getSize();
 
 			UUID uuid = UUID.randomUUID(); // 파일 구별을 위한 uuid 부여
-			this.cjpg = uuid.toString() + "_" + jpg; // 구별 파일 명
+			this.cjpg = uuid.toString(); // 구별 파일 명
 
-			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);
+			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);		//파일 저장 경로
 
 			try {
 				fjpg.transferTo(fi);
@@ -179,7 +185,7 @@ public class LpVO {
 		this.fmp3 = fmp3;
 		if (!fmp3.isEmpty()) {
 			this.mp3 = fmp3.getOriginalFilename();
-			this.mp3_size = fmp3.getSize();
+			this.mp3Size = fmp3.getSize();
 
 			UUID uuid = UUID.randomUUID();
 			this.cmp3 = uuid.toString() + "_" + mp3;
@@ -195,12 +201,15 @@ public class LpVO {
 		} // end of if
 	}// end of Set Fmp3
 
+	// 입력된 정보를 검사하기 위한 toString
 	@Override
 	public String toString() {
-		return "LpVO [infono=" + infono + ", genre=" + genre + ", title=" + title + ", region=" + region + ", price="
-				+ price + ", content=" + content + ", lpdate=" + lpdate + ", jpg=" + jpg + ", cjpg=" + cjpg + ", mp3="
-				+ mp3 + ", cmp3=" + cmp3 + ", jpg_size=" + jpg_size + ", mp3_size=" + mp3_size + ", cnt=" + cnt
-				+ ", fjpg=" + fjpg + ", fmp3=" + fmp3 + "]";
-	}//end of to String
-
+		return "LpVO [infono=" + infono + ", genre=" + genre + ", title=" + title + ", singer=" + singer + ", region="
+				+ region + ", price=" + price + ", content=" + content + ", lpdate=" + lpdate + ", jpg=" + jpg
+				+ ", cjpg=" + cjpg + ", mp3=" + mp3 + ", cmp3=" + cmp3 + ", jpg_size=" + jpgSize + ", mp3_size="
+				+ mp3Size + ", cnt=" + cnt + ", fjpg=" + fjpg + ", fmp3=" + fmp3 + "]";
+	}
+	
+	
+	
 }

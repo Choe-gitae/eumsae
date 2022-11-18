@@ -1,6 +1,5 @@
 (function ($) {
-    'use strict';
-
+    
     var browserWindow = $(window);
 
     // :: 1.0 Preloader Active Code
@@ -187,9 +186,9 @@
     }
 
     // :: 10.0 audioPlayer Active Code
-    if ($.fn.audioPlayer) {
+    /*if ($.fn.audioPlayer) {
         $('audio').audioPlayer();
-    }
+    }*/
 
     // :: 11.0 Tooltip Active Code
     if ($.fn.tooltip) {
@@ -211,5 +210,5 @@
         $('.catagory-menu a').removeClass('active');
         $(this).addClass('active');
     })
-
+   
 })(jQuery);

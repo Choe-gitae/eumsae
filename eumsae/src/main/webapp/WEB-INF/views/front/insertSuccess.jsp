@@ -7,13 +7,12 @@
 <title>Insert Success</title>
 </head>
 <body>
-성공했다면?
-${result.infono} <br>
-${result.title} <br>
-${result.price} <br>
+
+상품 등록을 성공적으로 완료하였습니다.
+
 
 <hr>
-성공적으로 등록되었읍니다...!
+<a href='front/managemant-main'>돌아가기</a>
 
 </body>
 </html>

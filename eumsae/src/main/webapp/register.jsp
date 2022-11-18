@@ -22,16 +22,7 @@
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
+  
     <!-- ##### Header Area Start ##### -->
     <header class="header-area">
         <!-- Navbar Area -->
@@ -134,38 +125,47 @@
                     <div class="login-content">
                         <!-- Login Form -->
                         <div class="register-form">
-                            <form action="#" method="post">
+                            <form action="register" name = "regForm" method="post" onsubmit="return check()">
                                 <div class="form-group">
                                     <label for="reg_id">아이디</label><br/>
-                                    <input type="text" class="form-control-id" id="reg_id" placeholder="아이디를 입력하세요..." required>
-                                    <a type="button" class="btn oneMusic-btn mt-30" style="top: -15.5px;right: -17px;">중복확인</a>
+                                    <input type="text" class="form-control-id" id="reg_id" name='id' placeholder="아이디를 입력하세요..." required><br>
+                                    <span id="idCheckResult" style="width:150px;color:red"></span><br>
+                                    <a type="button" id="checkId" class="btn oneMusic-btn mt-30" style="top: -15.5px;right: -17px;">중복확인</a>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_pwd">비밀번호</label>
-                                    <input type="password" class="form-control" id="reg_pwd" placeholder="비밀번호를 입력하세요..." required>
+                                    <input type="password" class="form-control" id="reg_pwd" name='pwd'	placeholder="비밀번호를 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_repwd">비밀번호 재확인</label>
-                                    <input type="password" class="form-control" id="reg_repwd" placeholder="비밀번호를 동일하게 입력하세요..." required>
+                                    <input type="password" class="form-control" id="reg_repwd" name='repwd' placeholder="비밀번호를 동일하게 입력하세요..." required>
                                 </div>
                                 <hr/>
                                 <div class="form-group">
+                                    <label for="reg_name">별명</label>
+                                    <input type="text" class="form-control" id="reg_nick"  name='nick' placeholder="별명을 입력하세요..." required>
+                                </div>
+                                <div class="form-group">
                                     <label for="reg_name">이름</label>
-                                    <input type="text" class="form-control" id="reg_name" placeholder="이름을 입력하세요..." required>
+                                    <input type="text" class="form-control" id="reg_name" name='name' placeholder="이름을 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_birth">생년월일</label>
-                                    <input type="text" class="form-control" id="reg_birth" placeholder="생년월일을 입력하세요..." required>
+                                    <input type="text" class="form-control" id="reg_birth" name='birth' placeholder="생년월일을 입력하세요..." required>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_email">이메일</label>
-                                    <input type="email" class="form-control" id="reg_email" placeholder="이메일을 입력하세요..."required>
+                                    <input type="email" class="form-control" id="reg_email" name='email' placeholder="이메일을 입력하세요..."required>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_pNum">전화번호</label>
-                                    <input type="text" class="form-control" id="reg_pNum" placeholder="전화번호를 입력하세요..." required>
+                                    <input type="text" class="form-control" id="reg_pNum"  name='tel' placeholder="전화번호를 입력하세요..." required>
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
+                                <div class="form-group">
+                                    <label for="reg_pNum">주소</label>
+                                    <input type="text" class="form-control" id="reg_addr"  name='addr' placeholder="주소를 입력하세요..." required>
+                                </div>
+                                <button type="submit" id="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
                             </form>
                         </div>
                     </div>
@@ -204,15 +204,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="resources/js/bootstrap/popper.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="resources/js/plugins/plugins.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="resources/js/active.js"></script>
+    <script src="resources/00-one-music-gh-pages/js/active.js"></script>
+    <!--  제작한 js -->
+    <script src="resources/js/user.js"></script>
+    <script type="text/javascript">
+    	/*
+    	  함수명 : check()
+    	  인자 : 비밀번호와 비밀번호확인에 입력한 값
+    	*/
+    	function check() {
+    		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
+        		alert("비밀번호가 일치하지 않습니다..");
+        		$('#reg_repwd').focus();
+        		return false;
+        	} else {
+        		return true;
+        	}
+    	}    
+    </script>    
+
 </body>
 
 </html>
