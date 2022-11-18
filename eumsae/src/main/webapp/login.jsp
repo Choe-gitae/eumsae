@@ -129,11 +129,11 @@
                             <form action="login" method="post">
                                 <div class="form-group">
                                     <label for="login_id">아이디</label>
-                                    <input type="text" class="form-control-my" id="login_id" placeholder="아이디를 입력하세요...">
+                                    <input type="text" class="form-control-my" id="login_id" name="id" placeholder="아이디를 입력하세요...">
                                 </div>
                                 <div class="form-group">
                                     <label for="login_pwd">비밀번호</label>
-                                    <input type="password" class="form-control-my" id="login_pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
+                                    <input type="password" class="form-control-my" id="login_pwd" name="pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
                                     <input type="checkbox" class="id_save" id="id_save">
                                     <label for="id_save">로그인 정보 저장</label>
                                 </div>

@@ -125,12 +125,12 @@
                     <div class="login-content">
                         <!-- Login Form -->
                         <div class="register-form">
-                            <form action="register" method="post">
+                            <form action="register" name = "regForm" method="post" onsubmit="return check()">
                                 <div class="form-group">
                                     <label for="reg_id">아이디</label><br/>
-                                    <input type="text" class="form-control-id" id="reg_id" name='id' placeholder="아이디를 입력하세요..." required>
+                                    <input type="text" class="form-control-id" id="reg_id" name='id' placeholder="아이디를 입력하세요..." required><br>
+                                    <span id="idCheckResult" style="width:150px;color:red"></span><br>
                                     <a type="button" id="checkId" class="btn oneMusic-btn mt-30" style="top: -15.5px;right: -17px;">중복확인</a>
-                                    <span id="idCheckResult" style="width:150px;color:red"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="reg_pwd">비밀번호</label>
@@ -213,7 +213,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="resources/00-one-music-gh-pages/js/active.js"></script>
-    <script src="resources/js/user.js"></script>    
+    <!--  제작한 js -->
+    <script src="resources/js/user.js"></script>
+    <script type="text/javascript">
+    	/*
+    	  함수명 : check()
+    	  인자 : 비밀번호와 비밀번호확인에 입력한 값
+    	*/
+    	function check() {
+    		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
+        		alert("비밀번호가 일치하지 않습니다..");
+        		$('#reg_repwd').focus();
+        		return false;
+        	} else {
+        		return true;
+        	}
+    	}
+    
+    </script>    
 </body>
 
 </html>

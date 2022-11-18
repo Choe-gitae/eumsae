@@ -7,4 +7,12 @@
 		INSERT INTO CUSTOMER(id,pwd,nick,birth,name,addr,tel,email)
 		VALUES(#{id},#{pwd},#{nick},#{birth},#{name},#{addr},#{tel},#{email})
 	</insert>
+	
+	<select id="idCheck" parameterType="CustomerVO" resultType="CustomerVO">
+		SELECT id,pwd FROM CUSTOMER WHERE id=#{id}
+		<if test="pwd != null">
+		AND pwd=#{pwd}
+		</if>
+	
+	</select>
 </mapper>

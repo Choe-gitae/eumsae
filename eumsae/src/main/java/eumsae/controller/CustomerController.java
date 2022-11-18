@@ -1,5 +1,7 @@
 package eumsae.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +47,15 @@ public class CustomerController {
 
 	// 로그인
 		@RequestMapping(value="login")
-		public void login() {
+		public String login(CustomerVO vo , HttpSession session) {
+			CustomerVO result = service.login(vo);
+			if(result == null || vo.getId() == null) {
+				return "login";							// 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
+			} else {
+				session.setAttribute("login", vo.getId());	//세션에 vo의 아이디를 저장함				
+				return "front/loginOk";
+			}
+			
 			
 		}
 }

@@ -15,8 +15,20 @@ public class CustomerServiceImpl implements CustomerService {
 	//회원가입 서비스
 	@Override
 	public Integer insertCustomer(CustomerVO vo) {
-		
+		System.out.println("회원 가입 서비스");
 		return dao.insertCustomer(vo);
+	}
+
+	@Override
+	public CustomerVO idCheck(CustomerVO vo) {
+		System.out.println("중복 아이디 확인 서비스");
+		return dao.idCheck(vo);
+	}
+
+	@Override
+	public CustomerVO login(CustomerVO vo) {
+		System.out.println("로그인 서비스");
+		return dao.idCheck(vo);
 	}
 
 }
