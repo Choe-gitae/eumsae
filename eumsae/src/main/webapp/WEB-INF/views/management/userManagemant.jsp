@@ -4,11 +4,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>DarkPan - Bootstrap 5 Admin Template</title>
+        <title>EUMSAE 관리자 페이지</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         <!-- Favicon -->
-        <link href="<%= pjName %>/resources/00-darkpan-1.0.0/img/favicon.ico" rel="icon" />
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,35 +31,12 @@
     </head>
     <body>
         <div class="container-fluid position-relative d-flex p-0">
-            <jsp:include page="base-sidebar.jsp"></jsp:include>
+            <jsp:include page="../include/mgrSidebar.jsp"></jsp:include>
 
             <!-- Content Start -->
             <div class="content">
-                <!-- Navbar Start -->
-                <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-                    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                        <h2 class="text-light mb-0">
-                            <img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />
-                        </h2>
-                    </a>
-                    <a href="#" class="sidebar-toggler flex-shrink-0">
-                        <i class="fa fa-bars"></i>
-                    </a>
-                    <div class="navbar-nav align-items-center ms-auto">
-                        <div class="alert alert-dark mb-0">회원 관리 페이지</div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <img class="rounded-circle me-lg-2" src="<%= pjName %>/resources/00-darkpan-1.0.0/img/user.jpg" alt="" style="width: 40px; height: 40px" />
-                                <span class="d-none d-lg-inline-flex">John Doe</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Log Out</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <!-- Navbar End -->
+                
+                <jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 
                 <!-- 회원 관리 탭 시작 -->
                 <div class="container-fluid pt-4 px-4">
@@ -219,18 +196,6 @@
             <!-- Content End -->
         </div>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/chart/chart.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/easing/easing.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/waypoints/waypoints.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="<%= pjName %>/resources/00-darkpan-1.0.0/js/main.js"></script>
+        <jsp:include page="../include/mgrScript.jsp"></jsp:include>
     </body>
 </html>

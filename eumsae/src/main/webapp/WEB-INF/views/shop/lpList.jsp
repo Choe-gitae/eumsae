@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"
-%> <% String pjName = "eumsae/"; %>
+%> <% String pjName = "/eumsae"; %>
 
 <html>
     <head>
@@ -15,13 +15,35 @@
         <title>Eumsae</title>
 
         <!-- Favicon -->
-        <link rel="icon" href="<%= pjName %>resources/img/core-img/favicon.ico" />
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="<%= pjName %>resources/css/onemusic-main-style.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
     </head>
 
     <body>
+    	<jsp:include page="../include/shopHeader.jsp" />
+    	
+    	<!-- ##### Breadcumb Area Start ##### -->
+	    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">
+	    </section>
+	    <!-- ##### Breadcumb Area End ##### -->
+    	
         <!-- ##### Album Catagory Area Start ##### -->
         <section class="album-catagory section-padding-100-0">
             <div class="container">
@@ -49,18 +71,9 @@
         </section>
         <!-- ##### Album Catagory Area End ##### -->
 
-        <!-- ##### one-music Javascript ##### -->
-        <script src="resources/js/jquery/jquery-2.2.4.min.js"></script>
-        <!-- Popper js -->
-        <script src="resources/js/bootstrap/popper.min.js"></script>
-        <!-- Bootstrap js -->
-        <script src="resources/js/bootstrap/bootstrap.min.js"></script>
-        <!-- All Plugins js -->
-        <script src="resources/js/plugins/plugins.js"></script>
-        <!-- Active js -->
-        <script src="resources/js/active.js"></script>
+        <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
         <!-- ##### 추가 Javascript ##### -->
-        <script src="resources/js/lplist.js"></script>
+        <script src="<%=pjName%>/resources/js/lpList.js"></script>
     </body>
 </html>

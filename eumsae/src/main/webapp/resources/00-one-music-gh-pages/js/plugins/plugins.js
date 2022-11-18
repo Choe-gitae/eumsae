@@ -242,6 +242,7 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
 /*
 	AUTHOR: Osvaldas Valutis, www.osvaldas.info
 */
+/*
 (function($, window, document, undefined) {
     var isTouch = 'ontouchstart' in window,
         eStart = isTouch ? 'touchstart' : 'mousedown',
@@ -426,6 +427,7 @@ return t=a?function(t){return t&&a(r(t))}:function(t){return t&&r(t)}}function e
         });
         return this;
     };
+    
 })(jQuery, window, document);
-
+*/
 // [End Include All Plugins]

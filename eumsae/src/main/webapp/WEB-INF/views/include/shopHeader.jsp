@@ -5,9 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>shop-header</title>
+<title>shopHeader</title>
 </head>
 <body>
+	<!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
 	<!-- ##### Header Area Start ##### -->
 	<header class="header-area">
 		<!-- Navbar Area -->
@@ -18,7 +28,7 @@
 					<nav class="classy-navbar justify-content-between" id="oneMusicNav">
 
 						<!-- Nav brand -->
-						<a href="main" class="nav-brand"><img
+						<a href="<%=pjName%>/shop/main" class="nav-brand"><img
 							src="<%=pjName%>/resources/images/logo.png" alt=""></a>
 
 						<!-- Navbar Toggler -->
@@ -38,18 +48,17 @@
 							<!-- Nav Start -->
 							<div class="classynav">
 								<ul>
-									<li><a href="main">Home</a></li>
-									<li><a href="albums-store.html">Albums</a></li>
-									<li><a href="#">Pages</a>
+									<li><a href="<%=pjName%>/shop/main">Home</a></li>
+									<li><a href="#">Category</a>
 										<ul class="dropdown">
-											<li><a href="index.html">Home</a></li>
-											<li><a href="albums-store.html">Albums</a></li>
-											<li><a href="event.html">Events</a></li>
-											<li><a href="blog.html">News</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="#">Dropdown</a>
+											<li><a href="<%=pjName%>/shop/lpList">장르1</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르2</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르3</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르4</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르5</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르6</a></li>
+											<li><a href="<%=pjName%>/shop/lpList">장르7</a></li>
+											<li><a href="#">장르8</a>
 												<ul class="dropdown">
 													<li><a href="#">Even Dropdown</a></li>
 													<li><a href="#">Even Dropdown</a></li>
@@ -65,9 +74,7 @@
 													<li><a href="#">Even Dropdown</a></li>
 												</ul></li>
 										</ul></li>
-									<li><a href="event.html">Events</a></li>
-									<li><a href="blog.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="<%=pjName%>/board/requestBoard">Board</a></li>
 
 
 								</ul>
@@ -79,15 +86,12 @@
 									class="login-register-cart-button d-flex align-items-center">
 									<!-- Login/Register -->
 									<div class="login-register-btn mr-50">
-										<a href="login" id="loginBtn">Login / Register</a>
+										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
 									</div>
 
 									<!-- Cart Button -->
 									<div class="cart-btn">
-										<p>
-											<a href="cart"><button class="icon-shopping-cart"></button></a>
-											<span class="icon-shopping-cart"></span>
-										</p>
+											<a href="<%=pjName%>/user/cart"><img src="<%=pjName%>/resources/images/cart.png" style="height: 30px;width: 30px"/></a>
 									</div>
 								</div>
 							</div>

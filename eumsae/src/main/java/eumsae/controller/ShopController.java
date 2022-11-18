@@ -20,10 +20,16 @@ public class ShopController {
 		return "/shop/main";
 	}
 	
-	// LP상품페이지로 LpVO리스트 리턴
-	@RequestMapping(value = "/lp-list")
+	// 요청 게시판
+	@RequestMapping(value = "/requestBoard")
+	public String requestBoard() {
+		return "/shop/requestBoard";
+	}
+	
+	// LP상품페이지 LpVO리스트 리턴
+	@RequestMapping(value = "/lpList")
 	public String selectLpList() {
-		return "/shop/lp-list";
+		return "/shop/lpList";
 	}
 	
 }

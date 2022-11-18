@@ -32,9 +32,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
+                    <a href="mgrManagement" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>회원 관리</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>상품 관리</a>
+                    <a href="productManagemant" class="nav-item nav-link"><i class="fa fa-table me-2"></i>상품 관리</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>설정 관리</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>혜택 관리</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>매출 관리</a>
