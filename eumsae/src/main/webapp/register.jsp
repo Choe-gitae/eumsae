@@ -125,7 +125,7 @@
                     <div class="login-content">
                         <!-- Login Form -->
                         <div class="register-form">
-                            <form action="register" id="reg" name="regForm" method="post" onsubmit="return check()">
+                            <form action="register" name = "regForm" method="post" onsubmit="return check()">
                                 <div class="form-group">
                                     <label for="reg_id">아이디</label><br/>
                                     <input type="text" class="form-control-id" id="reg_id" name='id' placeholder="아이디를 입력하세요..." required><br>
@@ -213,27 +213,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="resources/00-one-music-gh-pages/js/active.js"></script>
-    <!-- user js // 직접 맹글었음 -->
+    <!--  제작한 js -->
     <script src="resources/js/user.js"></script>
-    <!-- 비밀번호 중복 확인 -->
     <script type="text/javascript">
     	/*
-    	* 함수명 : check
-    	* 역할 : onsubmit 제어
-    	* 인자 : 비밀번호와 비밀번호 확인의 입력값
-    	* 둘이 일치할 경우 true 를 리턴 / 아닐 경우 false를 리턴
+    	  함수명 : check()
+    	  인자 : 비밀번호와 비밀번호확인에 입력한 값
     	*/
     	function check() {
-    		// 비밀번호 확인
-            if ($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())) {
-                alert("비밀번호가 일치하지 않습니다!");
-                $('#reg_repwd').focus();
-                return false;
-            } else {
-            	return true;
-            }
+    		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
+        		alert("비밀번호가 일치하지 않습니다..");
+        		$('#reg_repwd').focus();
+        		return false;
+        	} else {
+        		return true;
+        	}
     	}    
-    </script>   
+    </script>    
+
 </body>
 
 </html>
