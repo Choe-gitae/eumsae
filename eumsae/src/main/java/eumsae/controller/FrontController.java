@@ -11,8 +11,8 @@ public class FrontController {
 
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
-	public String frontPage(@PathVariable String url) {
-		return "front/" + url;
+	public String viewPage(@PathVariable String url) {
+		return "/front/" + url;
 	}
 
 }
