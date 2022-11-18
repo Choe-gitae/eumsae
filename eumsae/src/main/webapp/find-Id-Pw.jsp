@@ -12,7 +12,7 @@
 
     <!-- Title -->
     <title>One Music - Modern Music HTML5 Template</title>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico">
 
@@ -120,37 +120,44 @@
 
     <!-- ##### Breadcumb Area Start ##### -->
     <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-        <div class="bradcumbContent">
-            <h2>로그인</h2>
-        </div>
     </section>
-    <!-- ##### Breadcumb Area End ##### -->
-
-    <!-- ##### Login Area Start ##### -->
     <section class="login-area section-padding-100">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-14 col-lg-8">
                     <div class="login-content">
+                    <ul class="nav nav-pills" style="margin-left: 133px;">
+						  <li class="nav-item">
+						    <a class="nav-link active" data-toggle="tab" href="#find_id">아이디 찾기</a>
+						  </li>
+						  <li class="nav-item">
+						    <a class="nav-link" data-toggle="tab" href="#find_Pw">비밀번호 찾기</a>
+						  </li>
+						</ul>
                         <h3> </h3>
-                        <!-- Login Form -->
-                        <div class="login-form">
+                        <div class="tab-content">
+                        <div class="tab-pane fade show active" id="find_id">
                             <form action="#" method="post">
                                 <div class="form-group">
-                                    <label for="login_id">아이디</label>
-                                    <input type="text" class="form-control-my" id="login_id" placeholder="아이디를 입력하세요...">
+                                    <label for="find_id-name">이름</label>
+                                    <input type="text" class="form-control-my" id="find_id-name" placeholder="이름을 입력하세요...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="login_pwd">비밀번호</label>
-                                    <input type="password" class="form-control-my" id="login_pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
-                                    <input type="checkbox" class="id_save" id="id_save">
-                                    <label for="id_save">로그인 정보 저장</label>
+                                    <label for="find_id_pNum">전화번호</label>
+                                    <input type="text" class="form-control-my" id="find_id_pNum" placeholder="전화번호를 입력하세요..."><br/><br/>
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn-login mt-30">로그인</button><br/>
+                                <button type="submit" class="btn oneMusic-btn-login mt-30">찾기</button><br/>
                             </form>
-                                <a href="login.jsp"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
-                            <a href="register.jsp" class="a_hg">회원가입</a>
-                            <a href="find-Id-Pw.jsp" class="a_bc">아이디/비밀번호 찾기</a>
+                            </div>
+                        <div class="tab-pane fade" id="find_Pw">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <label for="find_id-Pw">비밀번호를 찾으려는 아이디</label>
+                                    <input type="text" class="form-control-my" id="find_id-Pw" placeholder="아이디를 입력하세요...">
+                                </div>
+                                <button type="submit" class="btn oneMusic-btn-login mt-30">찾기</button><br/>
+                            </form>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -197,6 +204,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="resources/00-one-music-gh-pages/js/active.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 
 </html>
