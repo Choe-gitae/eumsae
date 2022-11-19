@@ -21,6 +21,9 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	@Autowired
 	private LpService service;	// LP 정보 관련 서비스
+	
+	@Autowired
+	private MgrService mService;
 
 
 	// 선택한 URL 로 이동

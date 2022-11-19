@@ -37,7 +37,7 @@
     </head>
 
     <body>
-<%--     	<jsp:include page="../include/shopHeader.jsp" /> --%>
+    	<jsp:include page="../include/shopHeader.jsp" />
     	
     	<!-- ##### Breadcumb Area Start ##### -->
 	    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">

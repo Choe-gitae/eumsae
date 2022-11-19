@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.MgrVO;
 
 @Repository
-public class mgrDAOImpl implements mgrDAO {
+public class ManagementDAOImpl implements ManagementDAO {
 	
 	@Autowired
 	private SqlSession mybatis;
