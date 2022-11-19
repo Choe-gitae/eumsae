@@ -51,32 +51,19 @@
 									<li><a href="<%=pjName%>/shop/main">Home</a></li>
 									<li><a href="#">Category</a>
 										<ul class="dropdown">
-											<li><a href="<%=pjName%>/shop/lpList">장르1</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르2</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르3</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르4</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르5</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르6</a></li>
-											<li><a href="<%=pjName%>/shop/lpList">장르7</a></li>
-											<li><a href="#">장르8</a>
-												<ul class="dropdown">
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a>
-														<ul class="dropdown">
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-														</ul></li>
-													<li><a href="#">Even Dropdown</a></li>
-												</ul></li>
-										</ul></li>
+											<li><a href="<%=pjName%>/shop/lpList?pop">POP</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?rock">Rock</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?hiphop">HipHop</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?ballad">Ballad</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?국내가요">국내가요</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?fork">Fork</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?rnb">RnB</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?elec">Elec</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?ost">Ost</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?트로트">트로트</a></li>
+										</ul>
+									</li>
 									<li><a href="<%=pjName%>/board/requestBoard">Board</a></li>
-
-
 								</ul>
 
 
@@ -91,7 +78,7 @@
 
 									<!-- Cart Button -->
 									<div class="cart-btn">
-											<a href="<%=pjName%>/user/cart"><img src="<%=pjName%>/resources/images/cart.png" style="height: 30px;width: 30px"/></a>
+											<a href="<%=pjName%>/user/cart"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
 									</div>
 								</div>
 							</div>
