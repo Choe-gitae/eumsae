@@ -13,7 +13,8 @@
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="LpVO" type="eumsae.model.LpVO"/>
-		<typeAlias alias="CustomerVO" type="eumsae.model.CustomerVO"/>		
+		<typeAlias alias="CustomerVO" type="eumsae.model.CustomerVO"/>
+		<typeAlias alias="MgrVO" type="eumsae.model.MgrVO"/>		
 	</typeAliases>
 	
 </configuration>
