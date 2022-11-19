@@ -165,7 +165,7 @@ public class LpVO {
 			UUID uuid = UUID.randomUUID(); // 파일 구별을 위한 uuid 부여
 			this.cjpg = uuid.toString(); // 구별 파일 명
 
-			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);		//파일 저장 경로
+			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\lpImg\\" + cjpg + ".jpg");		//파일 저장 경로
 
 			try {
 				fjpg.transferTo(fi);
@@ -188,9 +188,9 @@ public class LpVO {
 			this.mp3Size = fmp3.getSize();
 
 			UUID uuid = UUID.randomUUID();
-			this.cmp3 = uuid.toString() + "_" + mp3;
+			this.cmp3 = uuid.toString();
 
-			File fm = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upmp3\\" + cmp3);
+			File fm = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\lpMp3\\" + cmp3 + ".mp3");
 
 			try {
 				fmp3.transferTo(fm);

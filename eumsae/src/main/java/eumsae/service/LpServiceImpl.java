@@ -1,17 +1,18 @@
 package eumsae.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import eumsae.dao.lpDAO;
+import eumsae.dao.LpDAO;
 import eumsae.model.LpVO;
 
 @Service
-public class lpServiceImpl implements lpService {
+public class LpServiceImpl implements LpService {
 
 	@Autowired
-	private lpDAO dao;
+	private LpDAO dao;
 	
 	// LP정보 등록
 	@Override
@@ -26,5 +27,10 @@ public class lpServiceImpl implements lpService {
 			// TODO Auto-generated method stub
 			return dao.insertLp(vo);
 		}
+		
+	// LP정보 검색 후 리스트로 리턴
+	public List<LpVO> genreLp(String genreKey) {
+		return dao.genreLp(genreKey);
+	}
 	
 }

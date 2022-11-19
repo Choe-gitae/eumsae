@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import eumsae.model.LpVO;
-import eumsae.service.lpService;
+import eumsae.service.LpService;
 
 @Controller
 @RequestMapping(value = "/management")
 public class ManagementController {		// 관리자 페이지 요청 관리 컨트롤러
 	
 	@Autowired
-	private lpService service;	// LP 정보 관련 서비스
+	private LpService service;	// LP 정보 관련 서비스
 
 
 	// 선택한 URL 로 이동
@@ -37,12 +37,12 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 				int result2 = service.insertLp(vo);	// LP TABLE 에 저장할 Service 실행
 				if (result2 == 1) {							// LP TABLE 에 값이 입력 되었다면
 					m.addAttribute("result", vo);			// MODAL 에 LpVO를 저장해 전송
-					return "/insertSuccess";			// insertSuccess로 이동
+					return "redirect:/management/insertSuccess";			// insertSuccess로 이동
 				} else {
-					return "/views/error";					// 정보가 없는 경우 Error 페이지 로 이동 (LP)
+					return "error";					// 정보가 없는 경우 Error 페이지 로 이동 (LP)
 				}
 			} else {
-				return "/views/error";						// 정보가 없는 경우 Error 페이지 로 이동 (Lpinfo)
+				return "error";						// 정보가 없는 경우 Error 페이지 로 이동 (Lpinfo)
 			}
 		}	
 	
@@ -52,6 +52,12 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 			
 			return "redirect:/management/mgrManagement";
 		}
+		
+		// 검색한 LP 정보 리턴
+//		@RequestMapping(value = "/searchLp")
+//		public String selectLpVOList() {
+//			return "/management/productManagemant";
+//		}
 		
 		
 }

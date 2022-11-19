@@ -7,12 +7,11 @@
 <title>Insert Success</title>
 </head>
 <body>
-
 상품 등록을 성공적으로 완료하였습니다.
 
 
 <hr>
-<a href='/management/managemant-main'>돌아가기</a>
+<a href='productManagemant'>돌아가기</a>
 
 </body>
 </html>

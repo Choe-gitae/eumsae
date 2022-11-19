@@ -4,7 +4,7 @@ import java.util.List;
 
 import eumsae.model.LpVO;
 
-public interface lpDAO {
+public interface LpDAO {
 	// Lp정보 검색 후 리스트로 리턴
 	public List<LpVO> getLpList(LpVO vo);
 	
@@ -13,5 +13,8 @@ public interface lpDAO {
 	
 	//Lp등록(lp)
 	public Integer insertLp(LpVO vo);
+	
+	// LP 검색
+	public List<LpVO> genreLp(String searchKey);
 	
 } 

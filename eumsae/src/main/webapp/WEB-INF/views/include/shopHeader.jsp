@@ -51,16 +51,16 @@
 									<li><a href="<%=pjName%>/shop/main">Home</a></li>
 									<li><a href="#">Category</a>
 										<ul class="dropdown">
-											<li><a href="<%=pjName%>/shop/lpList?pop">POP</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?rock">Rock</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?hiphop">HipHop</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?ballad">Ballad</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?국내가요">국내가요</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?fork">Fork</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?rnb">RnB</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?elec">Elec</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?ost">Ost</a></li>
-											<li><a href="<%=pjName%>/shop/lpList?트로트">트로트</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=POP">POP</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=Rock">ROCK</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=HipHop">HipHop</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=Ballad">Ballad</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=국내가요">국내가요</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=Fork">Fork</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=RnB">RnB</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=Elec">일렉트로</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=Ost">OST</a></li>
+											<li><a href="<%=pjName%>/shop/lpList?genre=트로트">트로트</a></li>
 										</ul>
 									</li>
 									<li><a href="<%=pjName%>/board/requestBoard">Board</a></li>
