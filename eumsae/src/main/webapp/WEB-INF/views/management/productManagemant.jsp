@@ -108,7 +108,7 @@
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                         <h6 class="mb-4">상품 등록</h6>
-                                        <form action="test" method="post" enctype="multipart/form-data">
+                                        <form action="insertLp" method="post" enctype="multipart/form-data">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" id="floatingSelect" name="genre" aria-label="장르">
                                                     <option selected>장르</option>

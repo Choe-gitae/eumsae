@@ -6,7 +6,7 @@
         <title>WEB</title>
     </head>
     <body>
-        <a href="management/main">관리자페이지</a><br />
+        <a href="management/loginPage">관리자페이지</a><br />
         <hr />
         <hr />
         <hr />

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="lpinfo">
+<mapper namespace="Lp">
 	<insert id="insertLpinfo" parameterType="LpVO" useGeneratedKeys="true" keyProperty="infono" keyColumn="INFONO">
 		INSERT INTO lpinfo(infono,genre,title,singer,region,content,lpdate,jpg,cjpg,jpg_size
 		<if test="mp3 != null">
@@ -11,9 +11,15 @@
 		)		
 		VALUES (lp_info_seq.nextval,#{genre},#{title},#{singer},#{region},#{content},#{lpdate},#{jpg},#{cjpg},#{jpgSize}
 		<if test="mp3 != null">
-		,#{mp3},#{cmp3}#{mp3Size}
+		,#{mp3},#{cmp3},#{mp3Size}
 		</if>
 		)
 	</insert>	
+	
+	<insert id="insertLp" parameterType="LpVO" useGeneratedKeys="true" keyProperty="lpno" keyColumn="LPNO">
+		INSERT INTO lp(lpno,infono,cnt,price) 
+		VALUES (lp_seq.nextval,#{infono},#{cnt},#{price})
+	</insert>
+
 
 </mapper>

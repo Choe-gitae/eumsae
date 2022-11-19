@@ -12,7 +12,7 @@
 
 
 <hr>
-<a href='front/managemant-main'>돌아가기</a>
+<a href='/management/managemant-main'>돌아가기</a>
 
 </body>
 </html>
