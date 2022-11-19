@@ -6,6 +6,9 @@
 bin/
 tmp/
 target/
+target
+m2e-wtp/
+m2e-wtp
 Servers/
 *.tmp
 *.bak

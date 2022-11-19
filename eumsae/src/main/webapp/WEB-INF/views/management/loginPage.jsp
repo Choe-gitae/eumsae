@@ -39,15 +39,17 @@
                             </a>
                             <h3>Sign In</h3>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" name="mgrId" placeholder="name@example.com" />
-                            <label for="floatingInput">Id</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" name="mgrPwd" placeholder="Password" />
-                            <label for="floatingPassword">Password</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                        <form action="mgrLogin" method="post">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" name="mid" placeholder="name@example.com" />
+                                <label for="floatingInput">Id</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" id="floatingPassword" name="pwd" placeholder="Password" />
+                                <label for="floatingPassword">Password</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
+                        </form>
                     </div>
                 </div>
             </div>

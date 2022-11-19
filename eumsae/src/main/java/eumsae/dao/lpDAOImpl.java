@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.LpVO;
 
 @Repository
-public class EumsaeDAOImpl implements EumsaeDAO {
+public class lpDAOImpl implements lpDAO {
 	
 	@Autowired
 	SqlSessionTemplate mybatis;
@@ -22,19 +22,14 @@ public class EumsaeDAOImpl implements EumsaeDAO {
 	//lp정보 등록
 	@Override
 	public Integer insertLpinfo(LpVO vo) {		
-		return mybatis.insert("lpinfo.insertLpinfo", vo);
+		return mybatis.insert("Lp.insertLpinfo", vo);
 	}
 	
 	//lp 조회 등록
 	@Override
 	public Integer insertLp(LpVO vo) {	
-		return mybatis.insert("lpscan.insertLp",vo);
+		return mybatis.insert("Lp.insertLp",vo);
 	}
 
-	//lpinfo 시퀀스 조회
-	@Override
-	public int selectSeq(LpVO vo) {		
-		return mybatis.selectOne("lpinfo.selectLpInfoSeq", vo);
-	}
-
+ 
 }
