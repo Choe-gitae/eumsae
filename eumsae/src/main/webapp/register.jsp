@@ -165,7 +165,7 @@
                                     <label for="reg_pNum">주소</label>
                                     <input type="text" class="form-control" id="reg_addr"  name='addr' placeholder="주소를 입력하세요..." required>
                                 </div>
-                                <button type="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
+                                <button type="submit" id="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
                             </form>
                         </div>
                     </div>
@@ -228,9 +228,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         	} else {
         		return true;
         	}
-    	}
-    
+    	}    
     </script>    
+
 </body>
 
 </html>

@@ -8,6 +8,7 @@ public interface CustomerDAO {
 	
 	// 아이디 중복확인
 	public CustomerVO idCheck(CustomerVO vo);
+
 	// 로그인
 	public CustomerVO login(CustomerVO vo);
 	

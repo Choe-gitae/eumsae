@@ -18,16 +18,20 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	private lpinfoService lpinfoService;	// LP 정보 관련 서비스
 
 	@Autowired
-	private lpscanService lpscanService;	// LP 호출 관련 서비스
+	private lpscanService lpscanService; // LP 호출 관련 서비스
 	
 	// 선택한 URL 로 이동
-		@RequestMapping(value = "/{url}")
-		public String frontPage(@PathVariable String url) {
-			return "management/" + url;
-		}
+	@RequestMapping(value = "/{url}")
+	public String viewPage(@PathVariable String url) {
+		return "/management/" + url;
+	}
 	
-	
-	
+	// 관리자 계정 관리 페이지 이동
+	@RequestMapping(value = "/mgrManagemant")
+	public String mgrManagemant() {
+		return "/management/mgrManagemant";
+	}
+
 	// LP 정보 입력
 		@RequestMapping(value = "/insertLp")				// LP 재고 등록 요청이 들어왔을 때
 		public String insertLp(LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌

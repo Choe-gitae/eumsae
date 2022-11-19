@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function () {
+      
 	// id 중복확인 버튼을 눌렀을 때, 중복 검사 실행
     $('#checkId').click(function () {
         $.ajax({
