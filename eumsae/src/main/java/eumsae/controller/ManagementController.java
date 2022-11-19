@@ -1,12 +1,18 @@
 package eumsae.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import eumsae.model.LpVO;
+import eumsae.model.MgrVO;
+import eumsae.service.MgrService;
 import eumsae.service.LpService;
 
 @Controller
@@ -48,9 +54,20 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	// 관리자 로그인
 		@RequestMapping(value="/mgrLogin")
-		public String mgrLogin() {
-			
-			return "redirect:/management/mgrManagement";
+		public String mgrLogin(MgrVO vo, HttpSession sess) {
+			System.out.println("로그인 확인");
+			MgrVO result = mService.logIn(vo);
+			if(result == null || vo.getMid() == null) {	// 로그인 정보가 없을 때
+				return "/management/loginPage";		// 다시 로그인 하게 보냄
+			} else {
+				// 세션에 정보 저장
+				sess.setAttribute("Mgr",result.getMid());
+				sess.setAttribute("Name", result.getName());
+				sess.setAttribute("Auth", result.getAuth());
+				//System.out.println(sess.getAttribute("Name"));
+				//System.out.println(sess.getAttribute("Auth"));
+				return "redirect:/management/main";	//로그인 정보가 있을 때, 관리자 페이지로 이동		
+			}
 		}
 		
 		// 검색한 LP 정보 리턴
@@ -59,5 +76,14 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 //			return "/management/productManagemant";
 //		}
 		
+		
+	// 관리자 로그아웃	
+		@RequestMapping(value="/logout", method=RequestMethod.GET)
+		public String mgrLogOut(HttpServletRequest request) {
+			System.out.println("관리자님 로그아웃");			
+			HttpSession session = request.getSession();
+			session.invalidate();			
+			return "redirect:/management/main";
+		}
 		
 }

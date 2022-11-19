@@ -41,7 +41,7 @@
                         </div>
                         <form action="mgrLogin" method="post">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" name="mid" placeholder="name@example.com" />
+                                <input type="text" class="form-control" id="floatingInput" name="mid" placeholder="5글자이상, 아이디를 확인하고 입력해주세요" />
                                 <label for="floatingInput">Id</label>
                             </div>
                             <div class="form-floating mb-4">

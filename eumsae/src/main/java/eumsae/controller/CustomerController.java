@@ -1,5 +1,6 @@
 package eumsae.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eumsae.model.CustomerVO;
@@ -18,19 +20,19 @@ public class CustomerController {
 
 	@Autowired
 	private CustomerService service;
-	
+
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
 		return "/user/" + url;
 	}
-	
+
 	// 장바구니 이동
 	@RequestMapping(value = "/cart")
 	public String cart() {
 		return "/user/cart";
 	}
-	
+
 	// 회원가입
 	@RequestMapping(value = "/register")
 	public String register(CustomerVO vo, Model m) {
@@ -65,18 +67,18 @@ public class CustomerController {
 		if (result == null || vo.getId() == null) {
 			return "/user/loginPage"; // 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
 		} else {
-			session.setAttribute("login", vo.getId()); // 세션에 vo의 아이디를 저장함
-			if((boolean)session.getAttribute("login") == true) {	// 로그인이 되었을 때
-				return "/user/loginOk";
-				
-			} else {
-				return "/user/loginPage";			// 세션이 초기화 되었을 때 다시 로그인 하도록 돌려보냄
-			}
-			
+			session.setAttribute("login", result.getId()); // 세션에 vo의 아이디를 저장함		
+				return "redirect:/shop/main";	
 		}
 
 	}
-	
+
 	// 로그아웃
-	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String mgrLogOut(HttpServletRequest request) {
+		System.out.println("유저 로그아웃");
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/shop/main";
+	}
 }
