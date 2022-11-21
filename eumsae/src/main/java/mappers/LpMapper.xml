@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Lp">
+	<insert id="insertLpinfo" parameterType="LpVO" useGeneratedKeys="true" keyProperty="infono" keyColumn="INFONO">
+		INSERT INTO lpinfo(infono,genre,title,stitle,singer,region,content,lpdate,jpg,cjpg,jpg_size
+		<if test="mp3 != null">
+		,mp3,cmp3,mp3_size
+		</if>
+		)		
+		VALUES (lp_info_seq.nextval,#{genre},#{title},#{stitle},#{singer},#{region},#{content},#{lpdate},#{jpg},#{cjpg},#{jpgSize}
+		<if test="mp3 != null">
+		,#{mp3},#{cmp3},#{mp3Size}
+		</if>
+		)
+	</insert>	
+	
+	<insert id="insertLp" parameterType="LpVO" useGeneratedKeys="true" keyProperty="lpno" keyColumn="LPNO">
+		INSERT INTO lp(lpno,infono,cnt,price) 
+		VALUES (lp_seq.nextval,#{infono},#{cnt},#{price})
+	</insert>
+	
+	<select id="genreLp" parameterType="string" resultType="LpVO">
+		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{genreKey}
+	</select>
+
+	<select id="detail" parameterType="string" resultType="LpVO">
+		SELECT i.infono AS infono, i.cmp3 AS cmp3, i.cjpg AS cjpg, i.title AS title,i.stitle AS stitle ,i.singer AS singer, i.genre AS genre, i.lpdate AS lpdate , i.region AS region, i.content As content, l.price AS price, l.lpno As lpno
+		FROM lpinfo i INNER JOIN lp l
+		ON i.infono=l.infono
+		WHERE i.infono=#{infonoKey} 	
+	</select>
+
+</mapper>

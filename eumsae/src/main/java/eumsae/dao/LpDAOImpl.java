@@ -9,32 +9,33 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.LpVO;
 
 @Repository
-public class EumsaeDAOImpl implements EumsaeDAO {
+public class LpDAOImpl implements LpDAO {
 	
 	@Autowired
-	SqlSessionTemplate mybatis;
-	
-	@Override
-	public List<LpVO> getLpList(LpVO vo) {
-		return mybatis.selectList("eumsaeDAO.getLpList", vo);
-	}
+	SqlSessionTemplate mybatis;	
 	
 	//lp정보 등록
 	@Override
 	public Integer insertLpinfo(LpVO vo) {		
-		return mybatis.insert("lpinfo.insertLpinfo", vo);
+		return mybatis.insert("Lp.insertLpinfo", vo);
 	}
 	
 	//lp 조회 등록
 	@Override
 	public Integer insertLp(LpVO vo) {	
-		return mybatis.insert("lpscan.insertLp",vo);
+		return mybatis.insert("Lp.insertLp",vo);
+	}
+	
+	// LP 정보 검색
+	public List<LpVO> genreLp(String genreKey) {
+		return mybatis.selectList("Lp.genreLp",genreKey);
 	}
 
-	//lpinfo 시퀀스 조회
+	// LP 상세 페이지 정보
 	@Override
-	public int selectSeq(LpVO vo) {		
-		return mybatis.selectOne("lpinfo.selectLpInfoSeq", vo);
+	public LpVO detail(String infonoKey) {		
+		return mybatis.selectOne("Lp.detail",infonoKey);
 	}
 
+ 
 }
