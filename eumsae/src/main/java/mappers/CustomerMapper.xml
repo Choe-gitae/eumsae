@@ -14,5 +14,13 @@
 		AND pwd=#{pwd}
 		</if>
 	</select>
+	
+	<insert id="addCart" parameterType="CartVO">
+	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
+	</insert>
+	
+<!-- 	<select id="cartlist" parameterType="CartListVO" resultType="CartListVO"> -->
+<!-- 	row_number() over(order by c.cartno desc) as num, c.cartno, c.id, c.amount, c.lpno,  -->
+<!-- 	</select> -->
 
 </mapper>

@@ -1,133 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<% String pjName = "/eumsae"; %>
+
 <html>
-<head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<!-- Title -->
-<title>LP Store - EUMSAE(Checkout page)</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Title -->
+        <title>EUMSAE</title>
 
-<!-- Favicon -->
-<link rel="icon" href="resources/img/core-img/favicon.ico">
+        <!-- Favicon -->
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-<!-- 두번째 템플릿 Stylesheet -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
-	rel="stylesheet">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css">
-<link rel="stylesheet" href="resources/css1/animate.css">
-<link rel="stylesheet" href="resources/css1/owl.carousel.min.css">
-<link rel="stylesheet" href="resources/css1/owl.theme.default.min.css">
-<link rel="stylesheet" href="resources/css1/magnific-popup.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css">
-<link rel="stylesheet" href="resources/css1/flaticon.css">
-<link rel="stylesheet" href="resources/css1/style.css">
+<!-- Stylesheet -->
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
 
-<!-- 첫번째 템플릿 Stylesheet -->
-<link rel="stylesheet" href="resources/css/onemusic-main-style.css">
-<link rel="stylesheet" href="resources/css/helios-main.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
 
-</head>
-<body>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
 
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
 
-	<!-- ##### Header Area Start ##### -->
-	<header class="header-area">
-		<!-- Navbar Area -->
-		<div class="oneMusic-main-menu">
-			<div class="classy-nav-container breakpoint-off">
-				<div class="container">
-					<!-- Menu -->
-					<nav class="classy-navbar justify-content-between" id="oneMusicNav">
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
 
-						<!-- Nav brand -->
-						<a href="index.html" class="nav-brand"><img
-							src="resources/img/core-img/logo.png" alt=""></a>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
 
-						<!-- Navbar Toggler -->
-						<div class="classy-navbar-toggler">
-							<span class="navbarToggler"><span></span><span></span><span></span></span>
-						</div>
-
-						<!-- Menu -->
-						<div class="classy-menu">
-
-							<!-- Close Button -->
-							<div class="classycloseIcon">
-								<div class="cross-wrap">
-									<span class="top"></span><span class="bottom"></span>
-								</div>
-							</div>
-							<!-- Nav Start -->
-							<div class="classynav">
-								<ul>
-									<li><a href="index.html">Home</a></li>
-									<li><a href="albums-store.html">Albums</a></li>
-									<li><a href="#">Pages</a>
-										<ul class="dropdown">
-											<li><a href="index.html">Home</a></li>
-											<li><a href="albums-store.html">Albums</a></li>
-											<li><a href="event.html">Events</a></li>
-											<li><a href="blog.html">News</a></li>
-											<li><a href="contact.html">Contact</a></li>
-											<li><a href="elements.html">Elements</a></li>
-											<li><a href="login.html">Login</a></li>
-											<li><a href="#">Dropdown</a>
-												<ul class="dropdown">
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a></li>
-													<li><a href="#">Even Dropdown</a>
-														<ul class="dropdown">
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-															<li><a href="#">Deeply Dropdown</a></li>
-														</ul></li>
-													<li><a href="#">Even Dropdown</a></li>
-												</ul></li>
-										</ul></li>
-									<li><a href="event.html">Events</a></li>
-									<li><a href="blog.html">News</a></li>
-									<li><a href="contact.html">Contact</a></li>
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+    </head>
+    <body>
 
 
-								</ul>
-
-
-
-								<!-- Login/Register & Cart Button -->
-								<div
-									class="login-register-cart-button d-flex align-items-center">
-									<!-- Login/Register -->
-									<div class="login-register-btn mr-50">
-										<a href="login.html" id="loginBtn">Login / Register</a>
-									</div>
-
-									<!-- Cart Button -->
-									<div class="cart-btn">
-										<p>
-											<span class="icon-shopping-cart"></span> <span
-												class="quantity">1</span>
-										</p>
-									</div>
-								</div>
-							</div>
-							<!-- Nav End -->
-
-						</div>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</header>
-	<!-- ##### Header Area End ##### -->
+        <jsp:include page="../include/shopHeader.jsp" />
 
 	<!-- ##### 페이지 이름 ######### -->
 	<section class="hero-wrap hero-wrap-2"
@@ -471,150 +382,7 @@
 	</section>
 	<!-- 수령인 정보 끝 -->
 
-	<!-- footer 시작 -->
-	<footer class="ftco-footer">
-		<div class="container">
-			<div class="row mb-5">
-				<div class="col-sm-12 col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2 logo">
-							<a href="#">LP <span>Store</span></a>
-						</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries.</p>
-						<ul class="ftco-footer-social list-unstyled mt-2">
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="fa fa-instagram"></span></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">My Accounts</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My
-									Account</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log
-									In</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My
-									Order</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md">
-					<div class="ftco-footer-widget mb-4 ml-md-4">
-						<h2 class="ftco-heading-2">Information</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About
-									us</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact
-									us</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term
-									&amp; Conditions</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Quick Link</h2>
-						<ul class="list-unstyled">
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New
-									User</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help
-									Center</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report
-									Spam</a></li>
-							<li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-sm-12 col-md">
-					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
-						<div class="block-23 mb-3">
-							<ul>
-								<li><span class="icon fa fa-map marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
-								<li><a href="#"><span class="icon fa fa-phone"></span><span
-										class="text">+2 392 3929 210</span></a></li>
-								<li><a href="#"><span
-										class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid px-0 py-5 bg-black">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-
-						<p class="mb-0" style="color: rgba(255, 255, 255, .5);">
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;
-							<script>
-								document.write(new Date().getFullYear());
-							</script>
-							All rights reserved | This template is made with <i
-								class="fa fa-heart color-danger" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">Colorlib.com</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- footer 끝 -->
-
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
-
-	<!-- ##### 첫번째 템플릿 All Javascript Script ##### -->
-	<script src="resources/js1/jquery.min.js"></script>
-	<script src="resources/js1/jquery-migrate-3.0.1.min.js"></script>
-	<script src="resources/js1/popper.min.js"></script>
-	<script src="resources/js1/bootstrap.min.js"></script>
-	<script src="resources/js1/jquery.easing.1.3.js"></script>
-	<script src="resources/js1/jquery.waypoints.min.js"></script>
-	<script src="resources/js1/jquery.stellar.min.js"></script>
-	<script src="resources/js1/owl.carousel.min.js"></script>
-	<script src="resources/js1/jquery.magnific-popup.min.js"></script>
-	<script src="resources/js1/jquery.animateNumber.min.js"></script>
-	<script src="resources/js1/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="resources/js1/google-map.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/js1/bootstrap-select.min.js"></script>
-	<script src="resources/js1/main.js"></script>
-
-	<!-- ##### 두번째 템플릿 All Javascript Script ##### -->
-	<!-- jQuery-2.2.4 js -->
-	<script src="resources/js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="resources/js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap js -->
-	<script src="resources/js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins js -->
-	<script src="resources/js/plugins/plugins.js"></script>
-	<!-- Active js -->
-	<script src="resources/js/active.js"></script>
+        <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 
 public interface CustomerService {
@@ -11,5 +12,8 @@ public interface CustomerService {
 
 	// 로그인
 	public CustomerVO login(CustomerVO vo);
+	
+	// 카트담기
+	public Integer addCart(CartVO vo);
 
 }

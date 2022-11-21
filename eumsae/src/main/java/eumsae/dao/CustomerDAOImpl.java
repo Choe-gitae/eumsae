@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 
 @Repository
@@ -33,6 +34,15 @@ public class CustomerDAOImpl implements CustomerDAO{
 		System.out.println("로그인");
 		return mybatis.selectOne("customer.idCheck", vo);
 	}
+
+	//카트 담기
+	@Override
+	public Integer addCart(CartVO vo) {
+		System.out.println("카트담기 확인 : " + vo);
+		return mybatis.insert("customer.addCart", vo);
+		
+	}
+	
 	
 	
 }

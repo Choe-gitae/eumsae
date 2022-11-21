@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 import eumsae.service.CustomerService;
 
@@ -70,4 +72,27 @@ public class CustomerController {
 		}
 
 	}
+	
+	// 카트담기
+	@ResponseBody
+	@RequestMapping(value="addCart", method=RequestMethod.POST)
+	public String addCart(CartVO vo, Model m) {
+		int result = service.addCart(vo);
+		String message = "카트에 정상적으로 담기지 않았습니다.";
+		if (result == 1) {
+			message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+			//CustomerVO customer = (CustomerVO) m.addAttribute("message", message);
+			//vo.setId(customer.getId());
+			//m.addAttribute("message", message);
+			//return "message";
+		//} else {
+		//	return "message";
+
+		}
+			
+		return message;
+	}
+	
+	
+	
 }

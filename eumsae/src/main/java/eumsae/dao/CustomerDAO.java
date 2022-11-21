@@ -1,5 +1,6 @@
 package eumsae.dao;
 
+import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 
 public interface CustomerDAO {
@@ -11,5 +12,8 @@ public interface CustomerDAO {
 
 	// 로그인
 	public CustomerVO login(CustomerVO vo);
+	
+	//카트 담기
+	public Integer addCart(CartVO vo);
 	
 }
