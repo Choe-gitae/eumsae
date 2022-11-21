@@ -45,5 +45,11 @@ public class LpServiceImpl implements LpService {
 	public Integer deleteLp(LpVO vo) {
 		return dao.deleteLp(vo);
 	}
+
+	// 해당하는 LP 번호에 대한 정보 반환
+	@Override
+	public LpVO detail(String infonoKey) {		
+		return dao.detail(infonoKey);
+	}
 	
 }

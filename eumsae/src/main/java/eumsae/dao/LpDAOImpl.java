@@ -13,12 +13,7 @@ import eumsae.model.LpVO;
 public class LpDAOImpl implements LpDAO {
 	
 	@Autowired
-	SqlSessionTemplate mybatis;
-	
-	@Override
-	public List<LpVO> getLpList(LpVO vo) {
-		return mybatis.selectList("eumsaeDAO.getLpList", vo);
-	}
+	SqlSessionTemplate mybatis;	
 	
 	//lp정보 등록
 	@Override
@@ -47,6 +42,12 @@ public class LpDAOImpl implements LpDAO {
 	@Override
 	public Integer deleteLp(LpVO vo) {
 		return mybatis.delete("Lp.deleteLp", vo);
+	}
+
+	// LP 상세 페이지 정보
+	@Override
+	public LpVO detail(String infonoKey) {		
+		return mybatis.selectOne("Lp.detail",infonoKey);
 	}
 
  

@@ -22,4 +22,6 @@ public interface LpService {
 	// LP 삭제
 	public Integer deleteLp(LpVO vo);
 
+	// 해당하는 정보 번호에 대한 정보 반환
+	public LpVO detail(String infonoKey);
 }

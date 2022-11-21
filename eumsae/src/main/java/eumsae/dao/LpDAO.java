@@ -6,9 +6,7 @@ import java.util.List;
 import eumsae.model.LpVO;
 
 public interface LpDAO {
-	// Lp정보 검색 후 리스트로 리턴
-	public List<LpVO> getLpList(LpVO vo);
-	
+		
 	// Lp등록(정보)
 	public Integer insertLpinfo(LpVO vo);
 	
@@ -24,4 +22,7 @@ public interface LpDAO {
 	// Lp 삭제
 	public Integer deleteLp(LpVO vo);
 	
+	// LP 상세 정보 VO로 반환
+	public LpVO detail(String infonoKey);
+	 
 } 
