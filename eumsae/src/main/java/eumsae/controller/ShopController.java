@@ -1,12 +1,23 @@
 package eumsae.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import eumsae.model.LpVO;
+import eumsae.service.LpService;
 
 @Controller()
 @RequestMapping(value = "/shop")
 public class ShopController {
+	
+	@Autowired
+	LpService lpService;
 	
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
@@ -28,7 +39,9 @@ public class ShopController {
 	
 	// LP상품페이지 LpVO리스트 리턴
 	@RequestMapping(value = "/lpList")
-	public String selectLpList() {
+	public String searchLp(@RequestParam("genre") String genreKey, Model model) {
+		List<LpVO> list = lpService.genreLp(genreKey);
+		model.addAttribute("list", list);
 		return "/shop/lpList";
 	}
 	

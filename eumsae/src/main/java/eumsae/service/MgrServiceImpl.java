@@ -3,14 +3,14 @@ package eumsae.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import eumsae.dao.mgrDAO;
+import eumsae.dao.ManagementDAO;
 import eumsae.model.MgrVO;
 
 @Service
 public class MgrServiceImpl implements MgrService {
 
 	@Autowired
-	private mgrDAO dao;
+	private ManagementDAO dao;
 	
 	@Override
 	public Integer insertMgr(MgrVO vo) {

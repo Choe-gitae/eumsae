@@ -20,6 +20,10 @@
 		INSERT INTO lp(lpno,infono,cnt,price) 
 		VALUES (lp_seq.nextval,#{infono},#{cnt},#{price})
 	</insert>
+	
+	<select id="genreLp" parameterType="string" resultType="LpVO">
+		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{genreKey}
+	</select>
 
 
 </mapper>

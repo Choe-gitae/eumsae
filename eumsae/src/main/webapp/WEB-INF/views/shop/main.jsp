@@ -45,7 +45,7 @@
                 <!-- Single Hero Slide -->
                 <div class="single-hero-slide d-flex align-items-center justify-content-center">
                     <!-- Slide Img -->
-                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/bg-001.gif)"></div>
+                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/slide/slide-001.gif)"></div>
                     <!-- Slide Content -->
                     <div class="container">
                         <div class="row">
@@ -63,7 +63,7 @@
                 <!-- Single Hero Slide 1-->
                 <div class="single-hero-slide d-flex align-items-center justify-content-center">
                     <!-- Slide Img -->
-                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/bg-002.gif)"></div>
+                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/slide/slide-002.gif)"></div>
                     <!-- Slide Content -->
                     <div class="container">
                         <div class="row">
@@ -80,7 +80,7 @@
                 <!-- Single Hero Slide 2-->
                 <div class="single-hero-slide d-flex align-items-center justify-content-center">
                     <!-- Slide Img -->
-                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/bg-003.gif)"></div>
+                    <div class="slide-img bg-img" style="background-image: url(<%=pjName%>/resources/images/slide/slide-003.gif)"></div>
                     <!-- Slide Content -->
                     <div class="container">
                         <div class="row">

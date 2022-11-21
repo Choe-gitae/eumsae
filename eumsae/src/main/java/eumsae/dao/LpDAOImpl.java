@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.LpVO;
 
 @Repository
-public class lpDAOImpl implements lpDAO {
+public class LpDAOImpl implements LpDAO {
 	
 	@Autowired
 	SqlSessionTemplate mybatis;
@@ -29,6 +29,11 @@ public class lpDAOImpl implements lpDAO {
 	@Override
 	public Integer insertLp(LpVO vo) {	
 		return mybatis.insert("Lp.insertLp",vo);
+	}
+	
+	// LP 정보 검색
+	public List<LpVO> genreLp(String genreKey) {
+		return mybatis.selectList("Lp.genreLp",genreKey);
 	}
 
  

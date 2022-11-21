@@ -2,7 +2,7 @@ package eumsae.dao;
 
 import eumsae.model.MgrVO;
 
-public interface mgrDAO {
+public interface ManagementDAO {
 	
 	// 매니저 등록
 	public Integer insertMgr(MgrVO vo);

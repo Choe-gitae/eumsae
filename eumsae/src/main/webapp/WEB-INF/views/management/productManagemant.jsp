@@ -174,8 +174,8 @@
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                         <h6 class="mb-4">상품 검색</h6>
-                                        <form action="#" method="post">
-                                            <select class="form-select mb-3" name="selectType">
+                                        <form action="searchLp" method="post">
+                                            <select class="form-select mb-3" name="searchKey">
                                                 <option value="singer" selected>가수</option>
                                                 <option value="title">제목</option>
                                                 <option value="genre">장르</option>

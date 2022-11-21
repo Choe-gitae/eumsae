@@ -22,9 +22,7 @@
                     <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">                        
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
+                    <div class="position-relative"></div>
                     <div class="ms-3">
                         <h6 class="mb-0">${sessionScope.Name}</h6>
                         <span>${sessionScope.Auth}</span>
