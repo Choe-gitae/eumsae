@@ -24,4 +24,7 @@ public interface LpService {
 
 	// 해당하는 정보 번호에 대한 정보 반환
 	public LpVO detail(String infonoKey);
+	
+	// LP 수정
+	public Integer updateLp(LpVO vo);
 }

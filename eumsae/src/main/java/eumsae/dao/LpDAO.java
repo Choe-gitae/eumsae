@@ -24,5 +24,8 @@ public interface LpDAO {
 	
 	// LP 상세 정보 VO로 반환
 	public LpVO detail(String infonoKey);
+	
+	// LP 수정
+	public Integer updateLp(LpVO vo);
 	 
 } 

@@ -188,7 +188,6 @@ public class LpVO {
 			try {
 				fjpg.transferTo(fi);
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} // end of if
@@ -213,7 +212,6 @@ public class LpVO {
 			try {
 				fmp3.transferTo(fm);
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} // end of if

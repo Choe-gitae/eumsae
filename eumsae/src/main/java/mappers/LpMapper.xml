@@ -26,7 +26,7 @@
 	</select>
 
 	<select id="selectLp" parameterType="hashmap" resultType="LpVO">
-		SELECT i.infono infono, i.genre genre, i.title title, i.singer singer, i.region region, i.lpdate lpdate, i.cjpg cjpg, l.price price
+		SELECT *
 		FROM lpinfo i INNER JOIN lp l
 		ON i.infono = l.infono
 		WHERE ${searchCon} LIKE '%${searchKey}%'
@@ -42,5 +42,12 @@
 		ON i.infono=l.infono
 		WHERE i.infono=#{infonoKey} 	
 	</select>
+	
+	<update id="updateLp" parameterType="LpVO">
+		UPDATE lpinfo SET genre=#{genre}, title=#{title}, stitle=#{stitle}, singer=#{singer}, region=#{region}, content=#{content}, lpdate=#{lpdate}
+		<if test="jpg!=null">, jpg=#{jpg}, cjpg=#{cjpg}, jpg_size=#{jpgSize}</if>
+		<if test="mp3!=null">, mp3=#{mp3}, cmp3=#{cmp3}, mp3_size=#{mp3Size}</if>
+		WHERE infono = #{infono}
+	</update>
 
 </mapper>

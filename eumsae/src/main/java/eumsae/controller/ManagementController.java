@@ -42,20 +42,13 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	}
 
 	// LP 정보 입력
-	@RequestMapping(value = "/insertLp")				// LP 재고 등록 요청이 들어왔을 때
-	public String insertLp(LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
-		int result = service.insertLpInfo(vo);	// LPINFO TABLE 에 저장할 Service 실행
-		if (result == 1) {								// LPINFO TABLE 에 입력이 있다면 
-			int result2 = service.insertLp(vo);	// LP TABLE 에 저장할 Service 실행
-			if (result2 == 1) {							// LP TABLE 에 값이 입력 되었다면
-				m.addAttribute("result", vo);			// MODAL 에 LpVO를 저장해 전송
-				return "redirect:/management/insertSuccess";			// insertSuccess로 이동
-			} else {
-				return "error";					// 정보가 없는 경우 Error 페이지 로 이동 (LP)
-			}
-		} else {
-			return "error";						// 정보가 없는 경우 Error 페이지 로 이동 (Lpinfo)
-		}
+	@RequestMapping(value = "/insertLp")							// LP 재고 등록 요청이 들어왔을 때
+	public String insertLp(String page, LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
+		service.insertLpInfo(vo);				// LPINFO TABLE 에 저장할 Service 실행
+		service.insertLp(vo);					// LP TABLE 에 저장할 Service 실행
+		m.addAttribute("check", "true");
+		m.addAttribute("message", "등록 성공");	// 모달용 메세지
+		return "/management/"+page;	// 등록페이지로 이동
 	}	
 
 	// 관리자 로그인
@@ -93,7 +86,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	public String mgrLogOut(HttpServletRequest request) {
 		System.out.println("관리자님 로그아웃");			
 		HttpSession session = request.getSession();
-		session.invalidate();			
+		session.invalidate();
 		return "redirect:/management/main";
 	}
 
@@ -102,6 +95,16 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	public String deleteLp(String page, LpVO vo, Model model) {
 		service.deleteLp(vo);
 		model.addAttribute("message", "삭제 되었습니다.");
+		return "/management/"+page;
+	}
+	
+	// LP 수정
+	@RequestMapping(value = "/updateLp")
+	public String updateLp(String page, LpVO vo, Model model) {
+		System.out.println(vo.getInfono());
+		service.updateLp(vo);
+		model.addAttribute("check", "true");
+		model.addAttribute("message", "수정되었습니다.");
 		return "/management/"+page;
 	}
 

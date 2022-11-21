@@ -51,5 +51,10 @@ public class LpServiceImpl implements LpService {
 	public LpVO detail(String infonoKey) {		
 		return dao.detail(infonoKey);
 	}
+
+	@Override
+	public Integer updateLp(LpVO vo) {
+		return dao.updateLp(vo);
+	}
 	
 }
