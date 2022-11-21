@@ -22,8 +22,18 @@
 	</insert>
 	
 	<select id="genreLp" parameterType="string" resultType="LpVO">
-		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{genreKey}
+		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{category}
 	</select>
-
+	
+	<select id="selectLp" parameterType="hashmap" resultType="LpVO">
+		SELECT i.infono infono, i.genre genre, i.title title, i.singer singer, i.region region, i.lpdate lpdate, i.cjpg cjpg, l.price price
+		FROM lpinfo i INNER JOIN lp l
+		ON i.infono = l.infono
+		WHERE ${searchCon} LIKE '%${searchKey}%'
+	</select>
+	
+	<delete id="deleteLp" parameterType="LpVO">
+		DELETE FROM lpinfo WHERE infono=#{infono}
+	</delete>
 
 </mapper>

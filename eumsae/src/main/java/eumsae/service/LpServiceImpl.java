@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,21 @@ public class LpServiceImpl implements LpService {
 			return dao.insertLp(vo);
 		}
 		
-	// LP정보 검색 후 리스트로 리턴
-	public List<LpVO> genreLp(String genreKey) {
-		return dao.genreLp(genreKey);
+	// LP정보 장르 검색 후 리스트로 리턴
+	public List<LpVO> genreLp(String category) {
+		return dao.genreLp(category);
+	}
+
+	// LP정보 키워드로 검색
+	@Override
+	public List<LpVO> selectLpVOList(HashMap map) {
+		return dao.selectLpVOList(map);
+	}
+
+	// LP 삭제
+	@Override
+	public Integer deleteLp(LpVO vo) {
+		return dao.deleteLp(vo);
 	}
 	
 }

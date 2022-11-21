@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class LpVO {
 	private int infono; // lp정보번호
+	private int lpno;
 	private String genre; // 장르
 	private String title; // 제목(LP이름)
 	private String singer;	// 가수
@@ -37,6 +38,14 @@ public class LpVO {
 
 	public void setInfono(int infono) {
 		this.infono = infono;
+	}
+
+	public int getLpno() {
+		return lpno;
+	}
+
+	public void setLpno(int lpno) {
+		this.lpno = lpno;
 	}
 
 	public String getGenre() {
