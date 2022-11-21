@@ -1,5 +1,8 @@
 package eumsae.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +32,12 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerVO login(CustomerVO vo) {
 		System.out.println("로그인 서비스");
 		return dao.idCheck(vo);
+	}
+
+	@Override
+	public List<CustomerVO> selectCustomerVOList(HashMap map) {
+		System.out.println("리스트 검색 서비스");
+		return dao.selectCustomerVOList(map);
 	}
 
 }

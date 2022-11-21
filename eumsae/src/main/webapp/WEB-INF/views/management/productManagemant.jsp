@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>DarkPan - Bootstrap 5 Admin Template</title>
+       <title>EUMSAE MANAGING</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         <!-- Favicon -->
