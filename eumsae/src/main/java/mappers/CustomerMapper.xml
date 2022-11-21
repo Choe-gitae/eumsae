@@ -9,7 +9,7 @@
 	</insert>
 
 	<select id="idCheck" parameterType="CustomerVO" resultType="CustomerVO">
-		SELECT id,pwd FROM CUSTOMER WHERE id=#{id}
+		SELECT * FROM CUSTOMER WHERE id=#{id}
 		<if test="pwd != null">
 		AND pwd=#{pwd}
 		</if>

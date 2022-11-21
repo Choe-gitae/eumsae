@@ -2,7 +2,6 @@ package eumsae.model;
 
 import lombok.Data;
 
-
 @Data
 public class CustomerVO {
 	private String id;
