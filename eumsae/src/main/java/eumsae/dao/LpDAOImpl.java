@@ -1,5 +1,6 @@
 package eumsae.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -35,6 +36,12 @@ public class LpDAOImpl implements LpDAO {
 	@Override
 	public LpVO detail(String infonoKey) {		
 		return mybatis.selectOne("Lp.detail",infonoKey);
+	}
+
+	@Override
+	public List<LpVO> selectLpVOList(HashMap map) {
+		// TODO Auto-generated method stub
+		return mybatis.selectList("Lp.selectLp",map);
 	}
 
  

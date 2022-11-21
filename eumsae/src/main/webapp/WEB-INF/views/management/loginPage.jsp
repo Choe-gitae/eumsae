@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>EUMSAE</title>
+        <title>EUMSAE MANAGING</title>
         <!-- Favicon -->
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 

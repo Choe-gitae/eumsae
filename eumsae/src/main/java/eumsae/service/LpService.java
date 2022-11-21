@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import eumsae.model.LpVO;
@@ -17,5 +18,8 @@ public interface LpService {
 	
 	// 해당하는 정보 번호에 대한 정보 반환
 	public LpVO detail(String infonoKey);
+	
+	// LP 검색 조건에 따른 리스트 반환
+	public List<LpVO> selectLpVOList(HashMap map);
 
 }

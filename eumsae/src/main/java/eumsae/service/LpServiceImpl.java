@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,13 @@ public class LpServiceImpl implements LpService {
 	public LpVO detail(String infonoKey) {		
 		return dao.detail(infonoKey);
 	}
+	
+	// 검색 조건에 따른 LpVO List 반환
+	@Override
+	public List<LpVO> selectLpVOList(HashMap map) {
+		// TODO Auto-generated method stub
+		return dao.selectLpVOList(map);
+	}
+	
 	
 }

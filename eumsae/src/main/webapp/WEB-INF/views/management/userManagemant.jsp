@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>EUMSAE 관리자 페이지</title>
+       <title>EUMSAE MANAGING</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         <!-- Favicon -->
@@ -98,20 +98,7 @@
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="name" placeholder="이름" />
                                                 <label for="floatingInput">이름</label>
-                                            </div>
-                                            <fieldset class="row mb-3">
-                                                <legend class="col-form-label col-sm-2 pt-0">성별</legend>
-                                                <div class="col-sm-10">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gender" id="male" value="남성" checked />
-                                                        <label class="form-check-label" for="male"> 남성 </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gender" id="female" value="여성" />
-                                                        <label class="form-check-label" for="female"> 여성 </label>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
+                                            </div>                                          
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="tel" placeholder="전화번호" />
                                                 <label for="floatingInput">전화번호</label>
@@ -122,7 +109,7 @@
                                             </div>
 
                                             <button type="submit" class="btn btn-success">등록</button>
-                                            <button type="button" class="btn btn-warning">취소</button>
+                                            <button type="reset" class="btn btn-warning">취소</button>
                                         </form>
                                     </div>
                                 </div>
