@@ -14,5 +14,8 @@ public interface LpService {
 		
 	// LP 검색
 	public List<LpVO> genreLp(String searchKey);
+	
+	// 해당하는 정보 번호에 대한 정보 반환
+	public LpVO detail(String infonoKey);
 
 }

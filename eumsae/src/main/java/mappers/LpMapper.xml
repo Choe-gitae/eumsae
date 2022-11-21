@@ -4,12 +4,12 @@
 
 <mapper namespace="Lp">
 	<insert id="insertLpinfo" parameterType="LpVO" useGeneratedKeys="true" keyProperty="infono" keyColumn="INFONO">
-		INSERT INTO lpinfo(infono,genre,title,singer,region,content,lpdate,jpg,cjpg,jpg_size
+		INSERT INTO lpinfo(infono,genre,title,stitle,singer,region,content,lpdate,jpg,cjpg,jpg_size
 		<if test="mp3 != null">
 		,mp3,cmp3,mp3_size
 		</if>
 		)		
-		VALUES (lp_info_seq.nextval,#{genre},#{title},#{singer},#{region},#{content},#{lpdate},#{jpg},#{cjpg},#{jpgSize}
+		VALUES (lp_info_seq.nextval,#{genre},#{title},#{stitle},#{singer},#{region},#{content},#{lpdate},#{jpg},#{cjpg},#{jpgSize}
 		<if test="mp3 != null">
 		,#{mp3},#{cmp3},#{mp3Size}
 		</if>
@@ -25,5 +25,11 @@
 		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{genreKey}
 	</select>
 
+	<select id="detail" parameterType="string" resultType="LpVO">
+		SELECT i.infono AS infono, i.cmp3 AS cmp3, i.cjpg AS cjpg, i.title AS title,i.stitle AS stitle ,i.singer AS singer, i.genre AS genre, i.lpdate AS lpdate , i.region AS region, i.content As content, l.price AS price, l.lpno As lpno
+		FROM lpinfo i INNER JOIN lp l
+		ON i.infono=l.infono
+		WHERE i.infono=#{infonoKey} 	
+	</select>
 
 </mapper>

@@ -130,6 +130,10 @@
                                                 <label for="floatingInput">제목</label>
                                             </div>
                                             <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="stitle" placeholder="음원명" />
+                                                <label for="floatingInput">음원명</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="singer" placeholder="가수" />
                                                 <label for="floatingInput">가수</label>
                                             </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
 uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <% String pjName = "/eumsae"; %>
 
 <!DOCTYPE html>
@@ -21,19 +22,11 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
         <!-- Stylesheet -->
         <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-
         <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
-
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
-
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />     
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
     </head>
@@ -47,81 +40,89 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
           <div class="col-9">
             <!-- Single Post Start -->
             <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-              <!-- Post Thumb -->
+              <!-- Post Thumb -->              
               <div class="blog-post-thumb mt-30">
-                <img src="resources/upjpg/d07dda95-27fb-48f4-a596-0d76e692a2ea_k80a.jpg" alt="" /><br />
-                <!-- 눌렀을 때, src /kor/80/k80a 를 변경시켜야 함 -->
+                <img src="<%=pjName%>/resources/lpImg/${select.cjpg}.jpg" width="200" height="200"/><br />
+                
               </div>
               <div class="song-play-area">
                 <div class="song-name">
-                  <p>노래제목(DB)</p>
+                  <p>${select.stitle}</p>
                 </div>
                 <audio preload="auto" controls>
                   <source
-                    src="resources//00-one-music-gh-pages/audio/dummy-audio.mp3"
+                    src="<%=pjName%>/resources/lpMp3/${select.cmp3}.mp3"
                     type="audio/mp3"
-                  />
-                  <!--  눌렀을 때 , 음원 src 변경 필요 -->
-                </audio>
+                  />                
+                </audio>			
               </div>
-
-              
+             
 
               <!-- Blog Content -->
-              <div class="blog-content">
+              <div class="blog-content">               
                 <!-- Post Title -->
-                <a href="#" class="post-title"> LP 제목 (ex) 김현식 3집</a>
+                <a href="#" class="post-title"> LP 제목 : ${select.title} </a>
                 <!-- Post Meta -->
                 <div class="post-meta d-flex mb-30">
-                  <p class="post-author">By 장르</p>
-                  <p class="tags">in 연대</p>
-                  <p class="tags">분야 :</p>
-                  <!--  국내면 국내 해외면 해외를 여기에 표기를 할까 고민중... -->
+                  <p class="post-author">${select.genre}</p>
+                  <c:set var="year" value="${fn:substring(select.lpdate,0,4)}"/>
+                  <c:choose>
+                  <c:when test="${year < 1990}">         
+                  <p class="tags">1980년대</p>
+                  </c:when>
+                  <c:when test="${year >=1990 and year <2000}">         
+                  <p class="tags">1990년대</p>
+                  </c:when>
+                  <c:when test="${year >=2000 and year <2010}">         
+                  <p class="tags">2000년대</p>
+                  </c:when>
+                  <c:when test="${year >=2010 and year <2020}">         
+                  <p class="tags">2010년대</p>
+                  </c:when>
+                  <c:when test="${year >=2020}">         
+                  <p class="tags">최신</p>
+                  </c:when>
+                  </c:choose>
+                  <p class="tags">${select.region}</p>
+                
                   <!-- Post Excerpt -->
                   <p class="post-meta">
-                    나랏말싸미 듕귁에 달아 서로 사맛디 아니할수ㅖ 이를 니르고져 홇쀄이셔도.
+                   ${select.content}
                   </p>
                   <!--  LP 내용 -->
                 </div>
-              </div>
+              </div>             
             </div>
           </div>
           <div class="col-3 section-padding-100">
-                <div class="blog-sidebar-area">
+                <div class="blog-sidebar-area">                
                   <!-- Widget Area -->
                   <form name="frm" action="cart.do">
                     <table border="1">
                       <tr>
                         <td>가격</td>
-                        <td>가격(DB)</td>
+                        <td>${select.price} 원</td>
                       </tr>
                       <tr>
                         <td>배송비</td>
-                        <td>배송비(DB)</td>
+                        <td>2500원</td>
                       </tr>
                     </table>
-
-                    <br />
+				 
+                    <br/>
+                    
                     <input type="submit" class="btn" value="장바구니" />
-                  </form>
+                  </form>              
                 </div>
               </div>
         </div>
       </div>
     </div>
+   
     <!-- ##### Blog Area End ##### -->
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
     <!-- ##### All Javascript Script ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="resources/00-one-music-gh-pages/js/active.js"></script>
+        
   </body>
 </html>
