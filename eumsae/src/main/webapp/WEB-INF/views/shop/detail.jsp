@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
 uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% String pjName = "/eumsae"; %>
 
 <!DOCTYPE html>
 <html>
@@ -10,18 +11,35 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title -->
-    <title>EUMSAE</title>
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Favicon -->
-    <link rel="icon" href="resources/img/core-img/favicon.ico" />
+        <!-- Title -->
+        <title>Eumsae</title>
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="resources/00-one-music-gh-pages/css/style.css" />
-    <link rel="stylesheet" href="resources/00-one-music-gh-pages/css/bootstrap.min.css" />
-  </head>
+        <!-- Favicon -->
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
+
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
+
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+    </head>
 
   <body>
+  	<jsp:include page="../include/shopHeader.jsp" />
     <!-- ##### Blog Area Start ##### -->
     <div class="blog-area section-padding-100">
       <div class="container">
@@ -92,6 +110,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       </div>
     </div>
     <!-- ##### Blog Area End ##### -->
+    <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
