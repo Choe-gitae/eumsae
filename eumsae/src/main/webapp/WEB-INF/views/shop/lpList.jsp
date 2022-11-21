@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"
-%> <% String pjName = "/eumsae"; %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% String pjName = "/eumsae"; %>
 
 <html>
     <head>
@@ -22,7 +22,7 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
+<!--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" /> -->
 
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
 
@@ -30,7 +30,7 @@
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
+<!--         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" /> -->
 
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
@@ -51,17 +51,15 @@
                 <input type="text" class="quicksearch" placeholder="Search" />
                 <!-- LP리스트 -->
                 <div class="row oneMusic-albums">
-                    <c:forEach var="lpList" items="${ lpList }">
+                    <c:forEach var="list" items="${ list }">
                         <!-- Single Album -->
-                        <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item ${ lpList.filter }">
+                        <div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item">
                             <div class="single-album">
-                                <c:set var="year" value="${ lpList.releaseDate }" />
-                                <img src="<%= pjName %>resources/lpimages/${ lpList.region }/${ fn:substring(year,2,3) }0/${ lpList.classification }.jpg" />
+                                <a href="detail?infono=${ list.infono }"><img src="<%= pjName %>/resources/lpImg/${ list.cjpg }.jpg" /></a>
                                 <div class="album-info">
-                                    <a href="getLpList.do?classification=${ lpList.classification }">
-                                        <h5>${ lpList.singer }</h5>
-                                    </a>
-                                    <p>${ lpList.title }</p>
+                                        <h5>${ list.singer }</h5>
+                                    
+                                    <p>${ list.title }</p>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +70,7 @@
         <!-- ##### Album Catagory Area End ##### -->
 
         <jsp:include page="../include/shopFooter.jsp"></jsp:include>
-
+        
         <!-- ##### 추가 Javascript ##### -->
         <script src="<%=pjName%>/resources/js/lpList.js"></script>
     </body>

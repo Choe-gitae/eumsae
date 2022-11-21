@@ -108,7 +108,7 @@
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                         <h6 class="mb-4">상품 등록</h6>
-                                        <form action="test" method="post" enctype="multipart/form-data">
+                                        <form action="insertLp" method="post" enctype="multipart/form-data">
                                             <div class="form-floating mb-3">
                                                 <select class="form-select" id="floatingSelect" name="genre" aria-label="장르">
                                                     <option selected>장르</option>
@@ -128,6 +128,10 @@
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="title" placeholder="제목" />
                                                 <label for="floatingInput">제목</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="stitle" placeholder="음원명" />
+                                                <label for="floatingInput">음원명</label>
                                             </div>
                                             <div class="form-floating mb-3">
                                                 <input type="text" class="form-control form-control-lg" id="floatingInput" name="singer" placeholder="가수" />
@@ -174,8 +178,8 @@
                                 <div class="container-fluid pt-4 px-4">
                                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                         <h6 class="mb-4">상품 검색</h6>
-                                        <form action="#" method="post">
-                                            <select class="form-select mb-3" name="selectType">
+                                        <form action="searchLp" method="post">
+                                            <select class="form-select mb-3" name="searchKey">
                                                 <option value="singer" selected>가수</option>
                                                 <option value="title">제목</option>
                                                 <option value="genre">장르</option>

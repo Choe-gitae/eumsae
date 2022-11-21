@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mgr">
+	<insert id="insertMgr" parameterType="MgrVO">
+		INSERT INTO MANAGER(mid,pwd,name,addr,email,tel,auth)
+		VALUES(#{mid},#{pwd},#{name},#{addr},#{email},#{tel},#{auth})
+	</insert>
+
+	<select id="logIn" parameterType="MgrVO" resultType="MgrVO">
+		SELECT * FROM MANAGER WHERE mid=#{mid} AND pwd=#{pwd}		
+	</select>
+
+</mapper>

@@ -42,4 +42,8 @@ $(function () {
     $("div.catagory-menu").css("display", "none");
 
     $("input.quicksearch").css("margin", "50px");
+
+    $("input.quicksearch").click(function () {
+        alert("퀵서치");
+    });
 });

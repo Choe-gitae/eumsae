@@ -7,8 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class LpVO {
 	private int infono; // lp정보번호
+	private int lpno;	// lp번호
 	private String genre; // 장르
 	private String title; // 제목(LP이름)
+	private String stitle;	// 음원 제목
 	private String singer;	// 가수
 	private String region; // 지역
 	private int price; // 가격
@@ -37,6 +39,14 @@ public class LpVO {
 
 	public void setInfono(int infono) {
 		this.infono = infono;
+	}	
+	
+	public int getLpno() {
+		return lpno;
+	}
+
+	public void setLpno(int lpno) {
+		this.lpno = lpno;
 	}
 
 	public String getGenre() {
@@ -53,6 +63,14 @@ public class LpVO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getStitle() {
+		return stitle;
+	}
+
+	public void setStitle(String stitle) {
+		this.stitle = stitle;
 	}
 
 	public String getSinger() {
@@ -165,7 +183,7 @@ public class LpVO {
 			UUID uuid = UUID.randomUUID(); // 파일 구별을 위한 uuid 부여
 			this.cjpg = uuid.toString(); // 구별 파일 명
 
-			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upjpg\\" + cjpg);		//파일 저장 경로
+			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\lpImg\\" + cjpg + ".jpg");		//파일 저장 경로
 
 			try {
 				fjpg.transferTo(fi);
@@ -188,9 +206,9 @@ public class LpVO {
 			this.mp3Size = fmp3.getSize();
 
 			UUID uuid = UUID.randomUUID();
-			this.cmp3 = uuid.toString() + "_" + mp3;
+			this.cmp3 = uuid.toString();
 
-			File fm = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\upmp3\\" + cmp3);
+			File fm = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\lpMp3\\" + cmp3 + ".mp3");
 
 			try {
 				fmp3.transferTo(fm);
