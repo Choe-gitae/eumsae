@@ -18,8 +18,8 @@ public class Pagination {
 	   private boolean hasLastPageNav;      // 마지막페이지
 	   
 	   
-	   public Pagination(int pageNum, long totalRecord, int pageSize,  int pageNavSize) {
-	      this.pageNum = pageNum;
+	   public Pagination() {
+	      this.pageSize = 10;
 	      this.totalRecord = totalRecord;
 	      this.pageSize = pageSize;
 	      this.pageNavSize = pageNavSize;
