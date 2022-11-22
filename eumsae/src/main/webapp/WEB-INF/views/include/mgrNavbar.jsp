@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
     
 <% String pjName = "/eumsae"; %>
+
     
 <!DOCTYPE html>
 <html>
@@ -23,22 +24,22 @@
                     <div class="navbar-nav align-items-center ms-auto">
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            	<c:if test="${Mgr != null }">
+                            	<c:if test="${ Mgr != null }">
                             	<span class="d-none d-lg-inline-flex">${sessionScope.Mgr} 님 접속중</span>
                             	</c:if>
-                            	<c:if test="${Mgr == null }">
+                            	<c:if test="${ Mgr == null }">                          	
                             	<span class="d-none d-lg-inline-flex"></span>
-                            	</c:if>                           
+                            	</c:if>                       
                             </a>                            
                             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                                 <a href="#" class="dropdown-item">My Profile</a>
                                 <a href="#" class="dropdown-item">Settings</a>
-                                <c:if test="${Mgr == null }">
+					            <c:if test="${ Mgr == null }">                
                                 <a href="<%=pjName%>/management/loginPage" class="dropdown-item">Log In</a>
                                 </c:if>
-                                <c:if test="${Mgr != null }">
+                                <c:if test="${ Mgr != null }">                              
                                 <a href="<%=pjName%>/management/logout" class="dropdown-item">Log Out</a>
-                                </c:if>
+                                </c:if> 
                             </div>                            
                         </div>
                     </div>                    

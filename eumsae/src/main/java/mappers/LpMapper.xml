@@ -31,5 +31,12 @@
 		ON i.infono=l.infono
 		WHERE i.infono=#{infonoKey} 	
 	</select>
+	
+	<select id="selectLp" parameterType="hashmap" resultType="LpVO">
+      SELECT *
+      FROM lpinfo i INNER JOIN lp l
+      ON i.infono = l.infono
+      WHERE ${searchCon} LIKE '%${searchKey}%'
+   </select>
 
 </mapper>
