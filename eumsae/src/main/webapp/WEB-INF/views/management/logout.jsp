@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EUMSAE MANAGING</title>
 </head>
 <body>
-<%response.sendRedirect("main"); %>
+<%response.sendRedirect("loginPage"); %>
 </body>
 </html>

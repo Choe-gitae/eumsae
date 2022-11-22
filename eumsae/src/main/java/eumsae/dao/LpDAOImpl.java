@@ -49,7 +49,8 @@ public class LpDAOImpl implements LpDAO {
 	public LpVO detail(String infonoKey) {		
 		return mybatis.selectOne("Lp.detail",infonoKey);
 	}
-
+	
+	// LP 수정
 	@Override
 	public Integer updateLp(LpVO vo) {
 		return mybatis.update("Lp.updateLp", vo);

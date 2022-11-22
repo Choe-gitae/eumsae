@@ -34,12 +34,6 @@ public class LpServiceImpl implements LpService {
 		return dao.genreLp(category);
 	}
 
-	// LP정보 키워드로 검색
-	@Override
-	public List<LpVO> selectLpVOList(HashMap map) {
-		return dao.selectLpVOList(map);
-	}
-
 	// LP 삭제
 	@Override
 	public Integer deleteLp(LpVO vo) {
@@ -52,9 +46,18 @@ public class LpServiceImpl implements LpService {
 		return dao.detail(infonoKey);
 	}
 
+	// LP 수정
 	@Override
 	public Integer updateLp(LpVO vo) {
 		return dao.updateLp(vo);
 	}
+	
+	// 검색 조건에 따른 LpVO List 반환
+	@Override
+	public List<LpVO> selectLpVOList(HashMap map) {
+		// TODO Auto-generated method stub
+		return dao.selectLpVOList(map);
+	}
+	
 	
 }
