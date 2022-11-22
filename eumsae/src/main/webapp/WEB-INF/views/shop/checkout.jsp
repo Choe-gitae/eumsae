@@ -363,7 +363,6 @@ function requestPaykakao() {
 	    buyer_addr : '서울특별시 강남구 삼성동',
 	    buyer_postcode : '123-456'
 	}, function(rsp) { // callback 로직
-		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
 	});
 }
 function requestPaytoss() {
@@ -379,7 +378,6 @@ function requestPaytoss() {
 	    buyer_addr : '서울특별시 강남구 삼성동',
 	    buyer_postcode : '123-456'
 	}, function(rsp) { // callback 로직
-		//* ...중략 (README 파일에서 상세 샘플코드를 확인하세요)... *//
 	});
 }
 //결제시스템 스크립트 끝
