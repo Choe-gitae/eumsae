@@ -7,8 +7,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class LpVO {
 	private int infono; // lp정보번호
+	private int lpno;	// lp번호
 	private String genre; // 장르
 	private String title; // 제목(LP이름)
+	private String stitle;	// 음원 제목
 	private String singer;	// 가수
 	private String region; // 지역
 	private int price; // 가격
@@ -37,6 +39,14 @@ public class LpVO {
 
 	public void setInfono(int infono) {
 		this.infono = infono;
+	}	
+	
+	public int getLpno() {
+		return lpno;
+	}
+
+	public void setLpno(int lpno) {
+		this.lpno = lpno;
 	}
 
 	public String getGenre() {
@@ -53,6 +63,14 @@ public class LpVO {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getStitle() {
+		return stitle;
+	}
+
+	public void setStitle(String stitle) {
+		this.stitle = stitle;
 	}
 
 	public String getSinger() {
@@ -170,7 +188,6 @@ public class LpVO {
 			try {
 				fjpg.transferTo(fi);
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} // end of if
@@ -195,7 +212,6 @@ public class LpVO {
 			try {
 				fmp3.transferTo(fm);
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 		} // end of if

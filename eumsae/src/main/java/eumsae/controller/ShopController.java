@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,4 +46,11 @@ public class ShopController {
 		return "/shop/lpList";
 	}
 	
+	//LP 상세 페이지 정보 출력
+	@RequestMapping(value="/detail")
+	public String detail(@RequestParam("infono") String infonoKey, Model m) {
+			LpVO select = lpService.detail(infonoKey);			
+			m.addAttribute("select",select);				
+		return "/shop/detail";
+	}
 }
