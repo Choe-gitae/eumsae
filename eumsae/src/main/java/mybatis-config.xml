@@ -6,8 +6,8 @@
 		<settings>
 		<!-- 언더바 to 카멜 -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
-	<!-- NULL 처리 -->
-		<!-- 		<setting name="jdbcTypeForNull" value="NULL" /> -->
+		<!-- NULL 처리 -->
+		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	
 	<!-- Alias 설정 -->

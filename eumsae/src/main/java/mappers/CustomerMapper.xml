@@ -16,7 +16,7 @@
 	</select>
 	
 	<delete id="deleteCustomer">
-		DELETE FROM CUSTOMER WHERE id = #{id}	
+		DELETE FROM CUSTOMER WHERE id = #{id}
 	</delete>
 	
 	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
