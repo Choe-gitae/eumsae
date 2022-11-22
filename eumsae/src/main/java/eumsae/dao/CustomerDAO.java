@@ -18,4 +18,10 @@ public interface CustomerDAO {
 	// 회원정보 리스트로 반환
 	public List<CustomerVO> selectCustomerVOList (HashMap map);
 	
+	// 회원 정보 수정
+	public Integer updateCustomer(CustomerVO vo);
+	
+	// 회원 삭제
+	public Integer deleteCustomer(CustomerVO vo);
+	
 }

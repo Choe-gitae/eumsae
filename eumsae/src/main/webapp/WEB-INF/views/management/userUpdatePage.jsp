@@ -58,12 +58,34 @@
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                                 <h6 class="mb-4">회원 수정</h6>
-                                <form action="updateLp" method="post">
+                                <form action="updateCustomer?page=userUpdatePage" method="post">
+                                	<div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="id" name="id" placeholder="아이디" readonly/> <label for="floatingInput">아이디</label>
+                                     </div>
+                                    
+                                     <div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="비밀번호" /> <label for="floatingInput">비밀번호</label>
+                                     </div>
+                                     <div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="nick" name="nick" placeholder="별명" /> <label for="floatingInput">별명</label>
+                                     </div>
+                                     <div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="birth" name="birth" placeholder="생일" /> <label for="floatingInput">생일</label>
+                                     </div>
+                                     <div class="form-floating mb-3">   
+                                        <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="이름" /> <label for="floatingInput">이름</label>
+                                    </div>
+                                    <div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="addr" name="addr" placeholder="주소" /> <label for="floatingInput">주소</label>
+                                    </div>    
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control form-control-lg" id="floatingInput" name="id" placeholder="아이디" /> <label for="floatingInput">아이디</label>
+                                        <input type="text" class="form-control form-control-lg" id="tel" name="tel" placeholder="전화번호" /> <label for="floatingInput">전화번호</label>
+                                    </div>    
+                                    <div class="form-floating mb-3">    
+                                        <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="이메일" /> <label for="floatingInput">이메일</label>
                                     </div>
                                     <!-- 추가 -->
-
+										
                                     <button type="submit" class="btn btn-warning" style="margin: 10px">수정 하기</button>
                                 </form>
                             </div>
@@ -113,5 +135,6 @@
         </div>
 
         <jsp:include page="../include/mgrScript.jsp"></jsp:include>
+        <script src="<%=pjName%>/resources/js/userUpdate.js"></script>
     </body>
 </html>
