@@ -70,19 +70,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" placeholder="">
+										class="form-control" id="buyer_name" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" placeholder="">
+										class="form-control" id="buyer_pNum" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" placeholder="" style="width:920px;">
+										type="email" class="form-control" id="buyer_email" placeholder="" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -106,21 +106,21 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" placeholder="">
+										class="form-control" id="re_name" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" placeholder="">
+										class="form-control" id="re_pNum" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" placeholder="" style="width:920px;">
+										type="email" class="form-control" id="re_email" placeholder="" style="width:920px;">
 								</div>
-								<input type="checkbox" class="re_info" id="re_info">
+								<input type="checkbox" class="re_info" id="re_info" onclick="Copy();" />
                                     <label for="re_info" style="font-size: 13px;">주문자 정보와 동일하게</label>
 							</div>
 							<div class="col-md-6">
@@ -341,20 +341,38 @@
         
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <!-- jQuery -->
-<!--   <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script> -->
+<!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <!-- iamport.payment.js -->
-  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script>
+//수령인정보동일시작
+function Copy(){
+	
+	if(document.getElementById("re_info").checked){
+		document.getElementById("re_name").value = document.getElementById("buyer_name").value;
+		document.getElementById("re_pNum").value = document.getElementById("buyer_pNum").value;
+		document.getElementById("re_email").value = document.getElementById("buyer_email").value;
+	}
+}
+//수령인정보동일끝
+
+
+
+
+
+
+
+
+
 
 // 결제시스템 스크립트 시작
-var IMP = window.IMP; // 생략 가능
 IMP.init("imp05370542"); // 예: imp00000000
 
 function requestPaykakao() {
 	IMP.request_pay({
 	    pg : 'kakaopay',
 	    pay_method : 'card', //생략 가능
-	    merchant_uid: "order_no_0001", // 상점에서 관리하는 주문 번호
+	    merchant_uid: "order_no_0002", // 상점에서 관리하는 주문 번호
 	    name : '주문명:결제테스트',
 	    amount : 14000,
 	    buyer_email : 'iamport@siot.do',
@@ -369,7 +387,7 @@ function requestPaytoss() {
 	IMP.request_pay({
 	    pg : 'tosspay',
 	    pay_method : 'card', //생략 가능
-	    merchant_uid: "order_no_0001", // 상점에서 관리하는 주문 번호
+	    merchant_uid: "order_no_0003", // 상점에서 관리하는 주문 번호
 	    name : '주문명:결제테스트',
 	    amount : 14000,
 	    buyer_email : 'iamport@siot.do',
