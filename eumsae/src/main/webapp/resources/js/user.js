@@ -19,13 +19,18 @@ $(document).ready(function () {
         }// end of checkId
     })// end of click function
 
+	// 회원가입하기 버튼 눌렀을 때
+    $('#userSubmit').click(function () {
+        alert('회원 가입을 진행 중입니다.');
+       
+		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
+    		alert("비밀번호가 일치하지 않습니다..");
+    		$('#reg_repwd').focus();    		
+    	} else {
+    		document.regForm.submit();
+    	}	
 
-
-
-
-
-
-
+    })
 
 
 

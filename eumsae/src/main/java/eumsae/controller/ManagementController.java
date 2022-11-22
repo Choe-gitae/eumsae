@@ -31,7 +31,6 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@Autowired
 	private CustomerService cService; 	// 회원 관련 서비스
 
-
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
@@ -43,17 +42,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	public String mgrManagemant() {
 		return "/management/mgrManagemant";
 	}
-
-	// LP 정보 입력
-	@RequestMapping(value = "/insertLp")							// LP 재고 등록 요청이 들어왔을 때
-	public String insertLp(String page, LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
-		service.insertLpInfo(vo);				// LPINFO TABLE 에 저장할 Service 실행
-		service.insertLp(vo);					// LP TABLE 에 저장할 Service 실행
-		m.addAttribute("check", "true");
-		m.addAttribute("message", "등록 성공");	// 모달용 메세지
-		return "/management/"+page;	// 등록페이지로 이동
-	}	
-
+	
 	// 관리자 로그인
 	@RequestMapping(value="/mgrLogin")						// 관리자 로그인 정보가 들어왔을 때
 	public String mgrLogin(MgrVO vo, HttpSession sess) {
@@ -69,7 +58,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 			return "redirect:/management/main"; //로그인 정보가 있을 때, 관리자 페이지로 이동		
 		}
 	}
-
+	
 	// 관리자 로그아웃	
 	@RequestMapping(value="/logout")
 	public String mgrLogOut(HttpSession sess) {
@@ -77,6 +66,16 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		sess.invalidate();			
 		return "/management/loginPage";
 	}
+
+	// LP 정보 입력
+	@RequestMapping(value = "/insertLp")							// LP 재고 등록 요청이 들어왔을 때
+	public String insertLp(String page, LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
+		service.insertLpInfo(vo);				// LPINFO TABLE 에 저장할 Service 실행
+		service.insertLp(vo);					// LP TABLE 에 저장할 Service 실행
+		m.addAttribute("check", "true");
+		m.addAttribute("message", "등록 성공");	// 모달용 메세지
+		return "/management/"+page;	// 등록페이지로 이동
+	}	
 
 	// 검색한 LP 정보 리턴
 	@RequestMapping(value = "/searchLp")
@@ -88,8 +87,64 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("list", list);
 		return "/management/"+page;
 	}
+	
+	// LP정보 삭제
+	@RequestMapping(value = "/deleteLp")
+	public String deleteLp(String page, LpVO vo, Model model) {
+		service.deleteLp(vo);
+		model.addAttribute("message", "삭제 되었습니다.");
+		return "/management/"+page;
+		
+	}
+	
+	// LP 정보 수정
+	@RequestMapping(value = "/updateLp")
+	public String updateLp(String page, LpVO vo, Model model) {
+		service.updateLp(vo);
+		model.addAttribute("message", "수정 되었습니다.");
+		return "/management/"+page;
+		
+	}
+	
+	// 관리자 계정 추가
+	@RequestMapping(value="/registManager")
+	public String registManager(MgrVO vo) {
+		int result = mService.insertMgr(vo);
+		if(result == 1) {
+			return "redirect:/management/main";
+		} else {
+			return "/management/mgrInsertPage";
+		}
+	}
 
-	// 관리자가 회원을 등록하는 경우
+	// 관리자 정보 검색시
+	@RequestMapping(value = "/searchMgr")
+	public String selectMgrVOList(String page, String searchCon, String searchKey, Model model) {
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		List<MgrVO> list = mService.selectMgrVOList(map);
+		model.addAttribute("list", list);
+		return "/management/" + page;
+	}
+	
+	// 관리자 정보 수정
+	@RequestMapping(value="/updateMgr")
+	public String updateMgr(String page, MgrVO vo, Model model) {
+		mService.updateMgr(vo);
+		model.addAttribute("message", "수정 되었습니다.");
+		return "/management/"+page;
+	}
+	
+	// 관리자 계정 삭제
+	@RequestMapping(value = "/deleteMgr")
+	public String deleteMgr(String page, MgrVO vo, Model model) {
+		mService.deleteMgr(vo);
+		model.addAttribute("message", "삭제 되었습니다.");
+		return "/management/"+page;
+	}
+	
+	// 관리자가 직접 회원 등록
 	@RequestMapping(value = "/registCustomer")
 	public String registCustomer(CustomerVO vo) {
 		int result = cService.insertCustomer(vo);
@@ -100,7 +155,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		}
 	}
 
-	// 관리자가 회원 정보를 검색하는 경우
+	// 관리자가 회원 정보를 검색 시
 	@RequestMapping(value = "/searchCustomer")
 	public String selectCustomerVOList(String page, String searchCon, String searchKey, Model model) {
 		HashMap map = new HashMap();
@@ -111,12 +166,21 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/" + page;
 	}
 
-	// LP정보 삭제
-	@RequestMapping(value = "/deleteLp")
-	public String deleteLp(String page, LpVO vo, Model model) {
-		service.deleteLp(vo);
-		model.addAttribute("message", "삭제 되었습니다.");
+	// 회원 정보 수정
+	@RequestMapping(value = "/updateCustomer")
+	public String updateCustomer(String page, CustomerVO vo, Model m) {
+		cService.updateCustomer(vo);		
+		m.addAttribute("message", "수정 되었습니다.");
 		return "/management/"+page;
-
 	}
+	
+	// 회원 삭제
+	@RequestMapping(value="/deleteCustomer")
+	public String deleteCustomer(String page, CustomerVO vo, Model m) {
+		cService.deleteCustomer(vo);
+		m.addAttribute("message", "삭제 되었습니다.");
+		return "/management/"+page;
+	}
+	
+	
 }

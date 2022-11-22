@@ -56,7 +56,7 @@
                     <div class="login-content">
                         <!-- Login Form -->
                         <div class="register-form">
-                            <form action="register" name = "regForm" method="post" onsubmit="return check()">
+                            <form action="register" name = "regForm" method="post">
                                 <div class="form-group">
                                     <label for="reg_id">아이디</label><br/>
                                     <input type="text" class="form-control-id" id="reg_id" name='id' placeholder="아이디를 입력하세요..." required><br>
@@ -96,7 +96,7 @@
                                     <label for="reg_pNum">주소</label>
                                     <input type="text" class="form-control" id="reg_addr"  name='addr' placeholder="주소를 입력하세요..." required>
                                 </div>
-                                <button type="submit" id="submit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
+                                <button type="button" id="userSubmit" class="btn oneMusic-btn mt-30">가입하기</button><br/>
                             </form>
                         </div>
                     </div>
@@ -109,23 +109,7 @@
 	<jsp:include page="../include/shopFooter.jsp"></jsp:include>
 	
 	<!--  제작한 js -->
-    <script src="<%=pjName%>/resources/js/user.js"></script>
-    <script type="text/javascript">
-    	/*
-    	  함수명 : check()
-    	  인자 : 비밀번호와 비밀번호확인에 입력한 값
-    	*/
-    	function check() {
-    		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
-        		alert("비밀번호가 일치하지 않습니다..");
-        		$('#reg_repwd').focus();
-        		return false;
-        	} else {
-        		return true;
-        	}
-    	}    
-    </script>
-     
+    <script src="<%=pjName%>/resources/js/user.js"></script>     
 </body>
 
 </html>

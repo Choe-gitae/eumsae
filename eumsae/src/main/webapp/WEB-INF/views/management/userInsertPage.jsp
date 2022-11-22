@@ -41,36 +41,36 @@
                     <div class="alert alert-light" role="alert">회원 등록 페이지</div>
                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                         <h6 class="mb-4">회원 등록</h6>
-                        <form action="registCustomer" method="post">
+                        <form action="registCustomer" method="post" name="registCustomerForm">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="id" placeholder="아이디" /> <label for="floatingInput">아이디</label>
+                                <input type="text" class="form-control form-control-lg" id="id" name="id" placeholder="아이디" /> <label for="floatingInput">아이디</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="pwd" placeholder="비밀번호" /> <label for="floatingInput">비밀번호</label>
+                                <input type="text" class="form-control form-control-lg" id="pwd" name="pwd" placeholder="비밀번호" /> <label for="floatingInput">비밀번호</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="rpwd" placeholder="비밀번호확인" /> <label for="floatingInput">비밀번호확인</label>
+                                <input type="text" class="form-control form-control-lg" id="rpwd" name="rpwd" placeholder="비밀번호확인" /> <label for="floatingInput">비밀번호확인</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="nick" placeholder="별명" /> <label for="floatingInput">별명</label>
+                                <input type="text" class="form-control form-control-lg" id="nick" name="nick" placeholder="별명" /> <label for="floatingInput">별명</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="birth" placeholder="생일" /> <label for="floatingInput">생일</label>
+                                <input type="text" class="form-control form-control-lg" id="birth" name="birth" placeholder="생일" /> <label for="floatingInput">생일</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="name" placeholder="이름" /> <label for="floatingInput">이름</label>
+                                <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="이름" /> <label for="floatingInput">이름</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="addr" placeholder="전화번호" /> <label for="floatingInput">주소</label>
+                                <input type="text" class="form-control form-control-lg" id="addr" name="addr" placeholder="전화번호" /> <label for="floatingInput">주소</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="tel" placeholder="전화번호" /> <label for="floatingInput">전화번호</label>
+                                <input type="text" class="form-control form-control-lg" id="tel" name="tel" placeholder="전화번호" /> <label for="floatingInput">전화번호</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="floatingInput" name="email" placeholder="이메일" /> <label for="floatingInput">이메일</label>
+                                <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="이메일" /> <label for="floatingInput">이메일</label>
                             </div>
 
-                            <button type="submit" class="btn btn-success">등록</button>
+                            <button type="button" id="mgrUserSubmit" class="btn btn-success">회원 등록</button>
                             <button type="reset" class="btn btn-warning">취소</button>
                         </form>
                     </div>
@@ -80,5 +80,6 @@
         </div>
 
         <jsp:include page="../include/mgrScript.jsp"></jsp:include>
+        <script src="<%=pjName%>/resources/js/manager.js"></script>
     </body>
 </html>
