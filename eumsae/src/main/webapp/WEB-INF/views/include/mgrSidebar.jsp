@@ -29,9 +29,16 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <c:if test="${Auth == 'admin' }">
-                        <a href="managerManagement" class="nav-item nav-link"><i class="fa fa-table me-2"></i>관리자 계정 관리</a>
-                    </c:if>
+                    <div class="nav-item dropdown">
+                        <c:if test="${Auth == 'admin' }">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>관리자 계정 관리</a>
+                            <div class="dropdown-menu bg-transparent border-0">
+                                <a href="mgrInsertPage" class="dropdown-item">관리자 등록</a>
+                                <a href="mgrUpdatePage" class="dropdown-item">관리자 수정</a>
+                                <a href="mgrDeletePage" class="dropdown-item">관리자 삭제</a>
+                            </div>
+                        </c:if>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>회원관리</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -49,10 +56,7 @@
                             </div>
                         </c:if>
                     </div>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>요청 게시판 관리</a>
-                    <c:if test="${Auth == 'admin' }">
-                        <a href="settingManagement" class="nav-item nav-link"><i class="fa fa-table me-2"></i>설정 관리</a>
-                    </c:if>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>게시판 관리</a>
                     <c:if test="${Auth != 'sub' }">
                         <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>매출 관리</a>
                     </c:if>
