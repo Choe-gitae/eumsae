@@ -18,7 +18,7 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                <a href="main" class="navbar-brand mx-4 mb-3">
                     <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
@@ -56,10 +56,17 @@
                             </div>
                         </c:if>
                     </div>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>게시판 관리</a>
-                    <c:if test="${Auth != 'sub' }">
-                        <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>매출 관리</a>
-                    </c:if>
+                    <a href="boardWishPage" class="nav-item nav-link"><i class="fa fa-table me-2"></i>게시판 관리</a>
+                    <div class="nav-item dropdown">
+                        <c:if test="${Auth != 'sub' }">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>매출 관리</a>
+                            <div class="dropdown-menu bg-transparent border-0">
+                                <a href="mgtSalesPage" class="dropdown-item">주문내역</a>
+                                <a href="mgtSalesListPage" class="dropdown-item">주문내역 상세보기</a>
+                                <a href="mgtSalesChartPage" class="dropdown-item">매출내역 및 차트</a>
+                            </div>
+                        </c:if>
+                    </div>
                 </div>
             </nav>
         </div>
