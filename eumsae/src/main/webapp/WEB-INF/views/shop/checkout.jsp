@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% String pjName = "/eumsae"; %>
 
@@ -20,19 +21,13 @@
 
 <!-- Stylesheet -->
         <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-
         <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
-
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
-
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
     </head>
@@ -174,7 +169,6 @@
 													<thead class="thead-primary">
 														<tr>
 															<th>&nbsp;</th>
-															<th>&nbsp;</th>
 															<th>상품</th>
 															<th>가격</th>
 															<th>수량</th>
@@ -183,99 +177,40 @@
 														</tr>
 													</thead>
 													<tbody>
+														<tr>
+															<td>사진</td>
+															<td>상품</td>
+															<td>가격</td>
+															<td>수량</td>
+															<td>총액</td>
+															<td>x버튼</td>
+														</tr>
+														<!-- 한 블럭 시작 -->
 														<tr class="alert" role="alert">
-															<td><label class="checkbox-wrap checkbox-primary">
-																	<input type="checkbox" checked> <span
-																	class="checkmark"></span>
-															</label></td>
 															<td>
-																<div class="img"
-																	style="background-image: url(../resources/img/bg-img/a1.jpg);"></div>
+																<div class="img" style="background-image: url(../resources/img/bg-img/a2.jpg);"></div>
 															</td>
 															<td>
 																<div class="email">
-																	<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-																		voluptates quasi nemo, ipsa perferendis</span>
+																	<span>나훈아</span> <span>나훈아의노래임</span>
 																</div>
 															</td>
-															<td>$44.99</td>
+															<td>₩<span class="price">123</span></td>
 															<td class="quantity">
-																<div class="input-group">
-																	<input type="text" name="quantity"
-																		class="quantity form-control input-number" value="2"
-																		min="1" max="100">
-																</div>
+																<span class="input-group">
+																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>
+																	<input id="quantity" type="text" name="quantity" value="2" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
+																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
+																</span>
 															</td>
-															<td>$89.98</td>
+															<td>₩<span class="resultPrice"></span></td>
 															<td>
-																<button type="button" class="close" data-dismiss="alert"
-																	aria-label="Close">
+																<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 																	<span aria-hidden="true"><i class="fa fa-close"></i></span>
 																</button>
 															</td>
 														</tr>
-
-														<tr class="alert" role="alert">
-															<td><label class="checkbox-wrap checkbox-primary">
-																	<input type="checkbox"> <span class="checkmark"></span>
-															</label></td>
-															<td>
-																<div class="img"
-																	style="background-image: url(../resources/img/bg-img/a2.jpg);"></div>
-															</td>
-															<td>
-																<div class="email">
-																	<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-																		voluptates quasi nemo, ipsa perferendis</span>
-																</div>
-															</td>
-															<td>$30.99</td>
-															<td class="quantity">
-																<div class="input-group">
-																	<input type="text" name="quantity"
-																		class="quantity form-control input-number" value="2"
-																		min="1" max="100">
-																</div>
-															</td>
-															<td>$30.99</td>
-															<td>
-																<button type="button" class="close" data-dismiss="alert"
-																	aria-label="Close">
-																	<span aria-hidden="true"><i class="fa fa-close"></i></span>
-																</button>
-															</td>
-														</tr>
-
-														<tr class="alert" role="alert">
-															<td><label class="checkbox-wrap checkbox-primary">
-																	<input type="checkbox"> <span class="checkmark"></span>
-															</label></td>
-															<td>
-																<div class="img"
-																	style="background-image: url(../resources/img/bg-img/a3.jpg);"></div>
-															</td>
-															<td>
-																<div class="email">
-																	<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-																		voluptates quasi nemo, ipsa perferendis</span>
-																</div>
-															</td>
-															<td>$35.50</td>
-															<td class="quantity">
-																<div class="input-group">
-																	<input type="text" name="quantity"
-																		class="quantity form-control input-number" value="1"
-																		min="1" max="100">
-																</div>
-															</td>
-															<td>$35.50</td>
-															<td>
-																<button type="button" class="close" data-dismiss="alert"
-																	aria-label="Close">
-																	<span aria-hidden="true"><i class="fa fa-close"></i></span>
-																</button>
-															</td>
-														</tr>
+														<!-- 한 블럭 끝 -->
 <!-- ######### 결제 목록 끝############# -->
 
 													</tbody>
@@ -292,19 +227,19 @@
 					<div class="row mt-5 pt-3 d-flex">
 						<div class="col-md-6 d-flex">
 							<div class="cart-detail cart-total p-3 p-md-4">
-								<h3 class="billing-heading mb-4">총 금액</h3>
+								<h3 class="billing-heading mb-4">결제하실 금액</h3>
 								<p class="d-flex">
-									<span>Subtotal</span> <span>$20.60</span>
+									<span>주문금액</span> <span></span>
 								</p>
 								<p class="d-flex">
-									<span>Delivery</span> <span>$0.00</span>
+									<span>배송비</span> <span></span>
 								</p>
 								<p class="d-flex">
-									<span>Discount</span> <span>$3.00</span>
+									<span>할인</span> <span></span>
 								</p>
 								<hr>
 								<p class="d-flex total-price">
-									<span>Total</span> <span>$17.60</span>
+									<span>결제하실 금액</span> <span></span>
 								</p>
 							</div>
 						</div>
@@ -345,7 +280,39 @@
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script>
+
+//상품수량
+$(function(){
+		var result = $(".price").text()*$("#quantity").val();
+		$(".resultPrice").append(result);
+	$("#quantity").on("change",function(){
+		var result = $(".price").text()*$("#quantity").val();
+		$(".resultPrice").text(result);	
+	})
+//상품수량 끝
+
+//상품수량업다운버튼
+
+	var qtt = $("#quantity").val();
+		$("#upBtn").click(function(){
+			$("#quantity").val(++qtt);
+			var result = $(".price").text()*$("#quantity").val();
+			$(".resultPrice").text(result);	
+		})
+		$("#downBtn").click(function(){
+			$("#quantity").val(--qtt);
+			var result = $(".price").text()*$("#quantity").val();
+			$(".resultPrice").text(result);	
+		})
+})
+
+
+//상품수량업다운버튼끝
+
+
+
 //수령인정보동일시작
+
 function Copy(){
 	
 	if(document.getElementById("re_info").checked){
@@ -355,14 +322,6 @@ function Copy(){
 	}
 }
 //수령인정보동일끝
-
-
-
-
-
-
-
-
 
 
 // 결제시스템 스크립트 시작
