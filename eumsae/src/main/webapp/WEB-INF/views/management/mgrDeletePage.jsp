@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <% String pjName = "/eumsae"; %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,19 +30,19 @@
 
 <!-- Libraries Stylesheet -->
 <link
-	href="<%=pjName%>/resources/00-darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css"
+	href="<%= pjName %>/resources/00-darkpan-1.0.0/lib/owlcarousel/assets/owl.carousel.min.css"
 	rel="stylesheet" />
 <link
-	href="<%=pjName%>/resources/00-darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+	href="<%= pjName %>/resources/00-darkpan-1.0.0/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
 	rel="stylesheet" />
 
 <!-- Customized Bootstrap Stylesheet -->
 <link
-	href="<%=pjName%>/resources/00-darkpan-1.0.0/css/bootstrap.min.css"
+	href="<%= pjName %>/resources/00-darkpan-1.0.0/css/bootstrap.min.css"
 	rel="stylesheet" />
 
 <!-- Template Stylesheet -->
-<link href="<%=pjName%>/resources/00-darkpan-1.0.0/css/style.css"
+<link href="<%= pjName %>/resources/00-darkpan-1.0.0/css/style.css"
 	rel="stylesheet" />
 </head>
 <body>
@@ -50,27 +51,28 @@
 
 		<!-- Content Start -->
 		<div class="content">
+
 			<jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 
 			<div class="container-fluid pt-4 px-4">
-				<div class="alert alert-light" role="alert">회원 삭제 페이지</div>
+				<div class="alert alert-light" role="alert">관리자 삭제 페이지</div>
 				<div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-					<h6 class="mb-4">회원 검색</h6>
-					<form action="searchCustomer?page=userDeletePage" method="post">
+					<h6 class="mb-4">관리자 검색</h6>
+					<form action="searchMgr?page=mgrDeletePage" method="post">
 						<select class="form-select mb-3" name="searchCon">
-							<option value="id" selected>아이디</option>
+							<option value="mid" selected>아이디</option>
 							<option value="name">이름</option>
 							<option value="tel">전화번호</option>
 							<option value="addr">주소</option>
 						</select> <input class="form-control bg-dark border-0" type="search"
-							name="searchKey" placeholder="Search" />
+							placeholder="Search" />
 						<button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
 					</form>
 				</div>
 			</div>
 			<div class="container-fluid pt-4 px-4">
 				<div class="bg-secondary rounded h-100 p-4">
-					<h6 class="mb-4">회원 정보 테이블</h6>
+					<h6 class="mb-4">관리자 정보 테이블</h6>
 					<div class="table-responsive">
 						<table class="table">
 							<thead>
@@ -78,31 +80,28 @@
 									<th scope="col">#</th>
 									<th scope="col">아이디</th>
 									<th scope="col">비밀번호</th>
-									<th scope="col">별명</th>
 									<th scope="col">이름</th>
-									<th scope="col">성별</th>
 									<th scope="col">주소</th>
 									<th scope="col">전화번호</th>
 									<th scope="col">이메일</th>
-									<th scope="col">가입일</th>
+									<th scope="col">등록일</th>
 									<th scope="col">삭제</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="list" items="${list}" varStatus="status">
-									<tr>
-										<th scope="row">${status.count}</th>
-										<td>${list.id}</td>
-										<td>${list.pwd}</td>
-										<td>${list.nick}</td>
-										<td>${list.birth}</td>
-										<td>${list.name}</td>
-										<td>${list.addr}</td>
-										<td>${list.tel}</td>
-										<td>${list.email}</td>
-										<td><a href="deleteCustomer?id=${list.id}&page=userDeletePage"><button class="btn btn-danger">삭제</button></a></td>
-									</tr>
-								</c:forEach>
+                                        <tr>
+                                            <th scope="row">${status.count}</th>
+                                            <td>${list.mid}</td>
+                                            <td>${list.pwd}</td>
+                                            <td>${list.name}</td>
+                                            <td>${list.addr}</td>
+                                            <td>${list.email}</td>
+                                            <td>${list.tel}</td>
+                                            <td>${list.auth}</td>                                          
+                                            <td><a href="deleteMgr?mid=${list.mid}&page=mgrDeletePage"><button class="btn btn-danger">삭제</button></a></td>
+                                        </tr>
+                                    </c:forEach>
 							</tbody>
 						</table>
 					</div>

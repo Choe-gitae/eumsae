@@ -15,8 +15,8 @@
 		</if>
 	</select>
 	
-	<delete id="deleteCustomer">
-		DELETE FROM CUSTOMER WHERE id = #{id}
+	<delete id="deleteCustomer" parameterType="CustomerVO">
+		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
 	
 	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
@@ -25,6 +25,11 @@
       WHERE ${searchCon} LIKE '%${searchKey}%'
    </select>
 
+	<update id="updateCustomer" parameterType="CustomerVO">
+	UPDATE CUSTOMER 
+	SET pwd=#{pwd},nick=#{nick},birth=#{birth},name=#{name},addr=#{addr},tel=#{tel},email=#{email}
+	WHERE id=#{id}	
+	</update>
 	
 
 </mapper>

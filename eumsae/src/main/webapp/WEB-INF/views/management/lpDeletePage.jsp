@@ -41,7 +41,7 @@
                     <div class="alert alert-light" role="alert">상품 삭제 페이지</div>
                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                         <h6 class="mb-4">상품 검색</h6>
-                        <form action="searchLp?page=deleteLpPage" method="post">
+                        <form action="searchLp?page=lpDeletePage" method="post">
                             <select class="form-select mb-3" name="searchCon">
                                 <option value="singer" selected>가수</option>
                                 <option value="title">제목</option>
@@ -85,7 +85,7 @@
                                             <td>${list.lpdate}</td>
                                             <td>${list.price}</td>
                                             <td>
-                                                <a href="deleteLp?infono=${list.infono}"><button class="btn btn-danger">삭제</button></a>
+                                                <a href="deleteLp?infono=${list.infono}&page=lpDeletePage"><button class="btn btn-danger">삭제</button></a>
                                             </td>
                                         </tr>
                                     </c:forEach>

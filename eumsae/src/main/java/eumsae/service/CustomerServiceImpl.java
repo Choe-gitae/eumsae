@@ -40,4 +40,16 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.selectCustomerVOList(map);
 	}
 
+	@Override
+	public Integer updateCustomer(CustomerVO vo) {
+		System.out.println("회원 정보 수정 서비스");
+		return dao.updateCustomer(vo);
+	}
+
+	@Override
+	public Integer deleteCustomer(CustomerVO vo) {
+		System.out.println("회원 삭제 서비스");
+		return dao.deleteCustomer(vo);
+	}
+
 }
