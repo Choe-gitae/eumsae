@@ -65,7 +65,7 @@ a:focus {
 }
 .a_bc{
 	position: absolute;
-    left: 619px;
+    left: 560px;
     top: 517px;
     font-size: 12px;
     color: gray;
@@ -378,6 +378,17 @@ img {
   .oneMusic-btn i {
     margin-left: 5px; }
   .oneMusic-btn:hover, .oneMusic-btn:focus {
+    font-size: 16px;
+    font-weight: 700;
+    background-color: #000000;
+    color: #fff; }
+  .oneMusic-btn.btn-2 {
+    background-color: #000000;
+    color: #fff; }
+    .oneMusic-btn.btn-2:hover, .oneMusic-btn.btn-2:focus {
+      background-color: #fff;
+      color: #232323; }
+  .oneMusic-btn-login:hover, .oneMusic-btn-login:focus {
     font-size: 16px;
     font-weight: 700;
     background-color: #000000;

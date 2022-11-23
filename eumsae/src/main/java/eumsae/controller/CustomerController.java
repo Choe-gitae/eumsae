@@ -95,10 +95,9 @@ public class CustomerController {
 	}
 
 	// 로그아웃
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String mgrLogOut(HttpServletRequest request) {
-		System.out.println("유저 로그아웃");
-		HttpSession session = request.getSession();
+	@RequestMapping(value = "/logout")
+	public String mgrLogOut(HttpSession session) {
+		System.out.println("유저 로그아웃");		
 		session.invalidate();
 		return "redirect:/shop/main";
 	}

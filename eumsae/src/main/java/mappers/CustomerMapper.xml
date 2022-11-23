@@ -21,4 +21,14 @@
  
 
 
+	<delete id="deleteCustomer" parameterType="CustomerVO">
+		DELETE FROM CUSTOMER WHERE id=#{id}
+	</delete>
+	
+	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
+      SELECT *
+      FROM CUSTOMER
+      WHERE ${searchCon} LIKE '%${searchKey}%'
+   </select>
+
 </mapper>
