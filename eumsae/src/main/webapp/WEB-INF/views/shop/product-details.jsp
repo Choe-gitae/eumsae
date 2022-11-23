@@ -173,5 +173,22 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
     <!-- ##### Main Content Wrapper End ##### -->
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
+
+    <!-- ##### All Javascript Script ##### -->
+
+    <!--     jQuery-2.2.4 js -->
+
+    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
+    <!--     Popper js -->
+    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
+    <!--     Bootstrap js -->
+    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
+    <!--     All Plugins js -->
+    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
+    <!--     Active js -->
+    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/active.js"></script>
+    <!--  자체 제작 JS -->
+    <script src="<%=pjName%>/resources/js/Cart.js"></script>
+    <script src="<%=pjName%>/resources/js/checkOut.js"></script>
   </body>
 </html>

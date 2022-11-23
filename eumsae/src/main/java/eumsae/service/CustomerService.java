@@ -14,18 +14,20 @@ public interface CustomerService {
 
 	// 로그인
 	public CustomerVO login(CustomerVO vo);
-	
+
 	// 회원정보 리스트로 반환
-	public List<CustomerVO> selectCustomerVOList (HashMap map);
-	
+	public List<CustomerVO> selectCustomerVOList(HashMap map);
+
 	// 회원 정보 수정
 	public Integer updateCustomer(CustomerVO vo);
-	
+
 	// 회원 정보 삭제
 	public Integer deleteCustomer(CustomerVO vo);
 
-	
 	// 카트담기
 	public Integer addCart(CartVO vo);
+
+	// 아이디로 회원 정보 찾기
+	public CustomerVO selectById(String id);
 
 }
