@@ -9,12 +9,18 @@
 	</insert>
 
 	<select id="idCheck" parameterType="CustomerVO" resultType="CustomerVO">
-		SELECT * FROM CUSTOMER WHERE id=#{id}
+		SELECT id,pwd FROM CUSTOMER WHERE id=#{id}
 		<if test="pwd != null">
 		AND pwd=#{pwd}
 		</if>
 	</select>
 	
+	<insert id="addCart" parameterType="CartVO">
+	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
+	</insert>
+ 
+
+
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
@@ -24,12 +30,5 @@
       FROM CUSTOMER
       WHERE ${searchCon} LIKE '%${searchKey}%'
    </select>
-
-	<update id="updateCustomer" parameterType="CustomerVO">
-	UPDATE CUSTOMER 
-	SET pwd=#{pwd},nick=#{nick},birth=#{birth},name=#{name},addr=#{addr},tel=#{tel},email=#{email}
-	WHERE id=#{id}	
-	</update>
-	
 
 </mapper>
