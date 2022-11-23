@@ -9,7 +9,4 @@ public class CartVO {
 	private String id;		//아이디	(fk)
 	private int amount;		// 주문수량
 	private int lpno;		//lp 번호 (fk)
-	
-
-
 }
