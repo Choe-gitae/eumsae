@@ -52,7 +52,7 @@
 
 <!-- ##### 페이지 이름 ######### -->
    <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('../resources/images/bg_3.gif');"
+      style="background-image: url('<%=pjName%>/resources/images/img/bg-img/bg-0.gif');"
       data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -91,7 +91,7 @@
 								<li class="breadcrumb-item"><a href="#">Main</a></li>
 								<li class="breadcrumb-item"><a href="#">LP List</a></li>
 								<li class="breadcrumb-item"><a href="#">LP Detail</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Daft Punk</li>
+								<li class="breadcrumb-item active" aria-current="page">${select.title}</li>
 							</ol>
 						</nav>
 					</div>
@@ -105,15 +105,15 @@
 								<ol class="carousel-indicators">
 
 								</ol>
-								<div class="carousel-inner">
+								<div class="carousel-inner">								
 									<div class="carousel-item active">
 										<a class="gallery_img"
-											href="<%=pjName%>/resources/lpImg/daftpunk.jpg">
+											href="<%=pjName%>/resources/lpImg/${select.cjpg}.jpg">
 											<img class="d-block w-100"
-											src="<%=pjName%>/resources/lpImg/daftpunk.jpg"
-											alt="First slide">
+											src="<%=pjName%>/resources/lpImg/${select.cjpg}.jpg"
+											alt="Select img">
 										</a>
-									</div>									
+									</div>									 								
 								</div>
 							</div>
 						</div>
@@ -123,19 +123,20 @@
 							<!-- Product Meta Data -->
 							<div class="product-meta-data">
 								<div class="line"></div>
-								<p class="product-price"> ₩ 20,000</p>
-								<a href="product-details.html">
-									<h6>Daft Punk</h6>
-								</a>
-                                <!-- Avaiable -->
-                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
+								<p class="product-price"> ₩ ${select.price}</p>
+								<a href="#"><h6>${select.title}</h6></a>                                
                             </div>
+                            <hr>
+                                    <p>${select.stitle}</p>
+                                    <audio preload="auto" controls>
+                                        <source src="<%=pjName%>/resources/lpMp3/${select.cmp3}.mp3" />
+                                    </audio>
+							<hr>
 
                             <div class="short_overview my-5">
-                                <p>Random Access Memories is the fourth studio album by the French electronic duo Daft Punk, released on 17 May 2013 through Columbia Records. The album pays tribute to late 1970s and early 1980s American music, particularly from Los Angeles.</p>
+                                <p>${select.content}</p>                             
                             </div>								
 								
-
 							<!-- Add to Cart Form -->
 							<form class="cart clearfix" method="post">
 								<div class="cart-btn d-flex mb-50">
