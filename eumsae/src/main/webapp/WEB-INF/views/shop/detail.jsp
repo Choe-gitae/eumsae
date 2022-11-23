@@ -45,7 +45,7 @@ uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
   <body>
   	<jsp:include page="../include/shopHeader.jsp" />
-    <!-- ##### Blog Area Start ##### -->
+    ##### Blog Area Start #####
     <div class="blog-area section-padding-100">
       <div class="container">
         <div class="row">
