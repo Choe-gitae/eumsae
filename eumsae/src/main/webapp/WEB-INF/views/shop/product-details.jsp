@@ -18,7 +18,7 @@
 <title>Eumsae detail page</title>
 
 <!-- Favicon -->
-<link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
+<link rel="icon" href="<%=pjName%>../resources/images/favicon.ico" />
 
 
 <!-- Stylesheet -->
@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/bootstrap.min.css" />
 
 <!-- Core Style CSS -->
-<link rel="stylesheet" href="../resources/00-amado-master/css/core-style.css">
+
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>

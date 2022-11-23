@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<!-- <link rel="stylesheet" href="../resources/00-amado-master/css/core-style.css"> -->
 <title>shopFooter</title>
 </head>
 <body>

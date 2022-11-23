@@ -35,7 +35,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
 
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+<%--         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" /> --%>
 
 </head>
 
@@ -43,7 +43,7 @@
     <jsp:include page="../include/shopHeader.jsp" />
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 
@@ -67,27 +67,27 @@
                 ">
                         <!-- Write Form -->
                         <div class="requestBoardWrite-form">
-                            <form action="requestBoardWrite.jsp" method="post">
+                            <form action="requestBoardSave" method="post">
                             	<div class="container" >
                             		<div class="form-group">
-                                    <label for="write-title">글제목</label>
-                                    <input type="text" class="form-control-my" id="write-title" placeholder="제목을 입력하세요...">
+                                    <label for="write-title">요청사항</label>
+                                    <input type="text" class="form-control-my" id="title" name="title" placeholder="요청사항을 입력하세요...">
                                 	</div>
                                 	<hr/>
                                 	<div class="form-group">
                                     <label for="write-writer">작성자</label>
-                                    <input type="text" class="form-control-my" id="write-writer" placeholder="이름을 입력하세요...">
+                                    <input type="text" class="form-control-my" id="id" name="id"  value="${login}" readonly>
                                 	</div>
-                                	<div class="form-group">
-                                    <label for="write-writer">비밀번호</label>
-                                    <input type="password" class="form-control-my" id="write-writer" placeholder="비밀번호를 입력하세요...">
-                                	</div>
+<!--                                 	<div class="form-group"> -->
+<!--                                     <label for="write-writer">비밀번호</label> -->
+<!--                                     <input type="password" class="form-control-my" id="" name="" placeholder="비밀번호를 입력하세요..."> -->
+<!--                                 	</div> -->
                                 	<div class="form-group">
                                     <label for="write-content">내용</label>
-                                    <textarea class="form-control-ta" id="write-content" placeholder="내용을 입력하세요..." style="heigth: 500px;"></textarea>
+                                    <textarea class="form-control-ta" id="article"  name="article" placeholder="내용을 입력하세요..." style="heigth: 500px;"></textarea>
                                 	</div>
                             	</div>
-                                <button type="submit" class="btn oneMusic-btn mt-15" style="left: 457px;">등록</button>
+                                <button id="insert-btn" type="submit" class="btn oneMusic-btn mt-15" style="left: 457px;">등록</button>
                             </form>
                                 <a href="requestBoard"><button class="btn oneMusic-btn mt-15" style="left: 357px;top: -64px;">목록</button></a><br/>
                         </div>
@@ -99,6 +99,14 @@
     <!-- ##### Login Area End ##### -->
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
+<!--     <script type="text/javascript"> -->
+	
+//     function doBoard(){
+//     	window.loaction.replace('requestBoard.jsp');
+//     }
+    
+<!--     </script> -->
+    
 </body>
 
 </html>
