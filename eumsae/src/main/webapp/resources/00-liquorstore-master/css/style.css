@@ -4,6 +4,14 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+ 
+  @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+ 
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -41,7 +49,7 @@
   box-sizing: border-box; }
 
 html {
-  font-family: sans-serif;
+  font-family: "Archivo Narrow", sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -7995,7 +8003,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-family: "Spectral", serif;
+  font-family: "Archivo Narrow", sans-serif;
   background: #fff;
   font-size: 16px;
   line-height: 1.8;
@@ -8534,8 +8542,8 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #b7472a !important;
-    border: 1px solid #b7472a !important;
+    background: #000000 !important;
+    border: 1px solid #000000 !important;
     color: #fff !important; }
     .btn.btn-primary:hover {
       border: 1px solid #b7472a;
@@ -8917,7 +8925,7 @@ h1, h2, h3, h4, h5,
   -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
   .table thead.thead-primary {
-    background: #b7472a;
+    background: black;
     border-radius: 4px; }
   .table thead th {
     border: none;
@@ -8934,7 +8942,7 @@ h1, h2, h3, h4, h5,
     border-bottom: 4px solid #f8f9fd;
     vertical-align: middle; }
   .table tbody td.quantity {
-    width: 10%; }
+    width: 12%; }
   .table tbody td .img {
     width: 70px;
     height: 80px; }
@@ -9067,8 +9075,8 @@ h1, h2, h3, h4, h5,
   padding-left: 15px;
   padding-right: 15px;
   background: transparent !important;
-  color: rgba(0, 0, 0, 0.4) !important;
-  font-size: 14px;
+  color: #232323 !important;
+  font-size: 22px;
   border-radius: 0px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }

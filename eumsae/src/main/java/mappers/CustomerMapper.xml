@@ -15,7 +15,6 @@
 		</if>
 	</select>
 	
-
 	<insert id="addCart" parameterType="CartVO">
 	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
 	</insert>
@@ -27,8 +26,8 @@
 	ON l.lpno = c.lpno 
 	</select>
 
-	<delete id="deleteCustomer">
-		DELETE FROM CUSTOMER WHERE id = #{id}	
+	<delete id="deleteCustomer" parameterType="CustomerVO">
+		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
 	
 	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
@@ -36,6 +35,5 @@
       FROM CUSTOMER
       WHERE ${searchCon} LIKE '%${searchKey}%'
    </select>
-
 
 </mapper>

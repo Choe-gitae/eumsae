@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <% String pjName = "/eumsae"; %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,63 +54,82 @@
 			<jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 
 			<div class="container-fluid pt-4 px-4">
-				<div class="alert alert-light" role="alert">회원 삭제 페이지</div>
+				<div class="alert alert-light" role="alert">주문내역 상세보기 페이지</div>
 				<div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-					<h6 class="mb-4">회원 검색</h6>
-					<form action="searchCustomer?page=userDeletePage" method="post">
+					<h6 class="mb-4">검색</h6>
+					<form action="searchLp?page=deleteLpPage" method="post">
 						<select class="form-select mb-3" name="searchCon">
-							<option value="id" selected>아이디</option>
-							<option value="name">이름</option>
-							<option value="tel">전화번호</option>
-							<option value="addr">주소</option>
-						</select> <input class="form-control bg-dark border-0" type="search"
-							name="searchKey" placeholder="Search" />
+							<option value="userId" selected>회원ID</option>
+							<option value="orderNo">주문번호</option>
+							<option value="genre">장르</option>
+							<option value="singer">가수</option>
+							<option value="title">제목</option>
+						</select> <input class="form-control bg-dark border-0" name="searchKey"
+							type="search" placeholder="Search" />
 						<button type="submit" class="btn btn-info" style="margin: 10px">검색</button>
 					</form>
 				</div>
 			</div>
+
 			<div class="container-fluid pt-4 px-4">
-				<div class="bg-secondary rounded h-100 p-4">
-					<h6 class="mb-4">회원 정보 테이블</h6>
+
+				<div class="bg-secondary text-center rounded p-4">
+					<div class="d-flex align-items-center justify-content-between mb-4">
+						<h6 class="mb-0">주문내역 상세보기</h6>
+					</div>
 					<div class="table-responsive">
-						<table class="table">
+						<table
+							class="table text-start align-middle table-bordered table-hover mb-0">
 							<thead>
-								<tr>
-									<th scope="col">#</th>
-									<th scope="col">아이디</th>
-									<th scope="col">비밀번호</th>
-									<th scope="col">별명</th>
-									<th scope="col">이름</th>
-									<th scope="col">성별</th>
-									<th scope="col">주소</th>
-									<th scope="col">전화번호</th>
-									<th scope="col">이메일</th>
-									<th scope="col">가입일</th>
-									<th scope="col">삭제</th>
+								<tr class="text-white">
+									<th scope="col">주문일</th>
+									<th scope="col">주문번호</th>
+									<th scope="col">회원ID</th>
+									<th scope="col">표지</th>
+									<th scope="col">장르</th>
+									<th scope="col">가수</th>
+									<th scope="col">제목</th>
+									<th scope="col">가격</th>
+									<th scope="col">개수</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="list" items="${list}" varStatus="status">
-									<tr>
-										<th scope="row">${status.count}</th>
-										<td>${list.id}</td>
-										<td>${list.pwd}</td>
-										<td>${list.nick}</td>
-										<td>${list.birth}</td>
-										<td>${list.name}</td>
-										<td>${list.addr}</td>
-										<td>${list.tel}</td>
-										<td>${list.email}</td>
-										<td><a href="deleteCustomer?id=${list.id}&page=userDeletePage"><button class="btn btn-danger">삭제</button></a></td>
-									</tr>
-								</c:forEach>
+								<tr>
+									<td>2022.11.11. 18:38</td>
+									<td>1111</td>
+									<td>JhonDoe</td>
+									<td><img src="<%= pjName %>/resources/lpImg/이미지이름.jpg"
+										class="mgr-del-table-img" /></td>
+									<td>장르</td>
+									<td>가수</td>
+									<td>제목</td>
+									<td>50000</td>
+									<td>개수</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
+
+				</div>
+				<div class="bg-secondary text-center rounded p-4">
+					<nav>
+						<ul class="pagination justify-content-center">
+							<li class="page-item"><a class="btn mt-15" href="#"> <span
+									aria-hidden="true">&laquo;</span>
+							</a></li>
+							<li class="page-item"><a class="btn mt-15" href="#">1</a></li>
+							<li class="page-item"><a class="btn mt-15" href="#">2</a></li>
+							<li class="page-item"><a class="btn mt-15" href="#">3</a></li>
+							<li class="page-item"><a class="btn mt-15" href="#"> <span
+									aria-hidden="true">&raquo;</span>
+							</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Content End -->
 
 	<jsp:include page="../include/mgrScript.jsp"></jsp:include>
 </body>

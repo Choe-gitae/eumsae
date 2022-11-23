@@ -43,6 +43,21 @@ public class CustomerDAOImpl implements CustomerDAO{
 		System.out.println("CustomerListVO 확인");
 		return mybatis.selectList("customer.selectCustomer", map);
 	}
+
+	//회원 정보 수정
+	@Override
+	public Integer updateCustomer(CustomerVO vo) {
+		System.out.println("회원 정보 수정");
+		return mybatis.update("customer.updateCustomer", vo);
+	}
+
+	// 회원 삭제
+	@Override
+	public Integer deleteCustomer(CustomerVO vo) {
+		System.out.println("회원 삭제");
+		return mybatis.delete("customer.deleteCustomer",vo);
+	}
+	
 	
 	
 }

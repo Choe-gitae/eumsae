@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% String pjName = "/eumsae"; %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +8,15 @@
 <title>shopHeader</title>
 </head>
 <body>
-	<!-- Preloader -->
-    <div class="preloader d-flex align-items-center justify-content-center">
-        <div class="lds-ellipsis">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
+<!-- 	<!-- Preloader -->
+<!--     <div class="preloader d-flex align-items-center justify-content-center"> -->
+<!--         <div class="lds-ellipsis"> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--             <div></div> -->
+<!--         </div> -->
+<!--     </div> -->
 
 	<!-- ##### Header Area Start ##### -->
 	<header class="header-area">
@@ -67,17 +66,14 @@
 									<li><a href="<%=pjName%>/board/requestBoard">Board</a></li>
 								</ul>
 
+
+
 								<!-- Login/Register & Cart Button -->
 								<div
 									class="login-register-cart-button d-flex align-items-center">
 									<!-- Login/Register -->
 									<div class="login-register-btn mr-50">
-									<c:if test="${login == null}">
 										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
-									</c:if>
-									<c:if test="${login != null}">
-										<a href="<%=pjName%>/user/logout" id="loginBtn">LogOut</a>
-									</c:if>
 									</div>
 
 									<!-- Cart Button -->

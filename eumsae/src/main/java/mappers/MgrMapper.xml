@@ -4,12 +4,30 @@
 
 <mapper namespace="Mgr">
 	<insert id="insertMgr" parameterType="MgrVO">
-		INSERT INTO MANAGER(mid,pwd,name,addr,email,tel,auth)
+		INSERT INTO
+		MANAGER(mid,pwd,name,addr,email,tel,auth)
 		VALUES(#{mid},#{pwd},#{name},#{addr},#{email},#{tel},#{auth})
 	</insert>
 
 	<select id="logIn" parameterType="MgrVO" resultType="MgrVO">
-		SELECT * FROM MANAGER WHERE mid=#{mid} AND pwd=#{pwd}		
+		SELECT *
+		FROM MANAGER WHERE mid=#{mid} AND pwd=#{pwd}
 	</select>
+
+	<select id="searchMgr" parameterType="hashMap" resultType="MgrVO">
+		SELECT *
+		FROM MANAGER
+		WHERE ${searchCon} LIKE	'%${searchKey}%'
+	</select>
+
+	<update id="updateMgr" parameterType="MgrVO">
+		UPDATE MANAGER
+		SET	auth=#{auth},pwd=#{pwd},name=#{name},addr=#{addr},email=#{email},tel=#{tel}
+		WHERE mid=#{mid}
+	</update>
+
+	<delete id="deleteMgr" parameterType="MgrVO">
+		DELETE FROM MANAGER WHERE MID=#{mid}
+	</delete>
 
 </mapper>

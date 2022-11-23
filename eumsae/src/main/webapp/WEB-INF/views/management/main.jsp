@@ -44,60 +44,26 @@
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Recent Salse</h6>
+                            <h6 class="mb-0">최근 판매내역</h6>
                             <a href="">Show All</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
                                 <thead>
                                     <tr class="text-white">
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Invoice</th>
-                                        <th scope="col">Customer</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">판매일</th>
+                                        <th scope="col">판매번호</th>
+                                        <th scope="col">회원ID</th>
+                                        <th scope="col">가격</th>
+                                        <th scope="col">상세보기</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>01 Jan 2045</td>
-                                        <td>INV-0123</td>
+                                        <td>2022.11.11. 18:38</td>
+                                        <td>1111</td>
                                         <td>Jhon Doe</td>
-                                        <td>$123</td>
-                                        <td>Paid</td>
-                                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Jan 2045</td>
-                                        <td>INV-0123</td>
-                                        <td>Jhon Doe</td>
-                                        <td>$123</td>
-                                        <td>Paid</td>
-                                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Jan 2045</td>
-                                        <td>INV-0123</td>
-                                        <td>Jhon Doe</td>
-                                        <td>$123</td>
-                                        <td>Paid</td>
-                                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Jan 2045</td>
-                                        <td>INV-0123</td>
-                                        <td>Jhon Doe</td>
-                                        <td>$123</td>
-                                        <td>Paid</td>
-                                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>01 Jan 2045</td>
-                                        <td>INV-0123</td>
-                                        <td>Jhon Doe</td>
-                                        <td>$123</td>
-                                        <td>Paid</td>
+                                        <td>50000</td>
                                         <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
                                     </tr>
                                 </tbody>
@@ -114,7 +80,6 @@
                             <div class="h-100 bg-secondary rounded p-4">
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <h6 class="mb-0">Calender</h6>
-                                    <a href="">Show All</a>
                                 </div>
                                 <div id="calender"></div>
                             </div>

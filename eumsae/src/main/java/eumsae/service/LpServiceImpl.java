@@ -29,15 +29,27 @@ public class LpServiceImpl implements LpService {
 			return dao.insertLp(vo);
 		}
 		
-	// LP정보 검색 후 리스트로 리턴
-	public List<LpVO> genreLp(String genreKey) {
-		return dao.genreLp(genreKey);
+	// LP정보 장르 검색 후 리스트로 리턴
+	public List<LpVO> genreLp(String category) {
+		return dao.genreLp(category);
+	}
+
+	// LP 삭제
+	@Override
+	public Integer deleteLp(LpVO vo) {
+		return dao.deleteLp(vo);
 	}
 
 	// 해당하는 LP 번호에 대한 정보 반환
 	@Override
 	public LpVO detail(String infonoKey) {		
 		return dao.detail(infonoKey);
+	}
+
+	// LP 수정
+	@Override
+	public Integer updateLp(LpVO vo) {
+		return dao.updateLp(vo);
 	}
 	
 	// 검색 조건에 따른 LpVO List 반환
