@@ -59,7 +59,7 @@
                         <h3> </h3>
                         <!-- Login Form -->
                         <div class="login-form">
-                            <form action="loginOk" method="post">
+                            <form action="login" method="post">
                                 <div class="form-group">
                                     <label for="login_id">아이디</label>
                                     <input type="text" class="form-control-my" id="login_id" name="id" placeholder="아이디를 입력하세요...">

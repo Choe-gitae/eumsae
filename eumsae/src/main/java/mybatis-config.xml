@@ -16,7 +16,8 @@
 		<typeAlias alias="CustomerVO" type="eumsae.model.CustomerVO"/>
 		<typeAlias alias="MgrVO" type="eumsae.model.MgrVO"/>
 		<typeAlias alias="CartVO" type="eumsae.model.CartVO"/>
-		<typeAlias alias="WishBoardVO" type="eumsae.model.WishBoardVO"/>		
+		<typeAlias alias="WishBoardVO" type="eumsae.model.WishBoardVO"/>
+		<typeAlias alias="EorderVO" type="eumsae.model.EorderVO"/>		
 	</typeAliases>
 	
 </configuration>
