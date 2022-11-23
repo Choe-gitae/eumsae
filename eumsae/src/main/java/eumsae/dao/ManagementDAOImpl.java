@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import eumsae.model.MgrVO;
+import eumsae.model.OrderVO;
+import eumsae.model.PaginationVO;
 
 @Repository
 public class ManagementDAOImpl implements ManagementDAO {
@@ -48,6 +50,37 @@ public class ManagementDAOImpl implements ManagementDAO {
 	public Integer deleteMgr(MgrVO vo) {
 		System.out.println("매니저 삭제");
 		return mybatis.delete("Mgr.deleteMgr",vo);
+	}
+
+	/*****************************************************
+	 * 전체 주문내역 카운팅
+	 * @param	없음
+	 * @return	전체 주문내역 수 리턴
+	 */
+	@Override
+	public Long selectOrderCount() {
+		return mybatis.selectOne("Order.selectOrderCount");
+	}
+
+	/*****************************************************
+	 * 전체 주문내역 검색후 리스트형태로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문내역 리턴
+	 */
+	@Override
+	public List<OrderVO> selectOrder(PaginationVO vo) {
+		return mybatis.selectList("Order.selectOrder", vo);
+	}
+
+	
+	/*****************************************************
+	 * 주문내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> searchOrder(HashMap map) {
+		return mybatis.selectList("Order.searchOrder", map);
 	}
 
 }

@@ -22,25 +22,34 @@
 
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/style.css" />
-<link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/bootstrap.min.css" />
-
-<!-- Core Style CSS -->
+<link rel="stylesheet"
+	href="../resources/00-one-music-gh-pages/css/style.css" />
+<link rel="stylesheet"
+	href="../resources/00-one-music-gh-pages/css/bootstrap.min.css" />
 
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- <script src="https://kit.fontawesome.com/def66b134a.js"></script> -->
 
-<!-- Stylesheet --> 
-<link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
-<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+<!-- Stylesheet -->
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+<link rel="stylesheet"
+	href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
 
 
 </head>
@@ -50,23 +59,22 @@
 
 	<jsp:include page="../include/shopHeader.jsp" />
 
-<!-- ##### 페이지 이름 ######### -->
-   <section class="hero-wrap hero-wrap-2"
-      style="background-image: url('../resources/images/bg_3.gif');"
-      data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-         <div
-            class="row no-gutters slider-text align-items-end justify-content-center">
-            <div class="col-md-9 ftco-animate mb-5 text-center">
-               <p class="breadcrumbs mb-0">
-               </p>
-               <h2 class="mb-0 bread">Product Detail</h2>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- ##### 페이지 이름 끝 ######### -->
+	<!-- ##### 페이지 이름 ######### -->
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('../resources/images/bg_3.gif');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0"></p>
+					<h2 class="mb-0 bread">Product Detail</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ##### 페이지 이름 끝 ######### -->
 
 
 
@@ -75,9 +83,7 @@
 
 
 		<!-- Header Area Start (왼쪽 공백)-->
-		<header class="header-area clearfix">
-			
-		</header>
+		<header class="header-area clearfix"> </header>
 		<!-- Header Area End -->
 
 		<!-- Product Details Area Start -->
@@ -91,7 +97,8 @@
 								<li class="breadcrumb-item"><a href="#">Main</a></li>
 								<li class="breadcrumb-item"><a href="#">LP List</a></li>
 								<li class="breadcrumb-item"><a href="#">LP Detail</a></li>
-								<li class="breadcrumb-item active" aria-current="page">Daft Punk</li>
+								<li class="breadcrumb-item active" aria-current="page">Daft
+									Punk</li>
 							</ol>
 						</nav>
 					</div>
@@ -108,12 +115,12 @@
 								<div class="carousel-inner">
 									<div class="carousel-item active">
 										<a class="gallery_img"
-											href="<%=pjName%>/resources/lpImg/daftpunk.jpg">
-											<img class="d-block w-100"
+											href="<%=pjName%>/resources/lpImg/daftpunk.jpg"> <img
+											class="d-block w-100"
 											src="<%=pjName%>/resources/lpImg/daftpunk.jpg"
 											alt="First slide">
 										</a>
-									</div>									
+									</div>
 								</div>
 							</div>
 						</div>
@@ -123,18 +130,23 @@
 							<!-- Product Meta Data -->
 							<div class="product-meta-data">
 								<div class="line"></div>
-								<p class="product-price"> ₩ 20,000</p>
+								<p class="product-price">₩ 20,000</p>
 								<a href="product-details.html">
 									<h6>Daft Punk</h6>
 								</a>
-                                <!-- Avaiable -->
-                                <p class="avaibility"><i class="fa fa-circle"></i> In Stock</p>
-                            </div>
+								<!-- Avaiable -->
+								<p class="avaibility">
+									<i class="fa fa-circle"></i> In Stock
+								</p>
+							</div>
 
-                            <div class="short_overview my-5">
-                                <p>Random Access Memories is the fourth studio album by the French electronic duo Daft Punk, released on 17 May 2013 through Columbia Records. The album pays tribute to late 1970s and early 1980s American music, particularly from Los Angeles.</p>
-                            </div>								
-								
+							<div class="short_overview my-5">
+								<p>Random Access Memories is the fourth studio album by the
+									French electronic duo Daft Punk, released on 17 May 2013
+									through Columbia Records. The album pays tribute to late 1970s
+									and early 1980s American music, particularly from Los Angeles.</p>
+							</div>
+
 
 							<!-- Add to Cart Form -->
 							<form class="cart clearfix" method="post">
@@ -151,11 +163,11 @@
 											class="fa fa-caret-up" aria-hidden="true"></i></span>
 									</div>
 								</div>
-								
-								<button type="submit" name="checkout" class="btn btn-dark">check out</button>								
-								
-								<button type="submit" name="addtocart" value="5"
-									class="btn btn-dark">Add to cart</button>
+
+								<button type="button" name="checkout" class="btn btn-dark">check
+									out</button>
+								<button type="button" name="addtocart" class="btn btn-dark">Add
+									to cart</button>
 							</form>
 
 						</div>
@@ -167,25 +179,7 @@
 	</div>
 	<!-- ##### Main Content Wrapper End ##### -->
 
- <jsp:include page="../include/shopFooter.jsp"></jsp:include>
-
-
-
-
-	 <!-- ##### All Javascript Script ##### -->
-
-<!--     jQuery-2.2.4 js -->
-    
-    <script src="resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
-<!--     Popper js -->
-    <script src="resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
-<!--     Bootstrap js -->
-    <script src="resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
-<!--     All Plugins js -->
-    <script src="resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
-<!--     Active js -->
-    <script src="resources/00-one-music-gh-pages/js/active.js"></script>
-
+	<jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
 
 </body>
