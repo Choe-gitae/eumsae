@@ -2,7 +2,7 @@ package eumsae.service;
 
 import java.util.HashMap;
 import java.util.List;
-
+import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 
 public interface CustomerService {
@@ -23,5 +23,9 @@ public interface CustomerService {
 	
 	// 회원 정보 삭제
 	public Integer deleteCustomer(CustomerVO vo);
+
+	
+	// 카트담기
+	public Integer addCart(CartVO vo);
 
 }

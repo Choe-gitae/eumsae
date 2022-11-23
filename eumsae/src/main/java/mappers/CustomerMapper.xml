@@ -18,13 +18,8 @@
 	<insert id="addCart" parameterType="CartVO">
 	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
 	</insert>
-	
-	<select id="cartlist" parameterType="CartListVO" resultType="CartListVO">
-	SELECT i.infono AS infono, i.title AS title , l.lpno AS lpno, l.price AS price,c.cartno AS cartno, c.AMOUNT AS amount
-	FROM lpinfo i INNER JOIN lp l 
-	ON i.infono = l.infono JOIN cart c 
-	ON l.lpno = c.lpno 
-	</select>
+ 
+
 
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
