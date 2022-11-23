@@ -37,7 +37,7 @@
 	</delete>
 
 	<select id="detail" parameterType="string" resultType="LpVO">
-		SELECT i.infono AS infono, i.cmp3 AS cmp3, i.cjpg AS cjpg, i.title AS title,i.stitle AS stitle ,i.singer AS singer, i.genre AS genre, i.lpdate AS lpdate , i.region AS region, i.content As content, l.price AS price, l.lpno As lpno
+		SELECT *
 		FROM lpinfo i INNER JOIN lp l
 		ON i.infono=l.infono
 		WHERE i.infono=#{infonoKey} 	

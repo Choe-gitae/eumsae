@@ -51,6 +51,6 @@ public class ShopController {
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
 			LpVO select = lpService.detail(infonoKey);			
 			m.addAttribute("select",select);				
-		return "/shop/detail";
+		return "/shop/product-details";
 	}
 }
