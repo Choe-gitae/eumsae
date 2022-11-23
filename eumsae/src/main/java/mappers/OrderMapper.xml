@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Order">
+
+<select id="selectOrderCount" resultType="_long">
+	SELECT count(*) FROM eorder
+</select>
+
+<select id="selectOrder" parameterType="PaginationVO" resultType="OrderVO">
+	SELECT *
+	FROM eorder
+	WHERE order_no IN (SELECT order_no 
+						 FROM (SELECT rownum rnum, order_no 
+						 	   FROM (SELECT order_no FROM eorder ORDER BY order_no DESC)) 
+						 WHERE rnum BETWEEN #{startRow} AND ${endRow})
+	ORDER BY order_no DESC
+</select>
+
+<select id="searchOrder" parameterType="hashmap" resultType="OrderVO">
+	SELECT * FROM eorder 
+	<if test="searchKey != null">
+	WHERE ${searchCon} = '${searchKey}'
+	</if>
+</select>
+
+</mapper>
