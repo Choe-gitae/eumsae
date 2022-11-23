@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import eumsae.dao.ManagementDAO;
 import eumsae.model.MgrVO;
+import eumsae.model.OrderVO;
+import eumsae.model.PaginationVO;
 
 @Service
 public class MgrServiceImpl implements MgrService {
@@ -44,8 +46,38 @@ public class MgrServiceImpl implements MgrService {
 		System.out.println("매니저 삭제 서비스");
 		return dao.deleteMgr(vo);
 	}
-	
-	
-	
 
+	
+	/*****************************************************
+	 * 전체 주문내역 카운팅
+	 * @param	없음
+	 * @return	전체 주문내역 수 리턴
+	 */
+	@Override
+	public Long selectOrderCount() {
+		return dao.selectOrderCount();
+	}
+
+	
+	/*****************************************************
+	 * 전체 주문내역 검색후 리스트형태로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문내역 리턴
+	 */
+	@Override
+	public List<OrderVO> selectOrder(PaginationVO vo) {
+		return dao.selectOrder(vo);
+	}
+
+	
+	/*****************************************************
+	 * 주문내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> searchOrder(HashMap map) {
+		return dao.searchOrder(map);
+	}
+	
 }
