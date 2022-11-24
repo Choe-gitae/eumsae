@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mgr">
+	<insert id="insertMgr" parameterType="MgrVO">
+		INSERT INTO
+		MANAGER(mid,pwd,name,addr,email,tel,auth)
+		VALUES(#{mid},#{pwd},#{name},#{addr},#{email},#{tel},#{auth})
+	</insert>
+
+	<select id="logIn" parameterType="MgrVO" resultType="MgrVO">
+		SELECT *
+		FROM MANAGER WHERE mid=#{mid} AND pwd=#{pwd}
+	</select>
+
+	<select id="searchMgr" parameterType="hashMap" resultType="MgrVO">
+		SELECT *
+		FROM MANAGER
+		WHERE ${searchCon} LIKE	'%${searchKey}%'
+	</select>
+
+	<update id="updateMgr" parameterType="MgrVO">
+		UPDATE MANAGER
+		SET	auth=#{auth},pwd=#{pwd},name=#{name},addr=#{addr},email=#{email},tel=#{tel}
+		WHERE mid=#{mid}
+	</update>
+
+	<delete id="deleteMgr" parameterType="MgrVO">
+		DELETE FROM MANAGER WHERE MID=#{mid}
+	</delete>
+	
+	<update id="updateComment" parameterType="WishBoardVO" useGeneratedKeys="false" keyProperty="wboardNo" keyColumn="WBOARD_NO">
+		UPDATE WISH_BOARD
+		SET CCOMMENT=#{ccomment} , CWRITE_DATE=SYSDATE
+		WHERE WBOARD_NO=#{wboardNo}
+	</update>
+	
+
+</mapper>
