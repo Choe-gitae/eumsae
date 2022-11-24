@@ -43,7 +43,17 @@
     <jsp:include page="../include/shopHeader.jsp" />
 
     <!-- ##### Breadcumb Area Start ##### -->
-    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">
+    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(../resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);" data-stellar-background-ratio="0.5">
+     <div class="overlay"></div>
+      <div class="container"></div>
+         <div
+            class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+               <p class="breadcrumbs mb-0"></p>
+               <h2 style="position: relative;bottom: -318px;right: -19px;line-height: 0;color: white;font-size: 60px;">Wish Write</h2>
+            </div>
+         </div>
+    
     </section>
     <!-- ##### Breadcumb Area End ##### -->
 

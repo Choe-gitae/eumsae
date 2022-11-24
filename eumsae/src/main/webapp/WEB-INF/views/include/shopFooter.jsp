@@ -7,36 +7,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<!-- <!-- Core Style CSS --> 
+<!-- <!-- Core Style CSS -->
 <!-- <link rel="stylesheet" href="../resources/00-amado-master/css/core-style.css"> -->
 
 <title>shopFooter</title>
 </head>
 <body>
-        <!-- ##### Footer Area Start ##### -->
-    <footer class="footer-area">
-        <div class="container">
-            <div class="row d-flex flex-wrap align-items-center">
-                <div class="col-12 col-md-6">
-                    <a href="#"><img src="img/core-img/logo.png" alt=""></a>
-                    <p class="copywrite-text"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
+	<!-- ##### Footer Area Start ##### -->
+	<footer class="footer-area">
+		<div class="container">
+			<div class="row d-flex flex-wrap align-items-center">
+				<div class="col-12 col-md-6">
+					<a href="#"><img src="img/core-img/logo.png" alt=""></a>
+					<p class="copywrite-text">
+						<a href="#">
+							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+							All rights reserved | This template is made with <i
+							class="fa fa-heart-o" aria-hidden="true"></i> by <a
+							href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
 
-                <div class="col-12 col-md-6">
-                    <div class="footer-nav">
-                        <ul>
-<img src="<%=pjName%>/resources/img/core-img/logo.png" width="300" height="17"/><br />
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- ##### Footer Area Start ##### -->
-  	
-
+				<div class="col-12 col-md-6">
+					<div class="footer-nav">
+						<ul>
+							<img src="<%=pjName%>/resources/img/core-img/logo.png"
+								width="300" height="17" />
+							<br />
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ##### Footer Area Start ##### -->
 
 	<!-- ##### All Javascript Script ##### -->
 	<!-- jQuery-2.2.4 js -->
