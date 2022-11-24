@@ -76,12 +76,21 @@
 									class="login-register-cart-button d-flex align-items-center">
 									<!-- Login/Register -->
 									<div class="login-register-btn mr-50">
+<<<<<<< HEAD
 									<c:if test="${login == null}">
 										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
 									</c:if>
 									<c:if test="${login != null}">
 										<a href="<%=pjName%>/user/logout" id="loginBtn">LogOut</a>
 									</c:if>
+=======
+										<c:if test="${login == null }">
+										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
+										</c:if>
+										<c:if test="${login != null }">
+										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Log Out</a>
+										</c:if>
+>>>>>>> 80e862cfe6b8a3e7369b7db565494695dd09775e
 									</div>
 
                            <!-- Cart Button -->

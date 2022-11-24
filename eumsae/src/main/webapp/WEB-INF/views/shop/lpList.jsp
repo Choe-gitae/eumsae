@@ -1,54 +1,96 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <% String pjName = "/eumsae"; %>
 
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<head>
+<meta charset="UTF-8" />
+<meta name="description" content="" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <!-- Title -->
-        <title>Eumsae</title>
+<!-- Title -->
+<title>Eumsae LP List</title>
 
-        <!-- Favicon -->
-        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
+<!-- Favicon -->
+<link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-        <!-- Stylesheet -->
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
 
-        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+<!-- Stylesheet -->
+<link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/style.css" />
+<link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/bootstrap.min.css" />
 
-<!--         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" /> -->
+<!-- Core Style CSS -->
+<!-- <link rel="stylesheet" href="../resources/00-amado-master/css/core-style.css"> -->
 
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
 
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="https://kit.fontawesome.com/def66b134a.js"></script> -->
 
-<!--         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" /> -->
+<!-- Stylesheet --> 
+<link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+<link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
 
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
-    </head>
+<!-- search -->
+<link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+</head>
 
-    <body>
-    	<jsp:include page="../include/shopHeader.jsp" />
+
+<body>
+
+	<jsp:include page="../include/shopHeader.jsp" />
+	
+	<!-- ##### 페이지 이름 ######### -->
+   <section class="hero-wrap hero-wrap-2"
+      style="background-image: url('../resources/images/bg_5.gif');"
+      data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+         <div
+            class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+               <p class="breadcrumbs mb-0">
+               </p>
+               <h2 class="mb-0 bread">LP List</h2>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- ##### 페이지 이름 끝 ######### -->
     	
-    	<!-- ##### Breadcumb Area Start ##### -->
-	    <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(resources/00-one-music-gh-pages/img/bg-img/breadcumb3.jpg);">
-	    </section>
-	    <!-- ##### Breadcumb Area End ##### -->
+
     	
         <!-- ##### Album Catagory Area Start ##### -->
         <section class="album-catagory section-padding-100-0">
             <div class="container">
+    
                 <!-- 퀵서치 isotope plugin -->
-                <input type="text" class="quicksearch" placeholder="Search" />
+<!--                <input type="text" class="quicksearch" placeholder="Search" /> -->
+
+<div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="What are you looking for?">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+
+
+
+
                 <!-- LP리스트 -->
                 <div class="row oneMusic-albums">
                     <c:forEach var="list" items="${ list }">

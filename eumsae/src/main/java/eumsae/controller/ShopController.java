@@ -4,13 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import eumsae.model.CartVO;
+import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
+import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 
 @Controller()
@@ -19,6 +22,9 @@ public class ShopController {
 	
 	@Autowired
 	LpService lpService;
+	
+	@Autowired
+	CustomerService cService;
 	
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
@@ -51,6 +57,31 @@ public class ShopController {
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
 			LpVO select = lpService.detail(infonoKey);			
 			m.addAttribute("select",select);				
-		return "/shop/detail";
+		return "/shop/product-details";
 	}
+	
+	// 카트담기
+		@RequestMapping(value="/addToCart")
+		@ResponseBody
+		public String addCart(CartVO vo, Model m) {
+			int result = cService.addCart(vo);
+			String message = "카트에 정상적으로 담기지 않았습니다.";
+			if (result == 1) {
+				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+				m.addAttribute("result",vo);
+			}			
+			return message;
+		}
+		
+	// 결제 페이지로 이동
+		@RequestMapping(value="/checkOut")
+		public String checkOut(String page, int lpno, String id, Model m) {
+			CustomerVO cinfo = cService.selectById(id);								// id 로 찾은 정보를 담은 CustomerVO 생성
+			System.out.println(cinfo.toString());
+			m.addAttribute("cinfo", cinfo);												// 해당 정보 모델에 추가
+			LpVO linfo = lpService.searchByLpno(lpno);								// lp번호로 찾은 정보를 담은 LpVO 생성
+			System.out.println(linfo.toString());
+			m.addAttribute("linfo", linfo);												// 해당 정보 모델에 추가
+			return "/shop/"+page; 
+		}
 }
