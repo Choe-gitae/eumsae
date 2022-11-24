@@ -26,7 +26,6 @@ public class ShopController {
 	@Autowired
 	CustomerService cService;
 	
-
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
