@@ -65,19 +65,19 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="">
+										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="">
+										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" style="width:920px;">
+										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -188,18 +188,18 @@
 														<!-- 한 블럭 시작 -->
 														<tr class="alert" role="alert">
 															<td>
-																<div class="img" style="background-image: url(../resources/img/bg-img/a2.jpg);"></div>
+																<div class="img" style="background-image: url(<%=pjName%>/resources/lpImg/${linfo.cjpg}.jpg);"></div>
 															</td>
 															<td>
 																<div class="email">
-																	<span>나훈아</span> <span>나훈아의노래임</span>
+																	<span>${linfo.singer}</span> <span>${linfo.title}</span>
 																</div>
 															</td>
-															<td>₩<span class="price">123</span></td>
+															<td>₩<span class="price">${linfo.price}</span></td>
 															<td class="quantity">
 																<span class="input-group">
 																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>
-																	<input id="quantity" type="text" name="quantity" value="2" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
+																	<input id="quantity" type="text" name="quantity" value="1" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
 																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
 																</span>
 															</td>
@@ -229,17 +229,17 @@
 							<div class="cart-detail cart-total p-3 p-md-4">
 								<h3 class="billing-heading mb-4">결제하실 금액</h3>
 								<p class="d-flex">
-									<span>주문금액</span> <span></span>
+									<span>주문금액</span> <span class="resultPrice"></span>
 								</p>
 								<p class="d-flex">
-									<span>배송비</span> <span></span>
+									<span>배송비</span> <span class="delivery-tax"></span>
 								</p>
-								<p class="d-flex">
+								<!-- <p class="d-flex">
 									<span>할인</span> <span></span>
-								</p>
+								</p> -->
 								<hr>
 								<p class="d-flex total-price">
-									<span>결제하실 금액</span> <span></span>
+									<span>결제하실 금액</span> <span class="resultPrice"></span>
 								</p>
 							</div>
 						</div>
@@ -309,7 +309,9 @@ $(function(){
 
 //상품수량업다운버튼끝
 
-
+// 배송비
+var dtax = 2500;
+$('.delivery-tax').text(dtax);
 
 //수령인정보동일시작
 

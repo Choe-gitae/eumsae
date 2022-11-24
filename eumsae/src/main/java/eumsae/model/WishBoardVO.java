@@ -14,3 +14,5 @@ public class WishBoardVO {
 	private String	cwriteDate;
 }
 
+
+

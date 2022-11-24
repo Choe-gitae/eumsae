@@ -14,7 +14,7 @@
 	WHERE order_no IN (SELECT order_no 
 						 FROM (SELECT rownum rnum, order_no 
 						 	   FROM (SELECT order_no FROM eorder ORDER BY order_no DESC)) 
-						 WHERE rnum BETWEEN #{startRow} AND ${endRow})
+						 WHERE rnum BETWEEN #{startRow} AND #{endRow})
 	ORDER BY order_no DESC
 </select>
 

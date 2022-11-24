@@ -46,10 +46,10 @@ public class ShopController {
 	}
 	
 	//LP 상세 페이지 정보 출력
-	@RequestMapping(value="/detail")
-	public String detail(@RequestParam("infono") String infonoKey, Model m) {
-			LpVO select = lpService.detail(infonoKey);			
-			m.addAttribute("select",select);				
-		return "/shop/detail";
-	}
+	   @RequestMapping(value="/detail")
+	   public String detail(@RequestParam("infono") String infonoKey, Model m) {
+	         LpVO select = lpService.detail(infonoKey);         
+	         m.addAttribute("select",select);            
+	      return "/shop/product-details";
+	   }
 }

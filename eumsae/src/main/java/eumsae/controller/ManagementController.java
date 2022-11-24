@@ -16,9 +16,11 @@ import eumsae.model.LpVO;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.WishBoardVO;
 import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 import eumsae.service.MgrService;
+import eumsae.service.WishBoardService;
 
 @Controller
 @RequestMapping(value = "/management")
@@ -32,6 +34,9 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 
 	@Autowired
 	private CustomerService cService; 	// 회원 관련 서비스
+	
+	@Autowired
+	private WishBoardService wService; //게시판 서비스
 
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
@@ -138,6 +143,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/"+page;
 	}
 	
+	
 	// 관리자 계정 삭제
 	@RequestMapping(value = "/deleteMgr")
 	public String deleteMgr(String page, MgrVO vo, Model model) {
@@ -201,6 +207,25 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/mgtSalesPage";
 	}
 	
+	
+	/*****************************************************
+	 * 요청사항게시판 리스트형태로 리턴
+	 * @param	PaginationVO
+	 * @return	요청사항게시판 리턴
+	 */
+	@RequestMapping(value = "/boardWishPage")
+	public String selectBoard(String pageNo, WishBoardVO vo, Model model) {
+		System.out.println(vo);
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = wService.boardCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
+		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
+		mService.updateComment(vo);
+		model.addAttribute("ccomment");
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		return "/management/boardWishPage";
+	}
 	
 	/*****************************************************
 	 * 주문내역 검색

@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import eumsae.model.OrderVO;
+import eumsae.model.PaginationVO;
 import eumsae.model.WishBoardVO;
 import eumsae.service.WishBoardService;
 
@@ -18,11 +20,6 @@ public class WishBoardController {
 	@Autowired
 	private WishBoardService service;
 	
-//	// 요청게시판
-//	@RequestMapping(value = "/requestBoard")
-//	public String requestBoard() {
-//		return "/board/requestBoard";
-//	}
 	
 	// 선택한 url 로 이동
 	@RequestMapping(value="/{url}")
@@ -30,11 +27,15 @@ public class WishBoardController {
 		return "/board/"+url;
 	}
 	
-	//요청게시판에 글 목록 보이기
+	//요청게시판에 글 목록 보이기 & 페이징
 	@RequestMapping(value = "/requestBoard")
-	public String selectWishBoardVOList(String boardKey, Model model) {
-		List<WishBoardVO> list = service.selectWishBoardVOList(boardKey);
-		model.addAttribute("boardList",list);
+	public String selectWishBoardVOList(String pageNo ,Model model) {
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = service.boardCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
+		List<WishBoardVO> list = service.selectWishBoardPg(pageVO);
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
 		return "/board/requestBoard";
 	}
 	
@@ -45,5 +46,6 @@ public class WishBoardController {
 			return "redirect:requestBoard";
 		
 	}
+	
 	
 }

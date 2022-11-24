@@ -6,6 +6,7 @@ import java.util.List;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.WishBoardVO;
 
 public interface MgrService {
 	// 매니저 등록
@@ -22,6 +23,9 @@ public interface MgrService {
 	
 	// 매니저 삭제
 	public Integer deleteMgr(MgrVO vo);
+	
+	//게시판 댓글달기
+	public Integer updateComment(WishBoardVO vo);
 	
 	
 	/*****************************************************

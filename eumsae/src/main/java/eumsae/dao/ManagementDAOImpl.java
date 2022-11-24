@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.WishBoardVO;
 
 @Repository
 public class ManagementDAOImpl implements ManagementDAO {
@@ -51,6 +52,13 @@ public class ManagementDAOImpl implements ManagementDAO {
 		System.out.println("매니저 삭제");
 		return mybatis.delete("Mgr.deleteMgr",vo);
 	}
+	
+	//댓글 입력
+	@Override
+	public Integer updateCommnet(WishBoardVO vo) {
+		System.out.println("댓글 입력");
+		return mybatis.update("Mgr.updateComment",vo);
+	}
 
 	/*****************************************************
 	 * 전체 주문내역 카운팅
@@ -82,5 +90,7 @@ public class ManagementDAOImpl implements ManagementDAO {
 	public List<OrderVO> searchOrder(HashMap map) {
 		return mybatis.selectList("Order.searchOrder", map);
 	}
+
+	
 
 }

@@ -10,6 +10,7 @@ import eumsae.dao.ManagementDAO;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.WishBoardVO;
 
 @Service
 public class MgrServiceImpl implements MgrService {
@@ -46,6 +47,12 @@ public class MgrServiceImpl implements MgrService {
 		System.out.println("매니저 삭제 서비스");
 		return dao.deleteMgr(vo);
 	}
+	
+	@Override
+	public Integer updateComment(WishBoardVO vo) {
+		System.out.println("댓글달기 서비스");
+		return dao.updateCommnet(vo);
+	}
 
 	
 	/*****************************************************
@@ -79,5 +86,8 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> searchOrder(HashMap map) {
 		return dao.searchOrder(map);
 	}
+
+
+	
 	
 }
