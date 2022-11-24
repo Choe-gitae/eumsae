@@ -55,8 +55,15 @@ public class LpServiceImpl implements LpService {
 	// 검색 조건에 따른 LpVO List 반환
 	@Override
 	public List<LpVO> selectLpVOList(HashMap map) {
-		// TODO Auto-generated method stub
+		System.out.println("LP 리스트 서비스");
 		return dao.selectLpVOList(map);
+	}
+
+	// Lp 번호에 따른 LpVO 반환
+	@Override
+	public LpVO searchByLpno(int lpno) {
+		System.out.println("LP번호에 따른 VO 반환");
+		return dao.searchByLpno(lpno);
 	}
 	
 	

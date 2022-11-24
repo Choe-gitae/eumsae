@@ -14,12 +14,6 @@
 		AND pwd=#{pwd}
 		</if>
 	</select>
-	
-	<insert id="addCart" parameterType="CartVO">
-	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
-	</insert>
- 
-
 
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
@@ -30,5 +24,13 @@
       FROM CUSTOMER
       WHERE ${searchCon} LIKE '%${searchKey}%'
    </select>
+   
+	<insert id="addCart" parameterType="CartVO" useGeneratedKeys="true" keyProperty="cartno" keyColumn="CARTNO">
+	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
+	</insert>
+	
+	<select id="selectById" parameterType="string" resultType="CustomerVO">
+		SELECT * FROM customer WHERE id=#{id}
+	</select>
 
 </mapper>

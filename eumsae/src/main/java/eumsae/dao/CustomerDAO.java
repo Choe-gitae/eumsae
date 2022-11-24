@@ -24,7 +24,10 @@ public interface CustomerDAO {
 	// 회원 삭제
 	public Integer deleteCustomer(CustomerVO vo);
 
-	//카트 담기
+	// 카트 담기
 	public Integer addCart(CartVO vo);
+	
+	// 아이디로 회원 정보 찾기
+	public CustomerVO selectById(String id);
 	
 }
