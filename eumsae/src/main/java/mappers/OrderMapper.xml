@@ -19,8 +19,8 @@
 </select>
 
 <select id="searchOrder" parameterType="hashmap" resultType="OrderVO">
-	SELECT * FROM eorder 
-	<if test="searchKey != null">
+	SELECT * FROM eorder
+	<if test="searchKey != '' and searchKey != null">
 	WHERE ${searchCon} = '${searchKey}'
 	</if>
 </select>

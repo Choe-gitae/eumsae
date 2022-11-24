@@ -10,4 +10,10 @@ public class OrderVO {
 	private String	id;
 	private int		orderListNo;
 	private int		lpno;
+	private String	jpg;
+	private String	genre;
+	private String	singer;
+	private	String	title;
+	private int		price;
+	private	int		amount;
 }

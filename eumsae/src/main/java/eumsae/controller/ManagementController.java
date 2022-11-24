@@ -85,6 +85,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		HashMap map = new HashMap();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
+		System.out.println(map.get("searchCon"));
+		System.out.println(map.get("searchKey"));
 		List<LpVO> list = service.selectLpVOList(map);
 		model.addAttribute("list", list);
 		return "/management/"+page;

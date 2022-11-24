@@ -94,18 +94,20 @@
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach var="list" items="${list}">
 								<tr>
-									<td>2022.11.11. 18:38</td>
-									<td>1111</td>
-									<td>JhonDoe</td>
-									<td><img src="<%= pjName %>/resources/lpImg/이미지이름.jpg"
+									<td>${list.orderDate}</td>
+									<td>${list.orderNo}</td>
+									<td>${list.id}</td>
+									<td><img src="<%= pjName %>/resources/lpImg/${list.jpg}.jpg"
 										class="mgr-del-table-img" /></td>
-									<td>장르</td>
-									<td>가수</td>
-									<td>제목</td>
-									<td>50000</td>
-									<td>개수</td>
+									<td>${list.genre}</td>
+									<td>${list.singer}</td>
+									<td>${list.title}</td>
+									<td>${list.price}</td>
+									<td>${list.amount}</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
@@ -114,15 +116,21 @@
 				<div class="bg-secondary text-center rounded p-4">
 					<nav>
 						<ul class="pagination justify-content-center">
+							<c:if test="${pageVO.hasPrevPageNav==true}">
 							<li class="page-item"><a class="btn mt-15" href="#"> <span
 									aria-hidden="true">&laquo;</span>
 							</a></li>
-							<li class="page-item"><a class="btn mt-15" href="#">1</a></li>
-							<li class="page-item"><a class="btn mt-15" href="#">2</a></li>
-							<li class="page-item"><a class="btn mt-15" href="#">3</a></li>
-							<li class="page-item"><a class="btn mt-15" href="#"> <span
+							</c:if>
+							<c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}" >
+							<c:if test="${page > 0}">
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${page}">${page}</a></li>
+							</c:if>
+							</c:forEach>
+							<c:if test="${pageVO.hasNextPageNav==true}">
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span
 									aria-hidden="true">&raquo;</span>
 							</a></li>
+							</c:if>
 						</ul>
 					</nav>
 				</div>

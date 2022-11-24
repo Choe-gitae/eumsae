@@ -104,20 +104,18 @@ pjName = "/eumsae"; %>
 				<div class="bg-secondary text-center rounded p-4">
 					<nav>
 						<ul class="pagination justify-content-center">
-							<c:if test="pageVO.hasPrevPageNav==true">
+							<c:if test="${pageVO.hasPrevPageNav==true}">
 							<li class="page-item"><a class="btn mt-15" href="#"> <span
 									aria-hidden="true">&laquo;</span>
 							</a></li>
 							</c:if>
-<%-- 							<c:if test="pageVO.pageNo!=null"> --%>
 							<c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}" >
-							
+							<c:if test="${page > 0}">
 							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${page}">${page}</a></li>
-							
+							</c:if>
 							</c:forEach>
-<%-- 							</c:if> --%>
-							<c:if test="pageVO.hasNextPageNav==true">
-							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${pageVO.firstPageNo+10}"> <span
+							<c:if test="${pageVO.hasNextPageNav==true}">
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span
 									aria-hidden="true">&raquo;</span>
 							</a></li>
 							</c:if>
