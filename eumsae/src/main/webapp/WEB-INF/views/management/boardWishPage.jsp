@@ -65,7 +65,9 @@
                             				<th>닉네임</th>
                             				<th>요청사항</th>
                             				<th>내용</th>
-                            				<th>작성 시간</th>
+                            				<th>답글</th>
+                            				<th>글 작성 시간</th>
+                            				<th>답글 작성 시간</th>
                             			</tr>
                             			</thead>
                             			<tbody>
@@ -75,7 +77,9 @@
 						                      <td class="nickName">${list.nick}</td>
 						                      <td class="title">${list.title}</td>
 						                      <td class="article">${list.article}</td>
+						                      <td>${list.ccomment}</td>
 						                      <td>${list.awriteDate}</td>
+						                      <td>${list.cwriteDate}</td>
 						                    </tr>
 						                 </c:forEach>
                             			</tbody>
