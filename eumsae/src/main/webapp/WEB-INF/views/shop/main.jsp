@@ -18,6 +18,7 @@
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
         <!-- Stylesheet -->
+        
         <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
 
         <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
@@ -297,6 +298,7 @@
         <!-- ##### Featured Artist Area Start ##### -->
         <div class="add-area mb-100">
             <section class="featured-artist-area section-padding-100 bg-img bg-fixed" style="background-image: url(../resources/img/bg-img/bg-04.png)">
+
                 <div class="container">
                     <div class="row align-items-end">
                         <div class="col-12 col-md-5 col-lg-4">
@@ -321,7 +323,7 @@
                                         <p>01. Main Hit Song</p>
                                     </div>
                                     <audio preload="auto" controls>
-                                        <source src="audio/dummy-audio.mp3" />
+                                        <source src="../audio/dummy-audio.mp3" />
                                     </audio>
                                 </div>
                             </div>
@@ -331,10 +333,6 @@
             </section>
         </div>
         <!-- ##### Featured Artist Area End ##### -->
-
-
-
-        
 
         <jsp:include page="../include/shopFooter.jsp"></jsp:include>
         

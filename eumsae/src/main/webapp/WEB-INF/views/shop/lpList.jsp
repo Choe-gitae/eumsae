@@ -70,8 +70,6 @@
    </section>
    <!-- ##### 페이지 이름 끝 ######### -->
     	
-
-    	
         <!-- ##### Album Catagory Area Start ##### -->
         <section class="album-catagory section-padding-100-0">
             <div class="container">

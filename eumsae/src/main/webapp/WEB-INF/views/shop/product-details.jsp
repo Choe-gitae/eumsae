@@ -14,8 +14,10 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
     <!-- Title -->
     <title>Eumsae detail page</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
+
+<!-- Favicon -->
+<link rel="icon" href="<%=pjName%>../resources/images/favicon.ico" />
+
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../resources/00-one-music-gh-pages/css/style.css" />
@@ -24,9 +26,12 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="../resources/00-amado-master/css/core-style.css" />
 
+<<<<<<< HEAD
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- <script src="https://kit.fontawesome.com/def66b134a.js"></script> -->
+=======
+>>>>>>> bjh
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />

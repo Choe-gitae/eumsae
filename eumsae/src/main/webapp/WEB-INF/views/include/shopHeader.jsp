@@ -18,10 +18,6 @@
             <div></div>
         </div>
     </div>
-<<<<<<< HEAD
-    
-=======
->>>>>>> a01049e4a46b6eaab0b37b3cbefa80b54ff10557
 
    <!-- ##### Header Area Start ##### -->
    <header class="header-area">

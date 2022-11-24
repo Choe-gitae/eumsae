@@ -182,6 +182,23 @@ img {
 
 .font-light {
   font-weight: 300; }
+  
+/*   .bg-overlay, */
+/* .bg-overlay-white { */
+/*   position: relative; */
+/*   z-index: 2; */
+/*   background-position: center center; */
+/*   background-size: cover; } */
+/*   .bg-overlay:hover, */
+/*   .bg-overlay-white:hover { */
+/*     position: absolute; */
+/*     z-index: -1; */
+/*     top: 0; */
+/*     left: 0; */
+/*     width: 100%; */
+/*     height: 100%; */
+/*     content: ""; } */
+
 
 .bg-overlay,
 .bg-overlay-white {
@@ -1154,8 +1171,12 @@ img {
 .footer_area {
   position: relative;
   z-index: 1;
+<<<<<<< HEAD
   background-color: black;
   }
+=======
+  background-color: black; }
+>>>>>>> bjh
   .footer_area .single_widget_area .copywrite {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.4);
