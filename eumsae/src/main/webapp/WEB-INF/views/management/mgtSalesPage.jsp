@@ -58,7 +58,7 @@ pjName = "/eumsae"; %>
 				<div class="alert alert-light" role="alert">주문내역 페이지</div>
 				<div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
 					<h6 class="mb-4">검색</h6>
-					<form action="searchOrder?page=mgtSalesPage" method="post">
+					<form action="searchOrder" method="post">
 						<select class="form-select mb-3" name="searchCon">
 							<option value="id" selected>회원ID</option>
 							<option value="order_no">주문번호</option>
@@ -92,7 +92,7 @@ pjName = "/eumsae"; %>
 									<td>${list.orderNo}</td>
 									<td>${list.id}</td>
 									<td>${list.orderTotalPrice}</td>
-									<td><a href="mgtSalesListPage?orderNo=${list.orderNo}"
+									<td><a href="searchOrderList?searchCon=order_no&searchKey=${list.orderNo}"
 										class="btn btn-sm btn-primary">Detail</a>
 									</td>
 								</tr>
@@ -105,7 +105,7 @@ pjName = "/eumsae"; %>
 					<nav>
 						<ul class="pagination justify-content-center">
 							<c:if test="${pageVO.hasPrevPageNav==true}">
-							<li class="page-item"><a class="btn mt-15" href="#"> <span
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"> <span
 									aria-hidden="true">&laquo;</span>
 							</a></li>
 							</c:if>

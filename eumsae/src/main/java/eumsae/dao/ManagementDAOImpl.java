@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.SalesVO;
 
 @Repository
 public class ManagementDAOImpl implements ManagementDAO {
@@ -81,6 +82,50 @@ public class ManagementDAOImpl implements ManagementDAO {
 	@Override
 	public List<OrderVO> searchOrder(HashMap map) {
 		return mybatis.selectList("Order.searchOrder", map);
+	}
+
+	
+	/*****************************************************
+	 * 주문 상세내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문 상세내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> searchOrderList(HashMap map) {
+		return mybatis.selectList("Order.searchOrderList", map);
+	}
+
+	
+	/*****************************************************
+	 * 전체 주문 상세내역 카운팅
+	 * @param	없음
+	 * @return	전체 주문내역 수 리턴
+	 */
+	@Override
+	public Long selectOrderListCount() {
+		return mybatis.selectOne("Order.selectOrderListCount");
+	}
+
+	
+	/*****************************************************
+	 * 전체 주문 상세내역 리스트로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문 상세내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> selectOrderList(PaginationVO pageVO) {
+		return mybatis.selectList("Order.selectOrderList", pageVO);
+	}
+	
+	
+	/*****************************************************
+	 * 하루 매출, 최근 30일 매출, 월별 매출 리턴
+	 * @param	없음
+	 * @return	각 매출
+	 */
+	@Override
+	public List<SalesVO> selectSales() {
+		return mybatis.selectList("Order.selectSales");
 	}
 
 }

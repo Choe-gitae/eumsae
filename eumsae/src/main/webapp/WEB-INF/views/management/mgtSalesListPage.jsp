@@ -57,10 +57,10 @@
 				<div class="alert alert-light" role="alert">주문내역 상세보기 페이지</div>
 				<div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
 					<h6 class="mb-4">검색</h6>
-					<form action="searchLp?page=deleteLpPage" method="post">
+					<form action="searchOrderList" method="post">
 						<select class="form-select mb-3" name="searchCon">
-							<option value="userId" selected>회원ID</option>
-							<option value="orderNo">주문번호</option>
+							<option value="id" selected>회원ID</option>
+							<option value="order_no">주문번호</option>
 							<option value="genre">장르</option>
 							<option value="singer">가수</option>
 							<option value="title">제목</option>
@@ -99,13 +99,13 @@
 									<td>${list.orderDate}</td>
 									<td>${list.orderNo}</td>
 									<td>${list.id}</td>
-									<td><img src="<%= pjName %>/resources/lpImg/${list.jpg}.jpg"
+									<td><img src="<%= pjName %>/resources/lpImg/${list.cjpg}.jpg"
 										class="mgr-del-table-img" /></td>
 									<td>${list.genre}</td>
 									<td>${list.singer}</td>
 									<td>${list.title}</td>
 									<td>${list.price}</td>
-									<td>${list.amount}</td>
+									<td>${list.cnt}</td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -117,17 +117,17 @@
 					<nav>
 						<ul class="pagination justify-content-center">
 							<c:if test="${pageVO.hasPrevPageNav==true}">
-							<li class="page-item"><a class="btn mt-15" href="#"> <span
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesListPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"> <span
 									aria-hidden="true">&laquo;</span>
 							</a></li>
 							</c:if>
 							<c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}" >
 							<c:if test="${page > 0}">
-							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${page}">${page}</a></li>
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesListPage?pageNo=${page}">${page}</a></li>
 							</c:if>
 							</c:forEach>
 							<c:if test="${pageVO.hasNextPageNav==true}">
-							<li class="page-item"><a class="btn mt-15" href="mgtSalesPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span
+							<li class="page-item"><a class="btn mt-15" href="mgtSalesListPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span
 									aria-hidden="true">&raquo;</span>
 							</a></li>
 							</c:if>

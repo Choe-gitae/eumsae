@@ -6,6 +6,7 @@ import java.util.List;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
+import eumsae.model.SalesVO;
 
 public interface MgrService {
 	// 매니저 등록
@@ -47,4 +48,36 @@ public interface MgrService {
 	 */
 	public List<OrderVO> searchOrder(HashMap map);
 	
+	
+	
+	/*****************************************************
+	 * 전체 주문 상세내역 카운팅
+	 * @param	없음
+	 * @return	전체 주문내역 수 리턴
+	 */
+	public Long selectOrderListCount();
+	
+	
+	/*****************************************************
+	 * 전체 주문 상세내역 리스트로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문 상세내역 리스트로 리턴
+	 */
+	public List<OrderVO> selectOrderList(PaginationVO pageVO);
+	
+	
+	/*****************************************************
+	 * 주문 상세내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문 상세내역 리스트로 리턴
+	 */
+	public List<OrderVO> searchOrderList(HashMap map);
+	
+	
+	/*****************************************************
+	 * 하루 매출, 최근 30일 매출, 월별 매출 리턴
+	 * @param	없음
+	 * @return	각 매출
+	 */
+	public List<SalesVO> selectSales();
 }
