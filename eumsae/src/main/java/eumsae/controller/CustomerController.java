@@ -1,5 +1,7 @@
 package eumsae.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -28,9 +30,12 @@ public class CustomerController {
 		return "/user/" + url;
 	}
 
-	// 장바구니 이동
+	// 카트 이미지를 눌렀을 때 CartVO List 출력
 	@RequestMapping(value = "/cart")
-	public String cart() {
+	public String cart(String id ,Model model) {
+		List<CartVO> list = service.cartListById(id);		// CartVO list에 service 실행 결과를 받음
+		System.out.println(list);
+		model.addAttribute("list", list);	
 		return "/user/cart";
 	}
 

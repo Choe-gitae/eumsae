@@ -89,10 +89,10 @@
 >>>>>>> 80e862cfe6b8a3e7369b7db565494695dd09775e
 									</div>
 
-                           <!-- Cart Button -->
+                           <!-- Cart Button -->                                                     
                            <div class="cart-btn">
-                                 <a href="<%=pjName%>/user/cart"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
-                           </div>
+                                 <a href="<%=pjName%>/user/cart?id=${login}"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
+                           </div>                          
                         </div>
                      </div>
                      <!-- Nav End -->
