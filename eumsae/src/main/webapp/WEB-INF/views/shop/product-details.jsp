@@ -157,7 +157,8 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                       />
                       <span class="qty-plus"
                         ><i class="fa fa-caret-up" aria-hidden="true"></i
-                      ></span>
+                      ></span><br>
+                      <span id="ajaxResult" style="width:150px;color:red"></span>
                     </div>
                   </div>
                   <input type="hidden" name="lpno" id="lpno" value="${select.lpno}" />

@@ -231,10 +231,10 @@
 								<p class="d-flex">
 									<span>주문금액</span> <span class="resultPrice"></span>
 								</p>
-								<!--  <p class="d-flex">
-									<span>배송비</span> <span></span>
-								</p>
 								<p class="d-flex">
+									<span>배송비</span> <span class="delivery-tax"></span>
+								</p>
+								<!-- <p class="d-flex">
 									<span>할인</span> <span></span>
 								</p> -->
 								<hr>
@@ -309,7 +309,9 @@ $(function(){
 
 //상품수량업다운버튼끝
 
-
+// 배송비
+var dtax = 2500;
+$('.delivery-tax').text(dtax);
 
 //수령인정보동일시작
 

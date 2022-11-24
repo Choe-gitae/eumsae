@@ -67,4 +67,16 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.selectById(id);
 	}
 
+	@Override
+	public List<CartVO> cartListById(String id) {
+		System.out.println("카트 리스트 검색 서비스");
+		return dao.cartListById(id);
+	}
+
+	@Override
+	public CartVO searchCart(CartVO vo) {
+		System.out.println("상품 중복 검색 서비스");
+		return dao.searchCart(vo);
+	}
+
 }

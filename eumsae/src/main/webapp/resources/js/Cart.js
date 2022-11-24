@@ -51,8 +51,7 @@ $(document).ready(function () {
             data: data,
             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             success: function (result) {
-                alert(amount+" 만큼 장바구니에 담았습니다.");
-                console.log(result);
+                $('#ajaxResult').text(result);                
             },
             error: function (err) {
                 alert("전송실패");
@@ -63,21 +62,5 @@ $(document).ready(function () {
       
 
     })// end of click
-
-    // checkout button 클릭시
-    $('').click(function () {
-        alert('OK'); 
-
-
-    }); // end of click
-
-
-
-
-
-
-
-
-
 
 })	// end of ready

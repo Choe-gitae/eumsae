@@ -16,7 +16,7 @@ import eumsae.model.LpVO;
 import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 
-@Controller()
+@Controller
 @RequestMapping(value = "/shop")
 public class ShopController {
 	
@@ -61,15 +61,23 @@ public class ShopController {
 	}
 	
 	// 카트담기
-		@RequestMapping(value="/addToCart")
+		@RequestMapping(value="/addToCart", produces = "application/text;charset=utf-8")
 		@ResponseBody
 		public String addCart(CartVO vo, Model m) {
-			int result = cService.addCart(vo);
 			String message = "카트에 정상적으로 담기지 않았습니다.";
-			if (result == 1) {
-				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
-				m.addAttribute("result",vo);
-			}			
+			CartVO check = cService.searchCart(vo);					// 상품 중복 검사
+			if (check != null) {
+				message = "중복된 상품입니다.";
+				
+			} else {
+				int result = cService.addCart(vo);						// 카트에 담기 실행
+				if (result == 1) {
+					message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+					m.addAttribute("result",vo);
+				}			
+				
+			}
+			
 			return message;
 		}
 		
@@ -83,5 +91,5 @@ public class ShopController {
 			System.out.println(linfo.toString());
 			m.addAttribute("linfo", linfo);												// 해당 정보 모델에 추가
 			return "/shop/"+page; 
-		}
+		}		
 }

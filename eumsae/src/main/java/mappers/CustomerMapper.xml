@@ -29,8 +29,16 @@
 	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
 	</insert>
 	
+	<select id="SearchCart" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM CART WHERE LPNO=#{lpno}
+	</select>
+	
 	<select id="selectById" parameterType="string" resultType="CustomerVO">
 		SELECT * FROM customer WHERE id=#{id}
+	</select>
+	
+	<select id="cartListById" parameterType="string" resultType="CartVO">
+		SELECT * FROM CART C INNER JOIN LP L ON C.LPNO=L.LPNO INNER JOIN LPINFO I ON L.INFONO=I.INFONO  WHERE id=#{id}
 	</select>
 
 </mapper>

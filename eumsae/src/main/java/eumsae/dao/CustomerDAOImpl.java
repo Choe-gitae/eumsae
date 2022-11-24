@@ -65,10 +65,25 @@ public class CustomerDAOImpl implements CustomerDAO{
 		return mybatis.insert("customer.addCart", vo);
 		
 	}
-
+	
+	// 아이디로 회원 정보 찾기
 	@Override
 	public CustomerVO selectById(String id) {
 		System.out.println("아이디로 검색");
 		return mybatis.selectOne("customer.selectById",id);
+	}
+
+	// 아이디로 카트 리스트 반환
+	@Override
+	public List<CartVO> cartListById(String id) {
+		System.out.println("아이디로 카트 리스트 반환");
+		return mybatis.selectList("customer.cartListById", id);
+	}
+
+	// 상품 중복 검사
+	@Override
+	public CartVO searchCart(CartVO vo) {
+		System.out.println("상품 중복 검사");
+		return mybatis.selectOne("customer.SearchCart",vo);
 	}
 }

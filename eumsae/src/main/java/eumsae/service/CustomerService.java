@@ -30,4 +30,9 @@ public interface CustomerService {
 	// 아이디로 회원 정보 찾기
 	public CustomerVO selectById(String id);
 
+	// 아이디로 카트 리스트 반환
+	public List<CartVO> cartListById(String id);
+
+	// 상품 중복 검사
+	public CartVO searchCart(CartVO vo);
 }
