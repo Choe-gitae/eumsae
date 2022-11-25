@@ -1,5 +1,6 @@
 package eumsae.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,16 +47,34 @@ public class ShopController {
 		return "/shop/requestBoard";
 	}
 
-	// LP상품페이지 LpVO리스트 리턴
-	@RequestMapping(value = "/lpList")
-	public String searchLp(@RequestParam("genre") String genreKey, Model model) {
-		List<LpVO> list = lpService.genreLp(genreKey);
+	// LP상품페이지 검색후 LpVO리스트 리턴
+	@RequestMapping(value = "/searchLp")
+	public String searchLp(String searchCon, String searchKey, Model model) {
+		System.out.println(searchCon);
+		System.out.println(searchKey);
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		System.out.println(map.get("searchKey"));
+		List<LpVO> list = lpService.searchLp(map);
 		model.addAttribute("list", list);
+		System.out.println(list);
 		return "/shop/lpList";
 	}
+	
+	// // 검색한 LP 정보 (제목별, 가수별) 리턴
+	/*@RequestMapping(value = "/searchLp")
+	public String selectLpVOList(String page, String searchCon, String searchKey, Model model) {
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		List<LpVO> list = service.selectLpVOList(map);
+		model.addAttribute("list", list);
+		return "/management/"+page;
+	}*/
 
-	// LP 상세 페이지 정보 출력
-	@RequestMapping(value = "/detail")
+	//LP 상세 페이지 정보 출력
+	@RequestMapping(value="/detail")
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
 		LpVO select = lpService.detail(infonoKey);
 		m.addAttribute("select", select);
