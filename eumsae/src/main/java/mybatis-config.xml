@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<settings>
+		<settings>
 		<!-- 언더바 to 카멜 -->
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 		<!-- NULL 처리 -->
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
-
+	
 	<!-- Alias 설정 -->
 	<typeAliases>
 		<typeAlias alias="LpVO" type="eumsae.model.LpVO"/>
@@ -22,5 +22,5 @@
 		<typeAlias alias="SalesVO" type="eumsae.model.SalesVO"/>
 		<typeAlias alias="CheckOutVO" type="eumsae.model.CheckOutVO"/>
 	</typeAliases>
-
+	
 </configuration>
