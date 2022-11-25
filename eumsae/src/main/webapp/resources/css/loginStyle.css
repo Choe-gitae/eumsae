@@ -53,8 +53,30 @@ body.aa {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
+.button-check {
+      -webkit-transition: none;
+      -o-transition: none;
+      transition: none; 
+      position: relative;
+      font-weight: lighter;
+      
+      } 
+     
+  .button-check:hover {
+    color: #212529;
+    text-decoration: none; }
+  .button-check:focus, .button-check.focus {
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+  .button-check.disabled, .button-check:disabled {
+    opacity: 0.65; }
+  .button-check:not(:disabled):not(.disabled) {
+    cursor: pointer; }
+}
+
 
 button:active {
   transform: scale(0.95);
@@ -64,6 +86,12 @@ button:focus {
   outline: none;
 }
 
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+	color: #A2A2A2;
+}
 
 
 .form {
@@ -72,7 +100,7 @@ button:focus {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 0 30px;
   height: 100%;
   text-align: center;
     box-sizing: border-box;

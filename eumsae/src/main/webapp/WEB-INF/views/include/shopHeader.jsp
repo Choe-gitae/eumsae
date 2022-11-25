@@ -74,12 +74,12 @@
 									class="login-register-cart-button d-flex align-items-center">
 									<!-- Login/Register -->
 									<div class="login-register-btn mr-50">
-										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
+										<a href="<%=pjName%>/user/login&RegisterPage" id="loginBtn">Login / Register</a>
 									</div>
 
                            <!-- Cart Button -->
                            <div class="cart-btn">
-                                 <a href="<%=pjName%>/user/cart"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
+                                 <a href="<%=pjName%>user/cart"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
                            </div>
                         </div>
                      </div>
