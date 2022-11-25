@@ -29,5 +29,17 @@
 	<delete id="deleteMgr" parameterType="MgrVO">
 		DELETE FROM MANAGER WHERE MID=#{mid}
 	</delete>
+	
+	<update id="updateComment" parameterType="WishBoardVO" useGeneratedKeys="false" keyProperty="wboardNo" keyColumn="WBOARD_NO">
+		UPDATE WISH_BOARD
+		SET CCOMMENT=#{ccomment} , CWRITE_DATE=SYSDATE
+		WHERE WBOARD_NO=#{wboardNo}
+	</update>
+	
+	<delete id="deleteComment" parameterType="WishBoardVO">
+		DELETE FROM WISH_BOARD
+	WHERE WBOARD_NO=#{wboardNo}
+	</delete>
+	
 
 </mapper>

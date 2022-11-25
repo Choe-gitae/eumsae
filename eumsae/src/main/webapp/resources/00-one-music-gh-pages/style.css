@@ -417,9 +417,9 @@ img {
     line-height: 30px;
     font-weight: 700;
     text-transform: capitalize; }
-  .oneMusic-btn i {
+  .oneMusic-btn-page i {
     margin-left: 5px; }
-  .oneMusic-btn:hover, .oneMusic-btn:focus {
+  .oneMusic-btn-page:hover, .oneMusic-btn-page:focus {
     font-size: 16px;
     font-weight: 700;
     background-color: #000000;
@@ -1286,8 +1286,9 @@ img {
   position: relative;
   z-index: 1;
   background-color: #000000;
-  padding: 30px 0; }
-  @media only screen and (max-width: 767px) {
+  padding: 30px 0;
+  width: 100%; }
+  @media only screen and (max-width: 100%) {
     .footer-area {
       text-align: center; } }
   .footer-area .copywrite-text {
