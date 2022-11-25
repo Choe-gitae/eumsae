@@ -27,5 +27,9 @@ public interface LpDAO {
 	
 	// LP 수정
 	public Integer updateLp(LpVO vo);
+
+	public List<LpVO> searchLp(HashMap map);
+
+	
 	 
 } 

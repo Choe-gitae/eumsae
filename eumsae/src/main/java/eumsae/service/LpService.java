@@ -27,4 +27,6 @@ public interface LpService {
 	
 	// LP 수정
 	public Integer updateLp(LpVO vo);
+
+	public List<LpVO> searchLp(HashMap map);
 }

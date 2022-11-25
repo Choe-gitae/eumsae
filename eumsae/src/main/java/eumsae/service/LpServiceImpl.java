@@ -30,8 +30,8 @@ public class LpServiceImpl implements LpService {
 		}
 		
 	// LP정보 장르 검색 후 리스트로 리턴
-	public List<LpVO> genreLp(String category) {
-		return dao.genreLp(category);
+	public List<LpVO> searchLp(HashMap map) {
+		return dao.searchLp(map);
 	}
 
 	// LP 삭제
@@ -57,6 +57,12 @@ public class LpServiceImpl implements LpService {
 	public List<LpVO> selectLpVOList(HashMap map) {
 		// TODO Auto-generated method stub
 		return dao.selectLpVOList(map);
+	}
+
+	@Override
+	public List<LpVO> genreLp(String category) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

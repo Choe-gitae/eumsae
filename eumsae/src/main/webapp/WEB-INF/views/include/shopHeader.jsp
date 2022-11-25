@@ -52,16 +52,16 @@
                            <li><a href="<%=pjName%>/shop/main">Home</a></li>
                            <li><a href="#">Category</a>
                               <ul class="dropdown">
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=POP">POP</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=Rock">ROCK</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=HipHop">HipHop</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=Ballad">Ballad</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=국내가요">국내가요</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=Fork">Fork</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=RnB">RnB</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=Elec">일렉트로</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=Ost">OST</a></li>
-                                 <li><a href="<%=pjName%>/shop/lpList?genre=트로트">트로트</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=POP">POP</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=Rock">ROCK</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=HipHop">HipHop</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=Ballad">Ballad</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=국내가요">국내가요</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=Fork">Fork</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=RnB">RnB</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=Elec">일렉트로</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=Ost">OST</a></li>
+                                 <li><a href="<%=pjName%>/shop/searchLp?searchCon=genre&searchKey=트로트">트로트</a></li>
                               </ul>
                            </li>
                            <li><a href="<%=pjName%>/board/requestBoard">Board</a></li>

@@ -98,7 +98,8 @@ button:focus {
   max-width: 100%;
   min-height: 480px;
   box-sizing: border-box;
-  text-align: center;    
+  text-align: center; 
+     
 }
 
 .form-container {
@@ -116,6 +117,10 @@ button:focus {
     box-sizing: border-box;
 }
 
+.sign-in-container input::placeholder{
+	color: #808080;
+}
+
 .container1.right-panel-active .sign-in-container {
   transform: translateX(100%);
     box-sizing: border-box;
@@ -127,6 +132,11 @@ button:focus {
   opacity: 0;
   z-index: 1;
     box-sizing: border-box;
+    overflow: auto;
+}
+
+.sign-up-container input::placeholder{
+	color: #808080;
 }
 
 .container1.right-panel-active .sign-up-container {
@@ -147,6 +157,10 @@ button:focus {
     opacity: 1;
     z-index: 5;
   }
+}
+
+#signup {
+	overflow: auto;
 }
 
 .overlay-container {
@@ -210,20 +224,25 @@ button:focus {
 
 .container1.right-panel-active .overlay-left {
   transform: translateX(0);
+  
 }
 
 .overlay-right {
   right: 0;
-  transform: translateX(0);
+  transform: translateX(0);  
 }
 
 .container1.right-panel-active .overlay-right {
-  transform: translateX(20%);
+  transform: translateX(20%);  
 }
 
 .social-container {
   margin: 20px 0;
     box-sizing: border-box;
+}
+
+#signup {
+	overflow: auto;
 }
 
 .social-container a {

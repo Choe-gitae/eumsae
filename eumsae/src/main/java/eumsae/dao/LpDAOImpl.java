@@ -28,8 +28,9 @@ public class LpDAOImpl implements LpDAO {
 	}
 	
 	// LP 정보 검색
-	public List<LpVO> genreLp(String category) {
-		return mybatis.selectList("Lp.genreLp",category);
+	public List<LpVO> searchLp(HashMap map) {
+		System.out.println(map.get("searchKey"));
+		return mybatis.selectList("Lp.searchLp",map);
 	}
 	
 	// LP정보 키워드로 검색
@@ -54,6 +55,12 @@ public class LpDAOImpl implements LpDAO {
 	@Override
 	public Integer updateLp(LpVO vo) {
 		return mybatis.update("Lp.updateLp", vo);
+	}
+
+	@Override
+	public List<LpVO> genreLp(String category) {
+		// TODO Auto-generated method stub
+		return null;
 	}
  
 }

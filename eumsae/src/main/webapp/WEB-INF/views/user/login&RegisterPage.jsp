@@ -16,7 +16,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>EUMSAE Login page</title>
+    <title>EUMSAE Login/Register Page</title>
 
 		<!-- Favicon -->
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
@@ -69,17 +69,28 @@
 <div class="add-area mb-100"></div>
 <div class="container1" id="container1" >
   <div class="form-container sign-up-container">
+  <div id="signup">
     <form class="form" action="#">
       <h1 class="h1">Create Account</h1>
       <div class="social-container">
 
       </div>
-      <span class="span">or use your email for registration</span>
-      <input class="input" type="text" placeholder="Name" />
-      <input class="input" type="email" placeholder="Email" />
-      <input class="input" type="password" placeholder="Password" />
+                  
+      <input class="input" type="text" placeholder="ID"  required="required"/>
+      <input class="input" type="password" placeholder="Password" required="required"/>
+      <input class="input" type="password" placeholder="Password Confirm" required="required"/>
+      <hr/>      
+      <input class="input" type="text" placeholder="Nick Name" required="required"/>
+      <input class="input" type="text" placeholder="Name" required="required"/>
+      <input class="input" type="text" placeholder="Birth Date" required="required"/>
+      <input class="input" type="email" placeholder="Email" required="required"/>
+      <input class="input" type="text" placeholder="Phone Number" required="required"/>
+      <input class="input" type="text" placeholder="Address" required="required"/>
+      <p/>     
       <button class="button">Sign Up</button>
+      <p/>
     </form>
+    </div>
   </div>
   <div class="form-container sign-in-container" >
     <form class="form" action="#">
@@ -87,11 +98,13 @@
       <div class="social-container">
 
       </div>
+      <form action="loginOk" method="post">
       <span class="span">or use your account</span>
-      <input class="input" type="email" placeholder="Email" />
-      <input class="input" type="password" placeholder="Password" />
+      <input class="input" type="text" class="form-control-my" id="login_id" name="id" placeholder="ID" />
+      <input class="input" type="password" class="form-control-my" id="login_pwd" name="pwd" placeholder="Password" />
       <a class="forget"href="#">Forgot your password?</a>
       <button class="button">Sign In</button>
+      </form>
     </form>
   </div>
   <div class="overlay-container">
@@ -102,7 +115,7 @@
         <button class="button" id="signIn">Sign In</button>
       </div>
       <div class="overlay-panel overlay-right" >
-        <h1>Hello, Friend!</h1>
+        <h1>Hello, EUMSAE</h1>
         <p class="p">Enter your personal details and start journey with us</p>
         <button class="button" id="signUp">Sign Up</button>
       </div>
