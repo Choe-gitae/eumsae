@@ -14,9 +14,6 @@ public interface LpDAO {
 	// Lp등록(lp)
 	public Integer insertLp(LpVO vo);
 
-	// 메인페이지에서 카테고리 드랍박스 선택시 LP정보 리턴
-	public List<LpVO> genreLp(String category);
-
 	// Lp 삭제
 	public Integer deleteLp(LpVO vo);
 
@@ -31,10 +28,7 @@ public interface LpDAO {
 
 	public List<LpVO> searchLp(HashMap map);
 
-	
-	
 	// LP 번호로 정보 조회
 	public LpVO searchByLpno(int lpno);
-
-
+	
 }
