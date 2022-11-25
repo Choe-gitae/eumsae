@@ -262,7 +262,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 */
 	@RequestMapping(value = "/mgtSalesChartPage")
 	public String selectSales(Model model) {
-		mService.selectSales();
+		mService.selectDaySales();
 		return "/management/mgtSalesChartPage";
 	}
 }

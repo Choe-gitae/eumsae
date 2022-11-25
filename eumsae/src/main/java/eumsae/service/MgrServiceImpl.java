@@ -114,15 +114,39 @@ public class MgrServiceImpl implements MgrService {
 		return dao.selectOrderList(pageVO);
 	}
 
-	
+
 	/*****************************************************
-	 * 하루 매출, 최근 30일 매출, 월별 매출 리턴
+	 * 하루 매출 리턴
 	 * @param	없음
-	 * @return	각 매출
+	 * @return	하루 매출
 	 */
 	@Override
-	public List<SalesVO> selectSales() {
-		return dao.selectSales();
+	public List<SalesVO> selectDaySales() {
+		return null;
+	}
+	
+	
+	/*****************************************************
+	 * 최근 15일 매출 리턴
+	 * @param	없음
+	 * @return	최근 15일 매출
+	 */
+	@Override
+	public List<SalesVO> selectRecent15Sales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	/*****************************************************
+	 * 월별 매출 리턴
+	 * @param	없음
+	 * @return	월별 매출
+	 */
+	@Override
+	public List<SalesVO> selectMonthsSales() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
