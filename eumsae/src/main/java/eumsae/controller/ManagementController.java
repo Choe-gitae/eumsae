@@ -91,6 +91,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		HashMap map = new HashMap();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
+		System.out.println(map.get("searchCon"));
+		System.out.println(map.get("searchKey"));
 		List<LpVO> list = service.selectLpVOList(map);
 		model.addAttribute("list", list);
 		return "/management/"+page;
@@ -193,7 +195,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 전체 주문내역 검색후 리스트형태로 리턴
+	 * 전체 주문내역 리스트형태로 리턴
 	 * @param	PaginationVO
 	 * @return	전체 주문내역 리턴
 	 */
@@ -270,13 +272,59 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 * @return	검색한 주문내역 리스트로 리턴
 	 */
 	@RequestMapping(value = "/searchOrder")
-	public String searchOrder(String page, String searchCon, String searchKey, Model model) {
+	public String searchOrder(String searchCon, String searchKey, Model model) {
+		System.out.println(searchCon);
+		System.out.println(searchKey);
 		HashMap map = new HashMap();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		List<OrderVO> list = mService.searchOrder(map);
 		model.addAttribute("list", list);
-		return "/management/"+page;
+		return "/management/mgtSalesPage";
 	}
 	
+	
+	/*****************************************************
+	 * 주문 상세내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문 상세내역 리스트로 리턴
+	 */
+	@RequestMapping(value = "/searchOrderList")
+	public String searchOrderList(String searchCon, String searchKey, Model model) {
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		List<OrderVO> list = mService.searchOrderList(map);
+		model.addAttribute("list", list);
+		return "/management/mgtSalesListPage";
+	}
+	
+	
+	/*****************************************************
+	 * 전체 주문 상세내역 리스트로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문 상세내역 리스트로 리턴
+	 */
+	@RequestMapping(value = "/mgtSalesListPage")
+	public String selectOrderList(String pageNo, Model model) {
+	if(pageNo == null) pageNo = "1";
+	long totalRecord = mService.selectOrderListCount();
+	PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
+	List<OrderVO> list = mService.selectOrderList(pageVO);
+	model.addAttribute("list", list);
+	model.addAttribute("pageVO", pageVO);
+	return "/management/mgtSalesListPage";
+	}
+	
+	
+	/*****************************************************
+	 * 하루 매출, 최근 30일 매출, 월별 매출 리턴
+	 * @param	없음
+	 * @return	각 매출
+	 */
+	@RequestMapping(value = "/mgtSalesChartPage")
+	public String selectSales(Model model) {
+		mService.selectDaySales();
+		return "/management/mgtSalesChartPage";
+	}
 }

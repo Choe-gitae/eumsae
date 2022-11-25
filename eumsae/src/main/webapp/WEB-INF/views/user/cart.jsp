@@ -83,7 +83,7 @@
 									</td>
 									<td>
 										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
+											<span id="title">Jim Beam Kentucky Straight</span> <span>Fugiat
 												voluptates quasi nemo, ipsa perferendis</span>
 										</div>
 									</td>

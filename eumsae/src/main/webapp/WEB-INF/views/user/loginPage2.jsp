@@ -16,13 +16,12 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>EUMSAE</title>
+    <title>EUMSAE Login page</title>
 
 		<!-- Favicon -->
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
         <!-- Stylesheet -->
-        
         <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
 
         <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
@@ -39,10 +38,12 @@
 
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/css/loginStyle.css" />
+        
 
 </head>
 
-<body>
+<body class="aa">
     
     <jsp:include page="../include/shopHeader.jsp" />
 
@@ -57,47 +58,62 @@
             <div class="col-md-9 ftco-animate mb-5 text-center">
                <p class="breadcrumbs mb-0">
                </p>
-               <h2 class="mb-0 bread">Login</h2>
+               
             </div>
          </div>
       </div>
    </section>
    <!-- ##### 페이지 이름 끝 ######### -->
+   
+   
+<div class="add-area mb-100"></div>
+<div class="container1" id="container1" >
+  <div class="form-container sign-up-container">
+    <form class="form" action="#">
+      <h1 class="h1">Create Account</h1>
+      <div class="social-container">
 
-    <!-- ##### Login Area Start ##### -->
-    <section class="login-area section-padding-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-14 col-lg-8">
-                    <div class="login-content">
-                        <h3> </h3>
-                        <!-- Login Form -->
-                        <div class="login-form">
-                            <form action="login" method="post">
-                                <div class="form-group">
-                                    <label for="login_id">아이디</label>
-                                    <input type="text" class="form-control-my" id="login_id" name="id" placeholder="아이디를 입력하세요...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="login_pwd">비밀번호</label>
-                                    <input type="password" class="form-control-my" id="login_pwd" name="pwd" placeholder="비밀번호를 입력하세요..."><br/><br/>
-                                    <input type="checkbox" class="id_save" id="id_save">
-                                    <label for="id_save">로그인 정보 저장</label>
-                                </div>
-                                <button type="submit" class="btn oneMusic-btn-login mt-30">로그인</button><br/>
-                            </form>
-                                <a href="#"><button class="btn oneMusic-btn mt-30" style="top: -20px;">비회원으로 주문하기</button></a>
-                            <a href="registerPage" class="a_hg">회원가입</a>
-                            <a href="findIdPw" class="a_gc">계정 / 비밀번호 찾기</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Login Area End ##### -->
+      </div>
+      <span class="span">or use your email for registration</span>
+      <input class="input" type="text" placeholder="Name" />
+      <input class="input" type="email" placeholder="Email" />
+      <input class="input" type="password" placeholder="Password" />
+      <button class="button">Sign Up</button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container" >
+    <form class="form" action="#">
+      <h1>Sign in</h1>
+      <div class="social-container">
+
+      </div>
+      <span class="span">or use your account</span>
+      <input class="input" type="email" placeholder="Email" />
+      <input class="input" type="password" placeholder="Password" />
+      <a class="forget"href="#">Forgot your password?</a>
+      <button class="button">Sign In</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left" >
+        <h1>Welcome Back!</h1>
+        <p class="p">To keep connected with us please login with your personal info</p>
+        <button class="button" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right" >
+        <h1>Hello, Friend!</h1>
+        <p class="p">Enter your personal details and start journey with us</p>
+        <button class="button" id="signUp">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="add-area mb-100"></div>
+
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
+    <script src="../resources/js/login.js"></script>
 </body>
 
 </html>
