@@ -52,6 +52,13 @@
 		WHERE i.infono=#{infonoKey} 	
 	</select>
 	
+	<select id="selectByLpNo" parameterType="int" resultType="LpVO">
+		SELECT *
+		FROM lpinfo i INNER JOIN lp l
+		ON i.infono=l.infono
+		WHERE l.lpno=#{lpno} 	
+	</select>
+	
 	<update id="updateLp" parameterType="LpVO">
 		UPDATE lpinfo SET genre=#{genre}, title=#{title}, stitle=#{stitle}, singer=#{singer}, region=#{region}, content=#{content}, lpdate=#{lpdate}
 		<if test="jpg!=null">, jpg=#{jpg}, cjpg=#{cjpg}, jpg_size=#{jpgSize}</if>

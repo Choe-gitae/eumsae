@@ -59,5 +59,12 @@ public class LpServiceImpl implements LpService {
 		return dao.selectLpVOList(map);
 	}
 	
+	// LP 번호로 정보 조회
+	@Override
+	public LpVO searchByLpno(int lpno) {
+		// TODO Auto-generated method stub
+		return dao.searchByLpno(lpno);
+	}
+	
 	
 }

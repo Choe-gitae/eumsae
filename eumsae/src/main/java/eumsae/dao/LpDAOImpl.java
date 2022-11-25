@@ -56,5 +56,12 @@ public class LpDAOImpl implements LpDAO {
 	public Integer updateLp(LpVO vo) {
 		return mybatis.update("Lp.updateLp", vo);
 	}
+	
+	// LP 번호로 정보 찾기
+	@Override
+	public LpVO searchByLpno(int lpno) {
+		
+		return mybatis.selectOne("Lp.selectByLpNo",lpno);
+	}
  
 }
