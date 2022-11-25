@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
@@ -209,23 +210,59 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 요청사항게시판 리스트형태로 리턴
+	 * 요청사항게시판
 	 * @param	PaginationVO
-	 * @return	요청사항게시판 리턴
+	 * @return	요청사항게시판
 	 */
 	@RequestMapping(value = "/boardWishPage")
-	public String selectBoard(String pageNo, WishBoardVO vo, Model model) {
-		System.out.println(vo);
+	public String selectBoard(String pageNo, Model model) {
+		
+		// 목록&페이징
 		if(pageNo == null) pageNo = "1";
 		long totalRecord = wService.boardCount();
 		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
 		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
-		mService.updateComment(vo);
+		
 		model.addAttribute("ccomment");
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
 		return "/management/boardWishPage";
 	}
+	//댓글등록
+	@RequestMapping(value = "/updateBoard")
+	public String updateBoard(WishBoardVO vo, String pageNo, Model model) {
+		mService.updateComment(vo);
+		
+		// 목록&페이징
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = wService.boardCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
+		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
+		
+		model.addAttribute("ccomment");
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		return "/management/boardWishPage";
+		
+	}
+	//댓글삭제
+	@RequestMapping(value = "/deleteBoard")
+	public String deleteBoard(WishBoardVO vo, String pageNo, Model model) {
+		mService.deleteComment(vo);
+		
+		// 목록&페이징
+				if(pageNo == null) pageNo = "1";
+				long totalRecord = wService.boardCount();
+				PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
+				List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
+				
+				model.addAttribute("ccomment");
+				model.addAttribute("list", list);
+				model.addAttribute("pageVO", pageVO);
+		
+		return "/management/boardWishPage";
+	}
+	
 	
 	/*****************************************************
 	 * 주문내역 검색

@@ -27,6 +27,9 @@ public interface MgrService {
 	//게시판 댓글달기
 	public Integer updateComment(WishBoardVO vo);
 	
+	//게시판 글 삭제
+	public Integer deleteComment(WishBoardVO vo);
+	
 	
 	/*****************************************************
 	 * 전체 주문내역 카운팅

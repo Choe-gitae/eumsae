@@ -28,6 +28,9 @@ public interface ManagementDAO {
 	//댓글 입력
 	public Integer updateCommnet(WishBoardVO vo);
 	
+	//댓글 삭제
+	public Integer deleteComment(WishBoardVO vo);
+	
 	
 	/*****************************************************
 	 * 전체 주문내역 카운팅
@@ -51,4 +54,6 @@ public interface ManagementDAO {
 	 * @return	검색한 주문내역 리스트로 리턴
 	 */
 	public List<OrderVO> searchOrder(HashMap map);
+
+	
 }

@@ -59,6 +59,12 @@ public class ManagementDAOImpl implements ManagementDAO {
 		System.out.println("댓글 입력");
 		return mybatis.update("Mgr.updateComment",vo);
 	}
+	
+	//댓글 삭제
+	public Integer deleteComment(WishBoardVO vo) {
+		System.out.println("댓글 삭제");
+		return mybatis.delete("Mgr.deleteComment",vo);
+	}
 
 	/*****************************************************
 	 * 전체 주문내역 카운팅

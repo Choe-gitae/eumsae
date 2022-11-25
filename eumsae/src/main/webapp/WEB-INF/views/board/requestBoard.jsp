@@ -76,10 +76,9 @@
                             				<th>닉네임</th>
                             				<th>요청사항</th>
                             				<th>내용</th>
+                            				<th>답변</th>
                             				<th>작성 시간</th>
-<!--                             				<th>댓글</th> -->
-<!--                             				<th>댓글 단 시간</th> -->
-                            				
+                            				<th>답변 작성 시간</th>
                             			</tr>
                             			</thead>
                             			<tbody>
@@ -89,13 +88,8 @@
 						                      <td>${list.nick}</td>
 						                      <td>${list.title}</td>
 						                      <td>${list.article}</td>
+						                      <td>${list.ccomment}</td>
 						                      <td>${list.awriteDate}</td>
-						                   </tr>
-						                   <tr>
-						                   	  <td>답글</td>
-						                   	  <td>-</td>
-						                   	  <td>-</td>
-						                      <td>답변 : ${list.ccomment}</td>
 						                      <td>${list.cwriteDate}</td>
 						                    </tr>
 						                 </c:forEach>

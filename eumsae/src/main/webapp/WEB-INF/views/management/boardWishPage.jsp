@@ -50,8 +50,8 @@
 	<div class="container-fluid position-relative d-flex p-0">
 		<jsp:include page="../include/mgrSidebar.jsp"></jsp:include>
 
-		<!-- Content Start -->
-		<div class="content">
+		<!-- 메인화면 -->
+		<div class="content" id ="content">
 			<jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 			<div class="container-fluid pt-4 px-4">
 				<div class="alert alert-light" role="alert">게시판 관리 페이지</div>
@@ -65,17 +65,21 @@
                             				<th>닉네임</th>
                             				<th>요청사항</th>
                             				<th>내용</th>
-                            				<th>작성 시간</th>
+                            				<th>답변</th>
+                            				<th>글 작성 시간</th>
+                            				<th>댓글 작성 시간</th>
                             			</tr>
                             			</thead>
                             			<tbody>
                             			<c:forEach var="list" items="${list}" varStatus="status">
-						                    <tr class="this">
+						                    <tr class="commentLine">
 						                      <td class="wboardNo">${list.wboardNo}</td>
 						                      <td class="nickName">${list.nick}</td>
 						                      <td class="title">${list.title}</td>
 						                      <td class="article">${list.article}</td>
+						                      <td>${list.ccomment}</td>
 						                      <td>${list.awriteDate}</td>
+						                      <td>${list.cwriteDate}</td>
 						                    </tr>
 						                 </c:forEach>
                             			</tbody>
@@ -87,8 +91,7 @@
 										<nav>
 											<ul class="pagination justify-content-center">
 					                     <c:if test="${pageVO.hasPrevPageNav==true}">
-					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"> <span
-					                           aria-hidden="true">&laquo;</span>
+					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"> <span aria-hidden="true">&laquo;</span>
 					                     </a></li>
 					                     </c:if>
 					                     <c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}" >
@@ -97,8 +100,7 @@
 					                     </c:if>
 					                     </c:forEach>
 					                     <c:if test="${pageVO.hasNextPageNav==true}">
-					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span
-					                           aria-hidden="true">&raquo;</span>
+					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span aria-hidden="true">&raquo;</span>
 					                     </a></li>
 					                     </c:if>
 					                  		</ul>
@@ -111,15 +113,15 @@
 					<hr/>
 					<h6 >내용 : <span class="articleSet"></span></h6>
 					<hr/>
-					<form action="boardWishPage" method="post">
+					<form method="post" id="sendForm" >
 						<div class="form-floating">
 						<input type="hidden" id="wboardNo" name="wboardNo">
-							<textarea class="form-control" placeholder="여기에 댓글을 입력해 주세요"
-								id="ccomment" name="ccomment" style="height: 150px;"></textarea>
+							<textarea class="form-control" id="ccomment" name="ccomment" style="height: 150px;"></textarea>
 							<label for="ccomment">댓글</label>
 						</div>
 						<div class="text-lg-end">
-							<button id="addReply" type="submit" class="btn btn-info" style="margin: 10px; ">등록</button>
+							<button id="deleteList" type="button" class="btn btn-danger">삭제</button>
+							<button id="addReply" type="button" class="btn btn-info" style="margin: 10px; ">등록</button>
 						</div>
 					</form>
 				</div>
@@ -129,25 +131,5 @@
 
 	<jsp:include page="../include/mgrScript.jsp"></jsp:include>
 	
-	<script type="text/javascript">
-	//게시글 클릭했을 때 띄우는 js
-		$(function(){
-			$(".this").click(function(){
-				var title = $(this).find(".title").text();
-				var nickName = $(this).find(".nickName").text();
-				var article = $(this).find(".article").text();
-				var boardNo = $(this).find(".wboardNo").text();
-				$('.request').text(title);
-				$('.nickNameSet').text(nickName);
-				$('.articleSet').text(article);
-				$('#wboardNo').val(boardNo);
-			})
-			$("#addReply").click(function(){
-				alert("댓글 입력 성공");
-			})
-			
-		})
-	//게시글 클릭했을 때 띄우는 js 끝
-	</script>
 </body>
 </html>

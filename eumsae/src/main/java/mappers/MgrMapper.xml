@@ -36,5 +36,10 @@
 		WHERE WBOARD_NO=#{wboardNo}
 	</update>
 	
+	<delete id="deleteComment" parameterType="WishBoardVO">
+		DELETE FROM WISH_BOARD
+	WHERE WBOARD_NO=#{wboardNo}
+	</delete>
+	
 
 </mapper>

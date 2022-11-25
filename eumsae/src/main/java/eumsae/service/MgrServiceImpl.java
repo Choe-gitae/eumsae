@@ -53,6 +53,12 @@ public class MgrServiceImpl implements MgrService {
 		System.out.println("댓글달기 서비스");
 		return dao.updateCommnet(vo);
 	}
+	
+	@Override
+	public Integer deleteComment(WishBoardVO vo) {
+		System.out.println("댓글삭제 서비스");
+		return dao.deleteComment(vo);
+	}
 
 	
 	/*****************************************************
@@ -86,6 +92,8 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> searchOrder(HashMap map) {
 		return dao.searchOrder(map);
 	}
+
+
 
 
 	
