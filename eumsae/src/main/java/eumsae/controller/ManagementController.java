@@ -213,6 +213,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("pageVO", pageVO);
 		return "/management/boardWishPage";
 	}
+	
 	//댓글등록
 	@RequestMapping(value = "/updateBoard")
 	public String updateBoard(WishBoardVO vo, String pageNo, Model model) {
@@ -230,6 +231,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/boardWishPage";
 		
 	}
+	
 	//댓글삭제
 	@RequestMapping(value = "/deleteBoard")
 	public String deleteBoard(WishBoardVO vo, String pageNo, Model model) {

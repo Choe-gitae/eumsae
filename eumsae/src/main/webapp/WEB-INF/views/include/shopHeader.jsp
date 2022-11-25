@@ -110,12 +110,12 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
 									class="login-register-cart-button d-flex align-items-center">
 									<!-- Login/Register -->
 									<div class="login-register-btn mr-50">
-                    <c:if test="${login == null }">
+                   		 				<c:if test="${login == null }">
 										<a href="<%=pjName%>/user/login&RegisterPage" id="loginBtn">Login / Register</a>
-                  </c:if>
-                  <c:if test="${login != null }">
-                    <a href="<%=pjName%>/user/logout" id="logOutBtn">Log Out</a>
-                  </c:if>
+                  						</c:if>
+						                <c:if test="${login != null }">
+						                <a href="<%=pjName%>/user/logout" id="logOutBtn">Log Out</a>
+						                </c:if>
 									</div>
 
                            <!-- Cart Button -->
