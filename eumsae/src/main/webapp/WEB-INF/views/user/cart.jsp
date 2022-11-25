@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% String pjName = "/eumsae"; %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,9 +60,11 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="table-wrap">
-						<table class="table">
+					<form method="post" action="/eumsae/shop/checkout" name="checkout">
+						<table class="table" id="cartTable">
 							<thead class="thead-primary">
 								<tr>
+									<th>&nbsp;</th>
 									<th>&nbsp;</th>
 									<th>&nbsp;</th>
 									<th>Product</th>
@@ -71,165 +74,52 @@
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr class="alert" role="alert">
+							<tbody>							
+								<c:forEach var="list" items="${list}" varStatus="status">									
+								<tr class="alert" role="alert">								
+								<td class="cartno">${list.cartno}</td>
 									<td><label class="checkbox-wrap checkbox-primary">
-											<input type="checkbox" checked> <span
+											<input class="check" type="checkbox" checked name="CheckOutVOList[${status.count}].state"> <span
 											class="checkmark"></span>
 									</label></td>
 									<td>
 										<div class="img"
-											style="background-image: url(resources/img/bg-img/a1.jpg);"></div>
+											style="background-image: url(<%=pjName%>/resources/lpImg/${list.cjpg}.jpg);"></div>
 									</td>
 									<td>
 										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-												voluptates quasi nemo, ipsa perferendis</span>
+											<span id="title">${list.singer}</span> 
+											<span>${list.title}</span>
 										</div>
 									</td>
-									<td>$44.99</td>
+									<td class="price">${list.price}</td>
 									<td class="quantity">
-										<div class="input-group">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="2" min="1"
-												max="100">
+										<div class="input-group">										
+											<input type="text" name="amount" 
+												class="amount form-control input-number" value="${list.amount}" min="1"
+												max="100">												
 										</div>
 									</td>
-									<td>$89.98</td>
+									<td class="total"></td>
 									<td>
-										<button type="button" class="close" data-dismiss="alert"
-											aria-label="Close">
+										<button type="button" class="close" aria-label="Close" data-dismiss="alert">
 											<span aria-hidden="true"><i class="fa fa-close"></i></span>
 										</button>
 									</td>
 								</tr>
-
-								<tr class="alert" role="alert">
-									<td><label class="checkbox-wrap checkbox-primary">
-											<input type="checkbox"> <span class="checkmark"></span>
-									</label></td>
-									<td>
-										<div class="img"
-											style="background-image: url(resources/img/bg-img/a2.jpg);"></div>
-									</td>
-									<td>
-										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-												voluptates quasi nemo, ipsa perferendis</span>
-										</div>
-									</td>
-									<td>$30.99</td>
-									<td class="quantity">
-										<div class="input-group">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1"
-												max="100">
-										</div>
-									</td>
-									<td>$30.99</td>
-									<td>
-										<button type="button" class="close" data-dismiss="alert"
-											aria-label="Close">
-											<span aria-hidden="true"><i class="fa fa-close"></i></span>
-										</button>
-									</td>
-								</tr>
-
-								<tr class="alert" role="alert">
-									<td><label class="checkbox-wrap checkbox-primary">
-											<input type="checkbox"> <span class="checkmark"></span>
-									</label></td>
-									<td>
-										<div class="img"
-											style="background-image: url(resources/img/bg-img/a3.jpg);"></div>
-									</td>
-									<td>
-										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-												voluptates quasi nemo, ipsa perferendis</span>
-										</div>
-									</td>
-									<td>$35.50</td>
-									<td class="quantity">
-										<div class="input-group">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1"
-												max="100">
-										</div>
-									</td>
-									<td>$35.50</td>
-									<td>
-										<button type="button" class="close" data-dismiss="alert"
-											aria-label="Close">
-											<span aria-hidden="true"><i class="fa fa-close"></i></span>
-										</button>
-									</td>
-								</tr>
-
-								<tr class="alert" role="alert">
-									<td><label class="checkbox-wrap checkbox-primary">
-											<input type="checkbox"> <span class="checkmark"></span>
-									</label></td>
-									<td>
-										<div class="img"
-											style="background-image: url(resources/img/bg-img/a4.jpg);"></div>
-									</td>
-									<td>
-										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-												voluptates quasi nemo, ipsa perferendis</span>
-										</div>
-									</td>
-									<td>$76.99</td>
-									<td class="quantity">
-										<div class="input-group">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1"
-												max="100">
-										</div>
-									</td>
-									<td>$76.99</td>
-									<td>
-										<button type="button" class="close" data-dismiss="alert"
-											aria-label="Close">
-											<span aria-hidden="true"><i class="fa fa-close"></i></span>
-										</button>
-									</td>
-								</tr>
-
-								<tr class="alert" role="alert">
-									<td class="border-bottom-0"><label
-										class="checkbox-wrap checkbox-primary"> <input
-											type="checkbox"> <span class="checkmark"></span>
-									</label></td>
-									<td class="border-bottom-0">
-										<div class="img"
-											style="background-image: url(resources/img/bg-img/a5.jpg);"></div>
-									</td>
-									<td class="border-bottom-0">
-										<div class="email">
-											<span>Jim Beam Kentucky Straight</span> <span>Fugiat
-												voluptates quasi nemo, ipsa perferendis</span>
-										</div>
-									</td>
-									<td class="border-bottom-0">$40.00</td>
-									<td class="quantity border-bottom-0">
-										<div class="input-group">
-											<input type="text" name="quantity"
-												class="quantity form-control input-number" value="1" min="1"
-												max="100">
-										</div>
-									</td>
-									<td class="border-bottom-0">$40.00</td>
-									<td class="border-bottom-0">
-										<button type="button" class="close" data-dismiss="alert"
-											aria-label="Close">
-											<span aria-hidden="true"><i class="fa fa-close"></i></span>
-										</button>
-									</td>
-								</tr>
+								<input id="cnt" type="hidden" name="CheckOutVOList[${status.count}].cnt" value="${list.cnt}" />																																								
+								<input type="hidden" name="CheckOutVOList[${status.count}].amount" value="${list.amount}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cartno" value="${list.cartno}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].id" value="${list.id}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cjpg" value="${list.cjpg}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].singer" value="${list.singer}" />	
+								<input type="hidden" name="CheckOutVOList[${status.count}].title" value="${list.title}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].price" value="${list.price}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].lpno" value="${list.lpno}" />
+							</c:forEach>
 							</tbody>
-						</table>
+						</table>						
+				</form>								
 					</div>
 				</div>
 				<div class="row justify-content-end">
@@ -238,23 +128,23 @@
     					<h3>Cart Totals</h3>
     					<p class="d-flex">
     						<span>Subtotal</span>
-    						<span>$20.60</span>
+    						<span id="subTp"></span>
     					</p>
     					<p class="d-flex">
     						<span>Delivery</span>
-    						<span>$0.00</span>
+    						<span id="dTax">2500</span>
     					</p>
-    					<p class="d-flex">
+    					<!-- <p class="d-flex">
     						<span>Discount</span>
     						<span>$3.00</span>
-    					</p>
+    					</p> -->
     					<hr>
     					<p class="d-flex total-price">
     						<span>Total</span>
-    						<span>$17.60</span>
+    						<span id="tP"></span>
     					</p>
     				</div>
-    				<p class="text-center"><a href="../shop/checkout.jsp" class="btn btn-primary-btn py-3 px-4">Proceed to Checkout</a></p>
+    				<button type="button" class="btn btn-dark py-3 px-4" id="check">Proceed to Checkout</button>
     			</div>
     		</div>
     	</div>
@@ -271,6 +161,7 @@
 	</div>
 
 	<jsp:include page="../include/shopFooter.jsp"></jsp:include>
+	<script src="<%=pjName%>/resources/js/calCart.js"></script>
 	
 
 </body>

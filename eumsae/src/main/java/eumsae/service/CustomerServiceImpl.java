@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import eumsae.dao.CustomerDAO;
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
 
 @Service
@@ -15,9 +16,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerDAO dao;
-	
-	
-
 	
 	//회원가입 서비스
 	@Override
@@ -61,6 +59,43 @@ public class CustomerServiceImpl implements CustomerService {
 	public Integer addCart(CartVO vo) {
 		System.out.println("카트담기 서비스");
 		return dao.addCart(vo);
+	}
+
+	// 아이디로 회원 정보 검색
+	@Override
+	public CustomerVO selectById(String id) {
+		System.out.println("회원 정보 검색 서비스");
+		return dao.selectById(id);
+	}
+
+	@Override
+	public List<CartVO> cartListById(String id) {
+		System.out.println("카트 리스트 검색 서비스");
+		return dao.cartListById(id);
+	}
+
+	@Override
+	public CartVO searchCart(CartVO vo) {
+		System.out.println("상품 중복 검색 서비스");
+		return dao.searchCart(vo);
+	}
+
+	@Override
+	public Integer deleteCart(CartVO vo) {
+		System.out.println("카트 삭제 서비스");
+		return dao.deleteCart(vo);
+	}
+
+	@Override
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
+		System.out.println("결제 리스트 반환 서비스");
+		return dao.selectCheckOutList(vo);
+	}
+
+	@Override
+	public Integer updateCart(CheckOutVO vo) {
+		System.out.println("카트 수량 변경 서비스");
+		return dao.updateCart(vo);
 	}
 
 }

@@ -9,16 +9,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
+import eumsae.model.CheckOutVOList;
+import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
+import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 
-@Controller()
+@Controller
 @RequestMapping(value = "/shop")
 public class ShopController {
 
 	@Autowired
 	LpService lpService;
+
+	@Autowired
+	CustomerService cService;
 
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
@@ -67,8 +76,68 @@ public class ShopController {
 	//LP 상세 페이지 정보 출력
 	@RequestMapping(value="/detail")
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
-		LpVO select = lpService.detail(infonoKey);         
-		m.addAttribute("select",select);            
+		LpVO select = lpService.detail(infonoKey);
+		m.addAttribute("select", select);
 		return "/shop/product-details";
 	}
+
+	// 카트담기
+	@RequestMapping(value = "/addToCart", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String addCart(CartVO vo, Model m) {
+		String message = "카트에 정상적으로 담기지 않았습니다.";
+		CartVO check = cService.searchCart(vo); // 상품 중복 검사
+		if (check != null) {
+			message = "중복된 상품입니다.";
+
+		} else {
+			int result = cService.addCart(vo); // 카트에 담기 실행
+			if (result == 1) {
+				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+				m.addAttribute("result", vo);
+			}
+
+		}
+
+		return message;
+	}
+
+	// 카트 삭제
+	@RequestMapping(value = "/deleteCart", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String deleteCart(CartVO vo) {
+		System.out.println(vo.getCartno());
+		String message = "상품 취소 불가";
+		int check = cService.deleteCart(vo);
+		if (check == 1) {
+			message = "상품 취소 완료";
+		}
+		return message;
+	}
+
+	// 결제 페이지로 이동 (즉시결제)
+	@RequestMapping(value = "/directCheckOut")
+	public String directCheckOut(CheckOutVO vo, Model m) {
+		List<CheckOutVO> info = cService.selectCheckOutList(vo);
+		m.addAttribute("list", info); // 해당 정보 모델에 추가
+		return "/shop/checkOutDirectly";
+	}
+
+	// 카트에 상품 선택 후 결제 페이지로 이동
+	@RequestMapping(value = "/checkout")
+	public String checkOut(Model m, CheckOutVOList checkOutVOList) {
+
+		for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+			cService.updateCart(vo);
+			System.out.println(vo.toString());
+		}
+		String id = checkOutVOList.getCheckOutVOList().get(1).getId();
+		// System.out.println(id);
+		CustomerVO vo = cService.selectById(id);
+
+		// System.out.println(vo.toString());
+		m.addAttribute("cinfo", vo);
+		return "/shop/checkout";
+	}
+
 }

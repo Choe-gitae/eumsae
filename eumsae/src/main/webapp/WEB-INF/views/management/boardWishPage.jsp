@@ -50,24 +50,78 @@
 	<div class="container-fluid position-relative d-flex p-0">
 		<jsp:include page="../include/mgrSidebar.jsp"></jsp:include>
 
-		<!-- Content Start -->
-		<div class="content">
+		<!-- 메인화면 -->
+		<div class="content" id ="content">
 			<jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 			<div class="container-fluid pt-4 px-4">
 				<div class="alert alert-light" role="alert">게시판 관리 페이지</div>
 				<div class="bg-secondary rounded h-100 p-4">
-					<h3>제목</h3>
+					<form action="boardWishPage" method="post">
+                            	<div class="container" >
+                            		<table class="table table-striped">
+                            			<thead>
+                            			<tr>
+                            				<th>글번호</th>
+                            				<th>닉네임</th>
+                            				<th>요청사항</th>
+                            				<th>내용</th>
+                            				<th>답글</th>
+                            				<th>글 작성 시간</th>
+                            				<th>답글 작성 시간</th>
+                            			</tr>
+                            			</thead>
+                            			<tbody>
+                            			<c:forEach var="list" items="${list}" varStatus="status">
+						                    <tr class="commentLine">
+						                      <td class="wboardNo">${list.wboardNo}</td>
+						                      <td class="nickName">${list.nick}</td>
+						                      <td class="title">${list.title}</td>
+						                      <td class="article">${list.article}</td>
+						                      <td>${list.ccomment}</td>
+						                      <td>${list.awriteDate}</td>
+						                      <td>${list.cwriteDate}</td>
+						                    </tr>
+						                 </c:forEach>
+                            			</tbody>
+                            		</table>
+                            		<hr/>
+                            		
+                            	</div>
+                                    <!-- 기태형거 페이지네이션 -->
+										<nav>
+											<ul class="pagination justify-content-center">
+					                     <c:if test="${pageVO.hasPrevPageNav==true}">
+					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"> <span aria-hidden="true">&laquo;</span>
+					                     </a></li>
+					                     </c:if>
+					                     <c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}" >
+					                     <c:if test="${page > 0}">
+					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${page}">${page}</a></li>
+					                     </c:if>
+					                     </c:forEach>
+					                     <c:if test="${pageVO.hasNextPageNav==true}">
+					                     <li class="page-item"><a class="btn oneMusic-btn-page mt-15" href="boardWishPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"> <span aria-hidden="true">&raquo;</span>
+					                     </a></li>
+					                     </c:if>
+					                  		</ul>
+										</nav>
+										<!-- 기태형거 페이지네이션 끝 -->
+                            </form>
+                            <h3>요청사항 : <span  class="request"></span></h3> 
 					<hr />
-					<h6>작성자</h6>
-					<hr />
-					<form>
+					<h6 >닉네임 : <span class="nickNameSet"></span></h6>
+					<hr/>
+					<h6 >내용 : <span class="articleSet"></span></h6>
+					<hr/>
+					<form method="post" id="sendForm" >
 						<div class="form-floating">
-							<textarea class="form-control" placeholder="여기에 댓글을 입력해 주세요"
-								id="comment" name="comment" style="height: 150px;"></textarea>
-							<label for="comment">댓글</label>
+						<input type="hidden" id="wboardNo" name="wboardNo">
+							<textarea class="form-control" id="ccomment" name="ccomment" style="height: 150px;"></textarea>
+							<label for="ccomment">댓글</label>
 						</div>
 						<div class="text-lg-end">
-							<button type="submit" class="btn btn-info" style="margin: 10px; ">등록</button>
+							<button id="deleteList" type="button" class="btn btn-danger">삭제</button>
+							<button id="addReply" type="button" class="btn btn-info" style="margin: 10px; ">등록</button>
 						</div>
 					</form>
 				</div>
@@ -76,5 +130,6 @@
 	</div>
 
 	<jsp:include page="../include/mgrScript.jsp"></jsp:include>
+	
 </body>
 </html>

@@ -7,32 +7,33 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import eumsae.model.CartVO;
 import eumsae.model.LpVO;
 
 @Repository
 public class LpDAOImpl implements LpDAO {
-	
+
 	@Autowired
-	SqlSessionTemplate mybatis;	
-	
-	//lp정보 등록
+	SqlSessionTemplate mybatis;
+
+	// lp정보 등록
 	@Override
-	public Integer insertLpinfo(LpVO vo) {		
+	public Integer insertLpinfo(LpVO vo) {
 		return mybatis.insert("Lp.insertLpinfo", vo);
 	}
-	
-	//lp 조회 등록
+
+	// lp 조회 등록
 	@Override
-	public Integer insertLp(LpVO vo) {	
-		return mybatis.insert("Lp.insertLp",vo);
+	public Integer insertLp(LpVO vo) {
+		return mybatis.insert("Lp.insertLp", vo);
 	}
-	
+
 	// LP 정보 검색
 	public List<LpVO> searchLp(HashMap map) {
 		System.out.println(map.get("searchKey"));
 		return mybatis.selectList("Lp.searchLp",map);
 	}
-	
+
 	// LP정보 키워드로 검색
 	@Override
 	public List<LpVO> selectLpVOList(HashMap map) {
@@ -47,20 +48,20 @@ public class LpDAOImpl implements LpDAO {
 
 	// LP 상세 페이지 정보
 	@Override
-	public LpVO detail(String infonoKey) {		
-		return mybatis.selectOne("Lp.detail",infonoKey);
+	public LpVO detail(String infonoKey) {
+		return mybatis.selectOne("Lp.detail", infonoKey);
 	}
-	
+
 	// LP 수정
 	@Override
 	public Integer updateLp(LpVO vo) {
 		return mybatis.update("Lp.updateLp", vo);
 	}
 
+	// LP 번호에 따른 LpVO List 반환
 	@Override
-	public List<LpVO> genreLp(String category) {
-		// TODO Auto-generated method stub
-		return null;
+	public LpVO searchByLpno(int lpno) {		
+		return mybatis.selectOne("Lp.selectByLpNo",lpno);
 	}
- 
+
 }

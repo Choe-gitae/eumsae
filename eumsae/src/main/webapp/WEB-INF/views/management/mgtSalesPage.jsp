@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% String
-pjName = "/eumsae"; %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib
+prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsae"; %>
 
 <!DOCTYPE html>
 <html>
@@ -57,10 +57,10 @@ pjName = "/eumsae"; %>
           <div class="alert alert-light" role="alert">주문내역 페이지</div>
           <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
             <h6 class="mb-4">검색</h6>
-            <form action="searchLp?page=deleteLpPage" method="post">
+            <form action="searchOrder?page=mgtSalesPage" method="post">
               <select class="form-select mb-3" name="searchCon">
-                <option value="userId" selected>회원ID</option>
-                <option value="orderNo">주문번호</option>
+                <option value="id" selected>회원ID</option>
+                <option value="order_no">주문번호</option>
               </select>
               <input
                 class="form-control bg-dark border-0"
@@ -84,22 +84,26 @@ pjName = "/eumsae"; %>
                     <th scope="col">주문일</th>
                     <th scope="col">주문번호</th>
                     <th scope="col">회원ID</th>
-                    <th scope="col">가격</th>
+                    <th scope="col">총가격</th>
                     <th scope="col">상세보기</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>2022.11.11. 18:38</td>
-                    <td>1111</td>
-                    <td>Jhon Doe</td>
-                    <td>50000</td>
-                    <td>
-                      <a href="mgtSalesListPage?주문번호=주문번호" class="btn btn-sm btn-primary"
-                        >Detail</a
-                      >
-                    </td>
-                  </tr>
+                  <c:forEach var="list" items="${list}">
+                    <tr>
+                      <td>${list.orderDate}</td>
+                      <td>${list.orderNo}</td>
+                      <td>${list.id}</td>
+                      <td>${list.orderTotalPrice}</td>
+                      <td>
+                        <a
+                          href="mgtSalesListPage?orderNo=${list.orderNo}"
+                          class="btn btn-sm btn-primary"
+                          >Detail</a
+                        >
+                      </td>
+                    </tr>
+                  </c:forEach>
                 </tbody>
               </table>
             </div>
@@ -107,15 +111,33 @@ pjName = "/eumsae"; %>
           <div class="bg-secondary text-center rounded p-4">
             <nav>
               <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="btn mt-15" href="#"> <span aria-hidden="true">&laquo;</span> </a>
-                </li>
-                <li class="page-item"><a class="btn mt-15" href="#">1</a></li>
-                <li class="page-item"><a class="btn mt-15" href="#">2</a></li>
-                <li class="page-item"><a class="btn mt-15" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="btn mt-15" href="#"> <span aria-hidden="true">&raquo;</span> </a>
-                </li>
+                <c:if test="${pageVO.hasPrevPageNav==true}">
+                  <li class="page-item">
+                    <a
+                      class="btn mt-15"
+                      href="mgtSalesListPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"
+                    >
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                </c:if>
+                <c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}">
+                  <c:if test="${page > 0}">
+                    <li class="page-item">
+                      <a class="btn mt-15" href="mgtSalesListPage?pageNo=${page}">${page}</a>
+                    </li>
+                  </c:if>
+                </c:forEach>
+                <c:if test="${pageVO.hasNextPageNav==true}">
+                  <li class="page-item">
+                    <a
+                      class="btn mt-15"
+                      href="mgtSalesListPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"
+                    >
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </c:if>
               </ul>
             </nav>
           </div>

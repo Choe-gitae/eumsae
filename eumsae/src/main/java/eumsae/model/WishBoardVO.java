@@ -10,7 +10,9 @@ public class WishBoardVO {
 	private String	title;
 	private String	article;
 	private String	awriteDate;
-	private String	comment;
+	private String	ccomment;
 	private String	cwriteDate;
 }
+
+
 

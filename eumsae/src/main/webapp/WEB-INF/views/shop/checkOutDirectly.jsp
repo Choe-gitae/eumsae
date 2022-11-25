@@ -1,96 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsae"; %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<% String pjName = "/eumsae"; %>
 
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title -->
-    <title>EUMSAE</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Favicon -->
-    <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
+        <!-- Title -->
+        <title>EUMSAE</title>
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-    <link
-      rel="stylesheet"
-      href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css"
-    />
-    <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
-    <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
-  </head>
-  <body style="font-family: LINESeedKR-Bd">
-    <jsp:include page="../include/shopHeader.jsp" />
+        <!-- Favicon -->
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-    <!-- ##### 페이지 이름 ######### -->
-    <section
-      class="hero-wrap hero-wrap-2"
-      style="background-image: url('../resources/images/bg_2.gif')"
-      data-stellar-background-ratio="0.5"
-    >
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ftco-animate mb-5 text-center">
-            <p class="breadcrumbs mb-0"></p>
-            <h2 class="mb-0 bread">Check Out</h2>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ##### 페이지 이름 끝 ######### -->
+<!-- Stylesheet -->
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+    </head>
+    <body  style="font-family:LINESeedKR-Bd;">
+
+
+        <jsp:include page="../include/shopHeader.jsp" />
+
+	<!-- ##### 페이지 이름 ######### -->
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('../resources/images/bg_2.gif');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0">
+					</p>
+					<h2 class="mb-0 bread">Check Out</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ##### 페이지 이름 끝 ######### -->
 
 	<!-- 주문자 정보 시작 -->
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">
-					<form action="#" class="billing-form">											
+					<form action="#" class="billing-form">	
+					<c:set var="customer" value="${list[0]}"/>								
 						<h3 class="mb-4 billing-heading">주문자 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
+										class="form-control" id="buyer_name" placeholder="" value="${customer.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
+										class="form-control" id="buyer_pNum" placeholder="" value="${customer.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
+										type="email" class="form-control" id="buyer_email" placeholder="" value="${customer.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -198,8 +186,7 @@
 															<td>총액</td>															
 														</tr>
 														<!-- 한 블럭 시작 -->
-														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}">
-														<c:if test="${list.state}">
+														<c:forEach var="list" items="${list}">
 														<input type="hidden" name="cnt" id="cnt" value="${list.cnt}">
 														<tr class="alert" role="alert">
 															<td>
@@ -214,13 +201,12 @@
 															<td class="quantity">
 																<span class="input-group">
 																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>															
-																	<input class="amount" type="text" name="amount" value="${list.amount}" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
+																	<input class="amount" type="text" name="amount" value="1" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
 																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
 																</span>
 															</td>
 															<td>₩<span class="subTp"></span></td>															
 														</tr>
-														</c:if>
 														</c:forEach>
 														<!-- 한 블럭 끝 -->
 <!-- ######### 결제 목록 끝############# -->
@@ -290,9 +276,8 @@
         <!-- jQuery -->
 <!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <!-- iamport.payment.js -->
+  <!-- 우편번호 api 끝 -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
   <script src="<%=pjName%>/resources/js/checkOut.js"></script>
-<!-- 우편번호 api 끝 -->
-
 </body>
 </html>

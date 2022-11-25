@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -20,7 +21,7 @@
         <a href="user/loginPage"> 수정 전 로그인 페이지 </a><br/>
         <a href="user/registerPage"> 수정 전 회원가입 페이지 </a><br/>
         <a href="user/findIdPw"> 아이디 비밀번호 찾기 </a><br/>
-        
+        <a href="shop/paySuccess"> success </a><br />
 		
         
         

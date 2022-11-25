@@ -137,7 +137,7 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                   class="cart clearfix"
                   method="post"
                   name="checkOutDirectly"
-                  action="checkOut?page=checkout"
+                  action="directCheckOut"
                 >
                   <div class="cart-btn d-flex mb-50">
                     <p>Qty</p>
@@ -157,7 +157,8 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                       />
                       <span class="qty-plus"
                         ><i class="fa fa-caret-up" aria-hidden="true"></i
-                      ></span>
+                      ></span><br>
+                      <span id="ajaxResult" style="width:150px;color:red"></span>
                     </div>
                   </div>
                   <input type="hidden" name="lpno" id="lpno" value="${select.lpno}" />
@@ -204,7 +205,6 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
     <!--     Active js -->
     <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/active.js"></script>
     <!--  자체 제작 JS -->
-    <script src="<%=pjName%>/resources/js/Cart.js"></script>
-    <script src="<%=pjName%>/resources/js/checkOut.js"></script>
+    <script src="<%=pjName%>/resources/js/ProductDetail.js"></script>  
   </body>
 </html>
