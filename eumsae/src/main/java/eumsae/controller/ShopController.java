@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
+import eumsae.model.CheckOutVOList;
 import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
 import eumsae.service.CustomerService;
@@ -81,15 +83,41 @@ public class ShopController {
 			return message;
 		}
 		
-	// 결제 페이지로 이동
-		@RequestMapping(value="/checkOut")
-		public String checkOut(String page, int lpno, String id, Model m) {
-			CustomerVO cinfo = cService.selectById(id);								// id 로 찾은 정보를 담은 CustomerVO 생성
-			System.out.println(cinfo.toString());
-			m.addAttribute("cinfo", cinfo);												// 해당 정보 모델에 추가
-			LpVO linfo = lpService.searchByLpno(lpno);								// lp번호로 찾은 정보를 담은 LpVO 생성
-			System.out.println(linfo.toString());
-			m.addAttribute("linfo", linfo);												// 해당 정보 모델에 추가
-			return "/shop/"+page; 
-		}		
+	// 카트 삭제
+		@RequestMapping(value="/deleteCart", produces = "application/text;charset=utf-8")
+		@ResponseBody
+		public String deleteCart(CartVO vo) {
+			System.out.println(vo.getCartno());
+			String message = "상품 취소 불가";
+			int check = cService.deleteCart(vo);
+			if(check == 1) {message="상품 취소 완료"; }
+			return message;
+		}
+		
+		
+	// 결제 페이지로 이동 (즉시결제)
+		@RequestMapping(value="/directCheckOut")
+		public String directCheckOut(CheckOutVO vo, Model m) {
+			 List<CheckOutVO> info = cService.selectCheckOutList(vo);		
+			m.addAttribute("list", info);												// 해당 정보 모델에 추가
+			return "/shop/checkOutDirectly"; 
+		}
+		
+	// 카트에 상품 선택 후 결제 페이지로 이동
+		@RequestMapping(value="/checkout")
+		public String checkOut(Model m, CheckOutVOList checkOutVOList) {
+						
+			for(CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+				cService.updateCart(vo);
+				System.out.println(vo.toString());
+			}
+			String id = checkOutVOList.getCheckOutVOList().get(1).getId();
+			//System.out.println(id);
+			CustomerVO vo = cService.selectById(id);
+			
+			//System.out.println(vo.toString());
+			m.addAttribute("cinfo", vo);
+			return "/shop/checkout";
+		}
+		
 }

@@ -3,6 +3,7 @@ package eumsae.service;
 import java.util.HashMap;
 import java.util.List;
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
 
 public interface CustomerService {
@@ -35,4 +36,13 @@ public interface CustomerService {
 
 	// 상품 중복 검사
 	public CartVO searchCart(CartVO vo);
+
+	// 카트 삭제
+	public Integer deleteCart(CartVO vo);
+
+	// checkOutVOList 반환
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo);
+
+	// 카트 수량 변경
+	public Integer updateCart(CheckOutVO vo);
 }

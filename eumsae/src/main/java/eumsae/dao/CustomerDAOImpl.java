@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
 
 @Repository
@@ -85,5 +86,26 @@ public class CustomerDAOImpl implements CustomerDAO{
 	public CartVO searchCart(CartVO vo) {
 		System.out.println("상품 중복 검사");
 		return mybatis.selectOne("customer.SearchCart",vo);
+	}
+
+	// 카트 삭제
+	@Override
+	public Integer deleteCart(CartVO vo) {
+		System.out.println("카트 삭제");
+		return mybatis.delete("customer.deleteCart",vo);
+	}
+
+	// 결제 리스트 반환
+	@Override
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
+		System.out.println("결제 리스트 반환");
+		return mybatis.selectList("customer.selectCheckOutList",vo);
+	}
+	
+	// 카트 수량 변경
+	@Override
+	public Integer updateCart(CheckOutVO vo) {
+		System.out.println("카트 수량 변경");
+		return mybatis.update("customer.updateCart",vo);
 	}
 }

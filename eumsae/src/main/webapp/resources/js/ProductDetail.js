@@ -33,12 +33,13 @@ $(document).ready(function () {
         }
     });    
   
-    
-        
+     // checkout button 클릭시
+    $('#checkOut').click(function () {
+        //alert('OK');
+        document.checkOutDirectly.submit();
    
-    
-    
-    
+
+    }); // end of click    
    
     // 카트에 담기 버튼을 눌렀을 때
     $('#addToCart').click(function () {

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import eumsae.dao.CustomerDAO;
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
 
 @Service
@@ -77,6 +78,24 @@ public class CustomerServiceImpl implements CustomerService {
 	public CartVO searchCart(CartVO vo) {
 		System.out.println("상품 중복 검색 서비스");
 		return dao.searchCart(vo);
+	}
+
+	@Override
+	public Integer deleteCart(CartVO vo) {
+		System.out.println("카트 삭제 서비스");
+		return dao.deleteCart(vo);
+	}
+
+	@Override
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
+		System.out.println("결제 리스트 반환 서비스");
+		return dao.selectCheckOutList(vo);
+	}
+
+	@Override
+	public Integer updateCart(CheckOutVO vo) {
+		System.out.println("카트 수량 변경 서비스");
+		return dao.updateCart(vo);
 	}
 
 }

@@ -78,7 +78,7 @@
 										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Login / Register</a>
 										</c:if>
 										<c:if test="${login != null }">
-										<a href="<%=pjName%>/user/loginPage" id="loginBtn">Log Out</a>
+										<a href="<%=pjName%>/user/logout" id="logOutBtn">Log Out</a>
 										</c:if>
 									</div>
 

@@ -19,6 +19,7 @@
 		<typeAlias alias="WishBoardVO" type="eumsae.model.WishBoardVO"/>
 		<typeAlias alias="OrderVO" type="eumsae.model.OrderVO"/>
 		<typeAlias alias="PaginationVO" type="eumsae.model.PaginationVO"/>
+		<typeAlias alias="CheckOutVO" type="eumsae.model.CheckOutVO"/>
 	</typeAliases>
 
 </configuration>

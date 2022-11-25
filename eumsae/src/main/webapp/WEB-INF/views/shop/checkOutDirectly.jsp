@@ -59,25 +59,26 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">
-					<form action="#" class="billing-form">											
+					<form action="#" class="billing-form">	
+					<c:set var="customer" value="${list[0]}"/>								
 						<h3 class="mb-4 billing-heading">주문자 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
+										class="form-control" id="buyer_name" placeholder="" value="${customer.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
+										class="form-control" id="buyer_pNum" placeholder="" value="${customer.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
+										type="email" class="form-control" id="buyer_email" placeholder="" value="${customer.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -185,8 +186,7 @@
 															<td>총액</td>															
 														</tr>
 														<!-- 한 블럭 시작 -->
-														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}">
-														<c:if test="${list.state}">
+														<c:forEach var="list" items="${list}">
 														<input type="hidden" name="cnt" id="cnt" value="${list.cnt}">
 														<tr class="alert" role="alert">
 															<td>
@@ -201,13 +201,12 @@
 															<td class="quantity">
 																<span class="input-group">
 																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>															
-																	<input class="amount" type="text" name="amount" value="${list.amount}" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
+																	<input class="amount" type="text" name="amount" value="1" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
 																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
 																</span>
 															</td>
 															<td>₩<span class="subTp"></span></td>															
 														</tr>
-														</c:if>
 														</c:forEach>
 														<!-- 한 블럭 끝 -->
 <!-- ######### 결제 목록 끝############# -->
@@ -277,9 +276,8 @@
         <!-- jQuery -->
 <!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <!-- iamport.payment.js -->
+  <!-- 우편번호 api 끝 -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
   <script src="<%=pjName%>/resources/js/checkOut.js"></script>
-<!-- 우편번호 api 끝 -->
-
 </body>
 </html>

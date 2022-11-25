@@ -60,6 +60,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="table-wrap">
+					<form method="post" action="/eumsae/shop/checkout" name="checkout">
 						<table class="table" id="cartTable">
 							<thead class="thead-primary">
 								<tr>
@@ -73,12 +74,12 @@
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody>							
 								<c:forEach var="list" items="${list}" varStatus="status">									
-								<tr class="alert" role="alert">
-								<th scope="row">${status.count}</th>
+								<tr class="alert" role="alert">								
+								<td class="cartno">${list.cartno}</td>
 									<td><label class="checkbox-wrap checkbox-primary">
-											<input class="check" type="checkbox" checked> <span
+											<input class="check" type="checkbox" checked name="CheckOutVOList[${status.count}].state"> <span
 											class="checkmark"></span>
 									</label></td>
 									<td>
@@ -94,7 +95,7 @@
 									<td class="price">${list.price}</td>
 									<td class="quantity">
 										<div class="input-group">										
-											<input type="text" name="quantity" 
+											<input type="text" name="amount" 
 												class="amount form-control input-number" value="${list.amount}" min="1"
 												max="100">												
 										</div>
@@ -105,10 +106,20 @@
 											<span aria-hidden="true"><i class="fa fa-close"></i></span>
 										</button>
 									</td>
-								</tr>																														
-							</c:forEach>								
+								</tr>
+								<input id="cnt" type="hidden" name="CheckOutVOList[${status.count}].cnt" value="${list.cnt}" />																																								
+								<input type="hidden" name="CheckOutVOList[${status.count}].amount" value="${list.amount}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cartno" value="${list.cartno}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].id" value="${list.id}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cjpg" value="${list.cjpg}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].singer" value="${list.singer}" />	
+								<input type="hidden" name="CheckOutVOList[${status.count}].title" value="${list.title}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].price" value="${list.price}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].lpno" value="${list.lpno}" />
+							</c:forEach>
 							</tbody>
 						</table>						
+				</form>								
 					</div>
 				</div>
 				<div class="row justify-content-end">
@@ -133,7 +144,7 @@
     						<span id="tP"></span>
     					</p>
     				</div>
-    				<button type="button" class="btn btn-dark py-3 px-4">Proceed to Checkout</button>
+    				<button type="button" class="btn btn-dark py-3 px-4" id="check">Proceed to Checkout</button>
     			</div>
     		</div>
     	</div>
