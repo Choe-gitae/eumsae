@@ -65,9 +65,9 @@
                             				<th>닉네임</th>
                             				<th>요청사항</th>
                             				<th>내용</th>
-                            				<th>답변</th>
+                            				<th>답글</th>
                             				<th>글 작성 시간</th>
-                            				<th>댓글 작성 시간</th>
+                            				<th>답글 작성 시간</th>
                             			</tr>
                             			</thead>
                             			<tbody>
