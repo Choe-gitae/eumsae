@@ -15,12 +15,6 @@
 		</if>
 	</select>
 
-	<insert id="addCart" parameterType="CartVO">
-	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, #{amount}, #{lpno})
-	</insert>
-
-
-
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
