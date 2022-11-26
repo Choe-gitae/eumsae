@@ -195,23 +195,6 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 전체 주문내역 리스트형태로 리턴
-	 * @param	PaginationVO
-	 * @return	전체 주문내역 리턴
-	 */
-	@RequestMapping(value = "/mgtSalesPage")
-	public String selectOrder(String pageNo, Model model) {
-		if(pageNo == null) pageNo = "1";
-		long totalRecord = mService.selectOrderCount();
-		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
-		List<OrderVO> list = mService.selectOrder(pageVO);
-		model.addAttribute("list", list);
-		model.addAttribute("pageVO", pageVO);
-		return "/management/mgtSalesPage";
-	}
-	
-	
-	/*****************************************************
 	 * 요청사항게시판
 	 * @param	PaginationVO
 	 * @return	요청사항게시판
@@ -230,6 +213,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("pageVO", pageVO);
 		return "/management/boardWishPage";
 	}
+	
 	//댓글등록
 	@RequestMapping(value = "/updateBoard")
 	public String updateBoard(WishBoardVO vo, String pageNo, Model model) {
@@ -247,6 +231,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/boardWishPage";
 		
 	}
+	
 	//댓글삭제
 	@RequestMapping(value = "/deleteBoard")
 	public String deleteBoard(WishBoardVO vo, String pageNo, Model model) {
@@ -263,6 +248,23 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 				model.addAttribute("pageVO", pageVO);
 		
 		return "/management/boardWishPage";
+	}
+	
+	
+	/*****************************************************
+	 * 전체 주문내역 리스트형태로 리턴
+	 * @param	PaginationVO
+	 * @return	전체 주문내역 리턴
+	 */
+	@RequestMapping(value = "/mgtSalesPage")
+	public String selectOrder(String pageNo, Model model) {
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = mService.selectOrderCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
+		List<OrderVO> list = mService.selectOrder(pageVO);
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		return "/management/mgtSalesPage";
 	}
 	
 	
@@ -285,22 +287,6 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 주문 상세내역 검색
-	 * @param	검색할 옵션, 검색할 키
-	 * @return	검색한 주문 상세내역 리스트로 리턴
-	 */
-	@RequestMapping(value = "/searchOrderList")
-	public String searchOrderList(String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
-		map.put("searchCon", searchCon);
-		map.put("searchKey", searchKey);
-		List<OrderVO> list = mService.searchOrderList(map);
-		model.addAttribute("list", list);
-		return "/management/mgtSalesListPage";
-	}
-	
-	
-	/*****************************************************
 	 * 전체 주문 상세내역 리스트로 리턴
 	 * @param	PaginationVO
 	 * @return	전체 주문 상세내역 리스트로 리턴
@@ -314,6 +300,22 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	model.addAttribute("list", list);
 	model.addAttribute("pageVO", pageVO);
 	return "/management/mgtSalesListPage";
+	}
+	
+	
+	/*****************************************************
+	 * 주문 상세내역 검색
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문 상세내역 리스트로 리턴
+	 */
+	@RequestMapping(value = "/searchOrderList")
+	public String searchOrderList(String searchCon, String searchKey, Model model) {
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		List<OrderVO> list = mService.searchOrderList(map);
+		model.addAttribute("list", list);
+		return "/management/mgtSalesListPage";
 	}
 	
 	

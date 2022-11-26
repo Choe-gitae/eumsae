@@ -94,7 +94,7 @@
     </div>
   </div>
   <div class="form-container sign-in-container" >
-    <form class="form" action="loginOk" method="post">
+    <form class="form" action="login" method="post">
       <h1>Sign in</h1>
       <div class="social-container">
       </div>      

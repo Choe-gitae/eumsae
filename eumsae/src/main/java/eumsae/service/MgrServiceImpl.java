@@ -82,7 +82,7 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> selectOrder(PaginationVO vo) {
 		return dao.selectOrder(vo);
 	}
-
+	
 	/*****************************************************
 	 * 주문내역 검색
 	 * 
@@ -93,7 +93,64 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> searchOrder(HashMap map) {
 		return dao.searchOrder(map);
 	}
+	
+	/*****************************************************
+	 * 전체 주문내역 카운팅
+	 * 
+	 * @param 없음
+	 * @return 전체 주문 상세내역 수 리턴
+	 */
+	@Override
+	public Long selectOrderListCount() {
+		return dao.selectOrderListCount();
+	}
 
+	/*****************************************************
+	 * 전체 주문 상세내역 리스트로 리턴
+	 * 
+	 * @param	PaginationVO
+	 * @return	전체 주문 상세내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> selectOrderList(PaginationVO pageVO) {
+		return dao.selectOrderList(pageVO);
+	}
+
+	/*****************************************************
+	 * 주문 상세내역 검색
+	 * 
+	 * @param	검색할 옵션, 검색할 키
+	 * @return	검색한 주문 상세내역 리스트로 리턴
+	 */
+	@Override
+	public List<OrderVO> searchOrderList(HashMap map) {
+		return dao.searchOrderList(map);
+	}
+
+	/*****************************************************
+	 * 하루 매출 리턴
+	 * 
+	 * @param 없음
+	 * @return 하루 매출
+	 */
+	@Override
+	public List<SalesVO> selectDaySales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/*****************************************************
+	 * 최근 15일 매출 리턴
+	 * 
+	 * @param 없음
+	 * @return 최근 15일 장르별 매출
+	 */
+	@Override
+	public List<SalesVO> selectRecent15Sales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	/*****************************************************
 	 * 월별 매출 리턴
 	 * 
@@ -102,6 +159,36 @@ public class MgrServiceImpl implements MgrService {
 	 */
 	@Override
 	public List<SalesVO> selectMonthsSales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long selectOrderListCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVO> selectOrderList(PaginationVO pageVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVO> searchOrderList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SalesVO> selectDaySales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SalesVO> selectRecent15Sales() {
 		// TODO Auto-generated method stub
 		return null;
 	}
