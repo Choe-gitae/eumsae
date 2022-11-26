@@ -110,11 +110,7 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                         </div>
                     </c:forEach>
                 </div>
-              </div>
-            </div>
-          </c:forEach>
-        </div>
-      </div>
+              </div>       
     </section>
     <!-- ##### Album Catagory Area End ##### -->
 

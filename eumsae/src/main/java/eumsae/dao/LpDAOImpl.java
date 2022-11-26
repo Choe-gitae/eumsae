@@ -64,4 +64,11 @@ public class LpDAOImpl implements LpDAO {
 		return mybatis.selectOne("Lp.selectByLpNo",lpno);
 	}
 
+	@Override
+	public List<LpVO> genreLp(String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

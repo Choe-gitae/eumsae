@@ -65,6 +65,12 @@ public class LpServiceImpl implements LpService {
 		System.out.println("LP번호에 따른 VO 반환");
 		return dao.searchByLpno(lpno);
 	}
+
+	@Override
+	public List<LpVO> genreLp(String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

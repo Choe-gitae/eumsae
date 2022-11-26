@@ -106,4 +106,34 @@ public class MgrServiceImpl implements MgrService {
 		return null;
 	}
 
+	@Override
+	public Long selectOrderListCount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVO> selectOrderList(PaginationVO pageVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderVO> searchOrderList(HashMap map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SalesVO> selectDaySales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SalesVO> selectRecent15Sales() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

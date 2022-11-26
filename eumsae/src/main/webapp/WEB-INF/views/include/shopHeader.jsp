@@ -120,7 +120,7 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
 
                            <!-- Cart Button -->
                            <div class="cart-btn">
-                                 <a href="<%=pjName%>user/cart"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
+                                 <a href="<%=pjName%>/user/cart?id=${login}"><img src="<%=pjName%>/resources/images/shop/cart.png" style="height: 30px;width: 30px"/></a>
                            </div>
                         </div>
                      </div>
