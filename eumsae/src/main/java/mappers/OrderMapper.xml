@@ -56,4 +56,15 @@
 	</choose>
 </select>
 
+<select id="selectRecent15Sales" parameterType="hashmap" resultType="integer">
+	SELECT	SUM(NVL(l.price,0)) total
+	FROM	eorder e LEFT OUTER JOIN eorder_list el
+					 ON e.order_no = el.order_no
+				 	 LEFT OUTER JOIN lp l
+					 ON el.lpno = l.lpno
+				 	 LEFT OUTER JOIN lpinfo i
+					 ON l.infono = i.infono
+	WHERE	i.GENRE = #{genre} AND SUBSTR(el.ORDER_DATE,1,10) = SUBSTR(SYSDATE-#{date},1,10)
+</select>
+
 </mapper>

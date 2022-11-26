@@ -2,11 +2,11 @@ package eumsae.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
-import eumsae.model.SalesVO;
 import eumsae.model.WishBoardVO;
 
 public interface ManagementDAO {
@@ -86,5 +86,13 @@ public interface ManagementDAO {
 	 * @param 없음
 	 * @return 하루 매출
 	 */
-	public List<SalesVO> selectSales();
+	public Integer selectDaySales();
+	
+	/*****************************************************
+	 * 최근 15일 장르별 매출
+	 * @param	없음
+	 * @return	최근 15일 장르별 매출
+	 */
+	public Integer selectRecent15Sales(HashMap map);
+	
 }

@@ -81,25 +81,22 @@ public interface MgrService {
 
 	/*****************************************************
 	 * 하루 매출 리턴
-	 * 
 	 * @param 없음
 	 * @return 하루 매출
 	 */
-	public List<SalesVO> selectDaySales();
+	public Integer selectDaySales();
 
 	/*****************************************************
-	 * 최근 15일 매출 리턴
-	 * 
+	 * 최근 15일 장르별 매출
 	 * @param 없음
 	 * @return 최근 15일 장르별 매출
 	 */
-	public List<SalesVO> selectRecent15Sales();
+	public List selectRecent15Sales();
 
 	/*****************************************************
 	 * 월별 매출 리턴
-	 * 
 	 * @param 없음
 	 * @return 월별 매출
 	 */
-	public List<SalesVO> selectMonthsSales();
+	public Integer selectMonthsSales();
 }

@@ -1,7 +1,9 @@
 package eumsae.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +12,6 @@ import eumsae.dao.ManagementDAO;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
-import eumsae.model.SalesVO;
 import eumsae.model.WishBoardVO;
 
 @Service
@@ -134,22 +135,59 @@ public class MgrServiceImpl implements MgrService {
 	 * @return 하루 매출
 	 */
 	@Override
-	public List<SalesVO> selectDaySales() {
+	public Integer selectDaySales() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	/*****************************************************
-	 * 최근 15일 매출 리턴
+	 * 최근 15일 장르별 매출 리턴
 	 * 
 	 * @param 없음
 	 * @return 최근 15일 장르별 매출
 	 */
 	@Override
-	public List<SalesVO> selectRecent15Sales() {
-		// TODO Auto-generated method stub
+	public List selectRecent15Sales() {
+		String[] genre = {"POP","ROCK","HipHop","Ballad","국내가요","Fork","RnB","일렉트로","OST","트로트"};
+		List chartList = new ArrayList();
+		int recentDate = 15;
+		
+		for (int i = 0; i < genre.length; i++) {
+			List totalList = new ArrayList();
+			for (int j = recentDate; j > 0; j--) {
+				int index = 0;
+				HashMap map = new HashMap();
+				map.put("genre", genre[i]);
+				map.put("date", j);
+				totalList.add(index, dao.selectRecent15Sales(map));
+				index++;
+			}
+			chartList.add(i, totalList);
+		}
+		System.out.println(chartList);
 		return null;
 	}
+	/*
+	SELECT	SUM(NVL(l.price,0)) total
+	FROM	eorder e LEFT OUTER JOIN eorder_list el
+						 ON e.order_no = el.order_no
+					 LEFT OUTER JOIN lp l
+						 ON el.lpno = l.lpno
+					 LEFT OUTER JOIN lpinfo i
+						 ON l.infono = i.infono
+	WHERE	i.GENRE = 'POP' AND SUBSTR(el.ORDER_DATE,1,10) = SUBSTR(SYSDATE-15,1,10);
+
+	SELECT	SUBSTR(el.ORDER_DATE,1,10), NVL(SUM(NVL(l.price,0)),0) total
+	FROM	eorder e LEFT OUTER JOIN eorder_list el
+						 ON e.order_no = el.order_no
+					 LEFT OUTER JOIN lp l
+						 ON el.lpno = l.lpno
+					 LEFT OUTER JOIN lpinfo i
+						 ON l.infono = i.infono
+	WHERE	i.GENRE = 'POP'
+	GROUP BY el.ORDER_DATE
+	HAVING el.ORDER_DATE BETWEEN SYSDATE-15 AND SYSDATE-1;
+	*/
 	
 	/*****************************************************
 	 * 월별 매출 리턴
@@ -158,7 +196,7 @@ public class MgrServiceImpl implements MgrService {
 	 * @return 월별 매출
 	 */
 	@Override
-	public List<SalesVO> selectMonthsSales() {
+	public Integer selectMonthsSales() {
 		// TODO Auto-generated method stub
 		return null;
 	}

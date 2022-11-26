@@ -2,6 +2,7 @@ package eumsae.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
-import eumsae.model.SalesVO;
 import eumsae.model.WishBoardVO;
 
 @Repository
@@ -140,8 +140,18 @@ public class ManagementDAOImpl implements ManagementDAO {
 	 * @return 하루 매출
 	 */
 	@Override
-	public List<SalesVO> selectSales() {
-		return mybatis.selectList("Order.selectSales");
+	public Integer selectDaySales() {
+		return mybatis.selectOne("Order.selectSales");
+	}
+
+	/*****************************************************
+	 * 최근 15일 장르별 매출
+	 * @param	없음
+	 * @return	최근 15일 장르별 매출
+	 */
+	@Override
+	public Integer selectRecent15Sales(HashMap map) {
+		return mybatis.selectOne("Order.selectRecent15Sales", map);
 	}
 
 }

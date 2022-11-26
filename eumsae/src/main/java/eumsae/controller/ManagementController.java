@@ -320,13 +320,25 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 하루 매출, 최근 30일 매출, 월별 매출 리턴
+	 * 하루 매출
 	 * @param	없음
-	 * @return	각 매출
+	 * @return	하루 매출
+	 */
+	//@RequestMapping(value = "/mgtSalesChartPage")
+	public String selectDaySales(Model model) {
+		//mService.selectDaySales();
+		return "/management/mgtSalesChartPage";
+	}
+	
+	
+	/*****************************************************
+	 * 최근 15일 장르별 매출
+	 * @param	없음
+	 * @return	최근 15일 장르별 매출
 	 */
 	@RequestMapping(value = "/mgtSalesChartPage")
-	public String selectSales(Model model) {
-		mService.selectDaySales();
+	public String selectRecent15Sales(Model model) {
+		model.addAttribute("list", mService.selectRecent15Sales());
 		return "/management/mgtSalesChartPage";
 	}
 }
