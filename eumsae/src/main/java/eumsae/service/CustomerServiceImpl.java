@@ -16,8 +16,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerDAO dao;
-	
-	//회원가입 서비스
+
+	// 회원가입 서비스
 	@Override
 	public Integer insertCustomer(CustomerVO vo) {
 		System.out.println("회원 가입 서비스");
@@ -54,8 +54,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.deleteCustomer(vo);
 	}
 
-	//카드 담기
-	@Override	
+	// 카드 담기
+	@Override
 	public Integer addCart(CartVO vo) {
 		System.out.println("카트담기 서비스");
 		return dao.addCart(vo);
