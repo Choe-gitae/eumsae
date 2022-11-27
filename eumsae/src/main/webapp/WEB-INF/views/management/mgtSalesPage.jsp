@@ -97,8 +97,8 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsa
                       <td>${list.orderTotalPrice}</td>
                       <td>
                         <a
-                          href="mgtSalesListPage?orderNo=${list.orderNo}"
-                          class="btn btn-sm btn-primary"
+                          href="searchOrderList?searchCon=order_no&searchKey=${list.orderNo}"
+                          class="btn btn-sm btn-info"
                           >Detail</a
                         >
                       </td>

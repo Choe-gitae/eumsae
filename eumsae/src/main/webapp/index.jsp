@@ -22,10 +22,7 @@
         <a href="user/registerPage"> 수정 전 회원가입 페이지 </a><br/>
         <a href="user/findIdPw"> 아이디 비밀번호 찾기 </a><br/>
         <a href="shop/paySuccess"> success </a><br />
-		
-        
-        
-        
+        <a href="management/mgtSalesChartPage"> 차트 </a><br />
         
     </body>
 </html>

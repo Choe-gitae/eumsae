@@ -2,7 +2,6 @@ package eumsae.dao;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import eumsae.model.MgrVO;
 import eumsae.model.OrderVO;
@@ -18,7 +17,7 @@ public interface ManagementDAO {
 	public MgrVO logIn(MgrVO vo);
 
 	// 매니저 검색 리스트로 반환
-	public List<MgrVO> selectMgrVOList(HashMap map);
+	public List<MgrVO> selectMgrVOList(HashMap<String,String> map);
 
 	// 매니저 정보 수정
 	public Integer updateMgr(MgrVO vo);
@@ -54,7 +53,14 @@ public interface ManagementDAO {
 	 * @param 검색할 옵션, 검색할 키
 	 * @return 검색한 주문내역 리스트로 리턴
 	 */
-	public List<OrderVO> searchOrder(HashMap map);
+	public List<OrderVO> searchOrder(HashMap<String,String> map);
+	
+	/*****************************************************
+	 * 최근 주문내역
+	 * @param 없음
+	 * @return 최근 주문내역
+	 */
+	public List<OrderVO> selectRecentOrder(Integer count);
 
 	/*****************************************************
 	 * 전체 주문 상세내역 카운팅
@@ -78,21 +84,28 @@ public interface ManagementDAO {
 	 * @param 검색할 옵션, 검색할 키
 	 * @return 검색한 주문 상세내역 리스트로 리턴
 	 */
-	public List<OrderVO> searchOrderList(HashMap map);
+	public List<OrderVO> searchOrderList(HashMap<String,String> map);
 
 	/*****************************************************
-	 * 하루 매출 리턴
+	 * 오늘 매출 리턴
 	 * 
 	 * @param 없음
-	 * @return 하루 매출
+	 * @return 오늘 매출
 	 */
-	public Integer selectDaySales();
+	public Integer selectTodaySales();
 	
 	/*****************************************************
-	 * 최근 15일 장르별 매출
-	 * @param	없음
-	 * @return	최근 15일 장르별 매출
+	 * 최근 장르별 매출
+	 * @param	장르명, 최근일 범위
+	 * @return	최근 장르별 매출
 	 */
-	public Integer selectRecent15Sales(HashMap map);
+	public List<HashMap> selectRecentSales(HashMap map);
+	
+	/*****************************************************
+	 * 월별 매출
+	 * @param	없음
+	 * @return	월별 매출
+	 */
+	public List<HashMap> selectMonthsSales();
 	
 }

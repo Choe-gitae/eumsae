@@ -35,7 +35,7 @@ public class ManagementDAOImpl implements ManagementDAO {
 
 	// 매니저리스트 반환
 	@Override
-	public List<MgrVO> selectMgrVOList(HashMap map) {
+	public List<MgrVO> selectMgrVOList(HashMap<String,String> map) {
 		System.out.println("매니저 리스트 반환");
 		return mybatis.selectList("Mgr.searchMgr", map);
 	}
@@ -96,8 +96,18 @@ public class ManagementDAOImpl implements ManagementDAO {
 	 * @return 검색한 주문내역 리스트로 리턴
 	 */
 	@Override
-	public List<OrderVO> searchOrder(HashMap map) {
+	public List<OrderVO> searchOrder(HashMap<String,String> map) {
 		return mybatis.selectList("Order.searchOrder", map);
+	}
+	
+	/*****************************************************
+	 * 최근 주문내역
+	 * @param 없음
+	 * @return 최근 주문내역
+	 */
+	@Override
+	public List<OrderVO> selectRecentOrder(Integer count) {
+		return mybatis.selectList("Order.selectRecentOrder", count);
 	}
 
 	/*****************************************************
@@ -107,7 +117,7 @@ public class ManagementDAOImpl implements ManagementDAO {
 	 * @return 검색한 주문 상세내역 리스트로 리턴
 	 */
 	@Override
-	public List<OrderVO> searchOrderList(HashMap map) {
+	public List<OrderVO> searchOrderList(HashMap<String,String> map) {
 		return mybatis.selectList("Order.searchOrderList", map);
 	}
 
@@ -134,24 +144,34 @@ public class ManagementDAOImpl implements ManagementDAO {
 	}
 
 	/*****************************************************
-	 * 하루 매출 리턴
+	 * 오늘 매출 리턴
 	 * 
 	 * @param 없음
-	 * @return 하루 매출
+	 * @return 오늘 매출
 	 */
 	@Override
-	public Integer selectDaySales() {
-		return mybatis.selectOne("Order.selectSales");
+	public Integer selectTodaySales() {
+		return mybatis.selectOne("Order.selectTodaySales");
 	}
 
 	/*****************************************************
-	 * 최근 15일 장르별 매출
-	 * @param	없음
-	 * @return	최근 15일 장르별 매출
+	 * 최근 장르별 매출
+	 * @param	장르명, 최근일 범위
+	 * @return	최근 장르별 매출
 	 */
 	@Override
-	public Integer selectRecent15Sales(HashMap map) {
-		return mybatis.selectOne("Order.selectRecent15Sales", map);
+	public List<HashMap> selectRecentSales(HashMap map) {
+		return mybatis.selectList("Order.selectRecentSales", map);
+	}
+
+	/*****************************************************
+	 * 월별 매출
+	 * @param	없음
+	 * @return	월별 매출
+	 */
+	@Override
+	public List<HashMap> selectMonthsSales() {
+		return mybatis.selectList("Order.selectMonthsSales");
 	}
 
 }

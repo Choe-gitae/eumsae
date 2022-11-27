@@ -41,6 +41,13 @@
 	ORDER BY e.order_no DESC
 </select>
 
+<select id="selectRecentOrder" parameterType="int" resultType="OrderVO">
+	SELECT	*
+	FROM	eorder
+	WHERE	ROWNUM <![CDATA[<=]]> #{count}
+	ORDER BY order_no DESC
+</select>
+
 <select id="searchOrderList" parameterType="hashmap" resultType="OrderVO">
 	SELECT	* 
 	FROM	eorder e LEFT OUTER JOIN eorder_list el
@@ -56,15 +63,30 @@
 	</choose>
 </select>
 
-<select id="selectRecent15Sales" parameterType="hashmap" resultType="integer">
-	SELECT	SUM(NVL(l.price,0)) total
+<select id="selectRecentSales" parameterType="hashmap" resultType="hashmap">
+	SELECT	TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD') recentdate, SUM(NVL(l.price,0)*el.amount) total
 	FROM	eorder e LEFT OUTER JOIN eorder_list el
-					 ON e.order_no = el.order_no
-				 	 LEFT OUTER JOIN lp l
-					 ON el.lpno = l.lpno
-				 	 LEFT OUTER JOIN lpinfo i
-					 ON l.infono = i.infono
-	WHERE	i.GENRE = #{genre} AND SUBSTR(el.ORDER_DATE,1,10) = SUBSTR(SYSDATE-#{date},1,10)
+						 ON e.order_no = el.order_no
+					 LEFT OUTER JOIN lp l
+						 ON el.lpno = l.lpno
+					 LEFT OUTER JOIN lpinfo i
+						 ON l.infono = i.infono
+	WHERE	i.GENRE = #{genre}
+	GROUP BY TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD')
+	HAVING	TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD') BETWEEN TO_CHAR(SYSDATE-#{recentDate},'YYYY-MM-DD') AND TO_CHAR(SYSDATE-1,'YYYY-MM-DD')
+</select>
+
+<select id="selectTodaySales" resultType="int">
+	SELECT	SUM(order_total_price)
+	FROM	eorder
+	WHERE	TO_CHAR(SYSDATE,'YYYY-MM-DD') = TO_CHAR(ORDER_DATE,'YYYY-MM-DD')
+</select>
+
+<select id="selectMonthsSales" resultType="hashmap">
+	SELECT	TO_CHAR(SYSDATE,'YYYY-MM') month, SUM(order_total_price) total
+	FROM	eorder
+	WHERE	TO_CHAR(ORDER_DATE,'YYYY-MM') BETWEEN TO_CHAR(SYSDATE-13,'YYYY-MM') AND TO_CHAR(SYSDATE-1,'YYYY-MM')
+	GROUP BY TO_CHAR(ORDER_DATE,'YYYY-MM')
 </select>
 
 </mapper>

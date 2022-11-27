@@ -94,7 +94,7 @@
                             <div class="dropdown-menu bg-transparent border-0">
                                 <a href="mgtSalesPage" class="dropdown-item">주문내역</a>
                                 <a href="mgtSalesListPage" class="dropdown-item">주문내역 상세보기</a>
-                                <a href="mgtSalesChartPage" class="dropdown-item">매출내역 및 차트</a>
+                                <a href="mgtSalesChartPage" class="dropdown-item">매출 차트</a>
                             </div>
                         </c:if>
                     </div>

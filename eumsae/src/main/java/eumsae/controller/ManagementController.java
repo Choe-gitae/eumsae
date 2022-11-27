@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
@@ -88,7 +87,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// 검색한 LP 정보 리턴
 	@RequestMapping(value = "/searchLp")
 	public String selectLpVOList(String page, String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		System.out.println(map.get("searchCon"));
@@ -130,7 +129,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// 관리자 정보 검색시
 	@RequestMapping(value = "/searchMgr")
 	public String selectMgrVOList(String page, String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		List<MgrVO> list = mService.selectMgrVOList(map);
@@ -169,7 +168,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// 관리자가 회원 정보를 검색 시
 	@RequestMapping(value = "/searchCustomer")
 	public String selectCustomerVOList(String page, String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		List<CustomerVO> list = cService.selectCustomerVOList(map);
@@ -252,7 +251,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 전체 주문내역 리스트형태로 리턴
+	 * 주문내역 / 전체 주문내역 리스트형태로 리턴
 	 * @param	PaginationVO
 	 * @return	전체 주문내역 리턴
 	 */
@@ -269,15 +268,13 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 주문내역 검색
+	 * 주문내역 / 주문내역 검색
 	 * @param	검색할 옵션, 검색할 키
 	 * @return	검색한 주문내역 리스트로 리턴
 	 */
 	@RequestMapping(value = "/searchOrder")
 	public String searchOrder(String searchCon, String searchKey, Model model) {
-		System.out.println(searchCon);
-		System.out.println(searchKey);
-		HashMap map = new HashMap();
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		List<OrderVO> list = mService.searchOrder(map);
@@ -287,7 +284,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 전체 주문 상세내역 리스트로 리턴
+	 * 주문내역 상세보기 / 전체 주문 상세내역 리스트로 리턴
 	 * @param	PaginationVO
 	 * @return	전체 주문 상세내역 리스트로 리턴
 	 */
@@ -304,13 +301,13 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 주문 상세내역 검색
+	 * 주문내역 상세보기 / 주문 상세내역 검색
 	 * @param	검색할 옵션, 검색할 키
 	 * @return	검색한 주문 상세내역 리스트로 리턴
 	 */
 	@RequestMapping(value = "/searchOrderList")
 	public String searchOrderList(String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
 		List<OrderVO> list = mService.searchOrderList(map);
@@ -320,25 +317,31 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	
 	/*****************************************************
-	 * 하루 매출
+	 * 관리자 메인 / 하루 매출, 최근 판매 내역
 	 * @param	없음
-	 * @return	하루 매출
+	 * @return	하루 매출, 최근 판매 내역
 	 */
-	//@RequestMapping(value = "/mgtSalesChartPage")
+	@RequestMapping(value = "/main")
 	public String selectDaySales(Model model) {
-		//mService.selectDaySales();
-		return "/management/mgtSalesChartPage";
+		Integer todaySales = mService.selectTodaySales();
+		List<OrderVO> recentOrderList = mService.selectRecentOrder();
+		model.addAttribute("todaySales", todaySales);
+		model.addAttribute("recentOrderList", recentOrderList);
+		return "/management/main";
 	}
 	
 	
 	/*****************************************************
-	 * 최근 15일 장르별 매출
+	 * 매출 차트 / 최근 장르별 매출, 월별 매출
 	 * @param	없음
-	 * @return	최근 15일 장르별 매출
+	 * @return	최근 장르별 매출, 월별 매출
 	 */
 	@RequestMapping(value = "/mgtSalesChartPage")
-	public String selectRecent15Sales(Model model) {
-		model.addAttribute("list", mService.selectRecent15Sales());
+	public String selectRecentSales(Model model) {
+		HashMap<String,List<String>> recentSalesMap = mService.selectRecentSales();
+		List<String> monthsSalesList = mService.selectMonthsSales();
+		model.addAttribute("recentSalesMap", recentSalesMap);
+		model.addAttribute("monthsSalesList", monthsSalesList);
 		return "/management/mgtSalesChartPage";
 	}
 }

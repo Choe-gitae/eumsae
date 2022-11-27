@@ -1,9 +1,10 @@
 package eumsae.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,7 @@ public class MgrServiceImpl implements MgrService {
 	}
 
 	@Override
-	public List<MgrVO> selectMgrVOList(HashMap map) {
+	public List<MgrVO> selectMgrVOList(HashMap<String,String> map) {
 		System.out.println("매니저 리스트 검색 서비스");
 		return dao.selectMgrVOList(map);
 	}
@@ -91,8 +92,20 @@ public class MgrServiceImpl implements MgrService {
 	 * @return 검색한 주문내역 리스트로 리턴
 	 */
 	@Override
-	public List<OrderVO> searchOrder(HashMap map) {
+	public List<OrderVO> searchOrder(HashMap<String,String> map) {
 		return dao.searchOrder(map);
+	}
+	
+	/*****************************************************
+	 * 최근 주문내역
+	 * @param 없음
+	 * @return 최근 주문내역
+	 */
+	@Override
+	public List<OrderVO> selectRecentOrder() {
+		// 출력할 주문내역 갯수 지정
+		Integer count = 15;
+		return dao.selectRecentOrder(count);
 	}
 	
 	/*****************************************************
@@ -124,81 +137,105 @@ public class MgrServiceImpl implements MgrService {
 	 * @return	검색한 주문 상세내역 리스트로 리턴
 	 */
 	@Override
-	public List<OrderVO> searchOrderList(HashMap map) {
+	public List<OrderVO> searchOrderList(HashMap<String,String> map) {
 		return dao.searchOrderList(map);
 	}
 
 	/*****************************************************
-	 * 하루 매출 리턴
+	 * 오늘 매출 리턴
 	 * 
 	 * @param 없음
-	 * @return 하루 매출
+	 * @return 오늘 매출
 	 */
 	@Override
-	public Integer selectDaySales() {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer selectTodaySales() {
+		Integer todaySales = dao.selectTodaySales();
+		if(todaySales == null) todaySales = 0;
+		return todaySales;
 	}
 
 	/*****************************************************
-	 * 최근 15일 장르별 매출 리턴
+	 * 최근 장르별 매출
 	 * 
 	 * @param 없음
 	 * @return 최근 15일 장르별 매출
 	 */
 	@Override
-	public List selectRecent15Sales() {
+	public HashMap<String,List<String>> selectRecentSales() {
+		// 현재 날짜
+		LocalDate today = LocalDate.now();
+		// 장르 배열
 		String[] genre = {"POP","ROCK","HipHop","Ballad","국내가요","Fork","RnB","일렉트로","OST","트로트"};
-		List chartList = new ArrayList();
-		int recentDate = 15;
+		// 리턴할 결과 Map
+		HashMap<String,List<String>> resultMap = new HashMap<String,List<String>>();
+		// 최근일 범위 지정
+		int recentDays = 15;
 		
 		for (int i = 0; i < genre.length; i++) {
-			List totalList = new ArrayList();
-			for (int j = recentDate; j > 0; j--) {
-				int index = 0;
-				HashMap map = new HashMap();
-				map.put("genre", genre[i]);
-				map.put("date", j);
-				totalList.add(index, dao.selectRecent15Sales(map));
-				index++;
+			List totalList = new ArrayList<>();
+			List<HashMap> tempList = new ArrayList<HashMap>();
+			HashMap map = new HashMap<>();
+			map.put("genre", genre[i]);
+			map.put("recentDate", recentDays+1);
+			// 장르별 판매 검색
+			tempList = dao.selectRecentSales(map);
+			// 장르별 판매가 없을 경우 리스트에 0원을 넣는다
+			if(tempList.isEmpty()) {
+				for (int j = 0; j < recentDays; j++) {
+					totalList.add("0");
+					// HashMap에 판매결과 배열리스트를 담는다
+					resultMap.put(genre[i], totalList);
+				}
+			}else {
+				// 장르별 판매가 있을 경우
+				for (int j = recentDays; j > 0; j--) {
+					int index = 0;
+					// 리스트의 날짜를 비교후 리턴할 리스트에 추가
+					String strdate = today.minusDays(j).toString();
+					String date = (String) tempList.get(index).get("RECENTDATE");
+					// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
+					if(strdate.equals(date)) totalList.add(tempList.get(index).get("TOTAL"));
+					else totalList.add("0");
+					// HashMap에 판매결과 배열리스트를 담는다
+					resultMap.put(genre[i], totalList);
+				}
 			}
-			chartList.add(i, totalList);
 		}
-		System.out.println(chartList);
-		return null;
+		return resultMap;
 	}
-	/*
-	SELECT	SUM(NVL(l.price,0)) total
-	FROM	eorder e LEFT OUTER JOIN eorder_list el
-						 ON e.order_no = el.order_no
-					 LEFT OUTER JOIN lp l
-						 ON el.lpno = l.lpno
-					 LEFT OUTER JOIN lpinfo i
-						 ON l.infono = i.infono
-	WHERE	i.GENRE = 'POP' AND SUBSTR(el.ORDER_DATE,1,10) = SUBSTR(SYSDATE-15,1,10);
 
-	SELECT	SUBSTR(el.ORDER_DATE,1,10), NVL(SUM(NVL(l.price,0)),0) total
-	FROM	eorder e LEFT OUTER JOIN eorder_list el
-						 ON e.order_no = el.order_no
-					 LEFT OUTER JOIN lp l
-						 ON el.lpno = l.lpno
-					 LEFT OUTER JOIN lpinfo i
-						 ON l.infono = i.infono
-	WHERE	i.GENRE = 'POP'
-	GROUP BY el.ORDER_DATE
-	HAVING el.ORDER_DATE BETWEEN SYSDATE-15 AND SYSDATE-1;
-	*/
 	
 	/*****************************************************
-	 * 월별 매출 리턴
-	 * 
+	 * 월별 매출
 	 * @param 없음
 	 * @return 월별 매출
 	 */
 	@Override
-	public Integer selectMonthsSales() {
-		// TODO Auto-generated method stub
-		return null;
+	public List selectMonthsSales() {
+		// 현재 날짜
+		LocalDate today = LocalDate.now();
+		List totalList = new ArrayList<>();
+		List<HashMap> tempList = new ArrayList<HashMap>();
+		
+		tempList = dao.selectMonthsSales();
+		// 월별 판매가 없을 경우 리스트에 0원을 넣는다
+		if(tempList.isEmpty()) {
+			for (int i = 0; i < 12; i++) {
+				totalList.add("0");
+			}
+		}else {
+			// 월별 판매가 있을 경우
+			for (int i = 12; i > 0; i--) {
+				int index = 0;
+				// 리스트의 날짜를 비교후 리턴할 리스트에 추가
+				String strdate = today.minusMonths(i).format(DateTimeFormatter.ofPattern("yyyy-MM"));
+				String month = (String) tempList.get(index).get("MONTH");
+				// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
+				if(strdate.equals(month)) totalList.add(tempList.get(index).get("TOTAL"));
+				else totalList.add("0");
+			}
+		}
+		return totalList;
 	}
 
 }
