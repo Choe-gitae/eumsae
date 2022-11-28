@@ -13,9 +13,6 @@ public interface LpService {
 	// Lp 등록(LP가격 및 검색용 고유 번호 등)
 	public Integer insertLp(LpVO vo);
 
-	// 메인페이지에서 카테고리 드랍박스 선택시 LP 정보 리턴
-	public List<LpVO> genreLp(String category);
-
 	// LP 정보 검색
 	public List<LpVO> selectLpVOList(HashMap map);
 
@@ -30,4 +27,10 @@ public interface LpService {
 
 	// LP 번호로 정보 조회
 	public LpVO searchByLpno(int lpno);
+
+	// 검색조건으로 LP 찾기
+	public List<LpVO> searchLp(HashMap map);
+
+
+
 }

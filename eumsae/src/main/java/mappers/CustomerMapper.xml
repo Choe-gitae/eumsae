@@ -18,19 +18,52 @@
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
-	
+
 	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
       SELECT *
       FROM CUSTOMER
       WHERE ${searchCon} LIKE '%${searchKey}%'
-   </select>
-   
+	</select>
+
 	<insert id="addCart" parameterType="CartVO" useGeneratedKeys="true" keyProperty="cartno" keyColumn="CARTNO">
 	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
 	</insert>
-	
+
+	<select id="SearchCart" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM CART WHERE LPNO=#{lpno}
+	</select>
+
 	<select id="selectById" parameterType="string" resultType="CustomerVO">
 		SELECT * FROM customer WHERE id=#{id}
 	</select>
+	
+	<select id="selectCheckOutList" parameterType="CheckOutVO" resultType="CheckOutVO">
+		SELECT * 
+		FROM CUSTOMER  C LEFT OUTER JOIN CART T 
+		ON C.id=T.id 
+		LEFT OUTER JOIN LP L 
+		ON T.lpno = L.lpno 
+		INNER JOIN LPINFO P 
+		ON L.infono = P.infono
+		WHERE T.id = #{id} AND T.lpno=#{lpno} 
+	</select>
+	
+	<select id="cartListById" parameterType="string" resultType="CartVO">
+		SELECT * FROM CART C INNER JOIN LP L ON C.LPNO=L.LPNO INNER JOIN LPINFO I ON L.INFONO=I.INFONO  WHERE id=#{id}
+	</select>
+	
+	<delete id="deleteCart" parameterType="CartVO">
+		DELETE FROM CART WHERE CARTNO=#{cartno}
+	</delete>
+	
+	<update id="updateCart" parameterType="CheckOutVO">
+		UPDATE CART
+		SET amount=#{amount}
+		WHERE cartno=#{cartno}
+	</update>
+	
+	<delete id="deleteAllCart" parameterType="CheckOutVO">
+		DELETE FROM CART WHERE CARTNO=#{cartno}
+	</delete>	
 
 </mapper>

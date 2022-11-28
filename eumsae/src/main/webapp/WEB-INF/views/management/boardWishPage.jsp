@@ -130,6 +130,7 @@
 	</div>
 
 	<jsp:include page="../include/mgrScript.jsp"></jsp:include>
+	<script src="<%=pjName%>/resources/js/boardWishPage.js"></script>
 	
 </body>
 </html>

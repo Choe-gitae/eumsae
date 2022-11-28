@@ -8,15 +8,17 @@ import org.springframework.stereotype.Service;
 
 import eumsae.dao.CustomerDAO;
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
+import eumsae.model.OrderVO;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerDAO dao;
-	
-	//회원가입 서비스
+
+	// 회원가입 서비스
 	@Override
 	public Integer insertCustomer(CustomerVO vo) {
 		System.out.println("회원 가입 서비스");
@@ -53,8 +55,8 @@ public class CustomerServiceImpl implements CustomerService {
 		return dao.deleteCustomer(vo);
 	}
 
-	//카드 담기
-	@Override	
+	// 카드 담기
+	@Override
 	public Integer addCart(CartVO vo) {
 		System.out.println("카트담기 서비스");
 		return dao.addCart(vo);
@@ -65,6 +67,54 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerVO selectById(String id) {
 		System.out.println("회원 정보 검색 서비스");
 		return dao.selectById(id);
+	}
+
+	@Override
+	public List<CartVO> cartListById(String id) {
+		System.out.println("카트 리스트 검색 서비스");
+		return dao.cartListById(id);
+	}
+
+	@Override
+	public CartVO searchCart(CartVO vo) {
+		System.out.println("상품 중복 검색 서비스");
+		return dao.searchCart(vo);
+	}
+
+	@Override
+	public Integer deleteCart(CartVO vo) {
+		System.out.println("카트 삭제 서비스");
+		return dao.deleteCart(vo);
+	}
+
+	@Override
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
+		System.out.println("결제 리스트 반환 서비스");
+		return dao.selectCheckOutList(vo);
+	}
+
+	@Override
+	public Integer updateCart(CheckOutVO vo) {
+		System.out.println("카트 수량 변경 서비스");
+		return dao.updateCart(vo);
+	}
+
+	@Override
+	public Integer deleteAllCart(CheckOutVO vo) {
+		System.out.println("결제 후 카트 삭제 서비스");
+		return dao.deleteAllCart(vo);
+	}
+
+	@Override
+	public Integer insertOrder(OrderVO vo) {
+		System.out.println("주문 내역 생성 서비스");
+		return dao.insertOrder(vo);
+	}
+
+	@Override
+	public Integer insertOrderList(OrderVO vo) {
+		System.out.println("주문 상세 내역 생성 서비스");
+		return dao.insertOrderList(vo);
 	}
 
 }

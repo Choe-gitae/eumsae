@@ -8,23 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
+import eumsae.model.OrderVO;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO{
-	
+public class CustomerDAOImpl implements CustomerDAO {
+
 	@Autowired
 	SqlSession mybatis;
-	
-	
+
 	// 회원가입
 	@Override
 	public Integer insertCustomer(CustomerVO vo) {
 		System.out.println("회원 가입");
-		return mybatis.insert("customer.insertCustomer",vo);
+		return mybatis.insert("customer.insertCustomer", vo);
 	}
 
-	//id 중복 검사
+	// id 중복 검사
 	@Override
 	public CustomerVO idCheck(CustomerVO vo) {
 		System.out.println("id 중복 확인");
@@ -37,6 +38,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		System.out.println("로그인");
 		return mybatis.selectOne("customer.idCheck", vo);
 	}
+
 	// CustomerVO리스트 반환
 	@Override
 	public List<CustomerVO> selectCustomerVOList(HashMap map) {
@@ -44,7 +46,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		return mybatis.selectList("customer.selectCustomer", map);
 	}
 
-	//회원 정보 수정
+	// 회원 정보 수정
 	@Override
 	public Integer updateCustomer(CustomerVO vo) {
 		System.out.println("회원 정보 수정");
@@ -55,20 +57,74 @@ public class CustomerDAOImpl implements CustomerDAO{
 	@Override
 	public Integer deleteCustomer(CustomerVO vo) {
 		System.out.println("회원 삭제");
-		return mybatis.delete("customer.deleteCustomer",vo);
+		return mybatis.delete("customer.deleteCustomer", vo);
 	}
-	
-	//카트 담기
+
+	// 카트 담기
 	@Override
 	public Integer addCart(CartVO vo) {
 		System.out.println("카트담기 확인 : " + vo);
 		return mybatis.insert("customer.addCart", vo);
-		
+
 	}
 
+	// 아이디로 회원 정보 찾기
 	@Override
 	public CustomerVO selectById(String id) {
 		System.out.println("아이디로 검색");
-		return mybatis.selectOne("customer.selectById",id);
+		return mybatis.selectOne("customer.selectById", id);
+	}
+
+	// 아이디로 카트 리스트 반환
+	@Override
+	public List<CartVO> cartListById(String id) {
+		System.out.println("아이디로 카트 리스트 반환");
+		return mybatis.selectList("customer.cartListById", id);
+	}
+
+	// 상품 중복 검사
+	@Override
+	public CartVO searchCart(CartVO vo) {
+		System.out.println("상품 중복 검사");
+		return mybatis.selectOne("customer.SearchCart", vo);
+	}
+
+	// 카트 삭제
+	@Override
+	public Integer deleteCart(CartVO vo) {
+		System.out.println("카트 삭제");
+		return mybatis.delete("customer.deleteCart",vo);
+	}
+
+	// 결제 리스트 반환
+	@Override
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
+		System.out.println("결제 리스트 반환");
+		return mybatis.selectList("customer.selectCheckOutList",vo);
+	}
+	
+	// 카트 수량 변경
+	@Override
+	public Integer updateCart(CheckOutVO vo) {
+		System.out.println("카트 수량 변경");
+		return mybatis.update("customer.updateCart",vo);
+	}
+
+	@Override
+	public Integer deleteAllCart(CheckOutVO vo) {
+		System.out.println("카트 모두 삭제");
+		return mybatis.delete("customer.deleteAllCart",vo);
+	}
+
+	@Override
+	public Integer insertOrder(OrderVO vo) {
+		System.out.println("주문 내역 입력");
+		return mybatis.insert("Order.insertOrder",vo);
+	}
+
+	@Override
+	public Integer insertOrderList(OrderVO vo) {
+		System.out.println("상세 주문 내역 입력");
+		return mybatis.insert("Order.insertOrderList",vo);
 	}
 }

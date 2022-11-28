@@ -21,8 +21,17 @@
 		VALUES (lp_seq.nextval,#{infono},#{cnt},#{price})
 	</insert>
 	
-	<select id="genreLp" parameterType="string" resultType="LpVO">
-		SELECT infono, title, singer, cjpg FROM lpinfo WHERE genre=#{category}
+	<select id="searchLp" parameterType="hashmap" resultType="LpVO">
+		SELECT	*
+		FROM	lpinfo
+		<choose>
+		<when test="searchCon == null">
+		WHERE singer like '%${searchKey}%' OR title like '%${searchKey}%'
+		</when> 
+		<when test="searchCon != null">
+		WHERE ${searchCon} LIKE '%${searchKey}%'
+		</when>
+		</choose>					
 	</select>
 
 	<select id="selectLp" parameterType="hashmap" resultType="LpVO">
@@ -37,7 +46,7 @@
 	</delete>
 
 	<select id="detail" parameterType="string" resultType="LpVO">
-		SELECT *
+		SELECT i.infono AS infono, i.cmp3 AS cmp3, i.cjpg AS cjpg, i.title AS title,i.stitle AS stitle ,i.singer AS singer, i.genre AS genre, i.lpdate AS lpdate , i.region AS region, i.content As content, l.price AS price, l.lpno As lpno
 		FROM lpinfo i INNER JOIN lp l
 		ON i.infono=l.infono
 		WHERE i.infono=#{infonoKey} 	

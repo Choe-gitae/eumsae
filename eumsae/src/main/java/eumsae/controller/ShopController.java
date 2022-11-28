@@ -1,5 +1,6 @@
 package eumsae.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eumsae.model.CartVO;
+import eumsae.model.CheckOutVO;
+import eumsae.model.CheckOutVOList;
 import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
+import eumsae.model.OrderVO;
 import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 
-@Controller()
+@Controller
 @RequestMapping(value = "/shop")
 public class ShopController {
 
@@ -44,16 +48,34 @@ public class ShopController {
 		return "/shop/requestBoard";
 	}
 
-	// LP상품페이지 LpVO리스트 리턴
-	@RequestMapping(value = "/lpList")
-	public String searchLp(@RequestParam("genre") String genreKey, Model model) {
-		List<LpVO> list = lpService.genreLp(genreKey);
+	// LP상품페이지 검색후 LpVO리스트 리턴
+	@RequestMapping(value = "/searchLp")
+	public String searchLp(String searchCon, String searchKey, Model model) {
+		System.out.println(searchCon);
+		System.out.println(searchKey);
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		System.out.println(map.get("searchKey"));
+		List<LpVO> list = lpService.searchLp(map);
 		model.addAttribute("list", list);
+		System.out.println(list);
 		return "/shop/lpList";
 	}
+	
+	// // 검색한 LP 정보 (제목별, 가수별) 리턴
+	/*@RequestMapping(value = "/searchLp")
+	public String selectLpVOList(String page, String searchCon, String searchKey, Model model) {
+		HashMap map = new HashMap();
+		map.put("searchCon", searchCon);
+		map.put("searchKey", searchKey);
+		List<LpVO> list = service.selectLpVOList(map);
+		model.addAttribute("list", list);
+		return "/management/"+page;
+	}*/
 
-	// LP 상세 페이지 정보 출력
-	@RequestMapping(value = "/detail")
+	//LP 상세 페이지 정보 출력
+	@RequestMapping(value="/detail")
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
 		LpVO select = lpService.detail(infonoKey);
 		m.addAttribute("select", select);
@@ -61,27 +83,73 @@ public class ShopController {
 	}
 
 	// 카트담기
-	@RequestMapping(value = "/addToCart")
+	@RequestMapping(value = "/addToCart", produces = "application/text;charset=utf-8")
 	@ResponseBody
 	public String addCart(CartVO vo, Model m) {
-		int result = cService.addCart(vo);
 		String message = "카트에 정상적으로 담기지 않았습니다.";
-		if (result == 1) {
-			message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
-			m.addAttribute("result", vo);
+		CartVO check = cService.searchCart(vo); // 상품 중복 검사
+		if (check != null) {
+			message = "중복된 상품입니다.";
+		} else {
+			int result = cService.addCart(vo); // 카트에 담기 실행
+			if (result == 1) {
+				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+				m.addAttribute("result", vo);
+			}
 		}
 		return message;
 	}
 
-	// 결제 페이지로 이동
-	@RequestMapping(value = "/checkOut")
-	public String checkOut(String page, int lpno, String id, Model m) {
-		CustomerVO cinfo = cService.selectById(id); // id 로 찾은 정보를 담은 CustomerVO 생성
-		System.out.println(cinfo.toString());
-		m.addAttribute("cinfo", cinfo); // 해당 정보 모델에 추가
-		LpVO linfo = lpService.searchByLpno(lpno); // lp번호로 찾은 정보를 담은 LpVO 생성
-		System.out.println(linfo.toString());
-		m.addAttribute("linfo", linfo); // 해당 정보 모델에 추가
-		return "/shop/" + page;
+	// 카트 삭제
+	@RequestMapping(value = "/deleteCart", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String deleteCart(CartVO vo) {
+		System.out.println(vo.getCartno());
+		String message = "상품 취소 불가";
+		int check = cService.deleteCart(vo);
+		if (check == 1) {
+			message = "상품 취소 완료";
+		}
+		return message;
 	}
+
+	// 결제 페이지로 이동 (즉시결제)
+	@RequestMapping(value = "/directCheckOut")
+	public String directCheckOut(String id,int lpno, Model m) {
+		CustomerVO customerVO = cService.selectById(id);
+		m.addAttribute("cinfo",customerVO);
+		LpVO lpVO = lpService.searchByLpno(lpno);
+		m.addAttribute("linfo", lpVO);		
+		return "/shop/checkOutDirectly";
+	}
+
+	// 카트에 상품 선택 후 결제 페이지로 이동
+	@RequestMapping(value = "/checkout")
+	public String checkOut(Model m, CheckOutVOList checkOutVOList) {
+
+		for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+			cService.updateCart(vo);
+			System.out.println(vo.toString());
+		}
+		String id = checkOutVOList.getCheckOutVOList().get(1).getId();
+		// System.out.println(id);
+		CustomerVO vo = cService.selectById(id);
+
+		// System.out.println(vo.toString());
+		m.addAttribute("cinfo", vo);
+		return "/shop/checkout";
+	}
+	
+	// 결제 성공시
+	@RequestMapping(value="/paySuccess")
+	public String paySuccess(OrderVO orvo,CheckOutVOList checkOutVOList) {
+		/*for(CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+			System.out.println(vo.getCartno());
+			cService.deleteAllCart(vo);
+		}*/
+		cService.insertOrder(orvo);
+		cService.insertOrderList(orvo);
+		return "/shop/main";
+	}
+
 }
