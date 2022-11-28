@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import eumsae.model.CartVO;
 import eumsae.model.CustomerVO;
 import eumsae.service.CustomerService;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = "/user")
+@Slf4j
 public class CustomerController {
 
 	@Autowired
@@ -73,6 +75,8 @@ public class CustomerController {
 			return "/user/loginPage"; // 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
 		} else {
 			session.setAttribute("login", result.getId()); // 세션에 vo의 아이디를 저장함		
+			log.info("로그인한 아이디 : " + result.getId());
+			
 				return "redirect:/shop/main";	
 		}
 
@@ -101,7 +105,20 @@ public class CustomerController {
 	// 로그아웃
 	@RequestMapping(value = "/logout")
 	public String mgrLogOut(HttpSession session) {
-		System.out.println("유저 로그아웃");		
+		
+		Object obj = session.getAttribute("login");
+		if(obj == null) {
+			return "redirect:/shop/main";
+		}
+		
+		CustomerVO vo = new CustomerVO();
+		vo.setId( (String)obj);
+		System.out.println("1>" + vo);
+		
+		//CustomerVO result = service.로그아웃(vo);
+		//System.out.println("2>" + result);
+//		log.info("로그아웃한 아이디 : " + result.getId());
+		System.out.println("유저 로그아웃");
 		session.invalidate();
 		return "redirect:/shop/main";
 	}

@@ -45,7 +45,7 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
         <jsp:include page="../include/shopHeader.jsp" />
 
         <!-- ##### 페이지 이름 ######### -->
-        <section class="hero-wrap hero-wrap-2" style="background-image: url('../resources/images/bg_5.gif')" data-stellar-background-ratio="0.5">
+        <section class="hero-wrap hero-wrap-2" style="background-image: url('../resources/images/bg_2.gif')" data-stellar-background-ratio="0.5">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -97,15 +97,12 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                         </div>
                     </c:forEach>
                 </div>
-<<<<<<< HEAD
               </div>            
     </section>
     <!-- ##### Album Catagory Area End ##### -->
-=======
             </div>
         </section>
         <!-- ##### Album Catagory Area End ##### -->
->>>>>>> main
 
         <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 

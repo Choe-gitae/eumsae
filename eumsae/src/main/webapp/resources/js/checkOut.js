@@ -49,7 +49,7 @@ $(function () {
       price = parseInt($(this).parents("tr").find(".price").text());
       getsu--;
       $(this).next().val(getsu);
-      if (getsu <= 1) {
+      if (getsu < 1) {
         alert("최소 주문 갯수는 1개 입니다.");
         getsu = 1;
         $(this).next().val(getsu);
@@ -122,12 +122,10 @@ $(function () {
 
   // 결제 관련 (카카오페이 / 토스 페이)
   $("#kakaoPay").click(function () {
-    alert("카카오페이");
     requestPaykakao();
   }); // end of click function
 
   $("#tossPay").click(function () {
-    alert("토스페이");
     requestPaytoss();
   }); // end of click function
 

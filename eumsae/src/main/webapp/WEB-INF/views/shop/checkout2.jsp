@@ -222,8 +222,8 @@
 														</tr>
 														<form action="paySuccess" name="paySuccess" id="paySuccess" class="billing-form" method="get">
 														<input type="hidden" name="lpno" id="lpno" value="${list.lpno}">
-														<div>${list.lpno }</div>
-														<input type="hidden" name="orderTotalPrice" id="orderTotalPrice" value="">
+														<input type="hidden" name="amount" id="amount" value="${list.amount}">
+														<input type="hidden" name="orderTotalPrice" id="orderTotalPrice">
 														<input type="hidden" name="id" id="id" value="${cinfo.id}" >
 														</form>	
 														</c:if>
@@ -270,15 +270,7 @@
 						<div class="col-md-6">
 							<div class="cart-detail p-3 p-md-4">
 								<h3 class="billing-heading mb-4">결제수단</h3>
-								<div class="form-group">
-									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" id="kakaoPay"><img src="../resources/images/payment/payment_icon_yellow_medium.png"></button>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" id="tossPay"><img src="../resources/images/payment/tosspay.png"></button>
-									</div>
+								<button id="pay_do">pay</button>
 								</div>
 							</div>
 						</div>
@@ -301,6 +293,14 @@
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
   <script src="<%=pjName%>/resources/js/checkOut.js"></script>  
+  <script type="text/javascript">
   
+  $(function(){
+	$('#pay_do').click(function(){
+		$("#orderTotalPrice").val($('#tP').text());
+		$("#paySuccess").submit();
+	})
+  })
+  </script>
 </body>
 </html>

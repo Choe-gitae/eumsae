@@ -30,7 +30,7 @@
 	</insert>
 
 	<select id="SearchCart" parameterType="CartVO" resultType="CartVO">
-		SELECT * FROM CART WHERE LPNO=#{lpno}
+		SELECT * FROM CART WHERE id=#{id} and LPNO=#{lpno}
 	</select>
 
 	<select id="selectById" parameterType="string" resultType="CustomerVO">

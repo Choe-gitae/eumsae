@@ -19,9 +19,11 @@ import eumsae.model.LpVO;
 import eumsae.model.OrderVO;
 import eumsae.service.CustomerService;
 import eumsae.service.LpService;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = "/shop")
+@Slf4j
 public class ShopController {
 
 	@Autowired
@@ -33,12 +35,14 @@ public class ShopController {
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
+		log.info("선택한 URL로 이동");
 		return "/shop/" + url;
 	}
 
 	// 메인 페이지
 	@RequestMapping(value = "/main")
 	public String main() {
+		log.info("메인페이지로 이동");
 		return "/shop/main";
 	}
 
@@ -60,6 +64,7 @@ public class ShopController {
 		List<LpVO> list = lpService.searchLp(map);
 		model.addAttribute("list", list);
 		System.out.println(list);
+		log.info("검색기록 : " + searchKey);
 		return "/shop/lpList";
 	}
 	
@@ -93,10 +98,13 @@ public class ShopController {
 		} else {
 			int result = cService.addCart(vo); // 카트에 담기 실행
 			if (result == 1) {
+				log.info("카트담기");
 				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
 				m.addAttribute("result", vo);
 			}
+
 		}
+
 		return message;
 	}
 
@@ -116,10 +124,11 @@ public class ShopController {
 	// 결제 페이지로 이동 (즉시결제)
 	@RequestMapping(value = "/directCheckOut")
 	public String directCheckOut(String id,int lpno, Model m) {
-		CustomerVO customerVO = cService.selectById(id);
-		m.addAttribute("cinfo",customerVO);
-		LpVO lpVO = lpService.searchByLpno(lpno);
-		m.addAttribute("linfo", lpVO);		
+		CustomerVO cvo = cService.selectById(id);
+		m.addAttribute("cinfo",cvo);
+		LpVO lvo = lpService.searchByLpno(lpno);
+		m.addAttribute("linfo", lvo);		
+		
 		return "/shop/checkOutDirectly";
 	}
 
@@ -135,21 +144,24 @@ public class ShopController {
 		// System.out.println(id);
 		CustomerVO vo = cService.selectById(id);
 
-		// System.out.println(vo.toString());
+		 System.out.println(vo.toString());
 		m.addAttribute("cinfo", vo);
-		return "/shop/checkout";
+		return "/shop/checkout2";
 	}
 	
+
 	// 결제 성공시
 	@RequestMapping(value="/paySuccess")
 	public String paySuccess(OrderVO orvo,CheckOutVOList checkOutVOList) {
-		/*for(CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
-			System.out.println(vo.getCartno());
-			cService.deleteAllCart(vo);
-		}*/
+//		for(CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+//			System.out.println(vo.getCartno());
+//			cService.deleteAllCart(vo);
+//		}
+		log.debug("test");
 		cService.insertOrder(orvo);
 		cService.insertOrderList(orvo);
 		return "/shop/main";
 	}
-
+	
+	
 }
