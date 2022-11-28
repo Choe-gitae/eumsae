@@ -110,14 +110,10 @@ public class CustomerController {
 		if(obj == null) {
 			return "redirect:/shop/main";
 		}
-		
 		CustomerVO vo = new CustomerVO();
 		vo.setId( (String)obj);
-		System.out.println("1>" + vo);
 		
-		//CustomerVO result = service.로그아웃(vo);
-		//System.out.println("2>" + result);
-//		log.info("로그아웃한 아이디 : " + result.getId());
+		log.info("로그아웃한 아이디 : " + vo.getId());
 		System.out.println("유저 로그아웃");
 		session.invalidate();
 		return "redirect:/shop/main";
