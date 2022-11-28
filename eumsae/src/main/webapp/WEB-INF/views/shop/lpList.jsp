@@ -94,7 +94,6 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                 </div>
               </div>
             </div>
-          </c:forEach>
         </div>
       </div>
     </section>
