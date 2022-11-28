@@ -183,9 +183,9 @@ public class MgrServiceImpl implements MgrService {
 			if(tempList.isEmpty()) {
 				for (int j = 0; j < recentDays; j++) {
 					totalList.add("0");
-					// HashMap에 판매결과 배열리스트를 담는다
-					resultMap.put(genre[i], totalList);
 				}
+				// HashMap에 판매결과 배열리스트를 담는다
+				resultMap.put(genre[i], totalList);
 			}else {
 				// 장르별 판매가 있을 경우
 				for (int j = recentDays; j > 0; j--) {
@@ -196,9 +196,9 @@ public class MgrServiceImpl implements MgrService {
 					// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
 					if(strdate.equals(date)) totalList.add(tempList.get(index).get("TOTAL"));
 					else totalList.add("0");
-					// HashMap에 판매결과 배열리스트를 담는다
-					resultMap.put(genre[i], totalList);
 				}
+				// HashMap에 판매결과 배열리스트를 담는다
+				resultMap.put(genre[i], totalList);
 			}
 		}
 		return resultMap;

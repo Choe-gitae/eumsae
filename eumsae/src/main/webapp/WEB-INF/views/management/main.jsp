@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% String pjName = "/eumsae"; %>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@
                                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                                 <div class="ms-3">
                                     <p class="mb-2">오늘 판매</p>
-                                    <h6 class="mb-0">${todaySales} 원</h6>
+                                    <h6 class="mb-0"><fmt:formatNumber value="${todaySales}" pattern="#,###" /> 원</h6>
                                 </div>
                             </div>
                         </div>

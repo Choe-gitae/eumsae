@@ -98,7 +98,6 @@ $(document).ready(function () {
     //alert('check');
     $(this).click(function () {
       if ($(this).prop("checked") == false) {
-        alert("상품의 관심을 끕니다.");
         total -= parseInt($(this).parents("tr").children("td.total").text());
         $("#subTp").text(total);
         if (total >= 300000) {
@@ -108,7 +107,6 @@ $(document).ready(function () {
         }
         $("#tP").text(total + parseInt($("#dTax").text()));
       } else if ($(this).prop("checked") == true) {
-        alert("상품의 관심을 재점화 합니다.");
         total += parseInt($(this).parents("tr").children("td.total").text());
         $("#subTp").text(total);
         if (total >= 300000) {

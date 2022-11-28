@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import eumsae.model.CartVO;
 import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
+import eumsae.model.OrderVO;
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO {
@@ -85,7 +86,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public CartVO searchCart(CartVO vo) {
 		System.out.println("상품 중복 검사");
-		return mybatis.selectOne("customer.SearchCart", vo);
+		return mybatis.selectOne("customer.searchCart", vo);
 	}
 
 	// 카트 삭제
@@ -107,5 +108,25 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public Integer updateCart(CheckOutVO vo) {
 		System.out.println("카트 수량 변경");
 		return mybatis.update("customer.updateCart",vo);
+	}
+
+	@Override
+	public Integer deleteAllCart(CheckOutVO vo) {
+		System.out.println("카트 모두 삭제");
+		return mybatis.delete("customer.deleteAllCart",vo);
+	}
+
+	@Override
+	public Integer insertOrder(OrderVO vo) {
+		System.out.println("주문 내역 입력");
+		mybatis.insert("Order.insertOrder",vo);
+		// 주문번호 리턴
+		return vo.getOrderNo();
+	}
+
+	@Override
+	public Integer insertOrderList(HashMap<String, Integer> map) {
+		System.out.println("상세 주문 내역 입력");
+		return mybatis.insert("Order.insertOrderList",map);
 	}
 }

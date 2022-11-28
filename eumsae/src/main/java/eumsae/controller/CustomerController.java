@@ -34,7 +34,6 @@ public class CustomerController {
 	@RequestMapping(value = "/cart")
 	public String cart(String id ,Model model) {
 		List<CartVO> list = service.cartListById(id);		// CartVO list에 service 실행 결과를 받음
-		System.out.println(list);
 		model.addAttribute("list", list);	
 		return "/user/cart";
 	}
@@ -87,15 +86,7 @@ public class CustomerController {
 		String message = "카트에 정상적으로 담기지 않았습니다.";
 		if (result == 1) {
 			message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
-			//CustomerVO customer = (CustomerVO) m.addAttribute("message", message);
-			//vo.setId(customer.getId());
-			//m.addAttribute("message", message);
-			//return "message";
-		//} else {
-		//	return "message";
-
 		}
-			
 		return message;
 	}
 

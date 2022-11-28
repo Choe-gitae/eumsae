@@ -60,7 +60,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="table-wrap">
-					<form method="post" action="/eumsae/shop/checkout" name="checkout">
+					<form method="post" action="/eumsae/shop/checkout?direct=false" name="checkout">
 						<table class="table" id="cartTable">
 							<thead class="thead-primary">
 								<tr>
@@ -88,16 +88,14 @@
 									</td>
 									<td>
 										<div class="email">
-											<span id="title">${list.singer}</span> 
-											<span>${list.title}</span>
+											<span id="title">${list.title}</span> 
+											<span>${list.singer}</span>
 										</div>
 									</td>
 									<td class="price">${list.price}</td>
 									<td class="quantity">
 										<div class="input-group">										
-											<input type="text" name="amount" 
-												class="amount form-control input-number" value="${list.amount}" min="1"
-												max="100">												
+											<input type="text" name="amount" class="amount form-control input-number" value="${list.amount}" min="1">												
 										</div>
 									</td>
 									<td class="total"></td>
@@ -107,12 +105,12 @@
 										</button>
 									</td>
 								</tr>
-								<input id="cnt" type="hidden" name="CheckOutVOList[${status.count}].cnt" value="${list.cnt}" />																																								
+								<input type="hidden" name="CheckOutVOList[${status.count}].cnt" value="${list.cnt}" id="cnt" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].amount" value="${list.amount}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].cartno" value="${list.cartno}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].id" value="${list.id}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].cjpg" value="${list.cjpg}" />
-								<input type="hidden" name="CheckOutVOList[${status.count}].singer" value="${list.singer}" />	
+								<input type="hidden" name="CheckOutVOList[${status.count}].singer" value="${list.singer}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].title" value="${list.title}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].price" value="${list.price}" />
 								<input type="hidden" name="CheckOutVOList[${status.count}].lpno" value="${list.lpno}" />

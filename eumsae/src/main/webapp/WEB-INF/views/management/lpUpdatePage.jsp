@@ -164,16 +164,6 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
                     <input
                       type="text"
                       class="form-control form-control-lg"
-                      id="cnt"
-                      name="cnt"
-                      placeholder="재고"
-                    />
-                    <label for="cnt">재고</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
                       id="price"
                       name="price"
                       placeholder="가격"
@@ -215,6 +205,7 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
                     <th scope="col">지역</th>
                     <th scope="col">발매일자</th>
                     <th scope="col">가격</th>
+                    <th scope="col">재고</th>
                     <th scope="col">수정</th>
                   </tr>
                 </thead>
@@ -235,6 +226,7 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
                       <td>${list.region}</td>
                       <td>${list.lpdate}</td>
                       <td>${list.price}</td>
+                      <td>${list.cnt}</td>
                       <td><button class="btn btn-warning">수정</button></td>
                       <td hidden="content">${list.content}</td>
                       <td hidden="cnt">${list.cnt}</td>

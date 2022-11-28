@@ -61,5 +61,13 @@
 		SET amount=#{amount}
 		WHERE cartno=#{cartno}
 	</update>
+	
+	<delete id="deleteAllCart" parameterType="CheckOutVO">
+		DELETE FROM CART WHERE CARTNO=#{cartno}
+	</delete>	
+	
+	<select id="searchCart" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM CART WHERE ID=#{id} AND LPNO=#{lpno}
+	</select>
 
 </mapper>

@@ -10,6 +10,7 @@ import eumsae.dao.CustomerDAO;
 import eumsae.model.CartVO;
 import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
+import eumsae.model.OrderVO;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -96,6 +97,24 @@ public class CustomerServiceImpl implements CustomerService {
 	public Integer updateCart(CheckOutVO vo) {
 		System.out.println("카트 수량 변경 서비스");
 		return dao.updateCart(vo);
+	}
+
+	@Override
+	public Integer deleteAllCart(CheckOutVO vo) {
+		System.out.println("결제 후 카트 삭제 서비스");
+		return dao.deleteAllCart(vo);
+	}
+
+	@Override
+	public Integer insertOrder(OrderVO vo) {
+		System.out.println("주문 내역 생성 서비스");
+		return dao.insertOrder(vo);
+	}
+
+	@Override
+	public Integer insertOrderList(HashMap<String, Integer> map) {
+		System.out.println("주문 상세 내역 생성 서비스");
+		return dao.insertOrderList(map);
 	}
 
 }

@@ -4,6 +4,19 @@
 
 <mapper namespace="Order">
 
+<insert id="insertOrder" parameterType="OrderVO">
+	<selectKey keyProperty="orderNo" resultType="int" order="BEFORE">
+		SELECT seq_order.nextval FROM DUAL
+	</selectKey>
+	INSERT INTO EORDER (order_no, order_date, order_total_price, id) 
+	VALUES (#{orderNo}, sysdate, #{orderTotalPrice}, #{id})
+</insert>
+
+<insert id="insertOrderList" parameterType="hashmap" useGeneratedKeys="true" keyColumn="ORDER_LIST_NO">
+	INSERT INTO EORDER_LIST (order_list_no, order_date, order_no, lpno, amount)
+	VALUES (seq_order_list.nextval, sysdate, #{orderNo}, #{lpNo}, #{amount})
+</insert>
+
 <select id="selectOrderCount" resultType="_long">
 	SELECT COUNT(*) FROM eorder
 </select>

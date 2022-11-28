@@ -1,6 +1,7 @@
 package eumsae.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eumsae.model.CartVO;
+import eumsae.model.CartVOList;
 import eumsae.model.CheckOutVO;
 import eumsae.model.CheckOutVOList;
 import eumsae.model.CustomerVO;
 import eumsae.model.LpVO;
+import eumsae.model.OrderVO;
 import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 
@@ -28,7 +31,7 @@ public class ShopController {
 
 	@Autowired
 	CustomerService cService;
-
+	
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
@@ -89,16 +92,13 @@ public class ShopController {
 		CartVO check = cService.searchCart(vo); // 상품 중복 검사
 		if (check != null) {
 			message = "중복된 상품입니다.";
-
 		} else {
 			int result = cService.addCart(vo); // 카트에 담기 실행
 			if (result == 1) {
 				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
 				m.addAttribute("result", vo);
 			}
-
 		}
-
 		return message;
 	}
 
@@ -117,27 +117,65 @@ public class ShopController {
 
 	// 결제 페이지로 이동 (즉시결제)
 	@RequestMapping(value = "/directCheckOut")
-	public String directCheckOut(CheckOutVO vo, Model m) {
-		List<CheckOutVO> info = cService.selectCheckOutList(vo);
-		m.addAttribute("list", info); // 해당 정보 모델에 추가
+	public String directCheckOut(String id, LpVO lpVO, Model m) {
+		//System.out.println(lpVO);
+		CustomerVO customerVO = cService.selectById(id);
+		m.addAttribute("cinfo",customerVO);
+		//LpVO lpVO = lpService.searchByLpno(lpno);
+		//m.addAttribute("linfo", lpVO);		
 		return "/shop/checkOutDirectly";
 	}
 
 	// 카트에 상품 선택 후 결제 페이지로 이동
 	@RequestMapping(value = "/checkout")
-	public String checkOut(Model m, CheckOutVOList checkOutVOList) {
-
-		for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
-			cService.updateCart(vo);
-			System.out.println(vo.toString());
+	public String checkOut(Model m, String direct, CheckOutVOList checkOutVOList) {
+		String id = null;
+		
+		// 즉시결제 체크
+		if (direct.equals("false")) {
+			for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
+				if (vo.getId() != null) {
+					id = vo.getId();
+					cService.updateCart(vo);
+				}
+			}
+		} else if (direct.equals("true")){
+			// 결제페이지에서 출력하기 위해 상태 true 세팅
+			checkOutVOList.getCheckOutVOList().get(0).setState(true);
+			id = checkOutVOList.getCheckOutVOList().get(0).getId();
 		}
-		String id = checkOutVOList.getCheckOutVOList().get(1).getId();
-		// System.out.println(id);
+		
 		CustomerVO vo = cService.selectById(id);
-
-		// System.out.println(vo.toString());
 		m.addAttribute("cinfo", vo);
 		return "/shop/checkout";
+	}
+	
+	/*****************************************************
+	 * 결제 성공시 주문내역, 주문 상세내역 저장 및 결제한 상품정보 회원카트에서 삭제
+	 * @param	OrderVO, CartVOList
+	 * @return	없음
+	 */
+	@RequestMapping(value="/paySuccess")
+	public String paySuccess(OrderVO orderVO, CartVOList CartVOList) {
+		// 주문내역 입력
+		Integer orderNo = cService.insertOrder(orderVO);
+		System.out.println("오더넘버 : "+orderNo);
+		for(CartVO vo : CartVOList.getCartVOList()) {
+			if(vo.getLpno() != 0) {
+				System.out.println(vo);
+				HashMap<String, Integer> map = new HashMap<String, Integer>();
+				// 받아온 주문번호를 맵에 삽입
+				map.put("orderNo", orderNo);
+				// 상품의 수량, LP번호 맵에 삽입
+				map.put("amount", vo.getAmount());
+				map.put("lpNo", vo.getLpno());
+				// 주문 상세내역 입력
+				cService.insertOrderList(map);
+				// 카트에서 해당상품 삭제
+				cService.deleteCart(vo);
+			}
+		}
+		return "/shop/paySuccess";
 	}
 
 }
