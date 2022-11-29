@@ -176,9 +176,9 @@ public class LpVO {
 
 	public void setFjpg(MultipartFile fjpg) {
 		this.fjpg = fjpg;
-		if (!fjpg.isEmpty()) {
-			this.jpg = fjpg.getOriginalFilename();
-			this.jpgSize = fjpg.getSize();
+		if (!fjpg.isEmpty()) {								// 전송되는 파일이 비어있지 않은 경우 (isEmpty() / boolean type 리턴 : 파일이 있는 경우 true , 없으면 false)
+			this.jpg = fjpg.getOriginalFilename();			// 실제 파일 명이, jpg와 동일하게 할당됨.
+			this.jpgSize = fjpg.getSize();					// 파일의 크기 지정
 
 			UUID uuid = UUID.randomUUID(); // 파일 구별을 위한 uuid 부여
 			this.cjpg = uuid.toString(); // 구별 파일 명
@@ -186,7 +186,7 @@ public class LpVO {
 			File fi = new File("D:\\eumsae\\eumsae\\src\\main\\webapp\\resources\\lpImg\\" + cjpg + ".jpg");		//파일 저장 경로
 
 			try {
-				fjpg.transferTo(fi);
+				fjpg.transferTo(fi);																				// 설정 경로로 파일을 전송함 (파일 업로드 시 저장될 경로)
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

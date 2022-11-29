@@ -74,7 +74,7 @@
                                 <label for="content">소개</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-control-lg" id="lpdate" name="lpdate" placeholder="발매일자" /> <label for="lpdate">발매일자</label>
+                                <input type="text" class="form-control form-control-lg" id="lpdate" name="lpdate" placeholder="발매일자" pattern="YYYY-MM-DD"/> <label for="lpdate">발매일자</label>
                             </div>
                             <div class="form-floating mb-3"><input type="text" class="form-control form-control-lg" id="cnt" name="cnt" placeholder="재고" /> <label for="cnt">재고</label></div>
                             <div class="form-floating mb-3"><input type="text" class="form-control form-control-lg" id="price" name="price" placeholder="가격" /> <label for="price">가격</label></div>

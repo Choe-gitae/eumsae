@@ -5,6 +5,7 @@ import java.util.List;
 import eumsae.model.CartVO;
 import eumsae.model.CheckOutVO;
 import eumsae.model.CustomerVO;
+import eumsae.model.OrderVO;
 
 public interface CustomerService {
 	// 회원가입
@@ -29,7 +30,7 @@ public interface CustomerService {
 	public Integer addCart(CartVO vo);
 
 	// 아이디로 회원 정보 찾기
-	public CustomerVO selectById(String id);
+	public CustomerVO selectById(CustomerVO vo);
 
 	// 아이디로 카트 리스트 반환
 	public List<CartVO> cartListById(String id);
@@ -45,4 +46,16 @@ public interface CustomerService {
 
 	// 카트 수량 변경
 	public Integer updateCart(CheckOutVO vo);
+
+	// 결제 시 카트 모두 삭제
+	public Integer deleteAllCart(CheckOutVO vo);
+	
+	// 주문 내역 생성
+	public Integer insertOrder(OrderVO vo);
+		
+	// 상세 주문 내역 생성
+	public Integer insertOrderList(OrderVO vo);
+	
+	// 임시 비밀번호 발송
+	public Integer tempPw(CustomerVO vo);
 }

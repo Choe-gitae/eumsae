@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class OrderVO {
+	// Lombok의 Data Annotation을 활용해, Getter & Setter 및 toString 메소드 구현
 	private int		orderNo;			// 주문번호
 	private String	orderDate;			// 주문날짜
 	private	int		orderTotalPrice;	// 주문금액

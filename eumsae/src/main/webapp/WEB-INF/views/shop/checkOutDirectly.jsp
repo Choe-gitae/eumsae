@@ -59,26 +59,25 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">
-					<form action="#" class="billing-form">	
-					<c:set var="customer" value="${list[0]}"/>								
+					<form action="#" class="billing-form">													
 						<h3 class="mb-4 billing-heading">주문자 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="" value="${customer.name}">
+										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="" value="${customer.tel}">
+										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" value="${customer.email}" style="width:920px;">
+										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -96,7 +95,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">				
-					<form action="#" class="billing-form">
+					
 						<h3 class="mb-4 billing-heading">수령인 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
@@ -116,7 +115,7 @@
 									<label for="emailaddress">이메일</label> <input
 										type="email" class="form-control" id="re_email" placeholder="" style="width:920px;">
 								</div>
-								<input type="checkbox" class="re_info" id="re_info" onclick="Copy();" />
+								<input type="checkbox" class="re_info" id="re_info" />
                                     <label for="re_info" style="font-size: 13px;">주문자 정보와 동일하게</label>
 							</div>
 							<div class="col-md-6">
@@ -130,7 +129,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary py-3 px-4"><br>
+									<input type="button" id="postCode" value="우편번호 찾기" class="btn btn-primary py-3 px-4"><br>
 								</div>
 							</div>
 							<div class="w-100"></div>
@@ -186,31 +185,27 @@
 															<td>총액</td>															
 														</tr>
 														<!-- 한 블럭 시작 -->
-														<c:forEach var="list" items="${list}">
-														<input type="hidden" name="cnt" id="cnt" value="${list.cnt}">
+														<input type="hidden" name="cnt" id="cnt" value="${linfo.cnt}">													
 														<tr class="alert" role="alert">
 															<td>
-																<div class="img" style="background-image: url(<%=pjName%>/resources/lpImg/${list.cjpg}.jpg);"></div>
+																<div class="img" style="background-image: url(<%=pjName%>/resources/lpImg/${linfo.cjpg}.jpg);"></div>
 															</td>
 															<td>
 																<div class="email">
-																	<span>${list.singer}</span> <span>${list.title}</span>
+																	<span>${linfo.singer}</span> <span>${linfo.title}</span>
 																</div>
 															</td>
-															<td>₩<span class="price">${list.price}</span></td>
+															<td>₩<span class="price">${linfo.price}</span></td>
 															<td class="quantity">
 																<span class="input-group">
-																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>															
+																	<button type="button"  class="Btn downBtn" style="margin-left: -4px;">◀</button>														
 																	<input class="amount" type="text" name="amount" value="1" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
-																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
+																	<button type="button"  class="Btn upBtn" style="margin-left: -4px;">▶</button>
 																</span>
 															</td>
 															<td>₩<span class="subTp"></span></td>															
-														</tr>
-														</c:forEach>
+														</tr>														
 														<!-- 한 블럭 끝 -->
-<!-- ######### 결제 목록 끝############# -->
-
 													</tbody>
 												</table>
 											</div>
@@ -218,10 +213,15 @@
 									</div>
 									</div>
 									</section>
-					</form>
+									<form action="paySuccess" name="paySuccess" id="paySuccess" class="billing-form" method="get">
+									<input type="hidden" name="orderTotalPrice" id="orderTotalPrice" value="">
+									<input type="hidden" name="id" id="id" value="${cinfo.id}">
+									<input type="hidden" name="lpno" id="lpno" value="${linfo.lpno}">									
+									</form>
 					<!-- END -->
 					
 					<!-- ############ cart total 시작 ##############-->
+					
 					<div class="row mt-5 pt-3 d-flex">
 						<div class="col-md-6 d-flex">
 							<div class="cart-detail cart-total p-3 p-md-4">
@@ -237,10 +237,11 @@
 								</p> -->
 								<hr>
 								<p class="d-flex total-price">
-									<span>결제하실 금액</span> <span id="tP"></span>
+									<span>결제하실 금액</span> <span id="tP"></span>									
 								</p>
 							</div>
-						</div>
+						</div>					
+					
 						<!-- ############ cart total 끝 ##############-->
 						
 						<!-- ############ Payment Method 시작 ############## -->
@@ -249,12 +250,12 @@
 								<h3 class="billing-heading mb-4">결제수단</h3>
 								<div class="form-group">
 									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" onclick="requestPaykakao()"><img src="../resources/images/payment/payment_icon_yellow_medium.png"></button>
+											<button class="btn btn-primary py-3 px-4" id="kakaoPay"><img src="../resources/images/payment/payment_icon_yellow_medium.png"></button>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" onclick="requestPaytoss()"><img src="../resources/images/payment/tosspay.png"></button>
+											<button class="btn btn-primary py-3 px-4" id="tossPay"><img src="../resources/images/payment/tosspay.png"></button>
 									</div>
 								</div>
 							</div>

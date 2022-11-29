@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class PaginationVO {
+	// Lombok의 Data Annotation을 활용해, Getter & Setter 및 toString 메소드 구현
 	private int pageSize;      	// 한 페이지에 보일 게시물 사이즈
 	private int totalPage;      	// 총 페이지 갯수
 	private int pageNo;     	// 현재 페이지(current)
@@ -20,6 +21,7 @@ public class PaginationVO {
 	private boolean hasLastPageNav;      // 마지막페이지
 
 
+	//PaginationVO와 관련된 생성자 함수
 	public PaginationVO(int pageNum, long totalRecord, int pageSize,  int pageNavSize) {
 		this.pageNo = pageNum;
 		this.totalRecord = totalRecord;
@@ -28,6 +30,14 @@ public class PaginationVO {
 		calculation();
 	}
 
+	/*
+	 * 	함수명 : calculation	 
+	 * 	역할 : Pagination을 실행하기 위한 페이지 수 계산 및 페이지 지정
+	 * 		  Database에서 데이터를 조회해, StartRow & EndRow 계산
+	 * 
+	 * 	인자 : DataBase (요청사항 게시판, 매출 관리 등)
+	 *  리턴값 : StartRow, EndRow , FirstPageNo, LastPageNo 
+	 */
 	private void calculation() {
 		// 총 페이지 수 계산
 		totalPage = (int) Math.ceil(totalRecord / (float)pageSize);

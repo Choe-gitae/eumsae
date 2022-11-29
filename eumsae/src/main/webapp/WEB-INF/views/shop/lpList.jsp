@@ -97,18 +97,10 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                         </div>
                     </c:forEach>
                 </div>
-<<<<<<< HEAD
               </div>            
     </section>
     <!-- ##### Album Catagory Area End ##### -->
-=======
-            </div>
-        </section>
-        <!-- ##### Album Catagory Area End ##### -->
->>>>>>> main
-
-        <jsp:include page="../include/shopFooter.jsp"></jsp:include>
-
+    <jsp:include page="../include/shopFooter.jsp"></jsp:include>
         <!-- ##### 추가 Javascript ##### -->
         <script src="<%=pjName%>/resources/js/lpList.js"></script>
     </body>

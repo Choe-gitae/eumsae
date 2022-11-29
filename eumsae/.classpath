@@ -33,8 +33,8 @@
 	<classpathentry kind="lib" path="C:/oraclexe/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path=".apt_generated_tests">
 		<attributes>
-			<attribute name="optional" value="true"/>
 			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path=".apt_generated">
@@ -42,5 +42,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/kosmo/Desktop/Downloads/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kosmo/Desktop/Downloads/javax.mail-1.6.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
