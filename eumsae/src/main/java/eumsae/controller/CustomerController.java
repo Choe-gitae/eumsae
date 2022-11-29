@@ -46,9 +46,9 @@ public class CustomerController {
 		if (result == 1) {
 			message = vo.getId() + "님 가입을 축하합니다.";
 			m.addAttribute("message", message);
-			return "/user/insertCustomer";
+			return "/shop/main";
 		} else {
-			return "/front/error";
+			return "/user/login&RegisterPage";
 		}
 	}
 

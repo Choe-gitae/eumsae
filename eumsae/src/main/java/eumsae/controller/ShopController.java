@@ -38,12 +38,6 @@ public class ShopController {
 		return "/shop/" + url;
 	}
 
-	// 메인 페이지
-	@RequestMapping(value = "/main")
-	public String main() {
-		return "/shop/main";
-	}
-
 	// 요청 게시판
 	@RequestMapping(value = "/requestBoard")
 	public String requestBoard() {
@@ -159,10 +153,8 @@ public class ShopController {
 	public String paySuccess(OrderVO orderVO, CartVOList CartVOList) {
 		// 주문내역 입력
 		Integer orderNo = cService.insertOrder(orderVO);
-		System.out.println("오더넘버 : "+orderNo);
 		for(CartVO vo : CartVOList.getCartVOList()) {
 			if(vo.getLpno() != 0) {
-				System.out.println(vo);
 				HashMap<String, Integer> map = new HashMap<String, Integer>();
 				// 받아온 주문번호를 맵에 삽입
 				map.put("orderNo", orderNo);
@@ -178,4 +170,20 @@ public class ShopController {
 		return "/shop/paySuccess";
 	}
 
+	/*****************************************************
+	 * 슬라이드 LP 정보 리턴
+	 * 최근 한달 안에 발매된 LP 슬라이드, 장르별로 많이 판매된 LP 슬라이드
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	@RequestMapping(value = "/main")
+	public String mainCarousel(Model model) {
+		List<LpVO> featuredNewReleases = lpService.selectFeaturedNewReleases();
+		List<LpVO> genreBestSellers = lpService.selectGenreBestSellers();
+		System.out.println(featuredNewReleases);
+		System.out.println(genreBestSellers);
+		model.addAttribute("new", featuredNewReleases);
+		model.addAttribute("best", genreBestSellers);
+		return "/shop/main";
+	}
 }

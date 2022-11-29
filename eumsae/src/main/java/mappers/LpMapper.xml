@@ -38,7 +38,10 @@
 		SELECT *
 		FROM lpinfo i INNER JOIN lp l
 		ON i.infono = l.infono
-		WHERE ${searchCon} LIKE '%${searchKey}%'
+		<choose>
+			<when test="searchCon == 'infono'">WHERE i.${searchCon} = #{searchKey}</when>
+			<otherwise>WHERE ${searchCon} LIKE '%${searchKey}%'</otherwise>
+		</choose>
 	</select>
 	
 	<delete id="deleteLp" parameterType="LpVO">
@@ -65,5 +68,24 @@
 		<if test="mp3!=null">, mp3=#{mp3}, cmp3=#{cmp3}, mp3_size=#{mp3Size}</if>
 		WHERE infono = #{infono}
 	</update>
+	
+	<select id="selectFeaturedNewReleases" resultType="LpVO">
+		SELECT	singer, title, cjpg, infono
+		FROM	lpinfo
+		WHERE	SUBSTR(LPDATE,0,4) IN ('2020','2021','2022')
+	</select>
+	
+	<select id="selectGenreBestSellers" parameterType="string" resultType="LpVO">
+		SELECT	singer, title, cjpg, infono
+		FROM	(SELECT		SUM(el.amount) amount, i.singer singer, i.title title, i.genre, i.cjpg cjpg, i.infono infono
+				FROM		EORDER_LIST el INNER JOIN LP l
+							ON el.lpno = l.lpno
+							INNER JOIN LPINFO i
+							ON l.infono = i.infono
+				WHERE		genre = #{genre}
+				GROUP BY 	i.singer, i.title, i.genre, i.cjpg, i.infono
+				ORDER BY 	amount DESC)
+		WHERE	ROWNUM = 1
+	</select>
 
 </mapper>

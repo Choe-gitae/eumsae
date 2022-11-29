@@ -77,6 +77,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// LP 정보 입력
 	@RequestMapping(value = "/insertLp")							// LP 재고 등록 요청이 들어왔을 때
 	public String insertLp(String page, LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
+		System.out.println(vo);
 		service.insertLpInfo(vo);				// LPINFO TABLE 에 저장할 Service 실행
 		service.insertLp(vo);					// LP TABLE 에 저장할 Service 실행
 		m.addAttribute("check", "true");
@@ -84,14 +85,12 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "/management/"+page;	// 등록페이지로 이동
 	}	
 
-	// 검색한 LP 정보 리턴
+	// 검색한 LP 정보 검색
 	@RequestMapping(value = "/searchLp")
 	public String selectLpVOList(String page, String searchCon, String searchKey, Model model) {
 		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
-		System.out.println(map.get("searchCon"));
-		System.out.println(map.get("searchKey"));
 		List<LpVO> list = service.selectLpVOList(map);
 		model.addAttribute("list", list);
 		return "/management/"+page;
@@ -109,10 +108,9 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// LP 정보 수정
 	@RequestMapping(value = "/updateLp")
 	public String updateLp(String page, LpVO vo, Model model) {
+		int searchKey = vo.getInfono();
 		service.updateLp(vo);
-		model.addAttribute("message", "수정 되었습니다.");
-		return "/management/"+page;
-		
+		return "redirect:/management/searchLp?page=lpUpdatePage&searchCon=infono&searchKey="+searchKey;
 	}
 	
 	// 관리자 계정 추가
@@ -180,7 +178,6 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value = "/updateCustomer")
 	public String updateCustomer(String page, CustomerVO vo, Model m) {
 		cService.updateCustomer(vo);		
-		m.addAttribute("message", "수정 되었습니다.");
 		return "/management/"+page;
 	}
 	
@@ -188,7 +185,6 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value="/deleteCustomer")
 	public String deleteCustomer(String page, CustomerVO vo, Model m) {
 		cService.deleteCustomer(vo);
-		m.addAttribute("message", "삭제 되었습니다.");
 		return "/management/"+page;
 	}
 	

@@ -7,6 +7,12 @@
 		INSERT INTO CUSTOMER(id,pwd,nick,birth,name,addr,tel,email)
 		VALUES(#{id},#{pwd},#{nick},#{birth},#{name},#{addr},#{tel},#{email})
 	</insert>
+	
+	<update id="updateCustomer" parameterType="CustomerVO">
+		UPDATE	CUSTOMER
+		SET		pwd=#{pwd},nick=#{nick},birth=#{birth},name=#{name},addr=#{addr},tel=#{tel},email=#{email}
+		WHERE	id=#{id}
+   </update>
 
 	<select id="idCheck" parameterType="CustomerVO" resultType="CustomerVO">
 		SELECT id,pwd FROM CUSTOMER WHERE id=#{id}
@@ -26,7 +32,7 @@
 	</select>
 
 	<insert id="addCart" parameterType="CartVO" useGeneratedKeys="true" keyProperty="cartno" keyColumn="CARTNO">
-	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
+		INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
 	</insert>
 
 	<select id="SearchCart" parameterType="CartVO" resultType="CartVO">

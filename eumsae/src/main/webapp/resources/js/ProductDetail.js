@@ -15,7 +15,7 @@ $(document).ready(function () {
             amount--;
             $('#qty').val(amount);
         } else {
-            alert("최소 수량은 1 개 입니다.");
+            Swal.fire("최소 수량은 1 개 입니다.")
         }
     });
     
@@ -25,17 +25,10 @@ $(document).ready(function () {
             amount++;
             $('#qty').val(amount);   
         } else {
-            alert("재고가 없습니다.");
+            Swal.fire("재고가 없습니다.");
         }
     });
   
-/*      // checkout button 클릭시
-    $('#checkOut').click(function () {
-        //alert('OK');
-        document.checkOutDirectly.submit();
-   
-
-    }); // end of click     */
    
     // 카트에 담기 버튼을 눌렀을 때
     $('#addToCart').click(function () {
@@ -51,7 +44,7 @@ $(document).ready(function () {
                 $('#ajaxResult').text(result);                
             },
             error: function (err) {
-                alert("전송실패");
+                Swal.fire("전송실패");
                 console.log(err);
             }
         }); // end of ajax

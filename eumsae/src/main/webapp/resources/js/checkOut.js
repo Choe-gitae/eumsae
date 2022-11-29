@@ -13,12 +13,9 @@ $(function () {
     total = 0;
     amount.each(function () {
       getsu = $(this).val(); // 실제 갯수
-      //alert(getsu);
       price = parseInt($(this).parents("td").prev().find(".price").text()); // 가격(입력값)
-      //alert(price);
-
       tprice = getsu * price;
-      //alert(tprice);
+
       $(this).parents("td").next().text(tprice);
       total += tprice;
 
@@ -35,39 +32,9 @@ $(function () {
     }); // end of amount each function
   } // end of totalCal();
 
+  // 화면 로딩후 총합 먼저 계산
   totalCal();
 
-/*   // 결제 각 상품 수량 변경 버튼
-  $("#downBtn").each(function () {
-    $(this).click(function () {
-      getsu = $(this).next().val();
-      price = parseInt($(this).parents("tr").find(".price").text());
-      getsu--;
-      $(this).next().val(getsu);
-      if (getsu <= 1) {
-        alert("최소 주문 갯수는 1개 입니다.");
-        getsu = 1;
-        $(this).next().val(getsu);
-      }
-      totalCal();
-    });
-  });
-
-  $("#upBtn").each(function () {
-    $(this).click(function () {
-      var cnt = $(this).parents("tr").prev().val();
-      //alert(cnt);
-      getsu = $(this).prev().val();
-      price = parseInt($(this).parents("tr").find(".price").text());
-      getsu++;
-      $(this).prev().val(getsu);
-      if (getsu >= parseInt(cnt)) {
-        alert("재고가 부족 합니다.");
-        $(this).prev().val(parseInt(cnt));
-      }
-      totalCal();
-    });
-  }); */
 
   // 수령인 정보 동일 체크박스
   $("#re_info").click(function () {
@@ -117,12 +84,10 @@ $(function () {
 
   // 결제 관련 (카카오페이 / 토스 페이)
   $("#kakaoPay").click(function () {
-    $("#paySuccess").submit();
-    //requestPaykakao();
+    requestPaykakao();
   }); // end of click function
 
   $("#tossPay").click(function () {
-    alert("토스페이");
     requestPaytoss();
   }); // end of click function
 
@@ -146,22 +111,17 @@ $(function () {
       },
       function (rsp) {
         if (rsp.success) {
-          var msg = "결제가 완료되었습니다.";
-          msg += "고유ID : " + rsp.imp_uid;
-          msg += "상점 거래ID : " + rsp.merchant_uid;
-          msg += "결제 금액 : " + rsp.paid_amount;
-          msg += "카드 승인번호 : " + rsp.apply_num;
-          msg += "주문명 : " + rsp.name;
-          msg += "주문자명 : " + rsp.buyer_name;
-          msg += "주문자 이메일 : " + rsp.buyer_email;
-          msg += "주문자 전화번호 : " + rsp.buyer_tel;
-          alert(msg);
           $("#paySuccess").submit();
+          Swal.fire({
+            icon: 'success',
+            text: '결제가 완료되었습니다.',
+          });
           location.href = "paySuccess";
         } else {
-          var msg = "결제에 실패하였습니다.";
-          msg += "에러내용 : " + rsp.error_msg;
-          location.href = "payFail";
+          Swal.fire({
+            icon: 'error',
+            text: '결제에 실패하셨습니다.',
+          });
         }
       }
     );
@@ -170,29 +130,29 @@ $(function () {
     IMP.request_pay(
       {
         pg: "tosspay",
-        pay_method: "card", //생략 가능
-        merchant_uid: "order_no_0003" + new Date().getTime(), // 상점에서 관리하는 주문 번호
-        name: "지옥행티켓",
-        amount: 10,
-        buyer_email: "iamport@siot.do",
-        buyer_name: "앙마",
-        buyer_tel: "010-1234-5678",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
+        //pay_method: "card",
+        merchant_uid: "EUMSAE",
+        name: $("span#title").text(),
+        amount: $("#tP"),
+        buyer_email: $("#buyer_email").val(),
+        buyer_name: $("#buyer_name").val(),
+        buyer_tel: $("#buyer_pNum").val(),
+        buyer_addr: $("#address").val() + $("#detailAddress").val(),
+        buyer_postcode: $("#postcode").val(),
       },
       function (rsp) {
         if (rsp.success) {
-          var msg = "결제가 완료되었습니다.";
-          msg += "고유ID : " + rsp.imp_uid;
-          msg += "상점 거래ID : " + rsp.merchant_uid;
-          msg += "결제 금액 : " + rsp.paid_amount;
-          msg += "카드 승인번호 : " + rsp.apply_num;
           $("#paySuccess").submit();
+          Swal.fire({
+            icon: 'success',
+            text: '결제가 완료되었습니다.',
+          });
           location.href = "paySuccess";
         } else {
-          var msg = "결제에 실패하였습니다.";
-          msg += "에러내용 : " + rsp.error_msg;
-          location.href = "payFail";
+          Swal.fire({
+            icon: 'error',
+            text: '결제에 실패하셨습니다.',
+          });
         }
       }
     );

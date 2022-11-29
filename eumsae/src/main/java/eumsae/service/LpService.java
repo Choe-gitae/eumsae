@@ -31,6 +31,10 @@ public interface LpService {
 	// 검색조건으로 LP 찾기
 	public List<LpVO> searchLp(HashMap map);
 
-
+	// 최근 발매 LP 검색
+	public List<LpVO> selectFeaturedNewReleases();
+	
+	// 장르별 베스트셀러 검색
+	public List<LpVO> selectGenreBestSellers();
 
 }

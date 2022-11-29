@@ -30,4 +30,17 @@ public interface LpDAO {
 	// LP 번호로 정보 조회
 	public LpVO searchByLpno(int lpno);
 	
+	/*****************************************************
+	 * 최근 한달 안에 발매된 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	public List<LpVO> selectFeaturedNewReleases();
+	
+	/*****************************************************
+	 * 장르별 가장 많이 팔린 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	public LpVO selectGenreBestSellers(String genre);
 }

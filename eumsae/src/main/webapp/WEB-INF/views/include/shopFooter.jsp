@@ -97,5 +97,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/js1/bootstrap-select.min.js"></script>
         --%>
         <script src="<%=pjName%>/resources/00-liquorstore-master/js/main.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>

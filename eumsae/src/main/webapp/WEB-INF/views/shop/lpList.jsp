@@ -105,11 +105,9 @@
 					<!-- Single Album -->
 					<div class="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item">
 						<div class="single-album">
-							<a href="detail?infono=${ list.infono }"><img
-								src="<%= pjName %>/resources/lpImg/${ list.cjpg }.jpg" /></a>
+							<a href="detail?infono=${ list.infono }"><img src="<%= pjName %>/resources/lpImg/${ list.cjpg }.jpg" /></a>
 							<div class="album-info">
 								<h5>${ list.singer }</h5>
-
 								<p>${ list.title }</p>
 							</div>
 						</div>
