@@ -350,9 +350,9 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 */
 	@RequestMapping(value = "/mgtSalesChartPage")
 	public String selectRecentSales(Model model) {
-//		HashMap<String,List<String>> recentSalesMap = mService.selectRecentSales();
+		HashMap<String,List> recentSalesMap = mService.selectRecentSales();
 		List<HashMap> monthsSalesList = mService.selectMonthsSales();
-//		model.addAttribute("recentSalesMap", recentSalesMap);
+		model.addAttribute("recentSalesMap", recentSalesMap);
 		model.addAttribute("monthsSalesList", monthsSalesList);
 		return "/management/mgtSalesChartPage";
 	}

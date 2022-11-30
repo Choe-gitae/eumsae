@@ -97,7 +97,7 @@ public interface MgrService {
 	 * @param 없음
 	 * @return 최근 15일 장르별 매출
 	 */
-	public HashMap<String,List<String>> selectRecentSales();
+	public HashMap<String,List> selectRecentSales();
 
 	/*****************************************************
 	 * 월별 매출 리턴

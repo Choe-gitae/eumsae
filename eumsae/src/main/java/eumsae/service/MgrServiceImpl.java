@@ -84,7 +84,7 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> selectOrder(PaginationVO vo) {
 		return dao.selectOrder(vo);
 	}
-	
+
 	/*****************************************************
 	 * 주문내역 검색
 	 * 
@@ -95,7 +95,7 @@ public class MgrServiceImpl implements MgrService {
 	public List<OrderVO> searchOrder(HashMap<String,String> map) {
 		return dao.searchOrder(map);
 	}
-	
+
 	/*****************************************************
 	 * 최근 주문내역
 	 * @param 없음
@@ -107,7 +107,7 @@ public class MgrServiceImpl implements MgrService {
 		Integer count = 15;
 		return dao.selectRecentOrder(count);
 	}
-	
+
 	/*****************************************************
 	 * 전체 주문내역 카운팅
 	 * 
@@ -161,59 +161,58 @@ public class MgrServiceImpl implements MgrService {
 	 * @return 최근 15일 장르별 매출
 	 */
 	@Override
-	public HashMap<String,List<String>> selectRecentSales() {
+	public HashMap<String,List> selectRecentSales() {
+		// 최근일 범위 지정
+		int recentDays = 15;
 		// 현재 날짜
-		LocalDate today = LocalDate.now();
+		LocalDate date = LocalDate.now();
+		// 최근일 날짜 배열
+		ArrayList<String> dateArr = new ArrayList<String>();
+		for (int i = recentDays; i > 0; i--) {
+			dateArr.add(date.minusDays(i).format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+		}
 		// 장르 배열
 		String[] genre = {"POP","Rock","HipHop","Ballad","국내가요","Fork","RnB","Elec","Ost","트로트"};
 		// 리턴할 결과 Map
-		HashMap<String,List<String>> resultMap = new HashMap<String,List<String>>();
-		// 최근일 범위 지정
-		int recentDays = 15;
-		
+		HashMap<String,List> resultMap = new HashMap<String,List>();
+		resultMap.put("date", dateArr);
+
 		for (int i = 0; i < genre.length; i++) {
-			List totalList = new ArrayList<>();
-			List<HashMap> tempList = new ArrayList<HashMap>();
-			HashMap map = new HashMap<>();
+			List			returnList 	= new ArrayList<>();
+			List<HashMap>	tempList 	= new ArrayList<HashMap>();
+			HashMap 		map 		= new HashMap<>();
 			map.put("genre", genre[i]);
 			map.put("recentDate", recentDays+1);
 			// 장르별 판매 검색
 			tempList = dao.selectRecentSales(map);
-			System.out.println("tempList : "+tempList);
 			// 장르별 판매가 없을 경우 리스트에 0원을 넣는다
 			if(tempList.isEmpty()) {
 				for (int j = 0; j < recentDays; j++) {
-					totalList.add("0");
+					returnList.add("0");
 				}
 				// HashMap에 판매결과 배열리스트를 담는다
-				resultMap.put(genre[i], totalList);
+				resultMap.put(genre[i], returnList);
 			}else {
-				int index = 0;
-				
-				ArrayList<String> dateArr = new ArrayList<String>();
-				for (HashMap hmap : tempList) {
-					dateArr.add((String) tempList.get(index).get("RECENTDATE")) ;
-				}
 				// 장르별 판매가 있을 경우
-				for (int j = recentDays; j > 0; j--) {
-					// 리스트의 날짜를 비교후 리턴할 리스트에 추가
-					String strDate = today.minusDays(j).toString();
-					
-//					System.out.println("index : "+index);
-//					System.out.println(strDate+" : "+tempList.get(index).get("RECENTDATE"));
-//					// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
-//					if(strDate.equals(date)) totalList.add(tempList.get(index).get("TOTAL"));
-//					else totalList.add("0");
-//					// HashMap에 판매결과 배열리스트를 담는다
-//					resultMap.put(genre[i], totalList);
-//					index++;
-				}
-			}
-		}
+				int index = 0;
+				for (int j = 0; j < recentDays; j++) {
+					String strDate = dateArr.get(j);
+					if (tempList.size() > index && tempList.get(index).containsValue(strDate)) {
+						returnList.add(tempList.get(index).get("TOTAL"));
+						index++;
+					} else {
+						returnList.add("0");
+					}// end if~else
+				}// end for
+				// HashMap에 판매결과 배열리스트를 담는다
+				resultMap.put(genre[i], returnList);
+			}// end if~else
+		}// end for
+		System.out.println(resultMap);
 		return resultMap;
 	}
 
-	
+
 	/*****************************************************
 	 * 월별 매출
 	 * @param 없음

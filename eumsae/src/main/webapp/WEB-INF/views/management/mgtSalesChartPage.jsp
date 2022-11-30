@@ -46,7 +46,7 @@
 		</div>
 	</div>
 	<!-- Content End -->
-
+<%-- 	<c:out value="${recentSalesMap['date']}" /> --%>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
 	<jsp:include page="../include/mgrScript.jsp"></jsp:include>
@@ -67,15 +67,12 @@
 			var day = today.getDate();
 
 			
-			// 자른 날짜 월별판매 차트 라벨배열에 추가
+			// 월별판매 차트 라벨배열 & 데이터
 			var monthsSalesChartLabels = [];
 			var monthsSalesChartDate = [];
-//			for (let index = 12; index > 0; index--) {
-//				monthsSalesChartLabels.push(new Date(year, month - index, day).toLocaleDateString().substr(0,9));
-//			}
 
 			<c:forEach var="monthsSalesList" items="${monthsSalesList}">
-				monthsSalesChartLabels.push(${monthsSalesList.MONTH});
+				monthsSalesChartLabels.push("${monthsSalesList.MONTH}");
 			</c:forEach>
 			console.log(monthsSalesChartLabels);
 			
@@ -83,6 +80,16 @@
 				monthsSalesChartDate.push(${monthsSalesList.TOTAL});
 			</c:forEach>
 			console.log(monthsSalesChartDate);
+			
+			
+			// 최근 장르별 차트 라벨배열
+			var recentSalesChartLabels = [];
+
+			<c:forEach var="date" items="${recentSalesMap['date']}">
+				recentSalesChartLabels.push("${date}");
+			</c:forEach>
+			console.log(recentSalesChartLabels);
+			
 			
 			// 차트 footer 합계 옵션
 			var footer = (tooltipItems) => {
@@ -112,6 +119,7 @@
 				],
 			};
 
+			
 			// 월별 매출 차트 생성
 			new Chart(monthsSalesChart, {
 				type: 'line',
@@ -121,6 +129,52 @@
 					interaction: {
 						intersect: false,
 						mode: 'index',
+					},
+				},
+			});
+			
+			
+			// 최근 장르별 매출 차트 세팅
+			var recentSalesChart = document.getElementById("recentSalesChart").getContext("2d");
+			var recentSalesChartData = {
+				labels: recentSalesChartLabels,
+				datasets: [
+					// 모델로 받아온 데이터 차트 데이터셋에 세팅
+					<c:forEach var="recentSalesMap" items="${recentSalesMap}" begin="1">
+					{
+						label: '${recentSalesMap.key}',
+						data: ${recentSalesMap.value},
+						backgroundColor: randomRGBA(),
+					},
+					</c:forEach>
+				],
+			};
+			
+			
+			// 최근 장르별 매출 차트 생성
+			new Chart(recentSalesChart, {
+				type: "bar",
+				data: recentSalesChartData,
+				options: {
+					interaction: {
+						intersect: false,
+						mode: "index",
+					},
+					plugins: {
+						tooltip: {
+							callbacks: {
+								footer: footer,
+							},
+						},
+					},
+					responsive: true,
+					scales: {
+						x: {
+							stacked: true,
+						},
+						y: {
+							stacked: true,
+						},
 					},
 				},
 			});
