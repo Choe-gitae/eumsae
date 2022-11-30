@@ -59,6 +59,7 @@
 	<br/>
 	<h2>주문에 실패하셨습니다.</h2><br/>
 	<h4>취소하셨거나, 결제오류입니다. 관리자에게 문의하세요.</h4>
+<!-- 	<a href="checkout"><button type="button" class="btn btn-success">주문 화면으로</button></a> -->
 	<button onclick="goBack();" type="button" class="btn btn-success">주문 화면으로</button>
 	<a href="main"><button type="button" class="btn btn-success">메인 화면으로</button></a>
 	</section>
@@ -82,6 +83,7 @@
         
         
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script type="text/javascript">
         	function goBack(){
         		history.back();

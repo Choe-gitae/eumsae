@@ -51,7 +51,6 @@ public class CustomerController {
 	public String cart(String id, Model model) {
 		List<CartVO> list = service.cartListById(id); // CartVO list에 service 실행 결과를 받음
 		model.addAttribute("list", list);
-		log.info("장바구니 이동");
 		return "/user/cart";
 	}
 
@@ -69,8 +68,8 @@ public class CustomerController {
 		if (result == 1) {
 			message = vo.getId() + "님 가입을 축하합니다.";
 			m.addAttribute("message", message);
-			log.info(vo.getName() + " : 님 회원가입, id : " + vo.getId());
-			return "/user/insertCustomer";
+			log.info("'" + vo.getName() + "' 님 회원가입, id => " + vo.getId());
+			return "/shop/main";
 		} else {
 			return "/user/login&RegisterPage";
 		}
@@ -114,6 +113,7 @@ public class CustomerController {
 			return "/user/login&RegisterPage"; // 입력된 아이디와 관련된 정보가 없으므로 다시 로그인 페이지로 보냄
 		} else {
 			session.setAttribute("login", result.getId()); // 세션에 vo의 아이디를 저장함
+			log.info("로그인 id => " + vo.getId());
 			return "redirect:/shop/main";
 		}
 
@@ -134,6 +134,7 @@ public class CustomerController {
 		String message = "카트에 정상적으로 담기지 않았습니다.";
 		if (result == 1) {
 			message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
+			log.info("장바구니에 담은 LP명 => " + vo.getTitle());
 		}
 		return message;
 	}
@@ -155,20 +156,31 @@ public class CustomerController {
 		CustomerVO vo = new CustomerVO();
 		vo.setId((String) obj);
 
-		log.info("로그아웃한 아이디 : " + vo.getId());
+		log.info("로그아웃");
+		log.info("로그아웃 id => " + vo.getId());
 		System.out.println("유저 로그아웃");
 		session.invalidate();
 		return "redirect:/shop/main";
 	}
 
-	@ResponseBody
+	// 비밀번호 찾기
+	/*****************************************************
+	 * 함수명 : findPw
+	 * 역할 : 회원이 form 에 입력한 정보를 전달받아, AJAX 통신 실행 
+ 	 * 
+	 * @param CartVO
+	 * @return 1 or 0
+	 * 
+	 */
 	@RequestMapping(value = "/findPw", produces = "application/text;charset=utf-8")
+	@ResponseBody
 	public String findPw(CustomerVO vo) {
 		String message = null;
 		CustomerVO result = service.selectById(vo);
 		if (result != null) {
 			service.tempPw(result);
 			message = result.getId() + "님의 이메일인" + result.getEmail() + "로 임시 비밀번호를 전송해 드렸습니다.";
+			log.info("임시 비밀번호 전송, 보낸 이메일 주소 => " + result.getEmail());
 			return message;
 		} else {
 			message = "일치하는 정보가 없습니다.";
@@ -176,4 +188,18 @@ public class CustomerController {
 		}
 	}
 
+	// 아이디 찾기
+	@RequestMapping(value = "/findId", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String findId(CustomerVO vo) {
+		String message = null;
+		CustomerVO result = service.selectByTelAndName(vo);
+		if (result != null) {
+			message = "회원님의 비밀번호는  " + result.getId() + "  입니다.";
+			return message;
+		} else {
+			message = "일치하는 정보가 없습니다.";
+			return message;
+		}
+	}
 }

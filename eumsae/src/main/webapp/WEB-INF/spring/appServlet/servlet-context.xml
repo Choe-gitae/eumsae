@@ -2,7 +2,6 @@
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
-	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
@@ -23,7 +22,6 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="eumsae" />
-	
 	
 	<!-- 파일업로드 하려면 MultipartResolver를 등록해야 함 -->
 		<beans:bean id="multipartResolver"  

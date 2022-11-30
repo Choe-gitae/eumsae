@@ -12,9 +12,12 @@ import eumsae.model.OrderVO;
 import eumsae.model.PaginationVO;
 import eumsae.model.WishBoardVO;
 import eumsae.service.WishBoardService;
+import jdk.internal.org.jline.utils.Log;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = "/board")
+@Slf4j
 public class WishBoardController {
 
 	@Autowired
@@ -43,6 +46,7 @@ public class WishBoardController {
 	@RequestMapping(value = "/requestBoardSave")
 	public String requestBoardWrite(WishBoardVO vo, Model model) {
 		service.insertBoard(vo);
+		log.info("새 글 작성 => " + vo.getArticle());
 			return "redirect:requestBoard";
 		
 	}

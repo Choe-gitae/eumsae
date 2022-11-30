@@ -197,7 +197,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Integer deleteCart(CartVO vo) {
 		System.out.println("카트 삭제");
-		return mybatis.delete("customer.deleteCart", vo);
+		return mybatis.delete("customer.deleteCart",vo);
 	}
 
 	// 결제 리스트 반환
@@ -213,7 +213,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo) {
 		System.out.println("결제 리스트 반환");
-		return mybatis.selectList("customer.selectCheckOutList", vo);
+		return mybatis.selectList("customer.selectCheckOutList",vo);
 	}
 
 	// 카트 수량 변경
@@ -230,13 +230,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Integer updateCart(CheckOutVO vo) {
 		System.out.println("카트 수량 변경");
-		return mybatis.update("customer.updateCart", vo);
+		return mybatis.update("customer.updateCart",vo);
 	}
 
 	// 카트 정보 모두 삭제
 	/*****************************************************
 	 * 
-	 * 함수명 : deleteAllCart 역할 : 결제가 완료된 경우, 카트 내 모든 정보를 삭제함 *
+	 * 함수명 : deleteAllCart 역할 : 결제가 완료된 경우, 카트 내 모든 정보를 삭제함	 * 
 	 * 
 	 * @param CheckOutVO
 	 * @return 1 or 0 (1인 경우 정상적으로 정보가 삭제됨, 0 일 경우 삭제 실패)
@@ -245,14 +245,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Integer deleteAllCart(CheckOutVO vo) {
 		System.out.println("카트 모두 삭제");
-		return mybatis.delete("customer.deleteAllCart", vo);
+		return mybatis.delete("customer.deleteAllCart",vo);
 	}
 
 	// 주문 내역 입력
 	/*****************************************************
 	 * 
-	 * 함수명 : insertOrder 역할 : 결제 API 가 완료되었을 때, id , lp 번호, 수량, 주문 총액을 가져가 Database에
-	 * 입력함
+	 * 함수명 : insertOrder 역할 : 결제 API 가 완료되었을 때, id , lp 번호, 수량, 주문 총액을 가져가 Database에 입력함 
 	 * 
 	 * @param OrderVO
 	 * @return 1 or 0 (1인 경우 정상적으로 정보가 입력됨, 0 일 경우 입력 실패)
@@ -261,7 +260,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Integer insertOrder(OrderVO vo) {
 		System.out.println("주문 내역 입력");
-		mybatis.insert("Order.insertOrder", vo);
+		mybatis.insert("Order.insertOrder",vo);
 		// 주문번호 리턴
 		return vo.getOrderNo();
 	}
@@ -269,8 +268,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	// 주문 내역 입력
 	/*****************************************************
 	 * 
-	 * 함수명 : insertOrderList 역할 : 결제 API 가 완료되었을 때, 주문 번호, Lp 번호 , 주문 수량을 가져가
-	 * Database에 입력함 *
+	 * 함수명 : insertOrderList 역할 : 결제 API 가 완료되었을 때, 주문 번호, Lp 번호 , 주문 수량을 가져가 Database에 입력함	 * 
 	 * 
 	 * @param OrderVO
 	 * @return 1 or 0 (1인 경우 정상적으로 정보가 입력됨, 0 일 경우 입력 실패)
@@ -279,13 +277,19 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public Integer insertOrderList(HashMap<String, Integer> map) {
 		System.out.println("상세 주문 내역 입력");
-		return mybatis.insert("Order.insertOrderList", map);
+		return mybatis.insert("Order.insertOrderList",map);
 	}
 
 	// 임시비밀번호로 변경
 	@Override
 	public Integer updateTempPw(CustomerVO vo) {
 		System.out.println("임시비밀번호로 비밀번호 변경");
-		return mybatis.update("customer.updateTempPw", vo);
+		return mybatis.update("customer.updateTempPw",vo);
+	}
+
+	// 이름과 전화번호로 아이디 찾기
+	@Override
+	public CustomerVO selectByTelAndName(CustomerVO vo) {
+		return mybatis.selectOne("customer.selectByTelAndName",vo);
 	}
 }

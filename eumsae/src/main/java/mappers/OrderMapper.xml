@@ -77,7 +77,7 @@
 </select>
 
 <select id="selectRecentSales" parameterType="hashmap" resultType="hashmap">
-	SELECT	TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD') recentdate, SUM(NVL(l.price,0)*el.amount) total
+	SELECT	TO_CHAR(el.ORDER_DATE,'YYYY.MM.DD') recentdate, SUM(NVL(l.price,0)*el.amount) total
 	FROM	eorder e LEFT OUTER JOIN eorder_list el
 						 ON e.order_no = el.order_no
 					 LEFT OUTER JOIN lp l
@@ -85,8 +85,8 @@
 					 LEFT OUTER JOIN lpinfo i
 						 ON l.infono = i.infono
 	WHERE	i.GENRE = #{genre}
-	GROUP BY TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD')
-	HAVING	TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD') BETWEEN TO_CHAR(SYSDATE-#{recentDate},'YYYY-MM-DD') AND TO_CHAR(SYSDATE-1,'YYYY-MM-DD')
+	GROUP BY TO_CHAR(el.ORDER_DATE,'YYYY.MM.DD')
+	HAVING	TO_CHAR(el.ORDER_DATE,'YYYY.MM.DD') BETWEEN TO_CHAR(SYSDATE-#{recentDate},'YYYY.MM.DD') AND TO_CHAR(SYSDATE-1,'YYYY.MM.DD')
 </select>
 
 <select id="selectTodaySales" resultType="int">

@@ -1,41 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% String
-pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% String pjName = "/eumsae"; %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>EUMSAE</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+<title>EUMSAE</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Favicon -->
-    <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
-  </head>
-  <body>
-    <jsp:include page="../include/shopHeader.jsp" />
+        <!-- Favicon -->
+        <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-    <section
-      class="hero-wrap hero-wrap-2"
-      style="background-image: url('resources/images/bg_2.gif')"
-      data-stellar-background-ratio="0.5"
-    >
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-          <div class="col-md-9 ftco-animate mb-5 text-center">
-            <p class="breadcrumbs mb-0">
-              <span class="mr-2"
-                ><a href="index.html">Home <i class="fa fa-chevron-right"></i></a
-              ></span>
-              <span>Cart <i class="fa fa-chevron-right"></i></span>
-            </p>
-            <h2 class="mb-0 bread">My Cart</h2>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- Stylesheet -->
+        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
+
+</head>
+<body>
+
+	<jsp:include page="../include/shopHeader.jsp" />
+
+	<section class="hero-wrap hero-wrap-2"
+		style="background-image: url('resources/images/bg_2.gif');"
+		data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-end justify-content-center">
+				<div class="col-md-9 ftco-animate mb-5 text-center">
+					<p class="breadcrumbs mb-0">
+						<span class="mr-2"><a href="index.html">Home <i
+								class="fa fa-chevron-right"></i></a></span> <span>Cart <i
+							class="fa fa-chevron-right"></i></span>
+					</p>
+					<h2 class="mb-0 bread">My Cart</h2>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<section class="ftco-section">
 		<div class="container">
@@ -130,31 +133,19 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
     	</div>
     </section>
 
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen">
-      <svg class="circular" width="48px" height="48px">
-        <circle
-          class="path-bg"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke="#eeeeee"
-        />
-        <circle
-          class="path"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke-miterlimit="10"
-          stroke="#F96D00"
-        />
-      </svg>
-    </div>
 
-    <jsp:include page="../include/shopFooter.jsp"></jsp:include>
-  </body>
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+	<jsp:include page="../include/shopFooter.jsp"></jsp:include>
+	<script src="<%=pjName%>/resources/js/calCart.js"></script>
+	
+
+</body>
 </html>

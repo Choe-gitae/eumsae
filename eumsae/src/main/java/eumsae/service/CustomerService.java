@@ -58,4 +58,7 @@ public interface CustomerService {
 
 	// 임시 비밀번호 발송
 	public Integer tempPw(CustomerVO vo);
+	
+	// 이름과 전화번호로 아이디 찾기
+	public CustomerVO selectByTelAndName(CustomerVO vo);
 }

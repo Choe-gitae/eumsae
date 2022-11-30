@@ -30,7 +30,36 @@ public interface CustomerDAO {
 	// 카트 담기
 	public Integer addCart(CartVO vo);
 
-	// 아이디로 회원 정보 찾기
-	public CustomerVO selectById(String id);
+	// 카트 삭제
+	public Integer deleteCart(CartVO vo);
 
+	// 아이디로 회원 정보 찾기
+	public CustomerVO selectById(CustomerVO vo);
+
+	// 아이디로 카트 리스트 반환
+	public List<CartVO> cartListById(String id);
+
+	// 상품 중복 검사
+	public CartVO searchCart(CartVO vo);
+
+	// checkOutVOList 반환
+	public List<CheckOutVO> selectCheckOutList(CheckOutVO vo);
+
+	// 카트 수량 변경
+	public Integer updateCart(CheckOutVO vo);
+
+	// 결제 시 카트 모두 삭제
+	public Integer deleteAllCart(CheckOutVO vo);
+
+	// 주문 내역 생성
+	public Integer insertOrder(OrderVO vo);
+
+	// 상세 주문 내역 생성
+	public Integer insertOrderList(HashMap<String, Integer> map);
+
+	// 임시 비밀번호로 비밀번호 변경
+	public Integer updateTempPw(CustomerVO vo);
+	
+	// 이름과 전화번호로 아이디 찾기
+	public CustomerVO selectByTelAndName(CustomerVO vo);
 }

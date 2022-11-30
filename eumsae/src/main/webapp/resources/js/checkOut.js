@@ -59,7 +59,7 @@ $(function () {
 
   // 우편 번호 찾기 버튼 눌렀을 때
   $("#postCode").click(function () {
-    sample6_execDaumPostcode();
+   sample6_execDaumPostcode();
   }); // end of click function
 
   //우편번호 api시작
@@ -84,6 +84,7 @@ $(function () {
 
   // 결제 관련 (카카오페이 / 토스 페이)
   $("#kakaoPay").click(function () {
+    //$("#paySuccess").submit();
     requestPaykakao();
   }); // end of click function
 
@@ -100,9 +101,9 @@ $(function () {
       {
         pg: "kakaopay",
         //pay_method: "card",
-        merchant_uid: "EUMSAE",
+        merchant_uid: "EUMSAE_" + new Date().getTime(),
         name: $("span#title").text(),
-        amount: $("#tP"),
+        amount: $("#tP").text(),
         buyer_email: $("#buyer_email").val(),
         buyer_name: $("#buyer_name").val(),
         buyer_tel: $("#buyer_pNum").val(),
@@ -112,11 +113,6 @@ $(function () {
       function (rsp) {
         if (rsp.success) {
           $("#paySuccess").submit();
-          Swal.fire({
-            icon: 'success',
-            text: '결제가 완료되었습니다.',
-          });
-          location.href = "paySuccess";
         } else {
           Swal.fire({
             icon: 'error',
@@ -133,7 +129,7 @@ $(function () {
         //pay_method: "card",
         merchant_uid: "EUMSAE",
         name: $("span#title").text(),
-        amount: $("#tP"),
+        amount: $("#tP").text(),
         buyer_email: $("#buyer_email").val(),
         buyer_name: $("#buyer_name").val(),
         buyer_tel: $("#buyer_pNum").val(),
@@ -143,11 +139,6 @@ $(function () {
       function (rsp) {
         if (rsp.success) {
           $("#paySuccess").submit();
-          Swal.fire({
-            icon: 'success',
-            text: '결제가 완료되었습니다.',
-          });
-          location.href = "paySuccess";
         } else {
           Swal.fire({
             icon: 'error',

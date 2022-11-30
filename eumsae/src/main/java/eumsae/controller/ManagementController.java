@@ -3,9 +3,11 @@ package eumsae.controller;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomMapEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,9 +23,11 @@ import eumsae.service.CustomerService;
 import eumsae.service.LpService;
 import eumsae.service.MgrService;
 import eumsae.service.WishBoardService;
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @RequestMapping(value = "/management")
+@Slf4j
 public class ManagementController {		// 관리자 페이지 요청 관리 컨트롤러
 
 	@Autowired
@@ -56,12 +60,14 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		System.out.println("로그인 확인");
 		MgrVO result = mService.logIn(vo); // 서비스 내 LogIn service 실행		
 		if (result == null || vo.getMid() == null) { // 로그인 정보가 없을 때
+			log.info("관리자 로그인 실패");
 			return "/management/loginPage"; // 다시 로그인 하게 보냄
 		} else {
 			// 세션에 정보 저장
 			sess.setAttribute("Mgr", result.getMid());
 			sess.setAttribute("Name", result.getName());
 			sess.setAttribute("Auth", result.getAuth());
+			log.info("매니저 '" + result.getName() + "' 님 로그인");
 			return "redirect:/management/main"; //로그인 정보가 있을 때, 관리자 페이지로 이동		
 		}
 	}
@@ -69,7 +75,14 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// 관리자 로그아웃	
 	@RequestMapping(value="/logout")
 	public String mgrLogOut(HttpSession sess) {
-		System.out.println("관리자님 로그아웃");			
+		System.out.println("관리자님 로그아웃");	
+		Object obj = sess.getAttribute("Auth");
+		if(obj == null) {
+			return "/management/loginPage";
+		}
+		MgrVO vo = new MgrVO();
+		vo.setAuth((String)obj);
+		log.info("매니저 '" + vo.getName() + "' 님 로그아웃");
 		sess.invalidate();			
 		return "/management/loginPage";
 	}
@@ -78,6 +91,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value = "/insertLp")							// LP 재고 등록 요청이 들어왔을 때
 	public String insertLp(String page, LpVO vo, Model m) {			// 입력한 내용을 LpVO로 저장, 이후 모달로 뿌려줌
 		System.out.println(vo);
+		log.info("입력한 LP정보 => " + vo);
 		service.insertLpInfo(vo);				// LPINFO TABLE 에 저장할 Service 실행
 		service.insertLp(vo);					// LP TABLE 에 저장할 Service 실행
 		m.addAttribute("check", "true");
@@ -100,6 +114,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value = "/deleteLp")
 	public String deleteLp(String page, LpVO vo, Model model) {
 		service.deleteLp(vo);
+		log.info("LP 삭제");
 		model.addAttribute("message", "삭제 되었습니다.");
 		return "/management/"+page;
 		
@@ -109,6 +124,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value = "/updateLp")
 	public String updateLp(String page, LpVO vo, Model model) {
 		int searchKey = vo.getInfono();
+		log.info("LP정보 수정");
 		service.updateLp(vo);
 		return "redirect:/management/searchLp?page=lpUpdatePage&searchCon=infono&searchKey="+searchKey;
 	}
@@ -118,6 +134,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	public String registManager(MgrVO vo) {
 		int result = mService.insertMgr(vo);
 		if(result == 1) {
+			log.info("관리자 계정 추가");
 			return "redirect:/management/main";
 		} else {
 			return "/management/mgrInsertPage";
@@ -177,6 +194,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	// 회원 정보 수정
 	@RequestMapping(value = "/updateCustomer")
 	public String updateCustomer(String page, CustomerVO vo, Model m) {
+		log.info("회원 정보 수정 => " + vo);
 		cService.updateCustomer(vo);		
 		return "/management/"+page;
 	}
@@ -185,6 +203,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value="/deleteCustomer")
 	public String deleteCustomer(String page, CustomerVO vo, Model m) {
 		cService.deleteCustomer(vo);
+		log.info("회원 삭제 => " + vo);
 		return "/management/"+page;
 	}
 	
@@ -211,7 +230,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	
 	//댓글등록
 	@RequestMapping(value = "/updateBoard")
-	public String updateBoard(WishBoardVO vo, String pageNo, Model model) {
+	public String updateBoard(WishBoardVO vo, String pageNo, Model model, MgrVO mgrVO) {
 		mService.updateComment(vo);
 		
 		// 목록&페이징
@@ -223,6 +242,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("ccomment");
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
+		log.info("댓글 등록. 등록한 텍스트 => " + vo.getCcomment());
 		return "/management/boardWishPage";
 		
 	}
