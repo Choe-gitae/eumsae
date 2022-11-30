@@ -14,21 +14,6 @@
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-
-        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
 
 </head>
@@ -60,6 +45,7 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="table-wrap">
+					<form method="post" action="/eumsae/shop/checkout?direct=false" name="checkout">
 						<table class="table" id="cartTable">
 							<thead class="thead-primary">
 								<tr>
@@ -73,12 +59,12 @@
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody>							
 								<c:forEach var="list" items="${list}" varStatus="status">									
-								<tr class="alert" role="alert">
-								<th scope="row">${status.count}</th>
+								<tr class="alert" role="alert">								
+								<td class="cartno">${list.cartno}</td>
 									<td><label class="checkbox-wrap checkbox-primary">
-											<input class="check" type="checkbox" checked> <span
+											<input class="check" type="checkbox" checked name="CheckOutVOList[${status.count}].state"> <span
 											class="checkmark"></span>
 									</label></td>
 									<td>
@@ -87,16 +73,14 @@
 									</td>
 									<td>
 										<div class="email">
-											<span id="title">${list.singer}</span> 
-											<span>${list.title}</span>
+											<span id="title">${list.title}</span> 
+											<span>${list.singer}</span>
 										</div>
 									</td>
 									<td class="price">${list.price}</td>
 									<td class="quantity">
 										<div class="input-group">										
-											<input type="text" name="quantity" 
-												class="amount form-control input-number" value="${list.amount}" min="1"
-												max="100">												
+											<input type="text" name="amount" class="amount form-control input-number" value="${list.amount}" min="1">												
 										</div>
 									</td>
 									<td class="total"></td>
@@ -105,10 +89,20 @@
 											<span aria-hidden="true"><i class="fa fa-close"></i></span>
 										</button>
 									</td>
-								</tr>																														
-							</c:forEach>								
+								</tr>
+								<input type="hidden" name="CheckOutVOList[${status.count}].cnt" value="${list.cnt}" id="cnt" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].amount" value="${list.amount}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cartno" value="${list.cartno}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].id" value="${list.id}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].cjpg" value="${list.cjpg}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].singer" value="${list.singer}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].title" value="${list.title}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].price" value="${list.price}" />
+								<input type="hidden" name="CheckOutVOList[${status.count}].lpno" value="${list.lpno}" />
+							</c:forEach>
 							</tbody>
 						</table>						
+				</form>								
 					</div>
 				</div>
 				<div class="row justify-content-end">
@@ -133,7 +127,7 @@
     						<span id="tP"></span>
     					</p>
     				</div>
-    				<button type="button" class="btn btn-dark py-3 px-4">Proceed to Checkout</button>
+    				<button type="button" class="btn btn-dark py-3 px-4" id="check">Proceed to Checkout</button>
     			</div>
     		</div>
     	</div>

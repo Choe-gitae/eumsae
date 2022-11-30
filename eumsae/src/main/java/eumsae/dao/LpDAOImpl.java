@@ -28,8 +28,8 @@ public class LpDAOImpl implements LpDAO {
 	}
 	
 	// LP 정보 검색
-	public List<LpVO> genreLp(String category) {
-		return mybatis.selectList("Lp.genreLp",category);
+	public List<LpVO> searchLp(HashMap map) {
+		return mybatis.selectList("Lp.searchLp",map);
 	}
 	
 	// LP정보 키워드로 검색
@@ -54,6 +54,33 @@ public class LpDAOImpl implements LpDAO {
 	@Override
 	public Integer updateLp(LpVO vo) {
 		return mybatis.update("Lp.updateLp", vo);
+	}
+	
+	// LP 번호로 정보 찾기
+	@Override
+	public LpVO searchByLpno(int lpno) {
+		
+		return mybatis.selectOne("Lp.selectByLpNo",lpno);
+	}
+	
+	/*****************************************************
+	 * 최근 한달 안에 발매된 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	@Override
+	public List<LpVO> selectFeaturedNewReleases() {
+		return mybatis.selectList("selectFeaturedNewReleases");
+	}
+
+	/*****************************************************
+	 * 장르별 가장 많이 팔린 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	@Override
+	public LpVO selectGenreBestSellers(String genre) {
+		return mybatis.selectOne("Lp.selectGenreBestSellers",genre);
 	}
  
 }

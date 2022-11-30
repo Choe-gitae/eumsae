@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class LpServiceImpl implements LpService {
 		}
 		
 	// LP정보 장르 검색 후 리스트로 리턴
-	public List<LpVO> genreLp(String category) {
-		return dao.genreLp(category);
+	public List<LpVO> searchLp(HashMap map) {
+		return dao.searchLp(map);
 	}
 
 	// LP 삭제
@@ -57,6 +58,31 @@ public class LpServiceImpl implements LpService {
 	public List<LpVO> selectLpVOList(HashMap map) {
 		// TODO Auto-generated method stub
 		return dao.selectLpVOList(map);
+	}
+	
+	// LP 번호로 정보 조회
+	@Override
+	public LpVO searchByLpno(int lpno) {
+		// TODO Auto-generated method stub
+		return dao.searchByLpno(lpno);
+	}
+	
+	// 최근 발매 LP 검색
+	@Override
+	public List<LpVO> selectFeaturedNewReleases() {
+		return dao.selectFeaturedNewReleases();
+	}
+
+	// 장르별 베스트셀러 검색
+	@Override
+	public List<LpVO> selectGenreBestSellers() {
+		List<LpVO> bestSellersList = new ArrayList<LpVO>();
+		String[] genre = {"POP","ROCK","HipHop","Ballad","국내가요","Fork","RnB","일렉트로","OST","트로트"};
+		
+		for (int i = 0; i < genre.length; i++) {
+			bestSellersList.add(i, dao.selectGenreBestSellers(genre[i]));
+		}
+		return bestSellersList;
 	}
 	
 	

@@ -12,10 +12,7 @@ public interface LpDAO {
 	
 	// Lp등록(lp)
 	public Integer insertLp(LpVO vo);
-	
-	// 메인페이지에서 카테고리 드랍박스 선택시 LP정보 리턴
-	public List<LpVO> genreLp(String category);
-	
+
 	// Lp 삭제
 	public Integer deleteLp(LpVO vo);
 	
@@ -27,5 +24,23 @@ public interface LpDAO {
 	
 	// LP 수정
 	public Integer updateLp(LpVO vo);
-	 
-} 
+
+	public List<LpVO> searchLp(HashMap map);
+
+	// LP 번호로 정보 조회
+	public LpVO searchByLpno(int lpno);
+	
+	/*****************************************************
+	 * 최근 한달 안에 발매된 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	public List<LpVO> selectFeaturedNewReleases();
+	
+	/*****************************************************
+	 * 장르별 가장 많이 팔린 LP
+	 * @param	없음
+	 * @return	가수, 제목
+	 */
+	public LpVO selectGenreBestSellers(String genre);
+}
