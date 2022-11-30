@@ -85,5 +85,16 @@ public class LpServiceImpl implements LpService {
 		return bestSellersList;
 	}
 	
+	// LP 재고 입고
+	@Override
+	public Integer updateAmount(LpVO vo) {
+		return dao.updateAmount(vo);
+	}
+	
+	// LP 가격 수정
+	@Override
+	public Integer updatePrice(LpVO vo) {
+		return dao.updatePrice(vo);
+	}
 	
 }

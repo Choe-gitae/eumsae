@@ -81,9 +81,11 @@
                         <c:if test="${Auth != 'sub' }">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>상품 관리</a>
                             <div class="dropdown-menu bg-transparent border-0">
-                                <a href="lpInsertPage" class="dropdown-item">상품 등록</a>
-                                <a href="lpUpdatePage" class="dropdown-item">상품 수정</a>
-                                <a href="lpDeletePage" class="dropdown-item">상품 삭제</a>
+                                <a href="lpInsertPage" class="dropdown-item">LP 등록</a>
+                                <a href="lpUpdatePage" class="dropdown-item">LP 수정</a>
+                                <a href="lpDeletePage" class="dropdown-item">LP 삭제</a>
+                                <a href="lpAmountUpdatePage" class="dropdown-item">LP 재고 관리</a>
+                                <a href="lpPriceUpdatePage" class="dropdown-item">LP 가격 관리</a>
                             </div>
                         </c:if>
                     </div>

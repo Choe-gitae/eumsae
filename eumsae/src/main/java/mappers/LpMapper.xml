@@ -87,5 +87,17 @@
 				ORDER BY 	amount DESC)
 		WHERE	ROWNUM = 1
 	</select>
+	
+	<update id="updateAmount" parameterType="LpVO">
+		UPDATE lp
+		SET cnt = cnt + #{cnt}
+		WHERE lpno = #{lpno}
+	</update>
+	
+	<update id="updatePrice" parameterType="LpVO">
+		UPDATE lp
+		SET price = #{price}
+		WHERE lpno = #{lpno}
+	</update>
 
 </mapper>

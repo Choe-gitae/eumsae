@@ -50,6 +50,10 @@
 		SELECT * FROM customer WHERE id=#{id}
 	</select>
 	
+	<select id="selectByTelAndName" parameterType="CustomerVO" resultType="CustomerVO">
+		SELECT * FROM customer WHERE tel=#{tel} AND name=#{name}
+	</select>
+	
 	<select id="selectCheckOutList" parameterType="CheckOutVO" resultType="CheckOutVO">
 		SELECT * 
 		FROM CUSTOMER  C LEFT OUTER JOIN CART T 

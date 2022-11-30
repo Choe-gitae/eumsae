@@ -36,5 +36,11 @@ public interface LpService {
 	
 	// 장르별 베스트셀러 검색
 	public List<LpVO> selectGenreBestSellers();
+	
+	// LP 재고 입고
+	public Integer updateAmount(LpVO vo);
+	
+	// LP 가격 수정
+	public Integer updatePrice(LpVO vo);
 
 }

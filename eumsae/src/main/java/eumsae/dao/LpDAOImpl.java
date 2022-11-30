@@ -82,5 +82,17 @@ public class LpDAOImpl implements LpDAO {
 	public LpVO selectGenreBestSellers(String genre) {
 		return mybatis.selectOne("Lp.selectGenreBestSellers",genre);
 	}
+	
+	// LP 재고 입고
+	@Override
+	public Integer updateAmount(LpVO vo) {
+		return mybatis.update("Lp.updateAmount",vo);
+	}
+	
+	// LP 가격 수정
+	@Override
+	public Integer updatePrice(LpVO vo) {
+		return  mybatis.update("Lp.updatePrice",vo);
+	}
  
 }

@@ -43,4 +43,10 @@ public interface LpDAO {
 	 * @return	가수, 제목
 	 */
 	public LpVO selectGenreBestSellers(String genre);
+	
+	// LP 재고 입고
+	public Integer updateAmount(LpVO vo);
+	
+	// LP 가격 수정
+	public Integer updatePrice(LpVO vo);
 }

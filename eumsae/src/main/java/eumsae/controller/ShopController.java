@@ -152,10 +152,10 @@ public class ShopController {
 	 * @return	없음
 	 */
 	@RequestMapping(value="/paySuccess")
-	public String paySuccess(OrderVO orderVO, CartVOList CartVOList) {
+	public String paySuccess(OrderVO orderVO, CartVOList cartVOList) {
 		// 주문내역 입력
 		Integer orderNo = cService.insertOrder(orderVO);
-		for(CartVO vo : CartVOList.getCartVOList()) {
+		for(CartVO vo : cartVOList.getCartVOList()) {
 			if(vo.getLpno() != 0) {
 				HashMap<String, Integer> map = new HashMap<String, Integer>();
 				// 받아온 주문번호를 맵에 삽입

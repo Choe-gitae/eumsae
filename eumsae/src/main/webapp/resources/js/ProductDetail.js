@@ -44,8 +44,7 @@ $(document).ready(function () {
                 $('#ajaxResult').text(result);                
             },
             error: function (err) {
-                Swal.fire("전송실패");
-                console.log(err);
+                Swal.fire("카트에 담기 실패");
             }
         }); // end of ajax
 

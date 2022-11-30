@@ -72,7 +72,7 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">
-					<form action="#" class="billing-form">											
+					<form action="#" class="billing-form">
 						<h3 class="mb-4 billing-heading">주문자 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
@@ -174,7 +174,7 @@
 									<div class="row">
 										<div class="col-12">
 											<div class="table-wrap">
-												<form action="paySuccess" id="paySuccess">
+												<form action="paySuccess" id="paySuccess" method="post">
 												<table class="table">
 													<thead class="thead-primary">
 														<tr>

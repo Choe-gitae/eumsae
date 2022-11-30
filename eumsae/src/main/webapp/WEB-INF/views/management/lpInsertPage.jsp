@@ -37,11 +37,11 @@
             <div class="content">
                 <jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
 
-                <!-- 상품 관리 탭 시작 -->
+                <!-- LP 관리 탭 시작 -->
                 <div class="container-fluid pt-4 px-4">
-                    <div class="alert alert-light" role="alert">상품 등록 페이지</div>
+                    <div class="alert alert-light" role="alert">LP 등록 페이지</div>
                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                        <h6 class="mb-4">상품 등록</h6>
+                        <h6 class="mb-4">LP 등록</h6>
                         <form action="insertLp?page=lpInsertPage" method="post" enctype="multipart/form-data">
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="genre" name="genre" aria-label="장르">

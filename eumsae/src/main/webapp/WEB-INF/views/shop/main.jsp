@@ -130,11 +130,9 @@
           <div class="col-12 col-lg-9">
             <div class="ablums-text text-center mb-70">
               <p>
-                Add to your growing collection. Nam tristique ex vel magna tincidunt, ut porta nisl
-                finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam
-                fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus
-                nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit
-                pulvinar pellentesque et non eros.
+                이음새에 새로이 들어온 앨범들을 소개합니다.<br/>
+				2020년대에 새로이 발매되는 앨범들을 이음새에서 다룹니다.<br/>
+				새로이 출시되는 앨범들을 살펴보세요.
               </p>
             </div>
           </div>
@@ -147,7 +145,9 @@
               <c:forEach var="list" items="${new}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
+              	<a href="detail?infono=${list.infono}">
+                	<img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
+                </a>
                 <div class="album-info">
                   <a href="detail?infono=${list.infono}">
                     <h5>${list.singer}</h5>
@@ -183,7 +183,9 @@
               <c:if test="${not empty list}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
+              	<a href="detail?infono=${list.infono}">
+                	<img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
+                </a>
                 <div class="album-info">
                   <a href="detail?infono=${list.infono}">
                     <h5>${list.singer}</h5>

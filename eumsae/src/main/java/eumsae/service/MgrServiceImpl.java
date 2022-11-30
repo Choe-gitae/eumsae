@@ -165,7 +165,7 @@ public class MgrServiceImpl implements MgrService {
 		// 현재 날짜
 		LocalDate today = LocalDate.now();
 		// 장르 배열
-		String[] genre = {"POP","ROCK","HipHop","Ballad","국내가요","Fork","RnB","일렉트로","OST","트로트"};
+		String[] genre = {"POP","Rock","HipHop","Ballad","국내가요","Fork","RnB","Elec","Ost","트로트"};
 		// 리턴할 결과 Map
 		HashMap<String,List<String>> resultMap = new HashMap<String,List<String>>();
 		// 최근일 범위 지정
@@ -179,6 +179,7 @@ public class MgrServiceImpl implements MgrService {
 			map.put("recentDate", recentDays+1);
 			// 장르별 판매 검색
 			tempList = dao.selectRecentSales(map);
+			System.out.println("tempList : "+tempList);
 			// 장르별 판매가 없을 경우 리스트에 0원을 넣는다
 			if(tempList.isEmpty()) {
 				for (int j = 0; j < recentDays; j++) {
@@ -187,18 +188,26 @@ public class MgrServiceImpl implements MgrService {
 				// HashMap에 판매결과 배열리스트를 담는다
 				resultMap.put(genre[i], totalList);
 			}else {
+				int index = 0;
+				
+				ArrayList<String> dateArr = new ArrayList<String>();
+				for (HashMap hmap : tempList) {
+					dateArr.add((String) tempList.get(index).get("RECENTDATE")) ;
+				}
 				// 장르별 판매가 있을 경우
 				for (int j = recentDays; j > 0; j--) {
-					int index = 0;
 					// 리스트의 날짜를 비교후 리턴할 리스트에 추가
-					String strdate = today.minusDays(j).toString();
-					String date = (String) tempList.get(index).get("RECENTDATE");
-					// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
-					if(strdate.equals(date)) totalList.add(tempList.get(index).get("TOTAL"));
-					else totalList.add("0");
+					String strDate = today.minusDays(j).toString();
+					
+//					System.out.println("index : "+index);
+//					System.out.println(strDate+" : "+tempList.get(index).get("RECENTDATE"));
+//					// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
+//					if(strDate.equals(date)) totalList.add(tempList.get(index).get("TOTAL"));
+//					else totalList.add("0");
+//					// HashMap에 판매결과 배열리스트를 담는다
+//					resultMap.put(genre[i], totalList);
+//					index++;
 				}
-				// HashMap에 판매결과 배열리스트를 담는다
-				resultMap.put(genre[i], totalList);
 			}
 		}
 		return resultMap;
@@ -211,31 +220,8 @@ public class MgrServiceImpl implements MgrService {
 	 * @return 월별 매출
 	 */
 	@Override
-	public List selectMonthsSales() {
-		// 현재 날짜
-		LocalDate today = LocalDate.now();
-		List totalList = new ArrayList<>();
-		List<HashMap> tempList = new ArrayList<HashMap>();
-		
-		tempList = dao.selectMonthsSales();
-		// 월별 판매가 없을 경우 리스트에 0원을 넣는다
-		if(tempList.isEmpty()) {
-			for (int i = 0; i < 12; i++) {
-				totalList.add("0");
-			}
-		}else {
-			// 월별 판매가 있을 경우
-			for (int i = 12; i > 0; i--) {
-				int index = 0;
-				// 리스트의 날짜를 비교후 리턴할 리스트에 추가
-				String strdate = today.minusMonths(i).format(DateTimeFormatter.ofPattern("yyyy-MM"));
-				String month = (String) tempList.get(index).get("MONTH");
-				// 판매된 날은 매출을 넣고 판매가 없는 날은 0원을 넣는다.
-				if(strdate.equals(month)) totalList.add(tempList.get(index).get("TOTAL"));
-				else totalList.add("0");
-			}
-		}
-		return totalList;
+	public List<HashMap> selectMonthsSales() {
+		return dao.selectMonthsSales();
 	}
 
 }

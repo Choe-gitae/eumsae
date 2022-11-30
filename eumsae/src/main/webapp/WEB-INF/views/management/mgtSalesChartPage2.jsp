@@ -66,24 +66,23 @@
 			var month = today.getMonth();
 			var day = today.getDate();
 
+			// 가져온 데이터 길이로 최근 날짜 범위 지정
+			<c:forEach var="map" items="${recentSalesMap}" begin="0" end="0">
+				var recentDaysSize = ${fn:length(recentSalesMap[map.key])};
+			</c:forEach>
+
+			// 자른 날짜 최근판매 차트 라벨배열에 추가
+			var recentDaysChartLabels = [];
+			for (let index = recentDaysSize; index > 0; index--) {
+				recentDaysChartLabels.push(new Date(year, month, day - index).toLocaleDateString().substr(6,7));
+			}
 			
 			// 자른 날짜 월별판매 차트 라벨배열에 추가
 			var monthsSalesChartLabels = [];
-			var monthsSalesChartDate = [];
-//			for (let index = 12; index > 0; index--) {
-//				monthsSalesChartLabels.push(new Date(year, month - index, day).toLocaleDateString().substr(0,9));
-//			}
+			for (let index = 12; index > 0; index--) {
+				monthsSalesChartLabels.push(new Date(year, month - index, day).toLocaleDateString().substr(0,9));
+			}
 
-			<c:forEach var="monthsSalesList" items="${monthsSalesList}">
-				monthsSalesChartLabels.push(${monthsSalesList.MONTH});
-			</c:forEach>
-			console.log(monthsSalesChartLabels);
-			
-			<c:forEach var="monthsSalesList" items="${monthsSalesList}">
-				monthsSalesChartDate.push(${monthsSalesList.TOTAL});
-			</c:forEach>
-			console.log(monthsSalesChartDate);
-			
 			// 차트 footer 합계 옵션
 			var footer = (tooltipItems) => {
 				let sum = 0;
@@ -94,6 +93,49 @@
 				return "합계: " + sum;
 			};
 
+			// 최근 장르별 매출 차트 세팅
+			var recentSalesChart = document.getElementById("recentSalesChart").getContext("2d");
+			var recentSalesChartData = {
+				labels: recentDaysChartLabels,
+				datasets: [
+					// 모델로 받아온 데이터 차트 데이터셋에 세팅
+					<c:forEach var="recentSalesMap" items="${recentSalesMap}">
+					{
+						label: '${recentSalesMap.key}',
+						data: ${recentSalesMap.value},
+						backgroundColor: randomRGBA(),
+					},
+					</c:forEach>
+				],
+			};
+
+			// 최근 장르별 매출 차트 생성
+			new Chart(recentSalesChart, {
+				type: "bar",
+				data: recentSalesChartData,
+				options: {
+					interaction: {
+						intersect: false,
+						mode: "index",
+					},
+					plugins: {
+						tooltip: {
+							callbacks: {
+								footer: footer,
+							},
+						},
+					},
+					responsive: true,
+					scales: {
+						x: {
+							stacked: true,
+						},
+						y: {
+							stacked: true,
+						},
+					},
+				},
+			});
 			
 			// 월별 매출 차트 세팅
 			var monthsSalesChart = document.getElementById("monthsSalesChart").getContext("2d");
@@ -103,7 +145,7 @@
 					// 모델로 받아온 데이터 차트 데이터셋에 세팅
 					{
 						label: "매출",
-						data: monthsSalesChartDate,
+						data: <c:out value="${monthsSalesList}" />,
 						backgroundColor: randomRGBA(),
 						pointStyle: 'circle',
 						pointRadius: 10,

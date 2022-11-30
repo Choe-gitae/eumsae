@@ -87,6 +87,7 @@
 	WHERE	i.GENRE = #{genre}
 	GROUP BY TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD')
 	HAVING	TO_CHAR(el.ORDER_DATE,'YYYY-MM-DD') BETWEEN TO_CHAR(SYSDATE-#{recentDate},'YYYY-MM-DD') AND TO_CHAR(SYSDATE-1,'YYYY-MM-DD')
+	ORDER BY recentdate
 </select>
 
 <select id="selectTodaySales" resultType="int">
@@ -96,10 +97,11 @@
 </select>
 
 <select id="selectMonthsSales" resultType="hashmap">
-	SELECT	TO_CHAR(SYSDATE,'YYYY-MM') month, SUM(order_total_price) total
+	SELECT	TO_CHAR(ORDER_DATE,'YYYY.MM') month, SUM(order_total_price) total
 	FROM	eorder
-	WHERE	TO_CHAR(ORDER_DATE,'YYYY-MM') BETWEEN TO_CHAR(SYSDATE-13,'YYYY-MM') AND TO_CHAR(SYSDATE-1,'YYYY-MM')
-	GROUP BY TO_CHAR(ORDER_DATE,'YYYY-MM')
+	WHERE	TO_CHAR(ORDER_DATE,'YYYY.MM') BETWEEN TO_CHAR(SYSDATE-365,'YYYY.MM') AND TO_CHAR(SYSDATE,'YYYY.MM')
+	GROUP BY TO_CHAR(ORDER_DATE,'YYYY.MM')
+	ORDER BY TO_CHAR(ORDER_DATE,'YYYY.MM')
 </select>
 
 </mapper>

@@ -192,6 +192,11 @@ public class CustomerServiceImpl implements CustomerService {
 		}
 		return str;
 	}
+
+	@Override
+	public CustomerVO selectByTelAndName(CustomerVO vo) {
+		return dao.selectByTelAndName(vo);
+	}
 }
 
 class MyAuthentication extends Authenticator {

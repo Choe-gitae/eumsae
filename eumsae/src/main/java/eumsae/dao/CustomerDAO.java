@@ -59,4 +59,7 @@ public interface CustomerDAO {
 
 	// 임시 비밀번호로 비밀번호 변경
 	public Integer updateTempPw(CustomerVO vo);
+	
+	// 이름과 전화번호로 아이디 찾기
+	public CustomerVO selectByTelAndName(CustomerVO vo);
 }

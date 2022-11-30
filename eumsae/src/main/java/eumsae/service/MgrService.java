@@ -104,5 +104,5 @@ public interface MgrService {
 	 * @param 없음
 	 * @return 월별 매출
 	 */
-	public List<String> selectMonthsSales();
+	public List<HashMap> selectMonthsSales();
 }

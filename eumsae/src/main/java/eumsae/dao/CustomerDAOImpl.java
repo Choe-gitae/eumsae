@@ -286,4 +286,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 		System.out.println("임시비밀번호로 비밀번호 변경");
 		return mybatis.update("customer.updateTempPw",vo);
 	}
+
+	// 이름과 전화번호로 아이디 찾기
+	@Override
+	public CustomerVO selectByTelAndName(CustomerVO vo) {
+		return mybatis.selectOne("customer.selectByTelAndName",vo);
+	}
 }

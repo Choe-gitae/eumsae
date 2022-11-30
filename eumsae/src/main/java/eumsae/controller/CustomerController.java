@@ -148,8 +148,9 @@ public class CustomerController {
 		return "redirect:/shop/main";
 	}
 	
-	@ResponseBody
+	// 비밀번호 찾기
 	@RequestMapping(value = "/findPw", produces = "application/text;charset=utf-8")
+	@ResponseBody
 	public String findPw(CustomerVO vo) {
 		String message = null;
 		CustomerVO result = service.selectById(vo);
@@ -162,5 +163,19 @@ public class CustomerController {
 			return message;
 		}
 	}
-
+	
+	// 아이디 찾기
+	@RequestMapping(value = "/findId", produces = "application/text;charset=utf-8")
+	@ResponseBody
+	public String findId(CustomerVO vo) {
+		String id = null;
+		CustomerVO result = service.selectByTelAndName(vo);
+		if (result != null) {
+			id = result.getId();
+			return id;
+		} else {
+			id = "0";
+			return id;
+		}
+	}
 }

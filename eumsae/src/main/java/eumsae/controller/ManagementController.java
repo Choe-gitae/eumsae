@@ -34,7 +34,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 
 	@Autowired
 	private CustomerService cService; 	// 회원 관련 서비스
-	
+
 	@Autowired
 	private WishBoardService wService; //게시판 서비스
 
@@ -49,7 +49,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	public String mgrManagemant() {
 		return "/management/mgrManagemant";
 	}
-	
+
 	// 관리자 로그인
 	@RequestMapping(value="/mgrLogin")						// 관리자 로그인 정보가 들어왔을 때
 	public String mgrLogin(MgrVO vo, HttpSession sess) {
@@ -65,7 +65,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 			return "redirect:/management/main"; //로그인 정보가 있을 때, 관리자 페이지로 이동		
 		}
 	}
-	
+
 	// 관리자 로그아웃	
 	@RequestMapping(value="/logout")
 	public String mgrLogOut(HttpSession sess) {
@@ -95,16 +95,16 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("list", list);
 		return "/management/"+page;
 	}
-	
+
 	// LP정보 삭제
 	@RequestMapping(value = "/deleteLp")
 	public String deleteLp(String page, LpVO vo, Model model) {
 		service.deleteLp(vo);
 		model.addAttribute("message", "삭제 되었습니다.");
 		return "/management/"+page;
-		
+
 	}
-	
+
 	// LP 정보 수정
 	@RequestMapping(value = "/updateLp")
 	public String updateLp(String page, LpVO vo, Model model) {
@@ -112,7 +112,23 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		service.updateLp(vo);
 		return "redirect:/management/searchLp?page=lpUpdatePage&searchCon=infono&searchKey="+searchKey;
 	}
-	
+
+	// LP 재고 등록
+	@RequestMapping(value = "/updateAmount")
+	public String updateAmount(String page, LpVO vo, Model model) {
+		int searchKey = vo.getInfono();
+		service.updateAmount(vo);
+		return "redirect:/management/searchLp?page=lpAmountUpdatePage&searchCon=infono&searchKey="+searchKey;
+	}
+
+	// LP 재고 등록
+	@RequestMapping(value = "/updatePrice")
+	public String updatePrice(String page, LpVO vo, Model model) {
+		int searchKey = vo.getInfono();
+		service.updatePrice(vo);
+		return "redirect:/management/searchLp?page=lpPriceUpdatePage&searchCon=infono&searchKey="+searchKey;
+	}
+
 	// 관리자 계정 추가
 	@RequestMapping(value="/registManager")
 	public String registManager(MgrVO vo) {
@@ -134,7 +150,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("list", list);
 		return "/management/" + page;
 	}
-	
+
 	// 관리자 정보 수정
 	@RequestMapping(value="/updateMgr")
 	public String updateMgr(String page, MgrVO vo, Model model) {
@@ -142,8 +158,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("message", "수정 되었습니다.");
 		return "/management/"+page;
 	}
-	
-	
+
+
 	// 관리자 계정 삭제
 	@RequestMapping(value = "/deleteMgr")
 	public String deleteMgr(String page, MgrVO vo, Model model) {
@@ -151,7 +167,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("message", "삭제 되었습니다.");
 		return "/management/"+page;
 	}
-	
+
 	// 관리자가 직접 회원 등록
 	@RequestMapping(value = "/registCustomer")
 	public String registCustomer(CustomerVO vo) {
@@ -180,15 +196,15 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		cService.updateCustomer(vo);		
 		return "/management/"+page;
 	}
-	
+
 	// 회원 삭제
 	@RequestMapping(value="/deleteCustomer")
 	public String deleteCustomer(String page, CustomerVO vo, Model m) {
 		cService.deleteCustomer(vo);
 		return "/management/"+page;
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 요청사항게시판
 	 * @param	PaginationVO
@@ -196,56 +212,56 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 */
 	@RequestMapping(value = "/boardWishPage")
 	public String selectBoard(String pageNo, Model model) {
-		
+
 		// 목록&페이징
 		if(pageNo == null) pageNo = "1";
 		long totalRecord = wService.boardCount();
 		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
 		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
-		
+
 		model.addAttribute("ccomment");
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
 		return "/management/boardWishPage";
 	}
-	
+
 	//댓글등록
 	@RequestMapping(value = "/updateBoard")
 	public String updateBoard(WishBoardVO vo, String pageNo, Model model) {
 		mService.updateComment(vo);
-		
+
 		// 목록&페이징
 		if(pageNo == null) pageNo = "1";
 		long totalRecord = wService.boardCount();
 		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
 		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
-		
+
 		model.addAttribute("ccomment");
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
 		return "/management/boardWishPage";
-		
+
 	}
-	
+
 	//댓글삭제
 	@RequestMapping(value = "/deleteBoard")
 	public String deleteBoard(WishBoardVO vo, String pageNo, Model model) {
 		mService.deleteComment(vo);
-		
+
 		// 목록&페이징
-				if(pageNo == null) pageNo = "1";
-				long totalRecord = wService.boardCount();
-				PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
-				List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
-				
-				model.addAttribute("ccomment");
-				model.addAttribute("list", list);
-				model.addAttribute("pageVO", pageVO);
-		
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = wService.boardCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 5, 5);
+		List<WishBoardVO> list = wService.selectWishBoardPg(pageVO);
+
+		model.addAttribute("ccomment");
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+
 		return "/management/boardWishPage";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 주문내역 / 전체 주문내역 리스트형태로 리턴
 	 * @param	PaginationVO
@@ -261,8 +277,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("pageVO", pageVO);
 		return "/management/mgtSalesPage";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 주문내역 / 주문내역 검색
 	 * @param	검색할 옵션, 검색할 키
@@ -277,8 +293,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("list", list);
 		return "/management/mgtSalesPage";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 주문내역 상세보기 / 전체 주문 상세내역 리스트로 리턴
 	 * @param	PaginationVO
@@ -286,16 +302,16 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 */
 	@RequestMapping(value = "/mgtSalesListPage")
 	public String selectOrderList(String pageNo, Model model) {
-	if(pageNo == null) pageNo = "1";
-	long totalRecord = mService.selectOrderListCount();
-	PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
-	List<OrderVO> list = mService.selectOrderList(pageVO);
-	model.addAttribute("list", list);
-	model.addAttribute("pageVO", pageVO);
-	return "/management/mgtSalesListPage";
+		if(pageNo == null) pageNo = "1";
+		long totalRecord = mService.selectOrderListCount();
+		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
+		List<OrderVO> list = mService.selectOrderList(pageVO);
+		model.addAttribute("list", list);
+		model.addAttribute("pageVO", pageVO);
+		return "/management/mgtSalesListPage";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 주문내역 상세보기 / 주문 상세내역 검색
 	 * @param	검색할 옵션, 검색할 키
@@ -310,8 +326,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("list", list);
 		return "/management/mgtSalesListPage";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 관리자 메인 / 하루 매출, 최근 판매 내역
 	 * @param	없음
@@ -325,8 +341,8 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		model.addAttribute("recentOrderList", recentOrderList);
 		return "/management/main";
 	}
-	
-	
+
+
 	/*****************************************************
 	 * 매출 차트 / 최근 장르별 매출, 월별 매출
 	 * @param	없음
@@ -334,9 +350,9 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	 */
 	@RequestMapping(value = "/mgtSalesChartPage")
 	public String selectRecentSales(Model model) {
-		HashMap<String,List<String>> recentSalesMap = mService.selectRecentSales();
-		List<String> monthsSalesList = mService.selectMonthsSales();
-		model.addAttribute("recentSalesMap", recentSalesMap);
+//		HashMap<String,List<String>> recentSalesMap = mService.selectRecentSales();
+		List<HashMap> monthsSalesList = mService.selectMonthsSales();
+//		model.addAttribute("recentSalesMap", recentSalesMap);
 		model.addAttribute("monthsSalesList", monthsSalesList);
 		return "/management/mgtSalesChartPage";
 	}
