@@ -147,7 +147,7 @@
               <c:forEach var="list" items="${new}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="resources/lpImg/${list.cjpg}.jpg" />
+                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
                 <div class="album-info">
                   <a href="detail?infono=${list.infono}">
                     <h5>${list.singer}</h5>
@@ -183,7 +183,7 @@
               <c:if test="${not empty list}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="resources/lpImg/${list.cjpg}.jpg" />
+                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
                 <div class="album-info">
                   <a href="detail?infono=${list.infono}">
                     <h5>${list.singer}</h5>

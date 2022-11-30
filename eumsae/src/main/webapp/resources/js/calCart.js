@@ -34,17 +34,22 @@ $(document).ready(function () {
   amount.change(function () {
     var cnt = $(this).parents("tr").next().val();
 
-    getsu = $(this).val();
+    getsu = $.trim($(this).val());
     if (getsu > parseInt(cnt)) {
       Swal.fire('재고가 주문수량보다 부족합니다.');
       $(this).val(parseInt(cnt));
       totalCal();
       $(this).parents("tr").next().next().val($(this).val());
       return;
+    } else if (getsu == "" | getsu == null) {
+      $(this).val("1");
+      totalCal();
+      return;
     }
     totalCal();
     $(this).parents("tr").next().next().val($(this).val());
   }); // end of amount change function
+
   var totalCal = function () {
     total = 0; // 계산 초기화를 위해 변수 초기화
     amount.each(function () {
