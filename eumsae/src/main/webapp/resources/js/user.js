@@ -8,7 +8,7 @@ $(document).ready(function () {
             contentType: 'application/x-www-form-urlencoded;charset=utf-8',
             success: checkId,
             error: function (err) {
-                alert("전송실패");
+                Swal.fire("전송실패");
                 console.log(err);
             }
         }); // end of ajax
@@ -24,7 +24,7 @@ $(document).ready(function () {
        
        
 		if($.trim($('#reg_pwd').val()) != $.trim($('#reg_repwd').val())){
-    		alert("비밀번호가 일치하지 않습니다..");
+    		Swal.fire("비밀번호가 일치하지 않습니다.");
     		$('#reg_repwd').focus();    		
     	} else {
     		document.regForm.submit();

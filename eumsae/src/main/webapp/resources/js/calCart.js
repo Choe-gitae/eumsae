@@ -12,11 +12,9 @@ $(document).ready(function () {
 	*/
   amount.each(function () {
     getsu = $(this).val(); // 실제 갯수
-    //alert(getsu);
     price = parseInt($(this).parents("td").prev().text()); // 가격(입력값)
 
     tprice = getsu * price;
-    //alert(tprice);
     $(this).parents("td").next().text(tprice);
     total += tprice;
 
@@ -36,22 +34,26 @@ $(document).ready(function () {
   amount.change(function () {
     var cnt = $(this).parents("tr").next().val();
 
-    getsu = $(this).val();
+    getsu = $.trim($(this).val());
     if (getsu > parseInt(cnt)) {
-      alert("재고가 주문수량보다 부족합니다.");
+      Swal.fire('재고가 주문수량보다 부족합니다.');
       $(this).val(parseInt(cnt));
       totalCal();
       $(this).parents("tr").next().next().val($(this).val());
+      return;
+    } else if (getsu == "" | getsu == null) {
+      $(this).val("1");
+      totalCal();
       return;
     }
     totalCal();
     $(this).parents("tr").next().next().val($(this).val());
   }); // end of amount change function
+
   var totalCal = function () {
     total = 0; // 계산 초기화를 위해 변수 초기화
     amount.each(function () {
       getsu = $(this).val();
-      //alert(getsu);
       price = parseInt($(this).parents("td").prev().text());
       tprice = getsu * price;
       $(this).parents("td").next().text(tprice);
@@ -75,11 +77,10 @@ $(document).ready(function () {
       data: data,
       contentType: "application/x-www-form-urlencoded;charset=utf-8",
       success: function (result) {
-        alert(result);
+        Swal.fire(result);
       },
       error: function (err) {
-        alert("상품 취소 실패");
-        console.log(err);
+        Swal.fire('상품 취소 실패');
       },
     });
     total -= parseInt($(this).parents("td").prev().text());
@@ -95,10 +96,8 @@ $(document).ready(function () {
 
   // 체크박스 버튼의 변화가 있을 때
   check.each(function () {
-    //alert('check');
     $(this).click(function () {
       if ($(this).prop("checked") == false) {
-        alert("상품의 관심을 끕니다.");
         total -= parseInt($(this).parents("tr").children("td.total").text());
         $("#subTp").text(total);
         if (total >= 300000) {
@@ -108,7 +107,6 @@ $(document).ready(function () {
         }
         $("#tP").text(total + parseInt($("#dTax").text()));
       } else if ($(this).prop("checked") == true) {
-        alert("상품의 관심을 재점화 합니다.");
         total += parseInt($(this).parents("tr").children("td.total").text());
         $("#subTp").text(total);
         if (total >= 300000) {
@@ -122,12 +120,9 @@ $(document).ready(function () {
     }); // end of click function
   }); // end of checkbox function
 
-  // ajax
 
   // checkout button 을 눌렀을 때
   $("#check").click(function () {
-    //alert("주문 하시겠습니까?");
-
     document.checkout.submit();
   }); // end of click
 }); // end of ready

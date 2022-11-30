@@ -77,20 +77,20 @@
 						<div class="row align-items-end">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
+									<label for="firstname">이름</label>
+									<input type="text" class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
+									<label for="phone">전화번호</label>
+									<input type="text" class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
+									<label for="emailaddress">이메일</label>
+									<input type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
@@ -135,8 +135,8 @@
 							
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="emailaddress">우편번호</label> <input id="sample6_postcode" 
-										type="text" class="form-control" placeholder="">
+									<label for="postcode">우편번호</label>
+									<input id="postcode" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -148,36 +148,33 @@
 							<div class="w-100"></div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="streetaddress">주소</label> <input id="sample6_address" 
-										type="text" class="form-control"
-										placeholder="">
+									<label for="streetaddress">주소</label>
+									<input id="address" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								<label for="">상세주소</label>
-									<input id="sample6_detailAddress" type="text" class="form-control"
-										placeholder="">
+									<input id="detailAddress" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="w-100"></div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="postcodezip">배송시 요청사항</label> <input
-										type="text" class="form-control" placeholder="" style="
-    width: 920px;
-">
+									<label for="postcodezip">배송시 요청사항</label>
+									<input type="text" class="form-control" placeholder="" style="width: 920px;">
 								</div>
 							</div>
 							</div>
 							
-<!-- ######### 결제 목록 시작############# -->
 
+							<!-- ######### 결제 목록 시작############# -->
 							<section class="ftco-section">
 								<div class="container" style="width: 1045px; margin-left: -69px;">
 									<div class="row">
 										<div class="col-12">
 											<div class="table-wrap">
+												<form action="paySuccess" id="paySuccess">
 												<table class="table">
 													<thead class="thead-primary">
 														<tr>
@@ -195,10 +192,10 @@
 															<td>상품</td>
 															<td>가격</td>
 															<td>수량</td>
-															<td>총액</td>															
+															<td>총액</td>
 														</tr>
 														<!-- 한 블럭 시작 -->
-														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}">
+														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}" varStatus="status">
 														<c:if test="${list.state}">
 														<input type="hidden" name="cnt" id="cnt" value="${list.cnt}">
 														<tr class="alert" role="alert">
@@ -207,38 +204,34 @@
 															</td>
 															<td>
 																<div class="email">
-																	<span>${list.singer}</span> <span>${list.title}</span>
+																	<span id="title">${list.title}</span> <span>${list.singer}</span>
 																</div>
 															</td>
 															<td>₩<span class="price">${list.price}</span></td>
 															<td class="quantity">
 																<span class="input-group">
-																	<button type="button"  class="Btn downBtn" style="margin-left: -4px;">◀</button>																														
-																	<input class="amount" type="text" name="amount" value="${list.amount}" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
-																	<button type="button"  class="Btn upBtn" style="margin-left: -4px;">▶</button>
+																	<input class="amount form-control input-number" type="text" name="CartVOList[${status.count}].amount" value="${list.amount}" min="1" readonly>
 																</span>
 															</td>
-															<td>₩<span class="subTp"></span></td>															
+															<td>₩<span class="subTp"></span>
+															</td>
 														</tr>
-														<form action="paySuccess" name="paySuccess" id="paySuccess" class="billing-form" method="get">
-														<input type="hidden" name="lpno" id="lpno" value="${list.lpno}">
-														<div>${list.lpno }</div>
-														<input type="hidden" name="orderTotalPrice" id="orderTotalPrice" value="">
-														<input type="hidden" name="id" id="id" value="${cinfo.id}" >
-														</form>	
+														<input type="hidden" name="CartVOList[${status.count}].cartno" id="cartno" value="${list.cartno}">
+														<input type="hidden" name="CartVOList[${status.count}].lpno" id="lpno" value="${list.lpno}">
 														</c:if>
-														</c:forEach>														
+														</c:forEach>
 														<!-- 한 블럭 끝 -->
-<!-- ######### 결제 목록 끝############# -->
-
 													</tbody>
 												</table>
+												<input type="hidden" name="id" id="id" value="${login}">
+												<input type="hidden" name="orderTotalPrice" id="orderTotalPrice">
+												</form>
 											</div>
 										</div>
 									</div>
 									</div>
 									</section>
-					<!-- END -->
+					<!-- ######### 결제 목록 끝############# -->
 					
 					<!-- ############ cart total 시작 ##############-->
 					
@@ -252,7 +245,6 @@
 								<p class="d-flex">
 									<span>배송비</span> <span id="dTax"></span>
 								</p>
-									<div> * 30만원 이상 구매시 무료배송!!</div>
 								<!-- <p class="d-flex">
 									<span>할인</span> <span></span>
 								</p> -->

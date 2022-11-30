@@ -1,45 +1,34 @@
 $(document).ready(function () {
 
     // 전역 변수 설정
-    var tprice = 0;                                            // 총 금액              
-    var qty = parseInt($('#qty').val());                       // 수량   
-    var price = parseInt($('#price').val());                   // 상품 금액
-    var lpno = $('#lpno').val();                               // LP 번호
-    var id = $('#id').val();                                   // ID
-    var cnt = parseInt($('#cnt').val());                       // 재고
-    var amount = 1;                                            // 주문 수량
-    console.log(cnt);
+    var qty = $('#qty');
+    var plusBtn = $("#qty-plus");                    // 플러스 버튼
+    var minusBtn = $("#qty-minus");                  // 마이너스 버튼
+    var lpno = $('#lpno').val();                     // LP 번호
+    var id = $('#id').val();                         // ID
+    var cnt = parseInt($('#cnt').val());             // 재고
+    var amount = 1;                                  // 주문 수량
 
     // 수량 감소 눌렀을 때
-    $('.qty-minus').click(function () {
-        if(qty != NaN && qty > 1) {
-            qty--;
-            $('#qty').val(qty);
-            amount -= 1;
+    minusBtn.click(function () {
+        if(parseInt(qty.val(),10) != NaN && parseInt(qty.val(),10) > 1) {
+            amount--;
+            $('#qty').val(amount);
         } else {
-            alert("최소 수량은 1 개 입니다.");
-            qty = 1;
+            Swal.fire("최소 수량은 1 개 입니다.")
         }
     });
     
     // 수량 증가 눌렀을 때
-    $('.qty-plus').click(function () {
-        if (qty!= NaN && qty < cnt) {
-            qty++;
-            $('#qty').val(qty);           
-            amount += 1;
+    plusBtn.click(function () {
+        if (parseInt(qty.val(),10) != NaN && parseInt(qty.val(),10) < cnt) {
+            amount++;
+            $('#qty').val(amount);   
         } else {
-            alert("재고가 없습니다.");
+            Swal.fire("재고가 없습니다.");
         }
-    });    
+    });
   
-     // checkout button 클릭시
-    $('#checkOut').click(function () {
-        //alert('OK');
-        document.checkOutDirectly.submit();
-   
-
-    }); // end of click    
    
     // 카트에 담기 버튼을 눌렀을 때
     $('#addToCart').click(function () {
@@ -55,7 +44,7 @@ $(document).ready(function () {
                 $('#ajaxResult').text(result);                
             },
             error: function (err) {
-                alert("전송실패");
+                Swal.fire("전송실패");
                 console.log(err);
             }
         }); // end of ajax

@@ -12,7 +12,7 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Eumsae detail page</title>
+    <title>Eumsae</title>
 
     <!-- Favicon -->
     <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
@@ -132,62 +132,35 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
                   <p>${select.content}</p>
                 </div>
 
-                <!-- Add to Cart Form -->
-                <form
-                  class="cart clearfix"
-                  method="post"
-                  name="checkOutDirectly"
-                  action="directCheckOut"
-                >
-                  <div class="cart-btn d-flex mb-50">
-                    <p>Qty</p>
-                    <div class="quantity">
-                      <span class="qty-minus"
-                        ><i class="fa fa-caret-down" aria-hidden="true"></i
-                      ></span>
-                      <input
-                        type="number"
-                        class="qty-text"
-                        id="qty"
-                        step="1"
-                        min="1"
-                        name="quantity"
-                        value="1"
-                        readonly
-                      />
-                      <span class="qty-plus"
-                        ><i class="fa fa-caret-up" aria-hidden="true"></i
-                      ></span><br>
-                      <span id="ajaxResult" style="width:150px;color:red"></span>
-                    </div>
-                  </div>
-                  <input type="hidden" name="lpno" id="lpno" value="${select.lpno}" />
-                  <input type="hidden" name="price" id="price" value="${select.price}" />
-                  <input type="hidden" name="id" id="id" value="${login}" />
-                  <input type="hidden" name="cnt" id="cnt" value="${select.cnt}" />
-
-                  <button type="button" id="checkOut" name="checkout" class="btn btn-dark">
-                    check out
-                  </button>
-
-                  <button
-                    type="button"
-                    id="addToCart"
-                    name="addtocart"
-                    value="5"
-                    class="btn btn-dark"
-                  >
-                    Add to cart
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Product Details Area End -->
-    </div>
-    <!-- ##### Main Content Wrapper End ##### -->
+							<!-- Add to Cart Form -->
+							<form class="cart clearfix" method="post" name="checkout" action="checkout?direct=true">
+								<div class="cart-btn d-flex mb-50">
+									<p>Qty</p>
+									<div class="quantity">
+										<span class="qty-plus" id="qty-plus"><i class="fa fa-caret-up" aria-hidden="true"></i></span>
+										<input type="number" class="qty-text" id="qty" step="1" min="1" name="CheckOutVOList[0].amount" value="1" readonly />
+										<span class="qty-minus" id="qty-minus"><i class="fa fa-caret-down" aria-hidden="true"></i></span><br>
+										<span id="ajaxResult" style="width: 150px; color: red"></span>
+									</div>
+								</div>
+								<input type="hidden" name="CheckOutVOList[0].lpno" id="lpno" value="${select.lpno}" />
+								<input type="hidden" name="CheckOutVOList[0].price" id="price" value="${select.price}" />
+								<input type="hidden" name="CheckOutVOList[0].id" id="id" value="${login}" />
+								<input type="hidden" name="CheckOutVOList[0].cnt" id="cnt" value="${select.cnt}" />
+								<input type="hidden" name="CheckOutVOList[0].cjpg" value="${select.cjpg}" />
+								<input type="hidden" name="CheckOutVOList[0].title" value="${select.title}" />
+								<input type="hidden" name="CheckOutVOList[0].singer" value="${select.singer}" />
+								<button type="submit" id="checkOut" name="checkout" class="btn btn-dark">check out</button>
+								<button type="button" id="addToCart" name="addtocart" class="btn btn-dark">Add to cart</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Product Details Area End -->
+	</div>
+	<!-- ##### Main Content Wrapper End ##### -->
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
 
@@ -195,16 +168,20 @@ uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> <% String pjName = "/
 
     <!--     jQuery-2.2.4 js -->
 
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
-    <!--     Popper js -->
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
-    <!--     Bootstrap js -->
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
-    <!--     All Plugins js -->
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
-    <!--     Active js -->
-    <script src="<%=pjName%>/resources/00-one-music-gh-pages/js/active.js"></script>
-    <!--  자체 제작 JS -->
-    <script src="<%=pjName%>/resources/js/ProductDetail.js"></script>  
-  </body>
+	<script
+		src="<%=pjName%>/resources/00-one-music-gh-pages/js/jquery/jquery-2.2.4.min.js"></script>
+	<!--     Popper js -->
+	<script
+		src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/popper.min.js"></script>
+	<!--     Bootstrap js -->
+	<script
+		src="<%=pjName%>/resources/00-one-music-gh-pages/js/bootstrap/bootstrap.min.js"></script>
+	<!--     All Plugins js -->
+	<script
+		src="<%=pjName%>/resources/00-one-music-gh-pages/js/plugins/plugins.js"></script>
+	<!--     Active js -->
+	<script src="<%=pjName%>/resources/00-one-music-gh-pages/js/active.js"></script>
+	<!--  자체 제작 JS -->
+	<script src="<%=pjName%>/resources/js/ProductDetail.js"></script>
+</body>
 </html>

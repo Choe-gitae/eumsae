@@ -109,12 +109,12 @@
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left" >
-        <h1>Welcome Back!</h1>
+        <h1 style="color: white;">Welcome Back!</h1>
         <p class="p">To keep connected with us please login with your personal info</p>
         <button class="button" id="signIn">Sign In</button>
       </div>
       <div class="overlay-panel overlay-right" >
-        <h1>Hello, EUMSAE</h1>
+        <h1 style="color: white;">Hello, EUMSAE</h1>
         <p class="p">Enter your personal details and start journey with us</p>
         <button class="button" id="signUp">Sign Up</button>
       </div>

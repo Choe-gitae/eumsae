@@ -11,13 +11,32 @@
 				$('#wboardNo').val(boardNo);
 			})
 			$("#addReply").click(function(){
-				$("#sendForm").attr("action", "updateBoard").submit();
-				alert("등록 성공");
-				
+				Swal.fire({
+					icon: 'question',
+					title: '등록 하시겠습니까?',
+					showDenyButton: true,
+					confirmButtonText: '등록',
+					denyButtonText: '취소',
+				  }).then((result) => {
+					if (result.isConfirmed) {
+						$("#sendForm").attr("action", "updateBoard").submit();
+					} else if (result.isDenied) {
+					}
+				  })
 			})
 			$("#deleteList").click(function(){
-				$("#sendForm").attr("action", "deleteBoard").submit();
-				alert("삭제 성공");
+				Swal.fire({
+					icon: 'warning',
+					title: '삭제 하시겠습니까?',
+					showDenyButton: true,
+					confirmButtonText: '삭제',
+					denyButtonText: '취소',
+				  }).then((result) => {
+					if (result.isConfirmed) {
+						$("#sendForm").attr("action", "deleteBoard").submit();
+					} else if (result.isDenied) {
+					}
+				  })
 			})
 			
 		})

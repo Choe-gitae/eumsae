@@ -1,6 +1,7 @@
 package eumsae.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import eumsae.model.CartVO;
+import eumsae.model.CartVOList;
 import eumsae.model.CheckOutVO;
 import eumsae.model.CheckOutVOList;
 import eumsae.model.CustomerVO;
@@ -60,27 +62,30 @@ public class ShopController {
 		HashMap map = new HashMap();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
-//		System.out.println(map.get("searchKey"));
+		System.out.println(map.get("searchKey"));
 		List<LpVO> list = lpService.searchLp(map);
 		model.addAttribute("list", list);
 		System.out.println(list);
 		log.info("검색기록 : " + searchKey);
 		return "/shop/lpList";
 	}
-	
-	// // 검색한 LP 정보 (제목별, 가수별) 리턴
-	/*@RequestMapping(value = "/searchLp")
-	public String selectLpVOList(String page, String searchCon, String searchKey, Model model) {
-		HashMap map = new HashMap();
-		map.put("searchCon", searchCon);
-		map.put("searchKey", searchKey);
-		List<LpVO> list = service.selectLpVOList(map);
-		model.addAttribute("list", list);
-		return "/management/"+page;
-	}*/
 
-	//LP 상세 페이지 정보 출력
-	@RequestMapping(value="/detail")
+	// // 검색한 LP 정보 (제목별, 가수별) 리턴
+	/*
+	 * @RequestMapping(value = "/searchLp")
+	 * public String selectLpVOList(String page, String searchCon, String searchKey,
+	 * Model model) {
+	 * HashMap map = new HashMap();
+	 * map.put("searchCon", searchCon);
+	 * map.put("searchKey", searchKey);
+	 * List<LpVO> list = service.selectLpVOList(map);
+	 * model.addAttribute("list", list);
+	 * return "/management/"+page;
+	 * }
+	 */
+
+	// LP 상세 페이지 정보 출력
+	@RequestMapping(value = "/detail")
 	public String detail(@RequestParam("infono") String infonoKey, Model m) {
 		LpVO select = lpService.detail(infonoKey);
 		m.addAttribute("select", select);
@@ -126,11 +131,11 @@ public class ShopController {
 
 	// 결제 페이지로 이동 (즉시결제)
 	@RequestMapping(value = "/directCheckOut")
-	public String directCheckOut(String id,int lpno, Model m) {
+	public String directCheckOut(String id, int lpno, Model m) {
 		CustomerVO cvo = cService.selectById(id);
-		m.addAttribute("cinfo",cvo);
+		m.addAttribute("cinfo", cvo);
 		LpVO lvo = lpService.searchByLpno(lpno);
-		m.addAttribute("linfo", lvo);		
+		m.addAttribute("linfo", lvo);
 		log.info("즉시결제요청");
 		return "/shop/checkOutDirectly";
 	}
@@ -143,25 +148,23 @@ public class ShopController {
 		for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
 			cService.updateCart(vo);
 			log.info("담긴 상품 : " + vo.getTitle());
-//			System.out.println(vo.toString());
+			// System.out.println(vo.toString());
 		}
 		String id = checkOutVOList.getCheckOutVOList().get(1).getId();
 		CustomerVO vo = cService.selectById(id);
 
-		 System.out.println(vo.toString());
+		System.out.println(vo.toString());
 		m.addAttribute("cinfo", vo);
 		return "/shop/checkout2";
 	}
-	
 
 	// 결제 성공시
-	@RequestMapping(value="/paySuccess")
-	public String paySuccess(OrderVO orvo,CheckOutVOList checkOutVOList) {
+	@RequestMapping(value = "/paySuccess")
+	public String paySuccess(OrderVO orvo, CheckOutVOList checkOutVOList) {
 		log.info("결제 성공");
 		cService.insertOrder(orvo);
 		cService.insertOrderList(orvo);
 		return "/shop/paySuccess";
 	}
-	
-	
+
 }

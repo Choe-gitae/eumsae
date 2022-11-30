@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% String pjName = "/eumsae"; %>
 
@@ -17,28 +18,10 @@
         <!-- Favicon -->
         <link rel="icon" href="<%=pjName%>/resources/images/favicon.ico" />
 
-        <!-- Stylesheet -->
-        
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-
-        <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet" />
-
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/resources/css1/font-awesome.min.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/animate.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/owl.theme.default.min.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/magnific-popup.css" />
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/resources/css1/bootstrap-select.min.css" />
-
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/flaticon.css" />
-        <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" />
     </head>
     <body>
         
-        <jsp:include page="../include/shopHeader.jsp" />
+    <jsp:include page="../include/shopHeader.jsp" />
 
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
@@ -160,82 +143,19 @@
         <div class="row">
           <div class="col-12">
             <div class="albums-slideshow owl-carousel">
+            
+              <c:forEach var="list" items="${new}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="resources/img/bg-img/a1.jpg" alt="" />
+                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
                 <div class="album-info">
-                  <a href="#">
-                    <h5>Daft Punk</h5>
+                  <a href="detail?infono=${list.infono}">
+                    <h5>${list.singer}</h5>
                   </a>
-                  <p>Random Access Memories</p>
+                  <p>${list.title}</p>
                 </div>
               </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a2.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Weekend</h5>
-                  </a>
-                  <p>Ranked Worst to Best</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a3.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>BTS</h5>
-                  </a>
-                  <p>Map Of The Soul 7</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a4.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Black Pink</h5>
-                  </a>
-                  <p>Pink Venom</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a5.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Eminem</h5>
-                  </a>
-                  <p>The MarShall Mathers LP</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a6.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Drake</h5>
-                  </a>
-                  <p>Scolpion</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a7.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Beyonce</h5>
-                  </a>
-                  <p>Songs</p>
-                </div>
-              </div>
+              </c:forEach>
             </div>
           </div>
         </div>
@@ -258,193 +178,28 @@
         <div class="row">
           <div class="col-12">
             <div class="albums-slideshow owl-carousel">
+            
+              <c:forEach var="list" items="${best}">
+              <c:if test="${not empty list}">
               <!-- Single Album -->
               <div class="single-album">
-                <img src="resources/img/bg-img/a1.jpg" alt="" />
+                <img src="<%=pjName%>/resources/lpImg/${list.cjpg}.jpg" />
                 <div class="album-info">
-                  <a href="#">
-                    <h5>Daft Punk</h5>
+                  <a href="detail?infono=${list.infono}">
+                    <h5>${list.singer}</h5>
                   </a>
-                  <p>Random Access Memories</p>
+                  <p>${list.title}</p>
                 </div>
               </div>
+              </c:if>
+              </c:forEach>
 
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a2.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Michael Jackson</h5>
-                  </a>
-                  <p>Thriller</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a3.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>BTS</h5>
-                  </a>
-                  <p>Butter</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a4.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Black Pink</h5>
-                  </a>
-                  <p>Second Song</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a5.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>BK</h5>
-                  </a>
-                  <p>I wanna go home</p>
-                </div>
-              </div>
-
-              <!-- Single Album -->
-              <div class="single-album">
-                <img src="resources/img/bg-img/a7.jpg" alt="" />
-                <div class="album-info">
-                  <a href="#">
-                    <h5>Beyonce</h5>
-                  </a>
-                  <p>Songs</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- ##### TOP SELLERS End ##### -->
-
-        <!-- ##### Featured Artist Area Start ##### -->
-        <div class="add-area mb-100">
-            <section class="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style="background-image: url(resources/img/bg-img/bg-04.PNG)">
-                <div class="container">
-                    <div class="row align-items-end">
-                        <div class="col-12 col-md-5 col-lg-4">
-                            <div class="featured-artist-thumb">
-                                <img src="../resources/img/bg-img/fa.jpg" alt="" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-7 col-lg-8">
-                            <div class="featured-artist-content">
-                                <!-- Section Heading -->
-                                <div class="section-heading white text-left mb-30">
-                                    <p>See what’s new</p>
-                                    <h2>THE ROLLING STRONES</h2>
-                                </div>
-                                <p>
-                                    Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus.
-                                    Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non
-                                    eros.
-                                </p>
-                                <div class="song-play-area">
-                                    <div class="song-name">
-                                        <p>01. Main Hit Song</p>
-                                    </div>
-                                    <audio preload="auto" controls>
-                                        <source src="audio/dummy-audio.mp3" />
-                                    </audio>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-      </section>
-    </div>
-    <!-- ##### Featured Artist Area End ##### -->
-
-    <!-- ##### Add Area Start ##### -->
-    <div class="add-area mb-100">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="adds">
-              <a href="#"><img src="resources/img/bg-img/add4.gif" alt="" /></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ##### Add Area End ##### -->
-
-    <!-- ##### Contact Area Start ##### -->
-    <section
-      class="contact-area section-padding-100 bg-img bg-overlay bg-fixed has-bg-img"
-      style="background-image: url(img/bg-img/bg-2.jpg)"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="section-heading white">
-              <p>See what’s new</p>
-              <h2>CONTACT US</h2>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12">
-            <!-- Contact Form Area -->
-            <div class="contact-form-area">
-              <form action="#" method="post">
-                <div class="row">
-                  <div class="col-md-6 col-lg-4">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="name" placeholder="Name" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4">
-                    <div class="form-group">
-                      <input type="email" class="form-control" id="email" placeholder="E-mail" />
-                    </div>
-                  </div>
-                  <div class="col-lg-4">
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="subject" placeholder="Subject" />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <textarea
-                        name="message"
-                        class="form-control"
-                        id="message"
-                        cols="30"
-                        rows="10"
-                        placeholder="Message"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="col-12 text-center">
-                    <button class="btn oneMusic-btn mt-30" type="submit">
-                      Send <i class="fa fa-angle-double-right"></i>
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ##### Contact Area End ##### -->
 
     <jsp:include page="../include/shopFooter.jsp"></jsp:include>
   </body>
