@@ -35,7 +35,7 @@ public class ShopController {
 	// 선택한 URL 로 이동
 	@RequestMapping(value = "/{url}")
 	public String viewPage(@PathVariable String url) {
-		log.info("선택한 URL로 이동");
+		log.info("선택한 URL로 이동" + url);
 		return "/shop/" + url;
 	}
 
@@ -60,7 +60,7 @@ public class ShopController {
 		HashMap map = new HashMap();
 		map.put("searchCon", searchCon);
 		map.put("searchKey", searchKey);
-		System.out.println(map.get("searchKey"));
+//		System.out.println(map.get("searchKey"));
 		List<LpVO> list = lpService.searchLp(map);
 		model.addAttribute("list", list);
 		System.out.println(list);
@@ -98,7 +98,9 @@ public class ShopController {
 		} else {
 			int result = cService.addCart(vo); // 카트에 담기 실행
 			if (result == 1) {
-				log.info("카트담기");
+				log.info("카트에 담은 lp번호 : " + vo.getCartno());
+				log.info("카트에 담은 lp개수 : " + vo.getAmount() + " 개");
+				log.debug("Sdad");
 				message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
 				m.addAttribute("result", vo);
 			}
@@ -117,6 +119,7 @@ public class ShopController {
 		int check = cService.deleteCart(vo);
 		if (check == 1) {
 			message = "상품 취소 완료";
+			log.info("구매 취소한 lp번호 : " + vo.getCartno());
 		}
 		return message;
 	}
@@ -128,7 +131,7 @@ public class ShopController {
 		m.addAttribute("cinfo",cvo);
 		LpVO lvo = lpService.searchByLpno(lpno);
 		m.addAttribute("linfo", lvo);		
-		
+		log.info("즉시결제요청");
 		return "/shop/checkOutDirectly";
 	}
 
@@ -136,12 +139,13 @@ public class ShopController {
 	@RequestMapping(value = "/checkout")
 	public String checkOut(Model m, CheckOutVOList checkOutVOList) {
 
+		log.info("장바구니에서 결제 페이지로 이동");
 		for (CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
 			cService.updateCart(vo);
-			System.out.println(vo.toString());
+			log.info("담긴 상품 : " + vo.getTitle());
+//			System.out.println(vo.toString());
 		}
 		String id = checkOutVOList.getCheckOutVOList().get(1).getId();
-		// System.out.println(id);
 		CustomerVO vo = cService.selectById(id);
 
 		 System.out.println(vo.toString());
@@ -153,14 +157,10 @@ public class ShopController {
 	// 결제 성공시
 	@RequestMapping(value="/paySuccess")
 	public String paySuccess(OrderVO orvo,CheckOutVOList checkOutVOList) {
-//		for(CheckOutVO vo : checkOutVOList.getCheckOutVOList()) {
-//			System.out.println(vo.getCartno());
-//			cService.deleteAllCart(vo);
-//		}
-		log.debug("test");
+		log.info("결제 성공");
 		cService.insertOrder(orvo);
 		cService.insertOrderList(orvo);
-		return "/shop/main";
+		return "/shop/paySuccess";
 	}
 	
 	

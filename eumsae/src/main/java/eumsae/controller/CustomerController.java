@@ -37,6 +37,7 @@ public class CustomerController {
 	public String cart(String id ,Model model) {
 		List<CartVO> list = service.cartListById(id);		// CartVO list에 service 실행 결과를 받음
 		model.addAttribute("list", list);	
+		log.info("장바구니 이동");
 		return "/user/cart";
 	}
 
@@ -48,6 +49,7 @@ public class CustomerController {
 		if (result == 1) {
 			message = vo.getId() + "님 가입을 축하합니다.";
 			m.addAttribute("message", message);
+			log.info(vo.getName() + " : 님 회원가입, id : " + vo.getId());
 			return "/user/insertCustomer";
 		} else {
 			return "/front/error";
@@ -82,25 +84,6 @@ public class CustomerController {
 
 	}
 	
-	// 카트담기
-	@ResponseBody
-	@RequestMapping(value="addCart", method=RequestMethod.POST)
-	public String addCart(CartVO vo, Model m) {
-		int result = service.addCart(vo);
-		String message = "카트에 정상적으로 담기지 않았습니다.";
-		if (result == 1) {
-			message = vo.getId() + "님 카트에 상품이 추가되었습니다.";
-			//CustomerVO customer = (CustomerVO) m.addAttribute("message", message);
-			//vo.setId(customer.getId());
-			//m.addAttribute("message", message);
-			//return "message";
-		//} else {
-		//	return "message";
-
-		}
-			
-		return message;
-	}
 
 	// 로그아웃
 	@RequestMapping(value = "/logout")
