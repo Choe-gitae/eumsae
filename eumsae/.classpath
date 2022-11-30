@@ -53,7 +53,7 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/kosmo/Documents/카카오톡 받은 파일/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/kosmo/Documents/카카오톡 받은 파일/javax.mail-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/eumsae/jar/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/eumsae/jar/javax.mail-1.6.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

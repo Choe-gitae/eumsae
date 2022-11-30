@@ -111,9 +111,9 @@ public class ShopController {
 
 	// 결제 페이지로 이동 (즉시결제)
 	@RequestMapping(value = "/directCheckOut")
-	public String directCheckOut(String id, LpVO lpVO, Model m) {
+	public String directCheckOut(CustomerVO vo, LpVO lpVO, Model m) {
 		//System.out.println(lpVO);
-		CustomerVO customerVO = cService.selectById(id);
+		CustomerVO customerVO = cService.selectById(vo);
 		m.addAttribute("cinfo",customerVO);
 		//LpVO lpVO = lpService.searchByLpno(lpno);
 		//m.addAttribute("linfo", lpVO);		
@@ -124,6 +124,7 @@ public class ShopController {
 	@RequestMapping(value = "/checkout")
 	public String checkOut(Model m, String direct, CheckOutVOList checkOutVOList) {
 		String id = null;
+		CustomerVO cvo = new CustomerVO();
 		
 		// 즉시결제 체크
 		if (direct.equals("false")) {
@@ -139,8 +140,9 @@ public class ShopController {
 			id = checkOutVOList.getCheckOutVOList().get(0).getId();
 		}
 		
-		CustomerVO vo = cService.selectById(id);
-		m.addAttribute("cinfo", vo);
+		cvo.setId(id);
+		cvo = cService.selectById(cvo);
+		m.addAttribute("cinfo", cvo);
 		return "/shop/checkout";
 	}
 	
@@ -180,8 +182,6 @@ public class ShopController {
 	public String mainCarousel(Model model) {
 		List<LpVO> featuredNewReleases = lpService.selectFeaturedNewReleases();
 		List<LpVO> genreBestSellers = lpService.selectGenreBestSellers();
-		System.out.println(featuredNewReleases);
-		System.out.println(genreBestSellers);
 		model.addAttribute("new", featuredNewReleases);
 		model.addAttribute("best", genreBestSellers);
 		return "/shop/main";

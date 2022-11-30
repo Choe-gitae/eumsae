@@ -21,7 +21,6 @@
 
         <!-- Stylesheet -->
         <link rel="stylesheet" href="<%=pjName%>/resources/00-one-music-gh-pages/style.css" />
-<%--         <link rel="stylesheet" href="<%=pjName%>/resources/00-liquorstore-master/css/style.css" /> --%>
         
 </head>
 
