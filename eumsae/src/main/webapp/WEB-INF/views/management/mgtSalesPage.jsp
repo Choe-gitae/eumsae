@@ -115,7 +115,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsa
                   <li class="page-item">
                     <a
                       class="btn mt-15"
-                      href="mgtSalesListPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"
+                      href="mgtSalesPage?pageNo=${pageVO.firstPageNo - pageVO.pageNavSize}"
                     >
                       <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -124,7 +124,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsa
                 <c:forEach var="page" begin="${pageVO.firstPageNo}" end="${pageVO.lastPageNo}">
                   <c:if test="${page > 0}">
                     <li class="page-item">
-                      <a class="btn mt-15" href="mgtSalesListPage?pageNo=${page}">${page}</a>
+                      <a class="btn mt-15" href="mgtSalesPage?pageNo=${page}">${page}</a>
                     </li>
                   </c:if>
                 </c:forEach>
@@ -132,7 +132,7 @@ prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> <% String pjName = "/eumsa
                   <li class="page-item">
                     <a
                       class="btn mt-15"
-                      href="mgtSalesListPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"
+                      href="mgtSalesPage?pageNo=${pageVO.firstPageNo + pageVO.pageNavSize}"
                     >
                       <span aria-hidden="true">&raquo;</span>
                     </a>

@@ -8,12 +8,17 @@ $(function () {
             url:'findPw',
             data:param,
             contentType:"application/x-www-form-urlencoded;charset=utf-8",
-            //async:false,
+            async:false,
             success: function (result) {
                 Swal.fire(result);
                 },
             error: function (err) {
-                Swal.fire(err);
+                Swal.fire({
+                    icon: 'error',
+                    title: "서비스 이용불가",
+                    text: "이용에 불변을 드려 죄송합니다.",
+                })
+                console.log(err);
             }
         })
     })
@@ -27,9 +32,8 @@ $(function () {
             url:'findId',
             data:param,
             contentType:"application/x-www-form-urlencoded;charset=utf-8",
-            //async:false,
+            async:false,
             success: function (result) {
-                	
                 if (result != "0") {
                     Swal.fire({
                         icon: 'success',
@@ -39,7 +43,7 @@ $(function () {
                 } else {
                     Swal.fire("일치하는 회원 정보가 없습니다.");
                 }
-                },
+            },
             error: function (err) {
                 Swal.fire({
                     icon: 'error',

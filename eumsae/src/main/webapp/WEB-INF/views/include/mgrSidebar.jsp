@@ -50,7 +50,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="main" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
+                    <h3 class="text-light"><img src="<%=pjName%>/resources/images/logo.png" class="sidebar-logo" />E UM SAE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative"></div>

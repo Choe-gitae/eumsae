@@ -16,7 +16,7 @@
 
                 <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
                     <a href="main.html" class="navbar-brand d-flex d-lg-none me-4">
-                        <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />EUMSAE</h3>
+                        <h3 class="text-light"><img src="<%=pjName%>/resources/images/logo.png" class="sidebar-logo" />EUMSAE</h3>
                     </a>
                     <a href="#" class="sidebar-toggler flex-shrink-0">
                         <i class="fa fa-bars"></i>

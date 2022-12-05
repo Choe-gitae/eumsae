@@ -69,7 +69,7 @@
 	<div class="container1" id="container1">
 		<div class="form-container sign-up-container">
 			<div id="signup">
-				<form class="form" id="pwForm">
+				<form class="form" id="pwForm" action="#">
 					<div class="social-container"></div>
 					<div class="social-container"></div>
 					<h1>Find Password</h1>

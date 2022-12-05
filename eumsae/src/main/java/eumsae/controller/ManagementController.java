@@ -121,7 +121,7 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 		return "redirect:/management/searchLp?page=lpAmountUpdatePage&searchCon=infono&searchKey="+searchKey;
 	}
 
-	// LP 재고 등록
+	// LP 가격 변경
 	@RequestMapping(value = "/updatePrice")
 	public String updatePrice(String page, LpVO vo, Model model) {
 		int searchKey = vo.getInfono();
@@ -270,9 +270,12 @@ public class ManagementController {		// 관리자 페이지 요청 관리 컨트
 	@RequestMapping(value = "/mgtSalesPage")
 	public String selectOrder(String pageNo, Model model) {
 		if(pageNo == null) pageNo = "1";
+		int intPageNo = Integer.parseInt(pageNo);
+		System.out.println(intPageNo);
 		long totalRecord = mService.selectOrderCount();
 		PaginationVO pageVO = new PaginationVO(Integer.parseInt(pageNo), totalRecord, 10, 10);
 		List<OrderVO> list = mService.selectOrder(pageVO);
+		System.out.println(pageVO);
 		model.addAttribute("list", list);
 		model.addAttribute("pageVO", pageVO);
 		return "/management/mgtSalesPage";

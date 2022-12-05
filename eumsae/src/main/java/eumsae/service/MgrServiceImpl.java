@@ -182,7 +182,7 @@ public class MgrServiceImpl implements MgrService {
 			List<HashMap>	tempList 	= new ArrayList<HashMap>();
 			HashMap 		map 		= new HashMap<>();
 			map.put("genre", genre[i]);
-			map.put("recentDate", recentDays+1);
+			map.put("recentDate", recentDays);
 			// 장르별 판매 검색
 			tempList = dao.selectRecentSales(map);
 			// 장르별 판매가 없을 경우 리스트에 0원을 넣는다
@@ -208,7 +208,6 @@ public class MgrServiceImpl implements MgrService {
 				resultMap.put(genre[i], returnList);
 			}// end if~else
 		}// end for
-		System.out.println(resultMap);
 		return resultMap;
 	}
 

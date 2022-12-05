@@ -20,8 +20,8 @@ public class PaginationVO {
 	private boolean hasLastPageNav;      // 마지막페이지
 
 
-	public PaginationVO(int pageNum, long totalRecord, int pageSize,  int pageNavSize) {
-		this.pageNo = pageNum;
+	public PaginationVO(int pageNo, long totalRecord, int pageSize,  int pageNavSize) {
+		this.pageNo = pageNo;
 		this.totalRecord = totalRecord;
 		this.pageSize = pageSize;
 		this.pageNavSize = pageNavSize;
@@ -34,7 +34,10 @@ public class PaginationVO {
 		// 현재 페이지가 총페이지 보다 커지면 현재페이지 총페이지로 제한
 		if (pageNo > totalPage) pageNo = totalPage;
 		// 현재 페이지번호로 페이지 링크 블럭의 시작페이지번호와 마지막페이지번호 계산
-		firstPageNo = ( ( (int) Math.ceil( (float)pageNo / (float)pageNavSize) ) -1 ) * pageNavSize + 1;
+		firstPageNo = (( ((int) Math.ceil((float)pageNo / (float)pageNavSize)) - 1 ) * pageNavSize) + 1;
+		System.out.println("pageNo : "+pageNo);
+		System.out.println("pageNavSize : "+pageNavSize);
+		System.out.println("firstPageNo : "+firstPageNo);
 		lastPageNo = firstPageNo + pageNavSize - 1;
 		if (lastPageNo > totalPage) 
 			lastPageNo = totalPage;

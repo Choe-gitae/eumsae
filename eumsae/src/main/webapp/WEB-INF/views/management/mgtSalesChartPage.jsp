@@ -60,12 +60,6 @@
 				return "rgba(" + rgb1 + "," + rgb2 + "," + rgb3 + "," + "1)";
 			}
 			
-			// 오늘 날짜 생성
-			var today = new Date();
-			var year = today.getFullYear();
-			var month = today.getMonth();
-			var day = today.getDate();
-
 			
 			// 월별판매 차트 라벨배열 & 데이터
 			var monthsSalesChartLabels = [];

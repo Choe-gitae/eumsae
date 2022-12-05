@@ -84,8 +84,8 @@ $(function () {
 
   // 결제 관련 (카카오페이 / 토스 페이)
   $("#kakaoPay").click(function () {
-    //$("#paySuccess").submit();
-    requestPaykakao();
+    $("#paySuccess").submit();
+    //requestPaykakao();
   }); // end of click function
 
   $("#tossPay").click(function () {
