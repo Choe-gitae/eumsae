@@ -1,5 +1,6 @@
-<div align=center><h1>KOSMO 121기 중간 프로젝트</h1></div>
-<div align=center><h2> LP SHOP EUMSAE</h2></div><hr/>
+<div align=center><h1>KOSMO 121기 중간 프로젝트</h1></div><hr/>
+<div align=center><h2>LP SHOP EUMSAE</h2></div><hr/>
+<img src="https://user-images.githubusercontent.com/112688245/205589658-323b2732-6c58-42fd-a66a-48aa8cd1823a.png" /><hr/>
 
 <h3>SPRING MVC 기반 프로젝트 구성</h3><br/>
 
