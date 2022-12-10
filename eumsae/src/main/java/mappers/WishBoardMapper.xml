@@ -17,7 +17,7 @@
 	</insert>
 	
 	<select id="boardCount" resultType="_long">
-	SELECT count(*) FROM wish_board
+	SELECT count(*) FROM WISH_BOARD
 	</select>
 	
 	<select id="boardPg" parameterType="PaginationVO" resultType="WishBoardVO">

@@ -31,6 +31,8 @@ public class PaginationVO {
 	private void calculation() {
 		// 총 페이지 수 계산
 		totalPage = (int) Math.ceil(totalRecord / (float)pageSize);
+		// 총 페이지가 0일 경우 1로 초기화
+		if (totalPage == 0) totalPage = 1;
 		// 현재 페이지가 총페이지 보다 커지면 현재페이지 총페이지로 제한
 		if (pageNo > totalPage) pageNo = totalPage;
 		// 현재 페이지번호로 페이지 링크 블럭의 시작페이지번호와 마지막페이지번호 계산
