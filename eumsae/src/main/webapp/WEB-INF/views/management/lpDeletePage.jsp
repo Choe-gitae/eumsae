@@ -38,9 +38,9 @@
                 <jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
                 <!-- 검색 Form 시작 -->
                 <div class="container-fluid pt-4 px-4">
-                    <div class="alert alert-light" role="alert">상품 삭제 페이지</div>
+                    <div class="alert alert-light" role="alert">LP 삭제 페이지</div>
                     <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                        <h6 class="mb-4">상품 검색</h6>
+                        <h6 class="mb-4">LP 검색</h6>
                         <form action="searchLp?page=lpDeletePage" method="post">
                             <select class="form-select mb-3" name="searchCon">
                                 <option value="singer" selected>가수</option>
@@ -57,7 +57,7 @@
                 <!-- 검색 테이블 시작 -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">상품 정보 테이블</h6>
+                        <h6 class="mb-4">LP 정보 테이블</h6>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>

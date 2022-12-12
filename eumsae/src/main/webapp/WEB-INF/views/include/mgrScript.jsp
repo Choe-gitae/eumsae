@@ -23,5 +23,7 @@
 
         <!-- Template Javascript -->
         <script src="<%= pjName %>/resources/00-darkpan-1.0.0/js/main.js"></script>
+        <!-- sweetalert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

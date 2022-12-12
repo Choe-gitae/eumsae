@@ -7,17 +7,30 @@
 		INSERT INTO CUSTOMER(id,pwd,nick,birth,name,addr,tel,email)
 		VALUES(#{id},#{pwd},#{nick},#{birth},#{name},#{addr},#{tel},#{email})
 	</insert>
-
+	
 	<select id="idCheck" parameterType="CustomerVO" resultType="CustomerVO">
 		SELECT id,pwd FROM CUSTOMER WHERE id=#{id}
 		<if test="pwd != null">
 		AND pwd=#{pwd}
 		</if>
 	</select>
-
+	
 	<delete id="deleteCustomer" parameterType="CustomerVO">
 		DELETE FROM CUSTOMER WHERE id=#{id}
 	</delete>
+	
+	<update id="updateCustomer" parameterType="CustomerVO">
+		UPDATE	CUSTOMER
+		SET		pwd=#{pwd},nick=#{nick},birth=#{birth},name=#{name},addr=#{addr},tel=#{tel},email=#{email}
+		WHERE	id=#{id}
+   </update>
+   
+   <update id="updateTempPw" parameterType="CustomerVO">
+		UPDATE CUSTOMER
+		SET
+		pwd=#{pwd}
+		WHERE id=#{id} AND EMAIL=#{email}
+	</update>
 
 	<select id="selectCustomer" parameterType="hashmap" resultType="CustomerVO">
       SELECT *
@@ -26,25 +39,29 @@
 	</select>
 
 	<insert id="addCart" parameterType="CartVO" useGeneratedKeys="true" keyProperty="cartno" keyColumn="CARTNO">
-	INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
+		INSERT INTO cart (cartno, id, amount, lpno) VALUES (cart_seq.nextval, #{id}, ${amount}, #{lpno})
 	</insert>
 
-	<select id="SearchCart" parameterType="CartVO" resultType="CartVO">
-		SELECT * FROM CART WHERE LPNO=#{lpno}
+	<select id="searchCart" parameterType="CartVO" resultType="CartVO">
+		SELECT * FROM CART WHERE ID=#{id} AND LPNO=#{lpno}
 	</select>
 
-	<select id="selectById" parameterType="string" resultType="CustomerVO">
+	<select id="selectById" parameterType="CustomerVO" resultType="CustomerVO">
 		SELECT * FROM customer WHERE id=#{id}
+	</select>
+	
+	<select id="selectByTelAndName" parameterType="CustomerVO" resultType="CustomerVO">
+		SELECT * FROM customer WHERE tel=#{tel} AND name=#{name}
 	</select>
 	
 	<select id="selectCheckOutList" parameterType="CheckOutVO" resultType="CheckOutVO">
 		SELECT * 
 		FROM CUSTOMER  C LEFT OUTER JOIN CART T 
-		ON C.id=T.id 
-		LEFT OUTER JOIN LP L 
-		ON T.lpno = L.lpno 
-		INNER JOIN LPINFO P 
-		ON L.infono = P.infono
+			ON C.id=T.id 
+			LEFT OUTER JOIN LP L 
+			ON T.lpno = L.lpno 
+			INNER JOIN LPINFO P 
+			ON L.infono = P.infono
 		WHERE T.id = #{id} AND T.lpno=#{lpno} 
 	</select>
 	
@@ -61,5 +78,9 @@
 		SET amount=#{amount}
 		WHERE cartno=#{cartno}
 	</update>
+	
+	<delete id="deleteAllCart" parameterType="CheckOutVO">
+		DELETE FROM CART WHERE CARTNO=#{cartno}
+	</delete>	
 
 </mapper>

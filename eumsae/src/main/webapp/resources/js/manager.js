@@ -3,7 +3,10 @@ $(document).ready(function () {
 // 관리자가 회원등록 버튼을 눌렀을 때
     $('#mgrUserSubmit').click(function () {
         if($.trim($('#pwd').val()) != $.trim($('#rpwd').val())){
-    		alert("비밀번호가 일치하지 않습니다..");
+            Swal.fire({
+                icon: 'error',
+                text: '비밀번호가 일치하지 않습니다.',
+              })
     		$('#rpwd').focus();    		
     	} else {
     		document.registCustomerForm.submit();
@@ -13,7 +16,10 @@ $(document).ready(function () {
  // 관리자가 관리자 등록 버튼을 눌렀을 때
     $('#mgrSubmit').click(function () {
         if($.trim($('#pwd').val()) != $.trim($('#repwd').val())){
-            alert("비밀번호가 일치하지 않습니다..");
+            Swal.fire({
+                icon: 'error',
+                text: '비밀번호가 일치하지 않습니다.',
+              })
             $('#repwd').focus();    		
         } else {
             document.regMgrForm.submit();

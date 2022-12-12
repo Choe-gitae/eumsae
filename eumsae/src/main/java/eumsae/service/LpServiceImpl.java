@@ -1,5 +1,6 @@
 package eumsae.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -65,12 +66,35 @@ public class LpServiceImpl implements LpService {
 		// TODO Auto-generated method stub
 		return dao.searchByLpno(lpno);
 	}
-
+	
+	// 최근 발매 LP 검색
 	@Override
-	public List<LpVO> genreLp(String category) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<LpVO> selectFeaturedNewReleases() {
+		return dao.selectFeaturedNewReleases();
+	}
+
+	// 장르별 베스트셀러 검색
+	@Override
+	public List<LpVO> selectGenreBestSellers() {
+		List<LpVO> bestSellersList = new ArrayList<LpVO>();
+		String[] genre = {"POP","ROCK","HipHop","Ballad","국내가요","Fork","RnB","일렉트로","OST","트로트"};
+		
+		for (int i = 0; i < genre.length; i++) {
+			bestSellersList.add(i, dao.selectGenreBestSellers(genre[i]));
+		}
+		return bestSellersList;
 	}
 	
+	// LP 재고 입고
+	@Override
+	public Integer updateAmount(LpVO vo) {
+		return dao.updateAmount(vo);
+	}
+	
+	// LP 가격 수정
+	@Override
+	public Integer updatePrice(LpVO vo) {
+		return dao.updatePrice(vo);
+	}
 	
 }

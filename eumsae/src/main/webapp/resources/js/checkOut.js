@@ -4,62 +4,48 @@ $(function () {
   var getsu = 0; // 실제 갯수
   var price = 0; // 금액
   var tprice = 0; // 갯수 * 금액
+
   /*
-		각각의 class에 each function 부여
+     화면 로딩시 계산 실행 및 총 주문 금액 표시
     */
-  amount.each(function () {
-    getsu = $(this).val(); // 실제 갯수
-    //alert(getsu);
-    price = parseInt($(this).parents("td").prev().find(".price").text()); // 가격(입력값)
-    //alert(price);
 
-    tprice = getsu * price;
-    //alert(tprice);
-    $(this).parents("td").next().text(tprice);
-    total += tprice;
-
-    $(".subTp").text(total);
-
-    if (total >= 300000) {
-      $("#dTax").text(0);
-    } else {
-      $("#dTax").text(2500);
-    }
-
-    $("#tP").text(total + parseInt($("#dTax").text())); // 총액과 배달비의 합계
-  }); // end of amount each function
-
-  // 사용자가 주문 수량을 변경하고자 할 때
-  amount.change(function () {
-    var cnt = $(this).parents("tr").next().val();
-
-    getsu = $(this).val();
-    if (getsu > parseInt(cnt)) {
-      alert("재고가 주문수량보다 부족합니다.");
-      $(this).val(parseInt(cnt));
-      totalCal();
-      return;
-    }
-    totalCal();
-  }); // end of amount change function
-  var totalCal = function () {
-    total = 0; // 계산 초기화를 위해 변수 초기화
+  function totalCal() {
+    total = 0;
     amount.each(function () {
-      getsu = $(this).val();
-      //alert(getsu);
-      price = parseInt($(this).parents("td").prev().text());
+      getsu = $(this).val(); // 실제 갯수
+      price = parseInt($(this).parents("td").prev().find(".price").text()); // 가격(입력값)
       tprice = getsu * price;
+
       $(this).parents("td").next().text(tprice);
       total += tprice;
-    });
-    $("#subTp").text(total);
-    if (total >= 300000) {
-      $("#dTax").text(0);
-    } else {
-      $("#dTax").text(2500);
+
+      $(".subTp").text(total);
+
+      if (total >= 300000) {
+        $("#dTax").text(0);
+      } else {
+        $("#dTax").text(2500);
+      }
+
+      $("#tP").text(total + parseInt($("#dTax").text())); // 총액과 배달비의 합계
+      $("#orderTotalPrice").val(total + parseInt($("#dTax").text()));
+    }); // end of amount each function
+  } // end of totalCal();
+
+  // 화면 로딩후 총합 먼저 계산
+  totalCal();
+
+
+  // 수령인 정보 동일 체크박스
+  $("#re_info").click(function () {
+    if ($(this).prop("checked") == true) {
+      Copy();
+    } else if ($(this).prop("checked") == false) {
+      document.getElementById("re_name").value = "";
+      document.getElementById("re_pNum").value = "";
+      document.getElementById("re_email").value = "";
     }
-    $("#tP").text(total + parseInt($("#dTax").text()));
-  };
+  }); // end of click function
 
   //수령인정보동일시작
   function Copy() {
@@ -71,74 +57,10 @@ $(function () {
   }
   //수령인정보동일끝
 
-  // 결제시스템 스크립트 시작
-  IMP.init("imp05370542"); // 예: imp00000000
-  function requestPaykakao() {
-    IMP.request_pay(
-      {
-        pg: "kakaopay",
-        pay_method: "card", //생략 가능
-        merchant_uid: "order_no_" + new Date().getTime(), // 상점에서 관리하는 주문 번호
-        name: "내마음",
-        amount: 1000000,
-        buyer_email: "test@gmail.com",
-        buyer_name: "쏘농민",
-        buyer_tel: "010-1234-5678",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
-      },
-      function (rsp) {
-        if (rsp.success) {
-          var msg = "결제가 완료되었습니다.";
-          msg += "고유ID : " + rsp.imp_uid;
-          msg += "상점 거래ID : " + rsp.merchant_uid;
-          msg += "결제 금액 : " + rsp.paid_amount;
-          msg += "카드 승인번호 : " + rsp.apply_num;
-          msg += "주문명 : " + rsp.name;
-          msg += "주문자명 : " + rsp.buyer_name;
-          msg += "주문자 이메일 : " + rsp.buyer_email;
-          msg += "주문자 전화번호 : " + rsp.buyer_tel;
-          alert(msg);
-          location.href = "paySuccess";
-        } else {
-          var msg = "결제에 실패하였습니다.";
-          msg += "에러내용 : " + rsp.error_msg;
-          location.href = "payFail";
-        }
-      }
-    );
-  }
-  function requestPaytoss() {
-    IMP.request_pay(
-      {
-        pg: "tosspay",
-        pay_method: "card", //생략 가능
-        merchant_uid: "order_no_0003" + new Date().getTime(), // 상점에서 관리하는 주문 번호
-        name: "지옥행티켓",
-        amount: 10,
-        buyer_email: "iamport@siot.do",
-        buyer_name: "앙마",
-        buyer_tel: "010-1234-5678",
-        buyer_addr: "서울특별시 강남구 삼성동",
-        buyer_postcode: "123-456",
-      },
-      function (rsp) {
-        if (rsp.success) {
-          var msg = "결제가 완료되었습니다.";
-          msg += "고유ID : " + rsp.imp_uid;
-          msg += "상점 거래ID : " + rsp.merchant_uid;
-          msg += "결제 금액 : " + rsp.paid_amount;
-          msg += "카드 승인번호 : " + rsp.apply_num;
-          location.href = "paySuccess";
-        } else {
-          var msg = "결제에 실패하였습니다.";
-          msg += "에러내용 : " + rsp.error_msg;
-          location.href = "payFail";
-        }
-      }
-    );
-  }
-  //결제시스템 스크립트 끝
+  // 우편 번호 찾기 버튼 눌렀을 때
+  $("#postCode").click(function () {
+    sample6_execDaumPostcode();
+  }); // end of click function
 
   //우편번호 api시작
   function sample6_execDaumPostcode() {
@@ -153,10 +75,78 @@ $(function () {
           // 사용자가 지번 주소를 선택했을 경우(J)
           addr = data.jibunAddress;
         }
-        document.getElementById("sample6_postcode").value = data.zonecode;
-        document.getElementById("sample6_address").value = addr;
-        document.getElementById("sample6_detailAddress").focus();
+        document.getElementById("postcode").value = data.zonecode;
+        document.getElementById("address").value = addr;
+        document.getElementById("detailAddress").focus();
       },
     }).open();
   }
+
+  // 결제 관련 (카카오페이 / 토스 페이)
+  $("#kakaoPay").click(function () {
+    $("#paySuccess").submit();
+    //requestPaykakao();
+  }); // end of click function
+
+  $("#tossPay").click(function () {
+    requestPaytoss();
+  }); // end of click function
+
+
+  
+  // 결제시스템 스크립트 시작
+  IMP.init("imp05370542"); // 예: imp00000000
+  function requestPaykakao() {
+    IMP.request_pay(
+      {
+        pg: "kakaopay",
+        //pay_method: "card",
+        merchant_uid: "EUMSAE_"+ new Date().getTime(),
+        name: $("span#title").text(),
+        amount: $("#tP").text(),
+        buyer_email: $("#buyer_email").val(),
+        buyer_name: $("#buyer_name").val(),
+        buyer_tel: $("#buyer_pNum").val(),
+        buyer_addr: $("#address").val() + $("#detailAddress").val(),
+        buyer_postcode: $("#postcode").val(),
+      },
+      function (rsp) {
+        if (rsp.success) {
+          $("#paySuccess").submit();
+        } else {
+          Swal.fire({
+            icon: 'error',
+            text: '결제에 실패하셨습니다.',
+          });
+        }
+      }
+    );
+  }
+  function requestPaytoss() {
+    IMP.request_pay(
+      {
+        pg: "tosspay",
+        //pay_method: "card",
+        merchant_uid: "EUMSAE_"+ new Date().getTime(),
+        name: $("span#title").text(),
+        amount: $("#tP").text(),
+        buyer_email: $("#buyer_email").val(),
+        buyer_name: $("#buyer_name").val(),
+        buyer_tel: $("#buyer_pNum").val(),
+        buyer_addr: $("#address").val() + $("#detailAddress").val(),
+        buyer_postcode: $("#postcode").val(),
+      },
+      function (rsp) {
+        if (rsp.success) {
+          $("#paySuccess").submit();
+        } else {
+          Swal.fire({
+            icon: 'error',
+            text: '결제에 실패하셨습니다.',
+          });
+        }
+      }
+    );
+  }
+  //결제시스템 스크립트 끝
 }); // end of ready

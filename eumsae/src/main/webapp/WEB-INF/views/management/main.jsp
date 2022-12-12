@@ -1,12 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <% String pjName = "/eumsae"; %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% String pjName = "/eumsae"; %>
 
 <!DOCTYPE html>
 
 <html>
     <head>
         <meta charset="UTF-8" />
-       <title>EUMSAE MANAGING</title>
+        <title>EUMSAE MANAGING</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
         <!-- Favicon -->
@@ -37,15 +39,38 @@
 
             <!-- Content Start -->
             <div class="content">
-                
                 <jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
+
+                <!-- DaySales, Widgets Start -->
+                <div class="container-fluid pt-4 px-4">
+                    <div class="row g-4">
+                        <div class="col-sm-12 col-md-6 col-xl-6">
+                            <div class="h-100 bg-secondary rounded p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-4">
+                                    <h6 class="mb-0">Calender</h6>
+                                </div>
+                                <div id="calender"></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                                <i class="fa fa-chart-line fa-3x text-primary"></i>
+                                <div class="ms-3">
+                                    <p class="mb-2">오늘 판매</p>
+                                    <h6 class="mb-0"><fmt:formatNumber value="${todaySales}" pattern="#,###" /> 원</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DaySales, Widgets End -->
 
                 <!-- Recent Sales Start -->
                 <div class="container-fluid pt-4 px-4">
                     <div class="bg-secondary text-center rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <h6 class="mb-0">최근 판매내역</h6>
-                            <a href="">Show All</a>
+                            <a href="mgtSalesPage">전체 보기</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -59,39 +84,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                	<c:forEach var="list" items="${recentOrderList}">
                                     <tr>
-                                        <td>2022.11.11. 18:38</td>
-                                        <td>1111</td>
-                                        <td>Jhon Doe</td>
-                                        <td>50000</td>
-                                        <td><a class="btn btn-sm btn-primary" href="">Detail</a></td>
+                                        <td>${list.orderDate}</td>
+                                        <td>${list.orderNo}</td>
+                                        <td>${list.id}</td>
+                                        <td>${list.orderTotalPrice}</td>
+                                        <td><a class="btn btn-sm btn-info" href="searchOrderList?searchCon=order_no&searchKey=${list.orderNo}">Detail</a></td>
                                     </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
                 <!-- Recent Sales End -->
-
-                <!-- Widgets Start -->
-                <div class="container-fluid pt-4 px-4">
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-md-6 col-xl-6">
-                            <div class="h-100 bg-secondary rounded p-4">
-                                <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <h6 class="mb-0">Calender</h6>
-                                </div>
-                                <div id="calender"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Widgets End -->
-                
             </div>
             <!-- Content End -->
         </div>
 
-		<jsp:include page="../include/mgrScript.jsp"></jsp:include>
+        <jsp:include page="../include/mgrScript.jsp"></jsp:include>
     </body>
 </html>

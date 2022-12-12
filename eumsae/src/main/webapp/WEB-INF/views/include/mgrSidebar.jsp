@@ -50,7 +50,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-secondary navbar-dark">
                 <a href="main" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-light"><img src="<%= pjName %>/resources/img/bg-img/add.gif" class="sidebar-logo" />E UM SAE</h3>
+                    <h3 class="text-light"><img src="<%=pjName%>/resources/images/logo.png" class="sidebar-logo" />E UM SAE</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative"></div>
@@ -81,9 +81,11 @@
                         <c:if test="${Auth != 'sub' }">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>상품 관리</a>
                             <div class="dropdown-menu bg-transparent border-0">
-                                <a href="lpInsertPage" class="dropdown-item">상품 등록</a>
-                                <a href="lpUpdatePage" class="dropdown-item">상품 수정</a>
-                                <a href="lpDeletePage" class="dropdown-item">상품 삭제</a>
+                                <a href="lpInsertPage" class="dropdown-item">LP 등록</a>
+                                <a href="lpUpdatePage" class="dropdown-item">LP 수정</a>
+                                <a href="lpDeletePage" class="dropdown-item">LP 삭제</a>
+                                <a href="lpAmountUpdatePage" class="dropdown-item">LP 재고 관리</a>
+                                <a href="lpPriceUpdatePage" class="dropdown-item">LP 가격 관리</a>
                             </div>
                         </c:if>
                     </div>
@@ -94,7 +96,7 @@
                             <div class="dropdown-menu bg-transparent border-0">
                                 <a href="mgtSalesPage" class="dropdown-item">주문내역</a>
                                 <a href="mgtSalesListPage" class="dropdown-item">주문내역 상세보기</a>
-                                <a href="mgtSalesChartPage" class="dropdown-item">매출내역 및 차트</a>
+                                <a href="mgtSalesChartPage" class="dropdown-item">매출 차트</a>
                             </div>
                         </c:if>
                     </div>

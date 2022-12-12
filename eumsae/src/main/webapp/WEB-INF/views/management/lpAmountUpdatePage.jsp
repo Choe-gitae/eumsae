@@ -54,12 +54,12 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
         <jsp:include page="../include/mgrNavbar.jsp"></jsp:include>
         <!-- 검색 Form 시작 -->
         <div class="container-fluid pt-4 px-4">
-          <div class="alert alert-light" role="alert">LP 수정 페이지</div>
+          <div class="alert alert-light" role="alert">LP 재고 관리 페이지</div>
           <div class="row g-4">
             <div class="col-sm-12 col-xl-6">
               <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
                 <h6 class="mb-4">LP 검색</h6>
-                <form action="searchLp?page=lpUpdatePage" method="post">
+                <form action="searchLp?page=lpAmountUpdatePage" method="post">
                   <select class="form-select mb-3" name="searchCon">
                     <option value="singer" selected>가수</option>
                     <option value="title">제목</option>
@@ -78,91 +78,38 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
             </div>
             <div class="col-sm-12 col-xl-6">
               <div class="bg-secondary rounded h-100 p-4" style="max-width: 600px">
-                <h6 class="mb-4">정보 수정</h6>
-                <form action="updateLp?page=lpUpdatePage" method="post" enctype="multipart/form-data">
+                <h6 class="mb-4">입고</h6>
+                <form action="updateAmount?page=lpAmountUpdatePage" method="post" >
                   <div class="form-floating mb-3">
-                    <select class="form-select" id="genre" name="genre" aria-label="장르">
-                      <option selected>장르</option>
-                      <option value="POP">POP</option>
-                      <option value="Rock">ROCK</option>
-                      <option value="HipHop">HipHop</option>
-                      <option value="Ballad">Ballad</option>
-                      <option value="국내가요">국내가요</option>
-                      <option value="Fork">Fork</option>
-                      <option value="RnB">RnB</option>
-                      <option value="Elec">일렉트로</option>
-                      <option value="Ost">OST</option>
-                      <option value="트로트">트로트</option>
-                    </select>
-                    <label for="genre">장르</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      id="lpno"
+                      name="lpno"
+                      placeholder="LP 번호"
+                      readonly="readonly"
+                    />
+                    <label for="lpno">LP 번호</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input
                       type="text"
                       class="form-control form-control-lg"
-                      id="singer"
-                      name="singer"
-                      placeholder="가수"
+                      id="currentCnt"
+                      placeholder="현재 재고"
+                      readonly="readonly"
                     />
-                    <label for="singer">가수</label>
+                    <label for="currentCnt">현재 재고</label>
                   </div>
                   <div class="form-floating mb-3">
                     <input
                       type="text"
                       class="form-control form-control-lg"
-                      id="title"
-                      name="title"
-                      placeholder="제목"
+                      id="cnt"
+                      name="cnt"
+                      placeholder="입고 수량"
                     />
-                    <label for="title">제목</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      id="stitle"
-                      name="stitle"
-                      placeholder="음원명"
-                    />
-                    <label for="stitle">음원명</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      id="region"
-                      name="region"
-                      placeholder="지역"
-                    />
-                    <label for="region">지역</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <textarea
-                      class="form-control"
-                      placeholder="소개"
-                      id="content"
-                      name="content"
-                      style="height: 150px"
-                    ></textarea>
-                    <label for="content">소개</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      type="text"
-                      class="form-control form-control-lg"
-                      id="lpdate"
-                      name="lpdate"
-                      placeholder="발매일자"
-                    />
-                    <label for="lpdate">발매일자</label>
-                  </div>
-                  <div class="mb-3">
-                    <label for="fjpg" class="form-label">LP 사진</label>
-                    <input class="form-control bg-dark" type="file" id="fjpg" name="fjpg" />
-                  </div>
-                  <div class="mb-3">
-                    <label for="fmp3" class="form-label">LP 음원</label>
-                    <input class="form-control bg-dark" type="file" id="fmp3" name="fmp3" />
+                    <label for="cnt">입고 수량</label>
                   </div>
                   <input type="hidden" id="infono" name="infono" />
                   <button type="submit" class="btn btn-warning" style="margin: 10px">
@@ -212,7 +159,7 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
                       <td>${list.lpdate}</td>
                       <td>${list.cnt}</td>
                       <td><button class="btn btn-warning">수정</button></td>
-                      <td hidden="content">${list.content}</td>
+                      <td hidden="lpno">${list.lpno}</td>
                       <td hidden="infono">${list.infono}</td>
                     </tr>
                   </c:forEach>
@@ -226,6 +173,6 @@ pjName = "/eumsae"; %> <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/c
     </div>
 
     <jsp:include page="../include/mgrScript.jsp"></jsp:include>
-    <script src="<%=pjName%>/resources/js/lpUpdate.js"></script>
+    <script src="<%=pjName%>/resources/js/lpAmountUpdate.js"></script>
   </body>
 </html>

@@ -105,7 +105,7 @@
 									<td>${list.singer}</td>
 									<td>${list.title}</td>
 									<td>${list.price}</td>
-									<td>${list.cnt}</td>
+									<td>${list.amount}</td>
 								</tr>
 								</c:forEach>
 							</tbody>

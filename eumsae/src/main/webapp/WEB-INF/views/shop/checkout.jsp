@@ -72,29 +72,29 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-xl-10 ftco-animate">
-					<form action="#" class="billing-form">											
+					<form action="#" class="billing-form">
 						<h3 class="mb-4 billing-heading">주문자 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="firstname">이름</label> <input type="text"
-										class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
+									<label for="firstname">이름</label>
+									<input type="text" class="form-control" id="buyer_name" placeholder="" value="${cinfo.name}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="phone">전화번호</label> <input type="text"
-										class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
+									<label for="phone">전화번호</label>
+									<input type="text" class="form-control" id="buyer_pNum" placeholder="" value="${cinfo.tel}">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="emailaddress">이메일</label> <input
-										type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
+									<label for="emailaddress">이메일</label>
+									<input type="email" class="form-control" id="buyer_email" placeholder="" value="${cinfo.email}" style="width:920px;">
 								</div>
 							</div>
 							<hr />
-						</div>						
+						</div>
 					</form>
 				</div>
 			</div>
@@ -107,8 +107,7 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-xl-10 ftco-animate">				
-					<form action="#" class="billing-form">
+				<div class="col-xl-10 ftco-animate">						
 						<h3 class="mb-4 billing-heading">수령인 정보</h3>
 						<div class="row align-items-end">
 							<div class="col-md-6">
@@ -128,7 +127,7 @@
 									<label for="emailaddress">이메일</label> <input
 										type="email" class="form-control" id="re_email" placeholder="" style="width:920px;">
 								</div>
-								<input type="checkbox" class="re_info" id="re_info" onclick="Copy();" />
+								<input type="checkbox" class="re_info" id="re_info" />
                                     <label for="re_info" style="font-size: 13px;">주문자 정보와 동일하게</label>
 							</div>
 							<div class="col-md-6">
@@ -136,48 +135,46 @@
 							
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="emailaddress">우편번호</label> <input id="sample6_postcode" 
-										type="text" class="form-control" placeholder="">
+									<label for="postcode">우편번호</label>
+									<input id="postcode" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" class="btn btn-primary py-3 px-4"><br>
+									<input type="button" id="postCode" value="우편번호 찾기" class="btn btn-primary py-3 px-4"><br>
 								</div>
 							</div>
 							<div class="w-100"></div>
 							<div class="w-100"></div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="streetaddress">주소</label> <input id="sample6_address" 
-										type="text" class="form-control"
-										placeholder="">
+									<label for="streetaddress">주소</label>
+									<input id="address" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
 								<label for="">상세주소</label>
-									<input id="sample6_detailAddress" type="text" class="form-control"
-										placeholder="">
+									<input id="detailAddress" type="text" class="form-control" placeholder="">
 								</div>
 							</div>
 							<div class="w-100"></div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<label for="postcodezip">배송시 요청사항</label> <input
-										type="text" class="form-control" placeholder="" style="
-    width: 920px;
-">
+									<label for="postcodezip">배송시 요청사항</label>
+									<input type="text" class="form-control" placeholder="" style="width: 920px;">
 								</div>
 							</div>
 							</div>
 							
-<!-- ######### 결제 목록 시작############# -->
+
+							<!-- ######### 결제 목록 시작############# -->
 							<section class="ftco-section">
 								<div class="container" style="width: 1045px; margin-left: -69px;">
 									<div class="row">
 										<div class="col-12">
 											<div class="table-wrap">
+												<form action="paySuccess" id="paySuccess" method="post">
 												<table class="table">
 													<thead class="thead-primary">
 														<tr>
@@ -195,10 +192,10 @@
 															<td>상품</td>
 															<td>가격</td>
 															<td>수량</td>
-															<td>총액</td>															
+															<td>총액</td>
 														</tr>
 														<!-- 한 블럭 시작 -->
-														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}">
+														<c:forEach var="list" items="${checkOutVOList.checkOutVOList}" varStatus="status">
 														<c:if test="${list.state}">
 														<input type="hidden" name="cnt" id="cnt" value="${list.cnt}">
 														<tr class="alert" role="alert">
@@ -207,35 +204,37 @@
 															</td>
 															<td>
 																<div class="email">
-																	<span>${list.singer}</span> <span>${list.title}</span>
+																	<span id="title">${list.title}</span> <span>${list.singer}</span>
 																</div>
 															</td>
 															<td>₩<span class="price">${list.price}</span></td>
 															<td class="quantity">
 																<span class="input-group">
-																	<button type="button" id="upBtn" class="btn" style="margin-left: -4px;">↑</button>															
-																	<input class="amount" type="text" name="amount" value="${list.amount}" min="1" max="100" style="text-align-last: center;width: 30px;" readonly>
-																	<button type="button" id="downBtn" class="btn" style="margin-left: -4px;">↓</button>
+																	<input class="amount form-control input-number" type="text" name="CartVOList[${status.count}].amount" value="${list.amount}" min="1" readonly>
 																</span>
 															</td>
-															<td>₩<span class="subTp"></span></td>															
+															<td>₩<span class="subTp"></span>
+															</td>
 														</tr>
+														<input type="hidden" name="CartVOList[${status.count}].cartno" id="cartno" value="${list.cartno}">
+														<input type="hidden" name="CartVOList[${status.count}].lpno" id="lpno" value="${list.lpno}">
 														</c:if>
 														</c:forEach>
 														<!-- 한 블럭 끝 -->
-<!-- ######### 결제 목록 끝############# -->
-
 													</tbody>
 												</table>
+												<input type="hidden" name="id" id="id" value="${login}">
+												<input type="hidden" name="orderTotalPrice" id="orderTotalPrice">
+												</form>
 											</div>
 										</div>
 									</div>
 									</div>
 									</section>
-					</form>
-					<!-- END -->
+					<!-- ######### 결제 목록 끝############# -->
 					
 					<!-- ############ cart total 시작 ##############-->
+					
 					<div class="row mt-5 pt-3 d-flex">
 						<div class="col-md-6 d-flex">
 							<div class="cart-detail cart-total p-3 p-md-4">
@@ -252,9 +251,11 @@
 								<hr>
 								<p class="d-flex total-price">
 									<span>결제하실 금액</span> <span id="tP"></span>
-								</p>
+								</p>																
 							</div>
 						</div>
+					
+					
 						<!-- ############ cart total 끝 ##############-->
 						
 						<!-- ############ Payment Method 시작 ############## -->
@@ -263,12 +264,12 @@
 								<h3 class="billing-heading mb-4">결제수단</h3>
 								<div class="form-group">
 									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" onclick="requestPaykakao()"><img src="../resources/images/payment/payment_icon_yellow_medium.png"></button>
+											<button class="btn btn-primary py-3 px-4" id="kakaoPay"><img src="../resources/images/payment/payment_icon_yellow_medium.png"></button>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-md-12">
-											<button class="btn btn-primary py-3 px-4" onclick="requestPaytoss()"><img src="../resources/images/payment/tosspay.png"></button>
+											<button class="btn btn-primary py-3 px-4" id="tossPay"><img src="../resources/images/payment/tosspay.png"></button>
 									</div>
 								</div>
 							</div>
@@ -279,7 +280,7 @@
 				</div>
 				<!-- .col-md-8 -->
 			</div>
-		</div>
+		</div>		
 	</section>
 	<!-- 수령인 정보 끝 -->
 
@@ -291,8 +292,7 @@
 <!--         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <!-- iamport.payment.js -->
   <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
-  <script src="<%=pjName%>/resources/js/checkOut.js"></script>
-<!-- 우편번호 api 끝 -->
-
+  <script src="<%=pjName%>/resources/js/checkOut.js"></script>  
+  
 </body>
 </html>
